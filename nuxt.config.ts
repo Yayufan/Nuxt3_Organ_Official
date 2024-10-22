@@ -27,10 +27,10 @@ export default defineNuxtConfig({
     head: {
       charset: 'utf-8', //預設,不設置也行
       viewport: 'width=device-width, initial-scale=1',  //預設,不設置也行
-      title: '新川醫療',
+      title: '社團法人中華民國器官捐贈協會',
       meta: [
-        { name: 'keyword', content: "診所,醫療,醫師,衛教" },
-        { name: 'description', content: "新川醫療 一般民眾衛教, 醫師再精進" }
+        { name: 'keyword', content: "中華民國器官捐贈協會、器官捐贈、移植、登錄、器捐、大愛器捐、健保卡、公益團體、NPO、簽署、大愛器官" },
+        { name: 'description', content: "中華民國器官捐贈協會，提供詳細的器官捐贈與移植資訊，幫助使用者瞭解如何透過健保卡進行器捐登錄，並介紹相關的公益團體與NPO的推廣活動。透過簽署器捐意願，您可以為需要移植的病患帶來生命的希望，傳遞大愛精神，支持器官捐贈的社會責任。" }
       ],
       //引入第三方外部css可能會用到
       link: [
