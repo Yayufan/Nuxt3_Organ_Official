@@ -1,4 +1,14 @@
-$main-color: #e1ebfa;
+/* 主題色系 */
+$main-text-color: #4A863F;
+
+/* 通用section 寬度及外間距 */
+$common-section-width:90%;
+$common-section-margin: 3% auto;
+
+/* 通用Title 設定 */
+$common-title-font-weight:500;
+$common-title-font-size:1.5rem;
+$common-title-letter-spacing:0.2rem;
 
 // 在螢幕寬度大於 1024px（PC）時
 @media (min-width: 1025px) {
