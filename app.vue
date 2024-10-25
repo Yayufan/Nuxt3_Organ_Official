@@ -4,7 +4,7 @@
 
     <!-- 共用的Header -->
     <Header3></Header3>
-
+    <HeaderTest></HeaderTest>
     <!-- 先用一個main標籤將之後要顯示的路由組件包起來 -->
     <main class="content">
       <NuxtPage></NuxtPage>
@@ -19,6 +19,7 @@
 <script setup lang="ts">
 
 import Header3 from '@/components/layout/Header3.vue';
+import HeaderTest from './components/layout/HeaderTest.vue'; 
 import Footer from '@/components/layout/Footer.vue';
 import SSRrequest from '@/composables/SSRrequest'
 import CSRrequest from '@/composables/CSRrequest'
