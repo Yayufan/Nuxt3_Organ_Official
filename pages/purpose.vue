@@ -2,7 +2,7 @@
 <template>
     <section class="common-seciton">
 
-        <h1 class="common-title"> 宗旨任務 </h1>
+        <h1 class="common-title">宗旨任務</h1>
 
         <div class="content-box">
 
@@ -260,7 +260,7 @@ const getOtherList = () => {
     font-family: $common-section-font-family;
 
     .common-title {
-        color: $main-text-color;
+        color: $main-color;
         font-weight: $common-title-font-weight;
         font-size: $common-title-font-size;
         letter-spacing: $common-title-letter-spacing;
@@ -272,6 +272,7 @@ const getOtherList = () => {
     .content-box {
         // background-color: aqua;
         width: 100%;
+        color: #6D6D6D;
 
         /**這邊是處理通用段落、sub-title 和 內容 */
         .paragraph {
@@ -282,7 +283,7 @@ const getOtherList = () => {
             display: inline-block;
             margin-left: 10%;
             color: #fff;
-            background-color: $main-text-color;
+            background-color: $main-color;
             padding: 5px 2.5rem;
             border-radius: 16px;
         }
@@ -406,7 +407,7 @@ const getOtherList = () => {
 
             .supervisors-more-btn {
                 color: #fff;
-                background-color: $main-text-color;
+                background-color: $main-color;
                 padding: 1rem 5rem;
                 border-radius: 16px;
                 letter-spacing: 0.1rem;
@@ -425,7 +426,7 @@ const getOtherList = () => {
             margin-bottom: 3%;
 
             a {
-                color: $main-text-color;
+                color: $main-color;
                 text-decoration: underline;
                 text-underline-offset: 0.3rem;
                 letter-spacing: 0.1rem;
