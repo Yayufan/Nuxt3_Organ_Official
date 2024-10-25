@@ -65,7 +65,7 @@
                     <div class="download-item">
                         <div class="common-label">團體</div>
                         <div class="download-file-box">
-                            <a class="download-link" href="/files/group_membership_application_form.doc"d
+                            <a class="download-link" href="/files/group_membership_application_form.doc"
                                 download>團體會員入會申請書.doc</a>
                             <a class="download-link" href="/files/group_membership_application_form.pdf"
                                 download>團體會員入會申請書.pdf</a>
@@ -189,7 +189,8 @@ import { ref, reactive } from 'vue'
             }
 
 
-    }
+        }
 
-}}
+    }
+}
 </style>
