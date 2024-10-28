@@ -1,7 +1,7 @@
 <template>
     <div class="menu-section">
 
-        <el-menu class="PC-navbar" :ellipsis="false" mode="horizontal" @select="" :popper-offset="-5"
+        <el-menu class="PC-navbar" :ellipsis="false" mode="horizontal" @select="" :popper-offset="44"
             popper-class="popper">
             <!-- <el-menu-item> -->
             <el-menu-item v-if="showLogo" class="logo-box">
@@ -78,8 +78,8 @@ watch(scrollPosition, (newValue) => {
         justify-content: center;
         border-bottom: none;
         width: 100vw;
-        padding: 3vw 0;
-        // line-height: ;
+        padding-top: 3%;
+        padding-bottom: 3%;
 
 
         .el-sub-menu {
@@ -99,7 +99,7 @@ watch(scrollPosition, (newValue) => {
             transition: opacity 0.1s ease;
 
             .logo {
-                width: 13vw;
+                width: 13rem;
             }
         }
     }
