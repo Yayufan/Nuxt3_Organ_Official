@@ -5,7 +5,7 @@
                 <img ref="" class="logo" src="@/assets/img/logo.png" alt="logo"></img>
             </div>
             <div class="input-section">
-                <el-input class="input" :suffix-icon="Search"></el-input>
+                <el-input class="input" v-model="search" :suffix-icon="Search"></el-input>
             </div>
             <div class="contact-section">
                 <nuxt-link class="contact" :to="'/'">聯絡我們</nuxt-link>
@@ -15,6 +15,8 @@
 </template>
 <script lang="ts" setup>
 import { Search } from '@element-plus/icons-vue'
+
+const search = ref('')
 </script>
 <style lang="scss" scoped>
 .logo-and-search-section {
@@ -50,6 +52,7 @@ import { Search } from '@element-plus/icons-vue'
             max-height: 1rem;
             width: 0.8rem;
             border-radius: 10px;
+            cursor: pointer;
         }
     }
 

@@ -76,7 +76,8 @@ watch(scrollPosition, (newValue) => {
     .PC-navbar {
         display: flex;
         justify-content: center;
-        border-bottom: none;
+        border-bottom:none;
+        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
         width: 100vw;
         padding-top: 3%;
         padding-bottom: 3%;
