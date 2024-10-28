@@ -1,0 +1,92 @@
+<!--  -->
+<template>
+
+    <section class="common-seciton">
+
+        <h1 class="common-title">歷年成果(簽卡分析)</h1>
+
+        <div class="content-box">
+
+            <article class="paragraph">
+                <h2 class="sub-title common-label">年度工作報告</h2>
+                <div class="download-file-box">
+                    <a class="download-link" href="/files/109_work_result.pdf" download>109年度器捐協會 -
+                        工作成果報告.pdf</a>
+                    <a class="download-link" href="/files/110_work_result.pdf" download>110年度器捐協會 -
+                        工作成果報告.pdf</a>
+                    <a class="download-link" href="/files/111_work_result.pdf" download>111年度器捐協會 -
+                        工作成果報告.pdf</a>
+                </div>
+
+            </article>
+
+            <article class="paragraph">
+                <h2 class="sub-title common-label">年度簽卡分析</h2>
+                <div class="download-file-box">
+                    <a class="download-link" href="/files/109_data_analysis.pdf"
+                        download>109年器官捐贈認同簽屬 - 資料統計分析.pdf</a>
+                    <a class="download-link" href="/files/110_data_analysis.pdf"
+                        download>110年器官捐贈認同簽屬 - 資料統計分析.pdf</a>
+                    <a class="download-link" href="/files/111_data_analysis.pdf"
+                        download>111年器官捐贈認同簽屬 - 資料統計分析.pdf</a>
+                </div>
+
+            </article>
+
+
+        </div>
+
+
+    </section>
+
+
+</template>
+
+<script setup lang='ts'>
+
+import { ref, reactive } from 'vue'
+
+</script>
+
+<style scoped lang="scss">
+.common-seciton {
+    width: $common-section-width;
+    margin: $common-section-margin;
+    font-family: $common-section-font-family;
+
+
+    .common-title {
+        color: $main-color;
+        font-weight: $common-title-font-weight;
+        font-size: $common-title-font-size;
+        letter-spacing: $common-title-letter-spacing;
+        margin-left: 10%;
+        margin-bottom: 3%;
+
+    }
+
+    .content-box {
+        margin-left: 10%;
+
+        .paragraph{
+            margin: 3% 0;
+        }
+
+        .sub-title {
+            font-size: 1.2rem;
+        }
+
+        .download-file-box {
+            display: flex;
+            flex-direction: column;
+            margin-left: 3%;
+
+            .download-link {
+                margin: 0.5rem;
+            }
+
+        }
+
+    }
+}
+</style>
