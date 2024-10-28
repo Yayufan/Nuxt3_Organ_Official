@@ -228,7 +228,7 @@ const getOtherList = () => {
     if (!showFullList.value) {
 
         /**
-         * array.splice(startIndex, deleteCount, item1, item2, ...)
+         * array.splice(startIndex, deleteCount, item1, item2, ...), 會更改原本的數組
          * 參數說明  ：
          * startIndex：開始修改的位置（索引）
          * deleteCount：要刪除的元素數量

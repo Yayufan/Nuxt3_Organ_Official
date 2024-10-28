@@ -23,12 +23,9 @@
             <article class="paragraph">
                 <h2 class="sub-title common-label">年度簽卡分析</h2>
                 <div class="download-file-box">
-                    <a class="download-link" href="/files/109_data_analysis.pdf"
-                        download>109年器官捐贈認同簽屬 - 資料統計分析.pdf</a>
-                    <a class="download-link" href="/files/110_data_analysis.pdf"
-                        download>110年器官捐贈認同簽屬 - 資料統計分析.pdf</a>
-                    <a class="download-link" href="/files/111_data_analysis.pdf"
-                        download>111年器官捐贈認同簽屬 - 資料統計分析.pdf</a>
+                    <a class="download-link" href="/files/109_data_analysis.pdf" download>109年器官捐贈認同簽屬 - 資料統計分析.pdf</a>
+                    <a class="download-link" href="/files/110_data_analysis.pdf" download>110年器官捐贈認同簽屬 - 資料統計分析.pdf</a>
+                    <a class="download-link" href="/files/111_data_analysis.pdf" download>111年器官捐贈認同簽屬 - 資料統計分析.pdf</a>
                 </div>
 
             </article>
@@ -68,7 +65,7 @@ import { ref, reactive } from 'vue'
     .content-box {
         margin-left: 10%;
 
-        .paragraph{
+        .paragraph {
             margin: 3% 0;
         }
 
@@ -83,6 +80,8 @@ import { ref, reactive } from 'vue'
 
             .download-link {
                 margin: 0.5rem;
+                /** 這邊是為了將a標籤從flex block 狀態,改為inline block 狀態  */
+                align-self: flex-start;
             }
 
         }
