@@ -11,56 +11,6 @@
                 <nuxt-link class="contact" :to="'/'">聯絡我們</nuxt-link>
             </div>
         </div>
-        <div class="menu-section">
-            <el-menu class="PC-navbar" :ellipsis="false" mode="horizontal" @select="" :popper-offset="-5"
-                popper-class="popper">
-                <!-- <el-menu-item> -->
-                <el-sub-menu index="1">
-                    <template #title>加入我們</template>
-                    <el-menu-item index="/education" @click="">宗旨任務</el-menu-item>
-                    <el-menu-item index="/medical-knowledge" @click="">加入會員</el-menu-item>
-                    <el-menu-item index="/medical-knowledge" @click="">協會年表</el-menu-item>
-                    <el-menu-item index="/medical-knowledge" @click="">歷年成果(簽卡分析)</el-menu-item>
-                    <el-menu-item index="/medical-knowledge" @click="">臉書粉絲團</el-menu-item>
-                </el-sub-menu>
-
-                <!-- </el-menu-item> -->
-                <el-sub-menu index="2">
-                    <template #title>訊息看板</template>
-                    <el-menu-item>最新消息</el-menu-item>
-                    <el-menu-item>活動花絮</el-menu-item>
-                    <el-menu-item>合作申請單</el-menu-item>
-                </el-sub-menu>
-                <el-sub-menu index="3">
-                    <template #title>認識器捐</template>
-                    <el-menu-item>器捐學堂</el-menu-item>
-                    <el-menu-item>器捐捐贈會刊</el-menu-item>
-                    <el-menu-item>器捐生命故事:捐贈者家屬篇</el-menu-item>
-                    <el-menu-item>器捐生命故事:受捐者篇</el-menu-item>
-                    <el-menu-item>影音專區</el-menu-item>
-                    <el-menu-item>文宣下載</el-menu-item>
-                    <el-menu-item>法令規章</el-menu-item>
-                    <el-menu-item>白袍心聲</el-menu-item>
-                </el-sub-menu>
-                <el-sub-menu index="4">
-                    <template #title>家屬關懷</template>
-                    <el-menu-item>人間有愛</el-menu-item>
-                    <el-menu-item>生命再現</el-menu-item>
-                    <el-menu-item>協助資源</el-menu-item>
-                    <el-menu-item>好書推薦</el-menu-item>
-                    <el-menu-item>家屬資料填寫</el-menu-item>
-                    <el-menu-item>社工專欄</el-menu-item>
-                    <el-menu-item>如果你要懷念我</el-menu-item>
-                </el-sub-menu>
-                <el-menu-item class="donate">捐贈贊助</el-menu-item>
-                <el-sub-menu index="5">
-                    <template #title>簽署器捐</template>
-                    <el-menu-item>線上簽屬</el-menu-item>
-                    <el-menu-item>簽卡停看聽</el-menu-item>
-                    <el-menu-item>撤銷簽屬</el-menu-item>
-                </el-sub-menu>
-            </el-menu>
-        </div>
     </header>
 </template>
 <script lang="ts" setup>
@@ -69,7 +19,7 @@ import { Search } from '@element-plus/icons-vue'
 <style lang="scss" scoped>
 .logo-and-search-section {
     background-color: #FFFFFF;
-    padding: 2vw 0 2vw 0;
+    padding-top: 2vw;
     display: flex;
 
     .logo-box {
@@ -78,7 +28,6 @@ import { Search } from '@element-plus/icons-vue'
 
         .logo {
             width: 20vw;
-            height: 6rem;
         }
     }
 
@@ -105,9 +54,9 @@ import { Search } from '@element-plus/icons-vue'
 
     .contact-section {
         flex-grow: 1;
-        // border: 1px solid #458537;
         margin-top: 3.8rem;
-        padding: 0 0 3.8rem 2rem;
+        padding-bottom:3.8rem;
+        padding-left: 2rem;
 
         .contact {
             color: $main-color;
@@ -116,33 +65,4 @@ import { Search } from '@element-plus/icons-vue'
     }
 }
 
-.PC-navbar {
-    margin-left: 25vw;
-
-    .el-sub-menu {
-        :deep(.el-sub-menu__title) {
-            color: $main-color;
-            font-size: 1.5rem;
-        }
-
-    }
-
-    .donate {
-        color: $main-color;
-        font-size: 1.5rem;
-    }
-}
-
-.popper {
-    .el-menu {
-        .el-menu-item:not(:first-child) {
-            border-top: 1px solid #E0E0E0;
-        }
-
-        .el-menu-item {
-            font-size: 1rem;
-        }
-
-    }
-}
-</style>
+</style>    

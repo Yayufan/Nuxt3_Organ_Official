@@ -3,8 +3,9 @@
   <div class="wrapper">
 
     <!-- 共用的Header -->
-    <Header3></Header3>
+    <!-- <Header3></Header3> -->
     <HeaderTest></HeaderTest>
+    <Menu class="menu-bar"></Menu>
     <!-- 先用一個main標籤將之後要顯示的路由組件包起來 -->
     <main class="content">
       <NuxtPage></NuxtPage>
@@ -12,6 +13,7 @@
 
     <!-- 共用的Footer -->
     <Footer></Footer>
+    <!-- <FooterOrigon></FooterOrigon> -->
   </div>
 
 </template>
@@ -20,7 +22,9 @@
 
 // import Header3 from '@/components/layout/Header3.vue';
 import HeaderTest from './components/layout/HeaderTest.vue'; 
+import Menu from '@/components/layout/Menu.vue';
 import Footer from '@/components/layout/Footer.vue';
+import FooterOrigon from './components/layout/FooterOrigon.vue';
 import SSRrequest from '@/composables/SSRrequest'
 import CSRrequest from '@/composables/CSRrequest'
 //引入toRaw變為普通對象
@@ -108,6 +112,11 @@ function handleScroll() {
 
   }
 
+  .menu-bar {
+    position: sticky;
+    top: 0;
+    z-index: 1000; 
+  }
   
 
   
