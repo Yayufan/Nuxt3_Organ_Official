@@ -70,17 +70,18 @@ watch(scrollPosition, (newValue) => {
     display: flex;
     justify-content: center;
     background-color: #FFFFFF;
+    width: 100vw;
+    box-shadow: 0 4px 0px rgba(0, 0, 0, 0.2);
 
 
 
     .PC-navbar {
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         border-bottom:none;
-        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
-        width: 100vw;
-        padding-top: 3%;
-        padding-bottom: 3%;
+        width: 60%;
+        padding-top: 2%;
+        padding-bottom: 2%;
 
 
         .el-sub-menu {
@@ -88,9 +89,9 @@ watch(scrollPosition, (newValue) => {
                 color: $main-color;
                 font-size: 1.2rem;
             }
-
+            
         }
-
+        
         .donate {
             color: $main-color;
             font-size: 1.2rem;

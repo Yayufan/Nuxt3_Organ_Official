@@ -6,6 +6,7 @@
     <!-- <Header3></Header3> -->
     <HeaderTest></HeaderTest>
     <Menu class="menu-bar"></Menu>
+    <!-- <Breadcrumbs></Breadcrumbs> -->
     <!-- 先用一個main標籤將之後要顯示的路由組件包起來 -->
     <main class="content">
       <NuxtPage></NuxtPage>
@@ -31,6 +32,7 @@ import CSRrequest from '@/composables/CSRrequest'
 import { toRaw, ref } from 'vue';
 import { countdownEmits, genFileId } from 'element-plus'
 import type { UploadProps, UploadInstance, UploadRawFile } from 'element-plus'
+import Breadcrumbs from './components/layout/Breadcrumbs.vue';
 
 
 //這邊使用在easyState.ts , export 出來的useScrollPosition
