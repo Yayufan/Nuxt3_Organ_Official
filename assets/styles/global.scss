@@ -71,13 +71,13 @@ $common-title-letter-spacing: 0.1rem;
 
 /* 覆寫element plus  */
 .common-pagination {
-
+	width: 100%;
 	/**
 	使用Vue3 element plus 專屬的改變UI組件CSS 寫法 '深層覆蓋'
 	分頁組件引入盒子,重置分頁組件CSS 
 	*/
 	:deep(.el-pagination) {
-
+		
 		justify-content: center;
 
 		//重製將分頁組件背景色調為 '無'

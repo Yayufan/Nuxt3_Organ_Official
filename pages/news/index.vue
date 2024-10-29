@@ -9,7 +9,7 @@
 
         <div class="content-box">
 
-            <div class="article-item" v-for="(item, index) in articleList.records " :key="index">
+            <article class="article-item" v-for="(item, index) in articleList.records " :key="index">
                 <div class="article-img-box">
                     <img class="article-img" :src="item.imgUrl">
                 </div>
@@ -21,7 +21,7 @@
                     </p>
                 </div>
 
-            </div>
+            </article>
 
             <!-- 
         分頁插件 total為總資料數(這邊設置20筆),  default-page-size代表每頁顯示資料(預設為10筆,這邊設置為5筆) 
@@ -48,7 +48,7 @@ let currentPage = ref(1)
 
 
 let articleList = reactive({
-    pages: 1,
+    pages: 6,
     size: 4,
     records: [
         {
@@ -106,7 +106,13 @@ let articleList = reactive({
                 max-width: 15rem;
 
                 img {
+                    aspect-ratio: 1 / 1;
                     width: 100%;
+                    /* 也可以換成任何你想要的寬度 */
+                    display: block;
+                    /* 新增這行 */
+                    object-fit: cover;
+                    object-position: top center;
                     border-radius: 16px;
                 }
 
