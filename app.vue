@@ -3,10 +3,8 @@
   <div class="wrapper">
 
     <!-- 共用的Header -->
-    <!-- <Header3></Header3> -->
-    <HeaderTest></HeaderTest>
+    <Header></Header>
     <Menu class="menu-bar"></Menu>
-    <!-- <Breadcrumbs></Breadcrumbs> -->
     <!-- 先用一個main標籤將之後要顯示的路由組件包起來 -->
     <main class="content">
       <NuxtPage></NuxtPage>
@@ -14,7 +12,6 @@
 
     <!-- 共用的Footer -->
     <Footer></Footer>
-    <!-- <FooterOrigon></FooterOrigon> -->
   </div>
 
 </template>
@@ -22,7 +19,7 @@
 <script setup lang="ts">
 
 // import Header3 from '@/components/layout/Header3.vue';
-import HeaderTest from './components/layout/HeaderTest.vue'; 
+import Header from './components/layout/Header.vue'; 
 import Menu from '@/components/layout/Menu.vue';
 import Footer from '@/components/layout/Footer.vue';
 import FooterOrigon from './components/layout/FooterOrigon.vue';

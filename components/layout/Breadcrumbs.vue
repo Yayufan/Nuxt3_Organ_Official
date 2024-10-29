@@ -20,13 +20,14 @@
 <style lang="scss" scoped>
 .breadcrumbs {
     padding: 20px 0;
-    width: 100vw;
+    max-width: 100vw;
     background-color: #EAEAE9;
     display: flex;
     justify-content: center;
-
+    
     .breadcrumb {
         width: 55%;
+        margin-left:4%;
         display: flex;
         line-height: 100%;
         font-size: 1rem;
@@ -34,6 +35,11 @@
         letter-spacing: 0.1rem;
         color: $main-content-color;
         justify-content: flex-start;
+       :deep(.el-breadcrumb__inner) {
+            &:hover {
+                color: $main-color;
+            }
+       }
     }
 }
 </style>

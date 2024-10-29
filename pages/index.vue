@@ -1,142 +1,222 @@
-<!--  -->
 <template>
-    <!-- 自我介紹Section -->
-    <Introduce></Introduce>
-
-    <!-- 服務介紹Section -->
-    <!-- <Service></Service> -->
-
-    <!-- 疾病及治療介紹 -->
-    <div ref="educationRef" class="ref-item" :class="{ 'visible': isEducationVisible, 'fade-in': isEducationVisible, }">
-        <Education></Education>
-    </div>
-
-
-    <!-- 團隊介紹 -->
-    <div ref="teamRef" class="ref-item" :class="{ 'visible': isTeamVisible, 'fade-in': isTeamVisible, }">
-        <TeamIntroduction></TeamIntroduction>
-    </div>
-
-    <!-- 最新消息Section -->
-    <div ref="newsRef" class="ref-item" :class="{ 'visible': isNewsVisible, 'fade-in': isNewsVisible, }">
-        <News></News>
-    </div>
-
-
-    <div ref="conceptRef" class="ref-item" :class="{ 'visible': isConceptVisible, 'fade-in': isConceptVisible }">
-        <!-- 團隊理念 -->
-        <Concept></Concept>
-    </div>
-
-    <!-- 前景介紹Section -->
-    <!-- <Prospect></Prospect> -->
-
+    <main class="main">
+        <div class="carousel-box">
+            <el-carousel class="carousel" arrow="always">
+                <el-carousel-item v-for="item in 5" :key="item">
+                    <h3 class="small justify-center" text="2xl">{{ item }}</h3>
+                </el-carousel-item>
+            </el-carousel>
+        </div>
+        <div class="message-board">
+            <div class="title">
+                <p>訊息看板</p>
+            </div>
+            <div class="link-box">
+                <div class="link-item">
+                    <nuxt-link :class="{ active: activeLink === 'news' }" ref="news" @click="handleClick('news')">最新消息
+                    </nuxt-link>
+                </div>
+                <div class="link-item">
+                    <nuxt-link :class="{ active: activeLink === 'eventHighlight' }" ref="eventHighlight"
+                        @click="handleClick('eventHighlight')">活動花絮</nuxt-link>
+                </div>
+                <div class="link-item">
+                    <nuxt-link :class="{ active: activeLink === 'form' }" ref="collaborationApplicationForm"
+                        @click="handleClick('form')">合作申請單</nuxt-link>
+                </div>
+            </div>
+            <div class="article">
+                <el-button><el-icon>
+                        <ElIconArrowLeft />
+                    </el-icon></el-button>
+                <div class="article-item" v-for="item in 5">
+                    <div class="article-img">
+                        <NuxtLink><img src="@/assets/img/HsuImg.jpg" alt=""></NuxtLink>
+                    </div>
+                    <p>2024.10.21</p>
+                    <p>怡馨調心成長工作坊-中區</p>
+                </div>
+                <el-button><el-icon>
+                        <ElIconArrowRight />
+                    </el-icon></el-button>
+            </div>
+            <div class="page-box">
+                <el-pagination size="small" layout="prev, pager, next" :total="50" />
+            </div>
+        </div>
+    </main>
 </template>
 
 <script setup lang='ts'>
 
-import { ref, reactive } from 'vue'
-import Introduce from '~/components/home/Introduce2.vue'
-import Education from '~/components/home/Education.vue'
-import News from '~/components/home/News2.vue'
-import TeamIntroduction from '~/components/home/TeamIntroduction2.vue'
-import Concept from '~/components/home/Concept.vue'
 
-const educationRef = ref()
-const teamRef = ref()
-const conceptRef = ref()
-const newsRef = ref()
+const news = ref();
+const eventHighlight = ref();
+const collaborationApplicationForm = ref();
 
-const isTeamVisible = ref(false)
-const isConceptVisible = ref(false)
-const isNewsVisible = ref(false)
-const isEducationVisible = ref(false)
+const activeLink = ref('news');
 
-
-const observerOptions = {
-    threshold: 0.2, // 當 20% 的元素可見時觸發
-    //rootMargin: '0px 0px -100px 0px' // 提前 100px 觸發
+const handleClick = (link: string) => {
+    activeLink.value = link;
 }
-
-//創建一個空數組來存儲所有的 Intersection Observer 實例。
-let observers: any[] = []
-onMounted(() => {
-
-    //使用了 Intersection Observer API 來檢測元素是否進入視口
-    //這是一個函數，用於創建和設置 Intersection Observer。
-    // 它接受兩個參數：ref: 要觀察的 DOM 元素的引用 ， visibilityRef: 一個響應式引用，用於控制元素的可見性狀態
-
-    const createObserver = (ref: any, visibilityRef: any) => {
-        //創建一個新的 Intersection Observer 觀察器實例。  它接受兩個參數：一個回調函數  和一個配置對象（observerOptions）。
-        const observer = new IntersectionObserver((entries) => {
-            //對每個被觀察的元素（在這個案例中只有一個）執行回調。
-            entries.forEach((entry) => {
-                //檢查元素是否進入視口。
-                if (entry.isIntersecting) {
-                    //如果元素進入視口，設置一個 100 毫秒的延遲，然後將可見性狀態設為 true。
-                    // 使用 setTimeout 來確保 CSS 轉換能夠正確觸發
-                    setTimeout(() => {
-                        visibilityRef.value = true
-                    }, 100)
-
-                    //停止觀察這個元素，因為我們只需要觸發一次動畫。
-                    // observer.unobserve(entry.target)
-                } else {
-                    //元素如果離開視口，將可見性狀態設為 false。
-                    visibilityRef.value = false
-                }
-            })
-        }, observerOptions)
-
-
-        //如果 ref 存在（即 DOM 元素已經渲染），開始觀察這個元素。
-        if (ref.value) {
-            observer.observe(ref.value)
-        }
-
-        //返回這個觀察器，他就會自動去觀察這個元素，去開啟是否讓元素可視
-        return observer
-    }
-
-    createObserver(educationRef, isEducationVisible)
-    createObserver(teamRef, isTeamVisible)
-    createObserver(conceptRef, isConceptVisible)
-    createObserver(newsRef, isNewsVisible)
-
-
-})
-
-onUnmounted(() => {
-    observers.forEach(observer => {
-        observer.disconnect()
-    })
-})
 
 </script>
+<style lang="scss" scoped>
+.main {
+    width: 100%;
 
-<style scoped lang="scss">
-.ref-item {
-    opacity: 0;
-    transition: opacity 0.5s, transform 0.5s;
-}
+    .carousel-box {
+        width: 100%;
 
-.visible {
-    opacity: 1;
-}
+        .carousel {
+            width: 100%;
 
-.fade-in {
-    animation: fadeIn 0.5s ease-out;
-}
+            .el-carousel__item {
+                // 圖片置中
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: green;
+            }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
+           
+
+            :deep(.el-carousel__arrow) {
+                background-color: #EE7C84;
+            }
+
+            :deep(.el-carousel__arrow--left) {
+                margin-left: 3%;
+            }
+
+            :deep(.el-carousel__arrow--right) {
+                margin-right: 3%;
+            }
+
+            :deep(.el-icon), :deep(.el-icon svg) {
+                width: 2rem;
+                height: 2rem;
+            }
+
+            :deep(.el-carousel__button) {
+                width: 2px;
+                border-radius: 50%;
+            }
+        }
+
     }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    .message-board {
+        max-width: 100vw;
+        margin-top: 50px;
+        background-color: #E9B2B1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 50px;
+        padding: 20px 0;
+
+        .title {
+            width: 50%;
+            color: white;
+            margin-right: 10%;
+            font-size: 1.3rem;
+            padding: 10px 0 20px 0;
+        }
+
+        .link-box {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+            background-color: #F4D4BE;
+
+            .link-item {
+                padding: 10px 0;
+                margin: 0 10%;
+
+                a {
+                    color: #8F1D22;
+                    font-size: 1rem;
+                    cursor: pointer;
+
+                }
+
+                .active {
+                    border-radius: 20px;
+                    padding: 0.5rem;
+                    letter-spacing: 0.1rem;
+                    color: white;
+                    background-color: #8F1D22;
+                }
+            }
+        }
+
+        .article {
+            width: 100%;
+            background-color: #E9B2B1;
+            border-radius: 0 0 20px 20px;
+            display: flex;
+            justify-content: center;
+
+            .article-item {
+
+                .article-img {
+                    width: 12vw;
+                    height: 12vw;
+                    background-color: white;
+                    border-radius: 20px;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 20px;
+                    }
+
+                }
+
+                p {
+                    text-align: center;
+                    color: #8F1D22;
+                }
+
+                margin: 1% 3% 0 3%;
+
+            }
+
+            .el-button {
+                display: flex;
+                align-self: center;
+                width: 2rem;
+                background-color: #C4D5D2;
+                border: none;
+                border-radius: 50%;
+            }
+        }
+
+        .page-box {
+            margin-top: 1%;
+            display: flex;
+            align-items: baseline;
+
+            :deep(.btn-prev) {
+                // background-color: #E9B2B1;
+                // color: white;
+                display: none;
+            }
+
+            :deep(.btn-next) {
+                // background-color: #E9B2B1;
+                // color: white;
+                display: none;
+
+            }
+
+            :deep(.number) {
+                background-color: #E9B2B1;
+                color: white;
+            }
+        }
     }
 }
 </style>
