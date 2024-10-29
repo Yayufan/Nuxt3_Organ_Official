@@ -1,6 +1,8 @@
 <!--  -->
 <template>
 
+    <Breadcrumbs firstRoute="加入我們" secoundRoute="加入會員"></Breadcrumbs>
+
     <section class="common-seciton">
 
         <h1 class="common-title">加入會員</h1>
@@ -89,6 +91,7 @@
 <script setup lang='ts'>
 
 import { ref, reactive } from 'vue'
+import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
 </script>
 

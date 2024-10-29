@@ -1,11 +1,11 @@
 <!--  -->
 <template>
 
-    <Breadcrumbs firstRoute="信息看板" secoundRoute="最新消息"></Breadcrumbs>
+    <Breadcrumbs firstRoute="信息看板" secoundRoute="活動花絮" ></Breadcrumbs>
 
     <section class="common-seciton">
 
-        <h1 class="common-title">最新消息</h1>
+        <h1 class="common-title">活動花絮</h1>
 
         <div class="content-box">
 
@@ -40,8 +40,8 @@
 <script setup lang='ts'>
 
 import { descriptionProps } from 'element-plus';
-import { ref, reactive } from 'vue'
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
+import { ref, reactive } from 'vue'
 
 //設定分頁組件,currentPage當前頁數
 let currentPage = ref(1)
@@ -49,28 +49,33 @@ let currentPage = ref(1)
 
 let articleList = reactive({
     pages: 1,
-    size: 4,
+    size: 5,
     records: [
         {
-            title: '怡馨調心成長工作房-中區',
-            description: '身體與心理是一體的兩面，兩者有著互相影響、密不可分的關係，今年我們邀請芳療師和身體工作的經絡老師，來跟大家分享如何運用香氣、經絡按摩的方法來照顧好自己的身體與心理，才有更多力量面對生活的種種挑戰，歡迎大家一起來學期吧',
-            imgUrl: 'https://miro.medium.com/v2/resize:fit:1006/format:webp/1*4j2A9niz0eq-mRaCPUffpg.png',
+            title: '語窩歡樂學苑-粉彩系列',
+            description: '2021年10月25日(周六) 10:00 ~ 12:00 還有名額，親手做份小禮物給自己的親朋好友吧',
+            imgUrl: 'https://exp-picture.cdn.bcebos.com/52fae62064fb960b77ff67d28fa355e982ae6c71.jpg?x-bce-process=image%2Fresize%2Cm_lfit%2Cw_640%2Climit_1%2Fformat%2Cf_auto%2Fquality%2Cq_80',
         },
         {
-            title: '怡馨調心成長工作房-中區',
-            description: '身體與心理是一體的兩面，兩者有著互相影響、密不可分的關係，今年我們邀請芳療師和身體工作的經絡老師，來跟大家分享如何運用香氣、經絡按摩的方法來照顧好自己的身體與心理，才有更多力量面對生活的種種挑戰，歡迎大家一起來學期吧',
-            imgUrl: 'https://miro.medium.com/v2/resize:fit:1006/format:webp/1*4j2A9niz0eq-mRaCPUffpg.png',
+            title: '語窩歡樂學苑-粉彩系列',
+            description: '2021年10月25日(周六) 10:00 ~ 12:00 還有名額，親手做份小禮物給自己的親朋好友吧',
+            imgUrl: 'https://exp-picture.cdn.bcebos.com/52fae62064fb960b77ff67d28fa355e982ae6c71.jpg?x-bce-process=image%2Fresize%2Cm_lfit%2Cw_640%2Climit_1%2Fformat%2Cf_auto%2Fquality%2Cq_80',
         },
         {
-            title: '怡馨調心成長工作房-中區',
-            description: '身體與心理是一體的兩面，兩者有著互相影響、密不可分的關係，今年我們邀請芳療師和身體工作的經絡老師，來跟大家分享如何運用香氣、經絡按摩的方法來照顧好自己的身體與心理，才有更多力量面對生活的種種挑戰，歡迎大家一起來學期吧',
-            imgUrl: 'https://miro.medium.com/v2/resize:fit:1006/format:webp/1*4j2A9niz0eq-mRaCPUffpg.png',
+            title: '語窩歡樂學苑-粉彩系列',
+            description: '2021年10月25日(周六) 10:00 ~ 12:00 還有名額，親手做份小禮物給自己的親朋好友吧',
+            imgUrl: 'https://exp-picture.cdn.bcebos.com/52fae62064fb960b77ff67d28fa355e982ae6c71.jpg?x-bce-process=image%2Fresize%2Cm_lfit%2Cw_640%2Climit_1%2Fformat%2Cf_auto%2Fquality%2Cq_80',
         },
         {
-            title: '怡馨調心成長工作房-中區',
-            description: '身體與心理是一體的兩面，兩者有著互相影響、密不可分的關係，今年我們邀請芳療師和身體工作的經絡老師，來跟大家分享如何運用香氣、經絡按摩的方法來照顧好自己的身體與心理，才有更多力量面對生活的種種挑戰，歡迎大家一起來學期吧',
-            imgUrl: 'https://miro.medium.com/v2/resize:fit:1006/format:webp/1*4j2A9niz0eq-mRaCPUffpg.png',
-        }
+            title: '語窩歡樂學苑-粉彩系列',
+            description: '2021年10月25日(周六) 10:00 ~ 12:00 還有名額，親手做份小禮物給自己的親朋好友吧',
+            imgUrl: 'https://exp-picture.cdn.bcebos.com/52fae62064fb960b77ff67d28fa355e982ae6c71.jpg?x-bce-process=image%2Fresize%2Cm_lfit%2Cw_640%2Climit_1%2Fformat%2Cf_auto%2Fquality%2Cq_80',
+        },
+        {
+            title: '語窩歡樂學苑-粉彩系列',
+            description: '2021年10月25日(周六) 10:00 ~ 12:00 還有名額，親手做份小禮物給自己的親朋好友吧',
+            imgUrl: 'https://exp-picture.cdn.bcebos.com/52fae62064fb960b77ff67d28fa355e982ae6c71.jpg?x-bce-process=image%2Fresize%2Cm_lfit%2Cw_640%2Climit_1%2Fformat%2Cf_auto%2Fquality%2Cq_80',
+        },
     ]
 })
 
@@ -78,6 +83,7 @@ let articleList = reactive({
 </script>
 
 <style scoped lang="scss">
+
 .common-seciton {
     width: $common-section-width;
     margin: $common-section-margin;

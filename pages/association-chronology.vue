@@ -1,5 +1,8 @@
 <!--  -->
 <template>
+
+<Breadcrumbs firstRoute="加入我們" secoundRoute="協會年表" ></Breadcrumbs>
+
     <section class="common-seciton">
 
         <h1 class="common-title">協會年表</h1>
@@ -31,6 +34,7 @@
 <script setup lang='ts'>
 
 import { ref, reactive } from 'vue'
+import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
 let showFullList = ref(false)
 

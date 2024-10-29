@@ -1,5 +1,8 @@
 <!--  -->
 <template>
+
+    <Breadcrumbs firstRoute="加入我們" secoundRoute="宗旨任務"></Breadcrumbs>
+
     <section class="common-seciton">
 
         <h1 class="common-title">宗旨任務</h1>
@@ -81,7 +84,7 @@
             <article class="paragraph ">
                 <h2 class="sub-title">協會章程</h2>
                 <div class="content regulation-box">
-                    <a href="/files/regulation_1071005.pdf" download >社團法人章程-1071005修正版.pdf</a>
+                    <a href="/files/regulation_1071005.pdf" download>社團法人章程-1071005修正版.pdf</a>
                 </div>
 
             </article>
@@ -97,6 +100,7 @@
 <script setup lang='ts'>
 
 import { ref, reactive } from 'vue'
+import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
 let showFullList = ref(false)
 
