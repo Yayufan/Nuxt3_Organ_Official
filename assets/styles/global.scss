@@ -69,6 +69,50 @@ $common-title-letter-spacing: 0.2rem;
 	}
 }
 
+/* 覆寫element plus  */
+.common-pagination {
+
+	/**
+	使用Vue3 element plus 專屬的改變UI組件CSS 寫法 '深層覆蓋'
+	分頁組件引入盒子,重置分頁組件CSS 
+	*/
+	:deep(.el-pagination) {
+
+		justify-content: center;
+
+		//重製將分頁組件背景色調為 '無'
+		.el-pager li {
+			background: none !important;
+		}
+
+		.el-pager li:hover {
+			color: $main-color;
+		}
+
+		.is-active {
+			color: $main-color;
+		}
+
+		button:hover {
+			color: $main-color;
+		}
+
+		//按鈕背景色改成 '無'
+		button {
+			background: none !important;
+		}
+
+		// &+& {
+		// 	margin-top: 10px;
+		// }
+
+		// .example-demonstration {
+		// 	margin-bottom: 16px;
+		// }
+
+	}
+}
+
 
 
 

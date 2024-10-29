@@ -51,7 +51,6 @@ import { ref, reactive } from 'vue'
     margin: $common-section-margin;
     font-family: $common-section-font-family;
 
-
     .common-title {
         color: $main-color;
         font-weight: $common-title-font-weight;
@@ -85,7 +84,6 @@ import { ref, reactive } from 'vue'
             }
 
         }
-
     }
 }
 </style>
