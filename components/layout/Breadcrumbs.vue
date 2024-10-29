@@ -21,12 +21,15 @@
 .breadcrumbs {
     padding: 20px 0;
     max-width: 100vw;
+    max-width: 100vw;
     background-color: #EAEAE9;
     display: flex;
     justify-content: center;
     
+    
     .breadcrumb {
         width: 55%;
+        margin-left:4%;
         margin-left:4%;
         display: flex;
         line-height: 100%;
@@ -35,7 +38,7 @@
         letter-spacing: 0.1rem;
         color: $main-content-color;
         justify-content: flex-start;
-       :deep(.el-breadcrumb__inner) {
+       :deep(.is-link) {
             &:hover {
                 color: $main-color;
             }

@@ -87,6 +87,7 @@ watch(scrollPosition, (newValue) => {
                 color: $main-color;
                 font-size: 1.2rem;
                 padding-left: 0;
+                border-bottom: none;
             }
             
         }
