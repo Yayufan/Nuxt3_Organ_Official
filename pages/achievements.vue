@@ -78,7 +78,7 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
         .download-file-box {
             display: flex;
             flex-direction: column;
-            margin-left: 3%;
+            margin-left: 2.5rem;
 
             .download-link {
                 margin: 0.5rem;
