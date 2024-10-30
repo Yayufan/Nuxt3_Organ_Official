@@ -34,7 +34,7 @@
             <article class="paragraph ">
                 <h2 class="sub-title">組織架構</h2>
                 <div class="content organizational-structure-box ">
-                    <img src="@/assets/img/organizational-chart.jpg">
+                    <img src="@/assets/img/organizational-chart.png">
                 </div>
             </article>
 
@@ -351,7 +351,7 @@ const getOtherList = () => {
 
         /** 組織架構盒子內的樣式  */
         .organizational-structure-box {
-            max-width: 80%;
+            max-width: 65%;
             margin-top: 3%;
 
             img {

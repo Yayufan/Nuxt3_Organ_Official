@@ -22,6 +22,9 @@
                 <div class="number-mask">1</div>
             </article>
 
+            <div class="step-btn-box" >
+                <img src="@/assets/img/arrow-bottom.png" >
+            </div>
 
             <article class="paragraph">
                 <h2 class="sub-title">會員權責</h2>
@@ -30,6 +33,10 @@
                 </div>
                 <div class="number-mask">2</div>
             </article>
+
+            <div class="step-btn-box" >
+                <img src="@/assets/img/arrow-bottom.png" >
+            </div>
 
             <article class="paragraph">
                 <h2 class="sub-title">入會申請辦法</h2>
@@ -48,6 +55,10 @@
                 </div>
                 <div class="number-mask">3</div>
             </article>
+
+            <div class="step-btn-box" >
+                <img src="@/assets/img/arrow-bottom.png" >
+            </div>
 
             <article class="paragraph">
                 <h2 class="sub-title">下載入會表格</h2>
@@ -117,6 +128,16 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
         // background-color: aqua;
         width: 100%;
         color: $main-content-color;
+
+        .step-btn-box{
+            width: 100%;
+            text-align: center;
+            margin-bottom: 1.5rem ;
+            img{
+                width: 2.5rem;
+            }
+        }
+
 
         /**這邊是處理通用段落、sub-title 和 內容 */
         .paragraph {
