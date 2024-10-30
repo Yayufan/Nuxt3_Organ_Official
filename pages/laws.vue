@@ -45,7 +45,7 @@
                             href="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0020183&kw=%e4%ba%ba%e9%ab%94%e5%99%a8%e5%ae%98%e7%a7%bb%e6%a4%8d%e5%88%86%e9%85%8d">人體器官移植分配及管理辦法</a><span>（103年9月10日發布／107年12月28日修正）</span>
                     </div>
                     <div class="download-item">
-                        <p class="supplementary-information" >附表：各器官分配原則</p>
+                        <p class="supplementary-information">附表：各器官分配原則</p>
                     </div>
                     <div class="download-item">
                         <a class="download-link-ver2"
@@ -108,6 +108,7 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
     .content-box {
         margin-left: 10%;
+        margin-right: 10%;
 
         .additional-information {
             margin-left: 1.7rem;
@@ -122,14 +123,11 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
             margin-bottom: 5%;
 
             .common-content {
-                width: 90%;
-                margin: 0 auto;
                 margin-left: 2rem;
                 margin-bottom: 2rem;
                 line-height: 1.5;
                 color: $main-content-color;
             }
-
         }
 
         .sub-title {
@@ -147,7 +145,7 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
                 color: $main-content-color;
                 margin: 0.5rem 0;
 
-                .supplementary-information{
+                .supplementary-information {
                     margin-left: 1.7rem;
                 }
 
