@@ -1,7 +1,7 @@
 /* 主題色系 */
 $main-color: #4A863F;
-
 $main-content-color: #6D6D6D;
+$sub-color:#F49E19;
 
 
 /* 通用section 寬度及外間距 */
@@ -63,7 +63,7 @@ $common-title-letter-spacing: 0.1rem;
 		position: relative;
 		top: 0.3rem;
 		margin-left: 8px;
-		background: url("@/assets/img/download-circle-fill.svg") no-repeat;
+		background: url("@/assets/img/download-file-green.svg") no-repeat;
 		background-size: contain;
 		/* 確保圖標縮放到合適尺寸 */
 	}

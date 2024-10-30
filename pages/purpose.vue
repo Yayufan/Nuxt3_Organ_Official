@@ -446,7 +446,7 @@ const getOtherList = () => {
                     position: relative;
                     top: 0.3rem;
                     margin-left: 8px;
-                    background: url("@/assets/img/download-circle-fill.svg") no-repeat;
+                    background: url("@/assets/img/download-file-green.svg") no-repeat;
                     background-size: contain;
                     /* 確保圖標縮放到合適尺寸 */
                 }

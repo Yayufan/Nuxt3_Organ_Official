@@ -156,7 +156,7 @@ let bookArticleList = reactive({
                 .more-btn {
                     display: block;
                     color: #fff;
-                    background-color: #F49E19;
+                    background-color: $sub-color;
                     width: 75%;
                     margin: 0 auto;
                     padding: 0.5rem 0;
