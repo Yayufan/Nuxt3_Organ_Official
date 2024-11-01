@@ -1,5 +1,6 @@
 <template>
     <div class="breadcrumbs">
+        <div class="temp-box"></div>
         <el-breadcrumb class="breadcrumb" :separator-icon="ArrowRight">
             <el-breadcrumb-item :to="{ path: '/' }">首頁</el-breadcrumb-item>
             <el-breadcrumb-item>{{ props.firstRoute }}</el-breadcrumb-item>
@@ -25,19 +26,14 @@
     background-color: #EAEAE9;
     display: flex;
     justify-content: center;
-    
-    
     .breadcrumb {
-        width: 55%;
-        margin-left:4%;
-        margin-left:4%;
         display: flex;
         line-height: 100%;
         font-size: 1rem;
         font-weight: normal;
         letter-spacing: 0.1rem;
         color: $main-content-color;
-        justify-content: flex-start;
+        width: 47rem;
        :deep(.is-link) {
             &:hover {
                 color: $main-color;

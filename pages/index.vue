@@ -1,9 +1,15 @@
 <template>
     <main class="main">
         <div class="carousel-box">
-            <el-carousel class="carousel" arrow="always">
-                <el-carousel-item v-for="item in 5" :key="item">
-                    <h3 class="small justify-center" text="2xl">{{ item }}</h3>
+            <el-carousel class="carousel" arrow="always" indicator-position="outside">
+                <el-carousel-item>
+                    <img src="@/assets/img/carousel-item3.jpg" alt="">
+                </el-carousel-item>
+                <el-carousel-item>
+                    <img src="@/assets/img/carousel-item2.jpg" alt="">
+                </el-carousel-item>
+                <el-carousel-item>
+                    <img src="@/assets/img/carousel-item1.jpg" alt="">
                 </el-carousel-item>
             </el-carousel>
         </div>
@@ -29,25 +35,64 @@
                 <el-button><el-icon>
                         <ElIconArrowLeft />
                     </el-icon></el-button>
-                <div class="article-item" v-for="item in 5">
+                <div class="article-item" v-for="item in articleList.recoards">
                     <div class="article-img">
-                        <NuxtLink><img src="@/assets/img/HsuImg.jpg" alt=""></NuxtLink>
+                        <nuxt-link to="/"><img :src="item.imgUrl" alt=""></nuxt-link>
                     </div>
-                    <p>2024.10.21</p>
-                    <p>怡馨調心成長工作坊-中區</p>
+                    <p>{{ item.date }}</p>
+                    <p>{{ item.description }}</p>
                 </div>
                 <el-button><el-icon>
                         <ElIconArrowRight />
                     </el-icon></el-button>
             </div>
             <div class="page-box">
-                <el-pagination size="small" layout="prev, pager, next" :total="50" />
+                <el-pagination size="small" layout="prev, pager, next" :page-count="Number(articleList.pages)"
+                    :page-size="5" v-model:current-page="currentPage" :hide-on-single-page="true" />
             </div>
         </div>
+
+        <div class="join-us-board">
+            <p class="title">加入我們</p>
+            <div class="icon-link-box">
+                <div class="link-item">
+                    <nuxt-link to="/purpose">
+                    <img src="@/assets/img/purpose-icon.png" alt="">
+                </nuxt-link>
+                <p>宗旨任務</p>
+            </div>
+            <div class="link-item">
+                <nuxt-link to="/become-member">
+                    <img src="@/assets/img/become-member-icon.png" alt="">
+                </nuxt-link>
+                <p>加入會員</p>
+            </div>
+            <div class="link-item">
+                <nuxt-link to="/association-chronology">
+                    <img src="@/assets/img/association-chronology-icon.png" alt="">
+                </nuxt-link>
+                <p>協會年表</p>
+            </div>
+            <div class="link-item">
+                <nuxt-link to="/achievements">
+                    <img src="@/assets/img/achievements-icon.png" alt="">
+                </nuxt-link>
+                <p>歷年成果</p>
+                <p>(簽卡分析)</p>
+            </div>
+            <div class="link-item">
+                <nuxt-link to="https://www.facebook.com/organassociation/">
+                    <img src="@/assets/img/facebook-icon.png" alt="">
+                </nuxt-link>
+                <p>粉絲團臉書</p>
+            </div>
+        </div>
+    </div>
     </main>
 </template>
 
 <script setup lang='ts'>
+
 
 
 const news = ref();
@@ -60,6 +105,41 @@ const handleClick = (link: string) => {
     activeLink.value = link;
 }
 
+const currentPage = ref(1)
+
+let articleList = reactive({
+    pages: 2,
+    size: 5,
+    recoards: [
+        {
+            date: '2024.10.21',
+            description: '怡馨調心成長工作坊-中區',
+            imgUrl: 'https://assets.monica.im/tools-web/_next/static/media/imageGeneratorFeatureIntro1.9f5e7e23.webp',
+        },
+        {
+            date: '2024.10.21',
+            description: '怡馨調心成長工作坊-中區',
+            imgUrl: 'https://assets.monica.im/tools-web/_next/static/media/imageGeneratorFeatureIntro1.9f5e7e23.webp',
+        },
+        {
+            date: '2024.10.21',
+            description: '怡馨調心成長工作坊-中區',
+            imgUrl: 'https://assets.monica.im/tools-web/_next/static/media/imageGeneratorFeatureIntro1.9f5e7e23.webp',
+        },
+        {
+            date: '2024.10.21',
+            description: '怡馨調心成長工作坊-中區',
+            imgUrl: 'https://assets.monica.im/tools-web/_next/static/media/imageGeneratorFeatureIntro1.9f5e7e23.webp',
+        },
+        {
+            date: '2024.10.21',
+            description: '怡馨調心成長工作坊-中區',
+            imgUrl: 'https://assets.monica.im/tools-web/_next/static/media/imageGeneratorFeatureIntro1.9f5e7e23.webp',
+        },
+    ]
+})
+
+
 </script>
 <style lang="scss" scoped>
 .main {
@@ -67,19 +147,29 @@ const handleClick = (link: string) => {
 
     .carousel-box {
         width: 100%;
+        height: 400px;
 
         .carousel {
             width: 100%;
+            // min-height: 100%;
+            height: 400px;
+            
+            .el-carousel__container {
+                height: 400px;
+                // height: 100%;
+                .el-carousel__item {
+                    height: 400px;
+                width: 100%;
+                // height: 100%;
+                img {
+                    width: 100%;
+                    height: 400px;
+                }
 
-            .el-carousel__item {
-                // 圖片置中
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background-color: green;
+            }
             }
 
-           
+
 
             :deep(.el-carousel__arrow) {
                 background-color: #EE7C84;
@@ -93,13 +183,15 @@ const handleClick = (link: string) => {
                 margin-right: 3%;
             }
 
-            :deep(.el-icon), :deep(.el-icon svg) {
+            :deep(.el-icon),
+            :deep(.el-icon svg) {
                 width: 2rem;
                 height: 2rem;
             }
 
             :deep(.el-carousel__button) {
-                width: 2px;
+                width: 0.5rem;
+                height: 0.5rem;
                 border-radius: 50%;
             }
         }
@@ -110,17 +202,15 @@ const handleClick = (link: string) => {
         max-width: 100vw;
         margin-top: 50px;
         background-color: #E9B2B1;
-        display: flex;
-        flex-direction: column;
         align-items: center;
         border-radius: 50px;
         padding: 20px 0;
 
         .title {
             width: 50%;
+            margin-left: 10%;
             color: white;
-            margin-right: 10%;
-            font-size: 1.3rem;
+            font-size: 2.5rem;
             padding: 10px 0 20px 0;
         }
 
@@ -137,7 +227,7 @@ const handleClick = (link: string) => {
 
                 a {
                     color: #8F1D22;
-                    font-size: 1rem;
+                    font-size: 1.5rem;
                     cursor: pointer;
 
                 }
@@ -157,16 +247,19 @@ const handleClick = (link: string) => {
             background-color: #E9B2B1;
             border-radius: 0 0 20px 20px;
             display: flex;
-            justify-content: center;
+            justify-content:center;
+            margin-top: 30px;
 
             .article-item {
-
+                max-width: 100%;
+                margin: 0 0.4%;
                 .article-img {
-                    width: 12vw;
-                    height: 12vw;
+                    width: 17vw;
+                    height: 17vw;
                     background-color: white;
                     border-radius: 20px;
-
+                    // margin: 0 5% 0 5%;
+                    
                     img {
                         width: 100%;
                         height: 100%;
@@ -180,14 +273,18 @@ const handleClick = (link: string) => {
                     color: #8F1D22;
                 }
 
-                margin: 1% 3% 0 3%;
+                margin-bottom: 3%;
 
             }
 
             .el-button {
                 display: flex;
-                align-self: center;
-                width: 2rem;
+                // align-self:;
+                margin: 7% auto;
+                width: 3rem;
+                height: 3rem;
+                font-size: 2rem;
+                color: white;
                 background-color: #C4D5D2;
                 border: none;
                 border-radius: 50%;
@@ -197,7 +294,7 @@ const handleClick = (link: string) => {
         .page-box {
             margin-top: 1%;
             display: flex;
-            align-items: baseline;
+            justify-content: center;
 
             :deep(.btn-prev) {
                 // background-color: #E9B2B1;
@@ -212,10 +309,45 @@ const handleClick = (link: string) => {
 
             }
 
-            :deep(.number) {
+            :deep(.number),
+            :deep(.btn-quickprev),
+            :deep(.btn-quicknext) {
                 background-color: #E9B2B1;
                 color: white;
             }
+        }
+    }
+
+    .join-us-board {
+        width: 100%;
+        // display: flex;
+        margin-top: 5%;
+        
+        .title{
+            margin-left: 10%;
+            color: #E99B67;
+            font-size: 2.5rem;
+        }
+        .icon-link-box {
+            display: flex;
+            // justify-content: start;
+            margin:3% 0 0 10%;
+
+            .link-item {
+                margin: 0 8% 2% 0;
+                p {
+                    color: #91715F;
+                    // letter-spacing: 0.1rem;
+                    font-size: 1rem;
+                    text-align: center;
+                }
+            }
+
+            img {
+                width: 12vw;
+                height: 12vw;
+            }
+
         }
     }
 }
