@@ -263,6 +263,8 @@ let articleList = reactive({
                     img {
                         width: 100%;
                         height: 100%;
+                        object-fit: cover;
+                        object-position: top center;
                         border-radius: 20px;
                     }
 
@@ -330,22 +332,19 @@ let articleList = reactive({
         }
         .icon-link-box {
             display: flex;
-            // justify-content: start;
             margin:3% 0 0 10%;
 
             .link-item {
                 margin: 0 8% 2% 0;
                 p {
                     color: #91715F;
-                    // letter-spacing: 0.1rem;
                     font-size: 1rem;
                     text-align: center;
                 }
             }
 
             img {
-                width: 12vw;
-                height: 12vw;
+                width: 100%;
             }
 
         }

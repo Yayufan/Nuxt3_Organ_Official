@@ -78,39 +78,58 @@ watch(scrollPosition, (newValue) => {
         border-bottom: none;
         margin-top: 20px ;
         padding: 0 ;
+        margin-top: 20px;
+        padding: 0;
 
         .el-sub-menu {
             :deep(.el-sub-menu__title) {
                 color: $main-color;
-                font-size: 1.5rem;
+                font-size: 1.4rem;
                 padding-left: 0;
-                padding-right: 29px;
+                padding-right: 37px;
                 border-bottom: none;
+                margin-right: 3rem;
+
+                @media screen and (max-width: 1100px) {
+                    font-size: 1.2rem;
+                    margin-right: 0;
+
+                }
             }
+
             :deep(.el-icon) {
                 top: 10%;
                 min-height: 100%;
-                font-size: 0.5rem;
+                font-size: 1rem;
                 padding: 0;
                 align-self: center;
+
             }
-            
+
         }
-        
+
         .donate {
             color: $main-color;
-            font-size: 1.5rem;
-            padding: 0 29px 0 0;
+            font-size: 1.4rem;
+            padding: 0 27px 0 0;
+            margin-right: 3rem;
+
+            @media screen and (max-width: 1100px) {
+                font-size: 1.2rem;
+                margin-right: 0;
+            }
 
         }
 
         .logo-box {
             transition: opacity 0.1s ease;
             margin-right: 0;
+
             .logo {
                 width: 13rem;
             }
         }
+
 
     }
 }
