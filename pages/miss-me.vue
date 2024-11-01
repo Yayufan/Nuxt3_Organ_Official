@@ -140,6 +140,11 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
             width: 50%;
             border-right: 1px solid black;
             line-height: 3;
+
+            @media screen and (max-width:480px) {
+                padding-right: 3%;
+            }
+
         }
 
         .en-content {

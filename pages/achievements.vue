@@ -80,6 +80,10 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
             flex-direction: column;
             margin-left: 2.5rem;
 
+            @media screen and (max-width:480px) {
+                margin-left: 1rem;
+            }
+
             .download-link {
                 margin: 0.5rem;
                 /** 這邊是為了將a標籤從flex block 狀態,改為inline block 狀態  */

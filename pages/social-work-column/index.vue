@@ -109,6 +109,11 @@ let bookArticleList = reactive({
         flex-wrap: wrap;
         justify-content: space-between;
 
+        @media screen and (max-width:850px) {
+            margin-top: 8%;
+        }
+
+
         .article-item {
             position: relative;
             display: flex;
@@ -121,6 +126,11 @@ let bookArticleList = reactive({
             min-height: 5rem;
             border: 2px solid $main-content-color;
             border-radius: 48px;
+
+            @media screen and (max-width:480px) {
+                width: 100%;
+            }
+
 
             .article-info-box {
                 text-align: left;

@@ -22,8 +22,8 @@
                 <div class="number-mask">1</div>
             </article>
 
-            <div class="step-btn-box" >
-                <img src="@/assets/img/arrow-bottom.png" >
+            <div class="step-btn-box">
+                <img src="@/assets/img/arrow-bottom.png">
             </div>
 
             <article class="paragraph">
@@ -34,8 +34,8 @@
                 <div class="number-mask">2</div>
             </article>
 
-            <div class="step-btn-box" >
-                <img src="@/assets/img/arrow-bottom.png" >
+            <div class="step-btn-box">
+                <img src="@/assets/img/arrow-bottom.png">
             </div>
 
             <article class="paragraph">
@@ -56,8 +56,8 @@
                 <div class="number-mask">3</div>
             </article>
 
-            <div class="step-btn-box" >
-                <img src="@/assets/img/arrow-bottom.png" >
+            <div class="step-btn-box">
+                <img src="@/assets/img/arrow-bottom.png">
             </div>
 
             <article class="paragraph">
@@ -129,11 +129,12 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
         width: 100%;
         color: $main-content-color;
 
-        .step-btn-box{
+        .step-btn-box {
             width: 100%;
             text-align: center;
-            margin-bottom: 1.5rem ;
-            img{
+            margin-bottom: 1.5rem;
+
+            img {
                 width: 2.5rem;
             }
         }
@@ -193,6 +194,10 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
                 display: flex;
                 align-items: center;
                 justify-content: space-around;
+
+                @media screen and (max-width:480px) {
+                    flex-direction: column;
+                }
 
                 .download-item {
                     display: flex;

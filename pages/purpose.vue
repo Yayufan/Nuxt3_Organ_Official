@@ -283,6 +283,11 @@ const getOtherList = () => {
         /**這邊是處理通用段落、sub-title 和 內容 */
         .paragraph {
             margin-bottom: 3%;
+
+            @media screen and (max-width:480px) {
+                margin-bottom: 6%;
+            }
+
         }
 
         .sub-title {
@@ -376,6 +381,16 @@ const getOtherList = () => {
                 box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
                 margin-bottom: 2%;
                 padding: 0.7rem;
+
+                @media screen and (max-width:850px) {
+                    width: 44%;
+                }
+
+                @media screen and (max-width:480px) {
+                    width: 80%;
+                    margin: 0 auto;
+                    margin-bottom: 6%;
+                }
 
 
                 .supervisors-session {

@@ -121,6 +121,11 @@ let bookArticleList = reactive({
             margin-bottom: 2%;
             width: 26%;
 
+            @media screen and (max-width:480px) {
+                width: 75%;
+                margin: 0 auto;
+            }
+
             .book-article-img-box {
                 img {
                     aspect-ratio: 3/4;
