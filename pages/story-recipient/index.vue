@@ -133,6 +133,7 @@ let bookArticleList = reactive({
 
             .article-img-box {
                 position: relative;
+                overflow: hidden;
 
                 img {
                     transition: 0.5s;
