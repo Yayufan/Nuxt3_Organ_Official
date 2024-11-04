@@ -62,7 +62,7 @@ let bookArticleList = reactive({
         {
             title: '生命的味道 - 20周年紀錄片',
             description: '每個人一生來就是要面對「老去」、「生病」、「死亡」這些階段，當生命已無法延續，你要如何面對這世界？',
-            imgUrl: '/img/cta-img-1.jpg',
+            imgUrl: '/img/default-article-img.jpg',
         },
         {
             title: '生命的味道 - 20周年紀錄片',

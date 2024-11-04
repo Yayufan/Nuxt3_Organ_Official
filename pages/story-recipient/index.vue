@@ -128,10 +128,16 @@ let bookArticleList = reactive({
             margin-bottom: 3%;
             width: 48%;
 
+
             //當滑鼠碰到這篇文章時,改變字體顏色+圖片放大
             &:hover {
                 cursor: pointer;
 
+                .article-img-box {
+                    img {
+                        scale: (1.05);
+                    }
+                }
             }
 
             @media screen and (max-width:480px) {
@@ -142,6 +148,7 @@ let bookArticleList = reactive({
             .article-img-box {
                 position: relative;
                 overflow: hidden;
+                border-radius: 16px;
 
                 img {
                     transition: 0.5s;
@@ -152,7 +159,7 @@ let bookArticleList = reactive({
                     /* 新增這行 */
                     object-fit: fill;
                     object-position: top center;
-                    border-radius: 16px;
+
 
                 }
             }

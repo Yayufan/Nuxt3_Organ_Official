@@ -110,9 +110,30 @@ let articleList = reactive({
             margin: 3% 0;
 
 
+            //當滑鼠碰到這篇文章時,改變字體顏色+圖片放大
+            &:hover {
+                cursor: pointer;
+
+                .article-img-box {
+                    img {
+                        scale: (1.05);
+                    }
+                }
+            }
+
+            @media screen and (max-width:481px) {
+                margin: 7% 0;
+            }
+
+
             .article-img-box {
                 max-width: 15rem;
-                min-width: 170px;
+                min-width: 145px;
+
+                @media screen and (max-width:481px) {
+                    max-width: 145px;
+                }
+
 
                 img {
                     aspect-ratio: 1 / 1;
@@ -123,6 +144,7 @@ let articleList = reactive({
                     object-fit: cover;
                     object-position: top center;
                     border-radius: 16px;
+                    transition: 0.5s;
                 }
 
             }
@@ -141,7 +163,7 @@ let articleList = reactive({
                     @media screen and (max-width:480px) {
                         display: -webkit-box;
                         -webkit-box-orient: vertical;
-                        -webkit-line-clamp: 8;
+                        -webkit-line-clamp: 6;
                         overflow: hidden;
                     }
 

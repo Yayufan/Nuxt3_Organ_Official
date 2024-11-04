@@ -1,7 +1,7 @@
 <!--  -->
 <template>
 
-    <Breadcrumbs firstRoute="訊息看板" secoundRoute="活動花絮" ></Breadcrumbs>
+    <Breadcrumbs firstRoute="訊息看板" secoundRoute="活動花絮"></Breadcrumbs>
 
     <section class="common-seciton">
 
@@ -83,7 +83,6 @@ let articleList = reactive({
 </script>
 
 <style scoped lang="scss">
-
 .common-seciton {
     width: $common-section-width;
     margin: $common-section-margin;
@@ -116,11 +115,34 @@ let articleList = reactive({
             margin: 3% 0;
 
 
+            //當滑鼠碰到這篇文章時,改變字體顏色+圖片放大
+            &:hover {
+                cursor: pointer;
+
+                .article-img-box {
+                    img {
+                        scale: (1.05);
+                    }
+                }
+            }
+
+
+            @media screen and (max-width:481px) {
+                margin: 7% 0;
+            }
+
+
             .article-img-box {
                 max-width: 15rem;
-                min-width: 170px;
+                min-width: 145px;
+
+
+                @media screen and (max-width:481px) {
+                    max-width: 145px;
+                }
 
                 img {
+                    transition: 0.5s;
                     width: 100%;
                     border-radius: 16px;
                 }
@@ -141,7 +163,7 @@ let articleList = reactive({
                     @media screen and (max-width:480px) {
                         display: -webkit-box;
                         -webkit-box-orient: vertical;
-                        -webkit-line-clamp: 8;
+                        -webkit-line-clamp: 6;
                         overflow: hidden;
                     }
                 }

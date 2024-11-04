@@ -158,6 +158,17 @@ let resourceArticleList = reactive({
             border: 1px solid #b1b1b1;
             box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.2);
 
+            //當滑鼠碰到這篇文章時,改變字體顏色+圖片放大
+            &:hover {
+                cursor: pointer;
+
+                .article-img-box {
+                    img {
+                        scale: (1.05);
+                    }
+                }
+            }
+
 
             @media screen and (max-width:481px) {
                 width: 100%;
@@ -173,6 +184,7 @@ let resourceArticleList = reactive({
 
 
                 img {
+                    transition: 0.5s;
                     width: 100%;
                     aspect-ratio: 1 / 1;
                     border: 1px solid #b1b1b1;
