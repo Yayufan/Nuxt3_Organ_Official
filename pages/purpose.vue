@@ -271,12 +271,15 @@ const getOtherList = () => {
         margin-left: 10%;
         margin-bottom: 3%;
 
+        @media screen and (max-width:481px) {
+            margin-left: 0;
+        }
+
     }
 
     .content-box {
         // background-color: aqua;
         width: 100%;
-
         color: $main-content-color;
 
 
@@ -297,6 +300,11 @@ const getOtherList = () => {
             background-color: $main-color;
             padding: 5px 2.5rem;
             border-radius: 16px;
+
+            @media screen and (max-width:480px) {
+                margin-left: 0;
+            }
+
         }
 
         .content {

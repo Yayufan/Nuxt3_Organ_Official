@@ -1,7 +1,7 @@
 <!--  -->
 <template>
 
-    <Breadcrumbs firstRoute="信息看板" secoundRoute="活動花絮" ></Breadcrumbs>
+    <Breadcrumbs firstRoute="訊息看板" secoundRoute="活動花絮" ></Breadcrumbs>
 
     <section class="common-seciton">
 
@@ -97,11 +97,19 @@ let articleList = reactive({
         margin-left: 10%;
         margin-bottom: 3%;
 
+        @media screen and (max-width:481px) {
+            margin-left: 0;
+        }
+
     }
 
     .content-box {
         margin-left: 10%;
         margin-right: 10%;
+
+        @media screen and (max-width:481px) {
+            margin-left: 0;
+        }
 
         .article-item {
             display: flex;
@@ -110,6 +118,7 @@ let articleList = reactive({
 
             .article-img-box {
                 max-width: 15rem;
+                min-width: 170px;
 
                 img {
                     width: 100%;
@@ -128,6 +137,13 @@ let articleList = reactive({
 
                 .article-description {
                     color: $main-content-color;
+
+                    @media screen and (max-width:480px) {
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 8;
+                        overflow: hidden;
+                    }
                 }
 
             }

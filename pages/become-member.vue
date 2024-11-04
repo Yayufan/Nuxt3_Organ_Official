@@ -121,6 +121,10 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
         margin-left: 10%;
         margin-bottom: 3%;
 
+        @media screen and (max-width:481px) {
+            margin-left: 0;
+        }
+
     }
 
     .content-box {
@@ -143,7 +147,7 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
         /**這邊是處理通用段落、sub-title 和 內容 */
         .paragraph {
             position: relative;
-            min-height: 100px;
+            //min-height: 100px;
             border: 5px solid #E5E8E0;
             border-radius: 80px 40px 40px 40px;
             background-color: #fff;

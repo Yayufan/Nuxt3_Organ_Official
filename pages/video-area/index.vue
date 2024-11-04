@@ -62,37 +62,35 @@ let bookArticleList = reactive({
         {
             title: '生命的味道 - 20周年紀錄片',
             description: '每個人一生來就是要面對「老去」、「生病」、「死亡」這些階段，當生命已無法延續，你要如何面對這世界？',
-            imgUrl: '/img/default-article-img.jpg',
+            imgUrl: '/img/cta-img-1.jpg',
         },
         {
             title: '生命的味道 - 20周年紀錄片',
             description: '每個人一生來就是要面對「老去」、「生病」、「死亡」這些階段，當生命已無法延續，你要如何面對這世界？',
-            imgUrl: '/img/default-article-img.jpg',
+            imgUrl: '/img/cta-img-1.jpg',
         },
         {
             title: '生命的味道 - 20周年紀錄片',
             description: '每個人一生來就是要面對「老去」、「生病」、「死亡」這些階段，當生命已無法延續，你要如何面對這世界？',
-            imgUrl: '/img/default-article-img.jpg',
+            imgUrl: '/img/cta-img-1.jpg',
         },
         {
             title: '生命的味道 - 20周年紀錄片',
             description: '每個人一生來就是要面對「老去」、「生病」、「死亡」這些階段，當生命已無法延續，你要如何面對這世界？',
-            imgUrl: '/img/default-article-img.jpg',
+            imgUrl: '/img/cta-img-1.jpg',
         },
         {
             title: '生命的味道 - 20周年紀錄片',
             description: '每個人一生來就是要面對「老去」、「生病」、「死亡」這些階段，當生命已無法延續，你要如何面對這世界？',
-            imgUrl: '/img/default-article-img.jpg',
+            imgUrl: '/img/cta-img-1.jpg',
         },
         {
             title: '生命的味道 - 20周年紀錄片',
             description: '每個人一生來就是要面對「老去」、「生病」、「死亡」這些階段，當生命已無法延續，你要如何面對這世界？',
-            imgUrl: '/img/default-article-img.jpg',
+            imgUrl: '/img/cta-img-1.jpg',
         },
     ]
 })
-
-
 
 
 </script>
@@ -110,6 +108,10 @@ let bookArticleList = reactive({
         letter-spacing: $common-title-letter-spacing;
         margin-left: 10%;
         margin-bottom: 3%;
+
+        @media screen and (max-width:481px) {
+            margin-left: 0;
+        }
     }
 
     .content-box {
@@ -118,6 +120,10 @@ let bookArticleList = reactive({
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+
+        @media screen and (max-width:481px) {
+            margin-left: 0;
+        }
 
         .article-item {
             position: relative;
@@ -153,9 +159,8 @@ let bookArticleList = reactive({
                 width: 1.8rem;
                 height: 1.8rem;
                 border-radius: 50%;
-
                 content: url('@/assets/img/play-button.svg');
-                background: #878788;
+                // background: #878788;
             }
 
 

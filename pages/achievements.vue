@@ -1,7 +1,7 @@
 <!--  -->
 <template>
 
-<Breadcrumbs firstRoute="加入我們" secoundRoute="歷年成果(簽卡分析)" ></Breadcrumbs>
+    <Breadcrumbs firstRoute="加入我們" secoundRoute="歷年成果(簽卡分析)"></Breadcrumbs>
 
     <section class="common-seciton">
 
@@ -62,10 +62,18 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
         margin-left: 10%;
         margin-bottom: 3%;
 
+        @media screen and (max-width:481px) {
+            margin-left: 0;
+        }
+
     }
 
     .content-box {
         margin-left: 10%;
+
+        @media screen and (max-width:481px) {
+            margin-left: 0;
+        }
 
         .paragraph {
             margin: 3% 0;

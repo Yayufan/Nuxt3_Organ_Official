@@ -129,9 +129,17 @@ let resourceArticleList = reactive({
         letter-spacing: $common-title-letter-spacing;
         margin-left: 10%;
         margin-bottom: 3%;
+
+        @media screen and (max-width:481px) {
+            margin-left: 0;
+        }
     }
 
     .content-box {
+        @media screen and (max-width:481px) {
+            margin-left: 8%;
+        }
+
         margin-left: 14%;
         margin-right: 10%;
         display: flex;

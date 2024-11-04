@@ -386,10 +386,18 @@ const getOtherList = () => {
         margin-left: 10%;
         margin-bottom: 3%;
 
+        @media screen and (max-width:481px) {
+            margin-left: 0;
+        }
+
     }
 
     .content-box {
         margin-left: 10%;
+
+        @media screen and (max-width:481px) {
+            margin-left: 0;
+        }
 
         .paragraph {
             margin: 3% 0;

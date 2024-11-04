@@ -107,6 +107,10 @@ let bookArticleList = reactive({
         letter-spacing: $common-title-letter-spacing;
         margin-left: 10%;
         margin-bottom: 3%;
+
+        @media screen and (max-width:481px) {
+            margin-left: 0;
+        }
     }
 
     .content-box {
@@ -115,6 +119,10 @@ let bookArticleList = reactive({
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+
+        @media screen and (max-width:481px) {
+            margin-left: 0;
+        }
 
         .article-item {
             margin-bottom: 3%;

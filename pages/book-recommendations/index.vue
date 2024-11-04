@@ -108,6 +108,10 @@ let bookArticleList = reactive({
         letter-spacing: $common-title-letter-spacing;
         margin-left: 10%;
         margin-bottom: 3%;
+
+        @media screen and (max-width:481px) {
+            margin-left: 0;
+        }
     }
 
     .content-box {
@@ -117,12 +121,16 @@ let bookArticleList = reactive({
         flex-wrap: wrap;
         justify-content: space-between;
 
+        @media screen and (max-width:481px) {
+            margin-left: 0;
+        }
+
         .book-article-item {
             margin-bottom: 2%;
             width: 26%;
 
             @media screen and (max-width:480px) {
-                width: 75%;
+                width: 45%;
                 margin: 0 auto;
             }
 
@@ -150,8 +158,15 @@ let bookArticleList = reactive({
 
                 .book-article-description {
                     color: $main-content-color;
-                }
 
+                    @media screen and (max-width:481px) {
+                        //這組合是超過三行時使用...
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 4;
+                        overflow: hidden;
+                    }
+                }
             }
 
             .more-box {

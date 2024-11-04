@@ -104,11 +104,22 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
         letter-spacing: $common-title-letter-spacing;
         margin-left: 10%;
         margin-bottom: 2%;
+
+        @media screen and (max-width:481px) {
+            margin-left: 1rem;
+            margin-bottom: 10%;
+            
+        }
+
     }
 
     .content-box {
         margin-left: 10%;
         margin-right: 10%;
+
+        @media screen and (max-width:481px) {
+            margin-left: 0;
+        }
 
         .additional-information {
             margin-left: 1.7rem;

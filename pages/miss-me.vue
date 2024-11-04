@@ -128,6 +128,10 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
         letter-spacing: $common-title-letter-spacing;
         margin-left: 10%;
         margin-bottom: 2%;
+
+        @media screen and (max-width:481px) {
+            margin-left: 0;
+        }
     }
 
     .content-box {
@@ -135,6 +139,10 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
         display: flex;
         font-size: 1rem;
         color: $main-content-color;
+
+        @media screen and (max-width:481px) {
+            margin-left: 0;
+        }
 
         .zh-tw-content {
             width: 50%;
