@@ -1,7 +1,7 @@
 <template>
     <div class="menu-section">
 
-        <el-menu class="PC-navbar" :ellipsis="false" mode="horizontal" @select="" :popper-offset="-1"
+        <el-menu :class="['PC-navbar', { 'not-show-logo': !showLogo }]"  :ellipsis="false" mode="horizontal" @select="" :popper-offset="-1"
             popper-class="popper">
             <!-- <el-menu-item> -->
             <el-menu-item v-if="showLogo" class="logo-box">
@@ -28,7 +28,7 @@
             <el-sub-menu index="3">
                 <template #title>認識器捐</template>
                 <nuxt-link to="/organ-donation"><el-menu-item>器捐學堂</el-menu-item></nuxt-link>
-                <nuxt-link to="/journa"><el-menu-item>器捐捐贈會刊</el-menu-item></nuxt-link>
+                <nuxt-link to="/journal"><el-menu-item>器捐捐贈會刊</el-menu-item></nuxt-link>
                 <nuxt-link to="/story-donor-family"><el-menu-item>器捐生命故事:捐贈者家屬篇</el-menu-item></nuxt-link>
                 <nuxt-link to="/story-recipient"><el-menu-item>器捐生命故事:受捐者篇</el-menu-item></nuxt-link>
                 <nuxt-link to="/video-area"><el-menu-item>影音專區</el-menu-item></nuxt-link>
@@ -68,6 +68,9 @@ watch(scrollPosition, (newValue) => {
 
 <style lang="scss" scoped>
 .menu-section {
+    @media screen and (max-width: 850px) {
+            display: none;
+    }
     background-color: #FFFFFF;
     min-width: 100%;
     box-shadow: 0 2px 0px rgba(0, 0, 0, 0.1);
@@ -76,8 +79,6 @@ watch(scrollPosition, (newValue) => {
 
     .PC-navbar {
         border-bottom: none;
-        margin-top: 20px ;
-        padding: 0 ;
         margin-top: 20px;
         padding: 0;
 
@@ -89,6 +90,7 @@ watch(scrollPosition, (newValue) => {
                 padding-right: 37px;
                 border-bottom: none;
                 margin-right: 3rem;
+
 
                 @media screen and (max-width: 1100px) {
                     font-size: 1.2rem;

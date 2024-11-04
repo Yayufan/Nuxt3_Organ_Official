@@ -25,7 +25,7 @@
     max-width: 100vw;
     background-color: #EAEAE9;
     display: flex;
-    justify-content: center;
+    // justify-content: space-around;
     .breadcrumb {
         display: flex;
         line-height: 100%;
@@ -33,7 +33,8 @@
         font-weight: normal;
         letter-spacing: 0.1rem;
         color: $main-content-color;
-        width: 47rem;
+        margin-left: 15%;
+        // width: 47rem;
        :deep(.is-link) {
             &:hover {
                 color: $main-color;
