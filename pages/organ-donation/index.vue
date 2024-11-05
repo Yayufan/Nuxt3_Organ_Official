@@ -110,12 +110,6 @@ let bookArticleList = reactive({
 })
 
 
-onMounted(() => {
-    let windowsWidth = useWindowSize()
-    console.log('這是視口寬度:', windowsWidth.width.value)
-}
-)
-
 
 
 </script>
