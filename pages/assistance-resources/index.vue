@@ -139,15 +139,17 @@ let resourceArticleList = reactive({
     }
 
     .content-box {
-        @media screen and (max-width:481px) {
-            margin-left: 8%;
-        }
 
         margin-left: 14%;
         margin-right: 10%;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+
+        @media screen and (max-width:481px) {
+            margin-left: 8%;
+            margin-right: 0;
+        }
 
 
         .article-item {

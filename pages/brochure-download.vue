@@ -106,6 +106,7 @@ let articleList = reactive({
 
         @media screen and (max-width:481px) {
             margin-left: 0;
+            margin-right: 0;
         }
 
         .article-item {

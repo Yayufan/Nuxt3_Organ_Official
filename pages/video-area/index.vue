@@ -42,8 +42,6 @@
                 </div>
 
             </div>
-
-
         </section>
 
     </div>
@@ -126,6 +124,7 @@ let bookArticleList = reactive({
 
         @media screen and (max-width:481px) {
             margin-left: 0;
+            margin-right: 0;
         }
 
         .article-item {
@@ -134,6 +133,11 @@ let bookArticleList = reactive({
             width: 32%;
             border-radius: 16px;
             box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
+
+            @media screen and (max-width:480px) {
+                width: 100%;
+                margin: 8% auto;
+            }
 
 
             //當滑鼠碰到這篇文章時,改變字體顏色+圖片放大
@@ -178,10 +182,7 @@ let bookArticleList = reactive({
                 // background: #878788;
             }
 
-            @media screen and (max-width:480px) {
-                width: 75%;
-                margin: 0 auto;
-            }
+
 
             .article-img-box {
                 overflow: hidden;

@@ -123,6 +123,7 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
         @media screen and (max-width:481px) {
             margin-left: 0;
+            margin-right: 0;
         }
 
         .additional-information {
@@ -131,6 +132,8 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
             font-size: 1rem;
             max-width: 900px;
             line-height: 1.5;
+
+
         }
 
         .paragraph {
@@ -159,6 +162,14 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
             .download-item {
                 color: $main-content-color;
                 margin: 0.5rem 0;
+
+                @media screen and (max-width:481px) {
+                    span {
+                        display: block;
+                        margin-top: 0.5rem;
+                    }
+
+                }
 
                 .supplementary-information {
                     margin-left: 1.7rem;

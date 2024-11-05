@@ -225,6 +225,7 @@ const getOtherList = () => {
 
         @media screen and (max-width:481px) {
             margin-left: 0;
+            margin-right: 0;
         }
 
         .article-item {
@@ -253,8 +254,9 @@ const getOtherList = () => {
             }
 
             @media screen and (max-width:480px) {
-                width: 75%;
-                margin: 0 auto;
+                width: 90px;
+                height: 90px;
+                margin: 5% auto;
             }
 
 
@@ -265,8 +267,16 @@ const getOtherList = () => {
                     font-size: 1.5rem;
                     color: $sub-color;
 
+                    @media screen and (max-width:480px) {
+                        font-size: 1.3rem;
+                    }
+
                     .number {
                         font-size: 3rem;
+
+                        @media screen and (max-width:480px) {
+                            font-size: 2.7rem;
+                        }
                     }
 
                 }

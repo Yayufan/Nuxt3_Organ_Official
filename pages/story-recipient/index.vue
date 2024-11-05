@@ -125,6 +125,7 @@ let bookArticleList = reactive({
 
         @media screen and (max-width:481px) {
             margin-left: 0;
+            margin-right: 0;
         }
 
         .article-item {
@@ -144,8 +145,8 @@ let bookArticleList = reactive({
             }
 
             @media screen and (max-width:480px) {
-                width: 75%;
-                margin: 0 auto;
+                width: 80%;
+                margin: 5% auto;
             }
 
             .article-img-box {

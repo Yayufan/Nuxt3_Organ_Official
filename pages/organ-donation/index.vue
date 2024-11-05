@@ -51,15 +51,12 @@
 import { ref, reactive } from 'vue'
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
-//預設size , 預設PC視口為9 , mobile視口為 4
-let defaultSize = ref(9)
-
 //設定分頁組件,currentPage當前頁數.value
 let currentPage = ref(1)
 
 let bookArticleList = reactive({
     pages: 9,
-    size: defaultSize,
+    size: 9,
     records: [
         {
             title: '年紀太大不能器捐？',
@@ -109,7 +106,21 @@ let bookArticleList = reactive({
     ]
 })
 
+//獲取視口寬度及判斷是否為Mobile裝置
+const { width, isMobile } = useWindowSize()
+console.log('預設個數', bookArticleList.size)
 
+console.log(bookArticleList)
+
+onMounted(() => {
+    //如果使用者裝置是使用mobile,更改顯示數量
+    if (isMobile.value) {
+        bookArticleList.size = 4
+    }
+
+    console.log('根據使用者裝置變更預設個數', bookArticleList.size)
+    console.log(bookArticleList)
+})
 
 
 </script>
@@ -130,6 +141,7 @@ let bookArticleList = reactive({
 
         @media screen and (max-width:481px) {
             margin-left: 0;
+
         }
     }
 
@@ -142,6 +154,7 @@ let bookArticleList = reactive({
 
         @media screen and (max-width:481px) {
             margin-left: 0;
+            margin-right: 0;
         }
 
         .article-item {
@@ -163,7 +176,7 @@ let bookArticleList = reactive({
             }
 
             @media screen and (max-width:480px) {
-                width: 75%;
+                width: 85%;
                 margin: 0 auto;
             }
 

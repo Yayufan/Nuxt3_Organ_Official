@@ -26,35 +26,32 @@
                             <img src="/files/charity-painter.png">
                         </div>
                         <div class="painter-info">
-                            特此感謝劉其偉先生的長子劉怡孫先生捐贈版畫支持中華民國器官捐贈協會
+                            特此感謝劉其偉先生的長子劉怡孫先生捐贈版畫
+                            <br><br>
+                            支持中華民國器官捐贈協會
                         </div>
                     </div>
                 </article>
 
                 <article class="paragraph">
-                    <p>
-                        本會是由熱心公益人士籌募社會資源於民國82年（西元1993年）成立，<br>
+                    <p class="info-part info-part01">本會是由熱心公益人士籌募社會資源於民國82年（西元1993年）成立，</p>
+                    <p class="info-part info-part01">三十年來，持續對社會大眾進行器捐生命教育宣導，並且陪伴捐贈者家屬走過生命的失落。</p>
+                    <p class="info-part info-part01">協會服務經費仰賴會員與各界捐款贊助，您的支持是讓我們持續前行的重要能量。</p>
 
-                        三十年來，持續對社會大眾進行器捐生命教育宣導，並且陪伴捐贈者家屬走過生命的失落。<br>
+                    <br><br>
 
-                        協會服務經費仰賴會員與各界捐款贊助，您的支持是讓我們持續前行的重要能量。<br>
-                    </p>
+                    <p class="info-part info-part02">本次義賣之限量版畫為星座系列與生肖系列，採半抽象的方式，</p>
+                    <p class="info-part info-part02">以誇張與簡化的造形，融入個人豐富的想像力與感受而呈現出來。</p>
 
-                    <p>
-                        本次義賣之限量版畫為星座系列與生肖系列，採半抽象的方式，<br>
+                    <br>
 
-                        以誇張與簡化的造形，融入個人豐富的想像力與感受而呈現出來。<br>
-                    </p>
+                    <p>您的認購將讓無價的藝術品更增添意義。</p>
 
-                    <p>
-                        您的認購將讓無價的藝術品更增添意義。<br>
-                    </p>
+                    <br>
 
-                    <p>
-                        敬請有意願認購之個人或公司行號撥冗致電本會02-2702-5150洽詢 翁專員。<br>
+                    <p class="info-part info-part03">敬請有意願認購之個人或公司行號撥冗致電本會02-2702-5150洽詢 翁專員。</p>
+                    <p class="info-part info-part03">義賣款項均開立捐款收據隨版畫一同回寄。</p>
 
-                        義賣款項均開立捐款收據隨版畫一同回寄。<br>
-                    </p>
 
                 </article>
 
@@ -127,6 +124,14 @@ const drawer = ref(false)
     margin: $common-section-margin;
     font-family: $common-section-font-family;
 
+    
+    @media screen and (max-width:481px) {
+        :deep(.el-drawer) {
+            width: 80% !important;
+        }
+
+    }
+
 
     .common-title {
         color: $main-color;
@@ -165,6 +170,7 @@ const drawer = ref(false)
         }
 
         .go-to-donate {
+            display: inline-block;
             cursor: pointer;
             font-size: 1.2rem;
             margin: 0 5px;
@@ -176,7 +182,7 @@ const drawer = ref(false)
 
             @media screen and (max-width:481px) {
                 margin: 0 0.5rem;
-                box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
+                box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.3);
             }
 
         }
@@ -225,6 +231,11 @@ const drawer = ref(false)
         // background-color: aqua;
         color: $main-content-color;
 
+        @media screen and (max-width:481px) {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
         .step-btn-box {
             width: 100%;
             text-align: center;
@@ -248,14 +259,20 @@ const drawer = ref(false)
             margin-bottom: 3%;
 
             @media screen and (max-width:480px) {
-                padding: 1rem;
                 margin-bottom: 6%;
             }
 
 
             p {
-                margin: 3% 0;
-                line-height: 3;
+                margin-top: 3%;
+                line-height: 1.5;
+            }
+
+            .info-part {
+                @media screen and (max-width:481px) {
+                    display: inline;
+                }
+
             }
 
             .charity-painter-box {
@@ -264,10 +281,19 @@ const drawer = ref(false)
                 justify-content: space-between;
 
                 .painter-img {
-                    margin-right: 10%;
+                    margin-right: 8%;
+
+                    @media screen and (max-width:481px) {
+                        margin-right: 3%;
+                    }
 
                     img {
                         width: 100%;
+                        min-width: 100px;
+
+                        @media screen and (max-width:481px) {
+                            min-width: 120px;
+                        }
                     }
                 }
 
@@ -275,6 +301,10 @@ const drawer = ref(false)
                     font-size: 1.9rem;
                     text-align: center;
                     line-height: 1.5;
+
+                    @media screen and (max-width:481px) {
+                        font-size: 1.1rem;
+                    }
                 }
             }
 
