@@ -4,7 +4,7 @@
 
         <Breadcrumbs firstRoute="認識器捐" secoundRoute="器官捐贈會刊"></Breadcrumbs>
 
-        <section class="common-seciton">
+        <section class="common-section">
 
             <h1 class="common-title">器官捐贈會刊</h1>
 
@@ -198,7 +198,7 @@ const getOtherList = () => {
 </script>
 
 <style scoped lang="scss">
-.common-seciton {
+.common-section {
     width: $common-section-width;
     margin: $common-section-margin;
     font-family: $common-section-font-family;

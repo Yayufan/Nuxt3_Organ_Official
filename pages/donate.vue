@@ -5,7 +5,7 @@
 
         <Breadcrumbs firstRoute="捐贈贊助" secoundRoute="捐款支持-立即行動"></Breadcrumbs>
 
-        <section class="common-seciton">
+        <section class="common-section">
 
             <h1 class="common-title">捐款支持-立即行動</h1>
 
@@ -149,7 +149,7 @@ const drawer = ref(false)
 </script>
 
 <style scoped lang="scss">
-.common-seciton {
+.common-section {
     width: $common-section-width;
     margin: $common-section-margin;
     font-family: $common-section-font-family;

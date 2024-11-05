@@ -5,7 +5,7 @@
 
         <Breadcrumbs firstRoute="認識器捐" secoundRoute="器捐生命故事 - 受贈者篇"></Breadcrumbs>
 
-        <section class="common-seciton">
+        <section class="common-section">
 
             <h1 class="common-title">器捐生命故事 - 受贈者篇</h1>
 
@@ -98,7 +98,7 @@ let bookArticleList = reactive({
 </script>
 
 <style scoped lang="scss">
-.common-seciton {
+.common-section {
     width: $common-section-width;
     margin: $common-section-margin;
     font-family: $common-section-font-family;

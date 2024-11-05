@@ -7,7 +7,7 @@
 
         <Breadcrumbs firstRoute="認識器捐" secoundRoute="器捐學堂"></Breadcrumbs>
 
-        <section class="common-seciton">
+        <section class="common-section">
 
             <h1 class="common-title">器捐學堂</h1>
 
@@ -51,12 +51,15 @@
 import { ref, reactive } from 'vue'
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
-//設定分頁組件,currentPage當前頁數
+//預設size , 預設PC視口為9 , mobile視口為 4
+let defaultSize = ref(9)
+
+//設定分頁組件,currentPage當前頁數.value
 let currentPage = ref(1)
 
 let bookArticleList = reactive({
     pages: 9,
-    size: 9,
+    size: defaultSize,
     records: [
         {
             title: '年紀太大不能器捐？',
@@ -107,12 +110,18 @@ let bookArticleList = reactive({
 })
 
 
+onMounted(() => {
+    let windowsWidth = useWindowSize()
+    console.log('這是視口寬度:', windowsWidth.width.value)
+}
+)
+
 
 
 </script>
 
 <style scoped lang="scss">
-.common-seciton {
+.common-section {
     width: $common-section-width;
     margin: $common-section-margin;
     font-family: $common-section-font-family;

@@ -5,7 +5,7 @@
 
         <Breadcrumbs firstRoute="簽署器捐" secoundRoute="撤銷器官簽署"></Breadcrumbs>
 
-        <section class="common-seciton">
+        <section class="common-section">
 
             <h1 class="common-title">撤銷器官簽署</h1>
 
@@ -55,7 +55,7 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 </script>
 
 <style scoped lang="scss">
-.common-seciton {
+.common-section {
     width: $common-section-width;
     margin: $common-section-margin;
     font-family: $common-section-font-family;

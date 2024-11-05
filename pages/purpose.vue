@@ -5,7 +5,7 @@
 
         <Breadcrumbs firstRoute="加入我們" secoundRoute="宗旨任務"></Breadcrumbs>
 
-        <section class="common-seciton">
+        <section class="common-section">
 
 
 
@@ -261,7 +261,7 @@ const getOtherList = () => {
 </script>
 
 <style scoped lang="scss">
-.common-seciton {
+.common-section {
     width: $common-section-width;
     margin: $common-section-margin;
     font-family: $common-section-font-family;

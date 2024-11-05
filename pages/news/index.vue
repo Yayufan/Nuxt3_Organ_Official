@@ -5,7 +5,7 @@
 
         <Breadcrumbs firstRoute="訊息看板" secoundRoute="最新消息"></Breadcrumbs>
 
-        <section class="common-seciton">
+        <section class="common-section">
 
             <h1 class="common-title">最新消息</h1>
 
@@ -82,7 +82,7 @@ let articleList = reactive({
 </script>
 
 <style scoped lang="scss">
-.common-seciton {
+.common-section {
     width: $common-section-width;
     margin: $common-section-margin;
     font-family: $common-section-font-family;

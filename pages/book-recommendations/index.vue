@@ -4,7 +4,7 @@
 
         <Breadcrumbs firstRoute="家屬關懷" secoundRoute="好書推薦"></Breadcrumbs>
 
-        <section class="common-seciton">
+        <section class="common-section">
 
             <h1 class="common-title">好書推薦</h1>
 
@@ -99,7 +99,7 @@ let bookArticleList = reactive({
 </script>
 
 <style scoped lang="scss">
-.common-seciton {
+.common-section {
     width: $common-section-width;
     margin: $common-section-margin;
     font-family: $common-section-font-family;

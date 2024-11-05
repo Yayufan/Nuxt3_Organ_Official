@@ -5,7 +5,7 @@
 
         <Breadcrumbs firstRoute="加入我們" secoundRoute="加入會員"></Breadcrumbs>
 
-        <section class="common-seciton">
+        <section class="common-section">
 
 
 
@@ -112,7 +112,7 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 </script>
 
 <style scoped lang="scss">
-.common-seciton {
+.common-section {
     width: $common-section-width;
     margin: $common-section-margin;
     font-family: $common-section-font-family;

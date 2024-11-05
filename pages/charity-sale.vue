@@ -5,7 +5,7 @@
 
         <Breadcrumbs firstRoute="捐贈贊助" secoundRoute="版畫有限量，愛心無限亮"></Breadcrumbs>
 
-        <section class="common-seciton">
+        <section class="common-section">
 
             <h1 class="common-title">版畫有限量，愛心無限亮</h1>
 
@@ -122,7 +122,7 @@ const drawer = ref(false)
 </script>
 
 <style scoped lang="scss">
-.common-seciton {
+.common-section {
     width: $common-section-width;
     margin: $common-section-margin;
     font-family: $common-section-font-family;

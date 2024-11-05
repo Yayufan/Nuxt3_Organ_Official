@@ -4,7 +4,7 @@
 
         <Breadcrumbs firstRoute="家屬關懷" secoundRoute="如果你要懷念我"></Breadcrumbs>
 
-        <section class="common-seciton">
+        <section class="common-section">
 
             <h1 class="common-title">如果你要懷念我</h1>
 
@@ -122,7 +122,7 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 </script>
 
 <style scoped lang="scss">
-.common-seciton {
+.common-section {
     width: $common-section-width;
     margin: $common-section-margin;
     font-family: $common-section-font-family;

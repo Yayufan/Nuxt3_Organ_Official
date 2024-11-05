@@ -5,7 +5,7 @@
 
         <Breadcrumbs firstRoute="簽署器捐" secoundRoute="簽卡停看聽"></Breadcrumbs>
 
-        <section class="common-seciton">
+        <section class="common-section">
 
             <h1 class="common-title">簽卡停看聽</h1>
 
@@ -222,7 +222,7 @@ const scrollToSection = (section: any) => {
 </script>
 
 <style scoped lang="scss">
-.common-seciton {
+.common-section {
     width: $common-section-width;
     margin: $common-section-margin;
     font-family: $common-section-font-family;

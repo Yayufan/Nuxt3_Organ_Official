@@ -5,7 +5,7 @@
 
         <Breadcrumbs firstRoute="家屬關懷" secoundRoute="協助資源"></Breadcrumbs>
 
-        <section class="common-seciton">
+        <section class="common-section">
 
             <h1 class="common-title">協助資源</h1>
 
@@ -120,7 +120,7 @@ let resourceArticleList = reactive({
 </script>
 
 <style scoped lang="scss">
-.common-seciton {
+.common-section {
     width: $common-section-width;
     margin: $common-section-margin;
     font-family: $common-section-font-family;

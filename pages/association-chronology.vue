@@ -5,7 +5,7 @@
 
         <Breadcrumbs firstRoute="加入我們" secoundRoute="協會年表"></Breadcrumbs>
 
-        <section class="common-seciton">
+        <section class="common-section">
 
             <h1 class="common-title">協會年表</h1>
 
@@ -376,7 +376,7 @@ const getOtherList = () => {
 </script>
 
 <style scoped lang="scss">
-.common-seciton {
+.common-section {
     width: $common-section-width;
     margin: $common-section-margin;
     font-family: $common-section-font-family;
@@ -401,6 +401,11 @@ const getOtherList = () => {
 
         @media screen and (max-width:481px) {
             margin-left: 0;
+
+            .el-timeline{
+                padding-left: 0;
+            }
+
         }
 
         .paragraph {
