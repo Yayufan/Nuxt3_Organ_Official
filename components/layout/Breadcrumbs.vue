@@ -33,7 +33,7 @@
         font-weight: normal;
         letter-spacing: 0.1rem;
         color: $main-content-color;
-        margin-left: 15%;
+        margin-left: 15vw;
         // width: 47rem;
        :deep(.is-link) {
             &:hover {

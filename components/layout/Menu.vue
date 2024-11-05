@@ -2,7 +2,7 @@
     <div class="menu-section">
 
         <el-menu :class="['PC-navbar', { 'not-show-logo': !showLogo }]"  :ellipsis="false" mode="horizontal" @select="" :popper-offset="-1"
-            popper-class="popper">
+            popper-class="popper" :style="{marginLeft: showLogo? '0%' : '15vw'}">
             <!-- <el-menu-item> -->
             <el-menu-item v-if="showLogo" class="logo-box">
                 <nuxt-link  :to="'/'"><img ref="" class="logo" src="@/assets/img/logo.png"
@@ -45,12 +45,16 @@
                 <nuxt-link :to="'/social-work-column'"><el-menu-item>社工專欄</el-menu-item></nuxt-link>
                 <nuxt-link :to="'/miss-me'"><el-menu-item>如果你要懷念我</el-menu-item></nuxt-link>
             </el-sub-menu>
-            <el-menu-item class="donate">捐贈贊助</el-menu-item>
             <el-sub-menu index="5">
+                <template #title>捐贈贊助</template>
+                <nuxt-link :to="'/donate'"><el-menu-item>捐款支持-立即行動</el-menu-item></nuxt-link>
+                <nuxt-link :to="'/charity-sale'"><el-menu-item>版畫有限量，愛心無限亮</el-menu-item></nuxt-link>
+            </el-sub-menu>
+            <el-sub-menu index="6">
                 <template #title>簽署器捐</template>
-                <el-menu-item>線上簽屬</el-menu-item>
-                <el-menu-item>簽卡停看聽</el-menu-item>
-                <el-menu-item>撤銷簽屬</el-menu-item>
+                <nuxt-link to="/sign-online"><el-menu-item>線上簽屬</el-menu-item></nuxt-link>
+                <nuxt-link to="/frequently-asked-questions"><el-menu-item>簽卡停看聽</el-menu-item></nuxt-link>
+                <nuxt-link to="/cancel-donation"><el-menu-item>撤銷簽屬</el-menu-item></nuxt-link>
             </el-sub-menu>
         </el-menu>
     </div>
@@ -75,12 +79,14 @@ watch(scrollPosition, (newValue) => {
     min-width: 100%;
     box-shadow: 0 2px 0px rgba(0, 0, 0, 0.1);
     display: flex;
-    justify-content: center;
+    // justify-content: center;
 
     .PC-navbar {
         border-bottom: none;
         margin-top: 20px;
         padding: 0;
+        margin-left: 20%;
+
 
         .el-sub-menu {
             :deep(.el-sub-menu__title) {
@@ -110,22 +116,10 @@ watch(scrollPosition, (newValue) => {
 
         }
 
-        .donate {
-            color: $main-color;
-            font-size: 1.4rem;
-            padding: 0 27px 0 0;
-            margin-right: 3rem;
-
-            @media screen and (max-width: 1100px) {
-                font-size: 1.2rem;
-                margin-right: 0;
-            }
-
-        }
 
         .logo-box {
             transition: opacity 0.1s ease;
-            margin-right: 0;
+            margin-right: 2vw;
 
             .logo {
                 width: 13rem;
