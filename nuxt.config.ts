@@ -5,15 +5,17 @@ export default defineNuxtConfig({
   //   port: 3000
   // },
 
+
+
   //運行時的配置
   runtimeConfig: {
     //運行時配置,僅服務器端可訪問
     //apiSecret: '', // 可以由 NUXT_API_SECRET 环境变量覆盖
     //也可以透過process.env 來訪問環境配置文件的屬性
-    apiSecret:process.env.NUXT_API_SECRET,
+    apiSecret: process.env.NUXT_API_SECRET,
     //可被客戶端公開訪問
     public: {
-      apiBase: process.env.NUXT_PUBLIC_API_BASE, 
+      apiBase: process.env.NUXT_PUBLIC_API_BASE,
       domain: process.env.NUXT_PUBLIC_DOMAIN
     }
   },
@@ -45,7 +47,9 @@ export default defineNuxtConfig({
         // <script src="https://myawesome-lib.js"></script>  如果你像引入這個
         // { src: 'https://awesome-lib.js' }  //請這樣寫
       ]
-    }
+    },
+    pageTransition: { name: 'page', mode: 'out-in' }
+
   },
   //引入全局css
   css: [
@@ -53,7 +57,7 @@ export default defineNuxtConfig({
   ],
   //vite配置
   vite: {
-    
+
     css: {
       preprocessorOptions: {
         scss: {
@@ -70,11 +74,11 @@ export default defineNuxtConfig({
     '@element-plus/nuxt'
   ],
   //這是一個配置項,如果有報錯是暫時的,安裝完依賴,重開Vscode, 以及npm run dev跑一次
-  elementPlus: { 
+  elementPlus: {
     //預設icon是不會自動引入的,預設為false, 他只接受String | false 兩種配置
     //在使用icon的時候 就要加上前墜ElIcon, 例如使用Search Icon , 就得寫成 ElIconSearch
-    icon:'ElIcon',
+    icon: 'ElIcon',
 
-    /** 其他Options */ 
+    /** 其他Options */
   }
 })

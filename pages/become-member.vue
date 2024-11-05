@@ -1,100 +1,105 @@
 <!--  -->
 <template>
+    
+    <div>
 
-    <Breadcrumbs firstRoute="加入我們" secoundRoute="加入會員"></Breadcrumbs>
+        <Breadcrumbs firstRoute="加入我們" secoundRoute="加入會員"></Breadcrumbs>
 
-    <section class="common-seciton">
+        <section class="common-seciton">
 
-        <h1 class="common-title">加入會員</h1>
 
-        <div class="content-box">
 
-            <article class="paragraph">
-                <h2 class="sub-title">會員類別</h2>
-                <div class="individual-member-box">
-                    <div class="common-label">個人會員</div>
-                    <p class="content">凡贊同本會宗旨，年滿二十歲，填具入會申請書， 經理事會通過，並繳納會費後，為個人會員。</p>
+            <h1 class="common-title">加入會員</h1>
+
+            <div class="content-box">
+
+                <article class="paragraph">
+                    <h2 class="sub-title">會員類別</h2>
+                    <div class="individual-member-box">
+                        <div class="common-label">個人會員</div>
+                        <p class="content">凡贊同本會宗旨，年滿二十歲，填具入會申請書， 經理事會通過，並繳納會費後，為個人會員。</p>
+                    </div>
+                    <div class="group-member-box">
+                        <div class="common-label">團體會員</div>
+                        <p class="content">凡機構團體贊同本會宗旨，填具入會申請書，經理事會通過，並繳納會費後，為團體會員。團體會員得推派代表一人，以行使權利。</p>
+                    </div>
+                    <div class="number-mask">1</div>
+                </article>
+
+                <div class="step-btn-box">
+                    <img src="@/assets/img/arrow-bottom.png">
                 </div>
-                <div class="group-member-box">
-                    <div class="common-label">團體會員</div>
-                    <p class="content">凡機構團體贊同本會宗旨，填具入會申請書，經理事會通過，並繳納會費後，為團體會員。團體會員得推派代表一人，以行使權利。</p>
+
+                <article class="paragraph">
+                    <h2 class="sub-title">會員權責</h2>
+                    <div class="individual-member-box">
+                        <p class="content">行使本會章程第二章第十條之權責。</p>
+                    </div>
+                    <div class="number-mask">2</div>
+                </article>
+
+                <div class="step-btn-box">
+                    <img src="@/assets/img/arrow-bottom.png">
                 </div>
-                <div class="number-mask">1</div>
-            </article>
 
-            <div class="step-btn-box">
-                <img src="@/assets/img/arrow-bottom.png">
-            </div>
+                <article class="paragraph">
+                    <h2 class="sub-title">入會申請辦法</h2>
+                    <p class="application-reminder">有意加入本會成為會員者，請將申請書填妥後寄回協會，或e-mail、傳真回本會，並請同時繳交會員費。</p>
+                    <div class="individual-member-box">
+                        <div class="common-label">個人會員會費</div>
+                        <p class="content">第一年入會，繳納新台幣貮仟元整（含入會費壹仟元及常年會費壹仟元），第二年起，每年僅須繳納常年會費。</p>
+                    </div>
+                    <div class="group-member-box">
+                        <div class="common-label">團體會員會費</div>
+                        <p class="content">
+                            第一年入會，繳納新台幣壹萬伍仟元整（含入會費壹萬元及常年會費伍仟元），第二年起，每年僅須繳納常年會費。
+                            <br>
+                            本會接到您的入會申請書及會費後，經由理、監事會審查通過，您即成為本會會員。
+                        </p>
+                    </div>
+                    <div class="number-mask">3</div>
+                </article>
 
-            <article class="paragraph">
-                <h2 class="sub-title">會員權責</h2>
-                <div class="individual-member-box">
-                    <p class="content">行使本會章程第二章第十條之權責。</p>
+                <div class="step-btn-box">
+                    <img src="@/assets/img/arrow-bottom.png">
                 </div>
-                <div class="number-mask">2</div>
-            </article>
 
-            <div class="step-btn-box">
-                <img src="@/assets/img/arrow-bottom.png">
-            </div>
+                <article class="paragraph">
+                    <h2 class="sub-title">下載入會表格</h2>
+                    <p class="application-reminder">請依會員類別下載</p>
 
-            <article class="paragraph">
-                <h2 class="sub-title">入會申請辦法</h2>
-                <p class="application-reminder">有意加入本會成為會員者，請將申請書填妥後寄回協會，或e-mail、傳真回本會，並請同時繳交會員費。</p>
-                <div class="individual-member-box">
-                    <div class="common-label">個人會員會費</div>
-                    <p class="content">第一年入會，繳納新台幣貮仟元整（含入會費壹仟元及常年會費壹仟元），第二年起，每年僅須繳納常年會費。</p>
-                </div>
-                <div class="group-member-box">
-                    <div class="common-label">團體會員會費</div>
-                    <p class="content">
-                        第一年入會，繳納新台幣壹萬伍仟元整（含入會費壹萬元及常年會費伍仟元），第二年起，每年僅須繳納常年會費。
-                        <br>
-                        本會接到您的入會申請書及會費後，經由理、監事會審查通過，您即成為本會會員。
-                    </p>
-                </div>
-                <div class="number-mask">3</div>
-            </article>
-
-            <div class="step-btn-box">
-                <img src="@/assets/img/arrow-bottom.png">
-            </div>
-
-            <article class="paragraph">
-                <h2 class="sub-title">下載入會表格</h2>
-                <p class="application-reminder">請依會員類別下載</p>
-
-                <div class="download-box">
-                    <div class="download-item">
-                        <div class="common-label">個人</div>
-                        <div class="download-file-box">
-                            <a class="download-link" href="/files/personal_membership_application_form.doc"
-                                download>個人會員入會申請書.doc</a>
-                            <a class="download-link" href="/files/personal_membership_application_form.pdf"
-                                download>個人會員入會申請書.pdf</a>
+                    <div class="download-box">
+                        <div class="download-item">
+                            <div class="common-label">個人</div>
+                            <div class="download-file-box">
+                                <a class="download-link" href="/files/personal_membership_application_form.doc"
+                                    download>個人會員入會申請書.doc</a>
+                                <a class="download-link" href="/files/personal_membership_application_form.pdf"
+                                    download>個人會員入會申請書.pdf</a>
+                            </div>
                         </div>
+
+                        <div class="download-item">
+                            <div class="common-label">團體</div>
+                            <div class="download-file-box">
+                                <a class="download-link" href="/files/group_membership_application_form.doc"
+                                    download>團體會員入會申請書.doc</a>
+                                <a class="download-link" href="/files/group_membership_application_form.pdf"
+                                    download>團體會員入會申請書.pdf</a>
+                            </div>
+                        </div>
+
                     </div>
 
-                    <div class="download-item">
-                        <div class="common-label">團體</div>
-                        <div class="download-file-box">
-                            <a class="download-link" href="/files/group_membership_application_form.doc"
-                                download>團體會員入會申請書.doc</a>
-                            <a class="download-link" href="/files/group_membership_application_form.pdf"
-                                download>團體會員入會申請書.pdf</a>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="number-mask">4</div>
-            </article>
+                    <div class="number-mask">4</div>
+                </article>
 
 
 
-        </div>
+            </div>
 
-    </section>
+        </section>
+    </div>
 
 
 </template>

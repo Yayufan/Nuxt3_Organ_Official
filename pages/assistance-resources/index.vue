@@ -1,42 +1,45 @@
 <!--  -->
 <template>
 
-    <Breadcrumbs firstRoute="家屬關懷" secoundRoute="協助資源"></Breadcrumbs>
+    <div>
 
-    <section class="common-seciton">
+        <Breadcrumbs firstRoute="家屬關懷" secoundRoute="協助資源"></Breadcrumbs>
 
-        <h1 class="common-title">協助資源</h1>
+        <section class="common-seciton">
 
-        <div class="content-box">
+            <h1 class="common-title">協助資源</h1>
 
-            <article class="article-item" v-for="(item, index) in resourceArticleList.records " :key="index">
+            <div class="content-box">
 
-                <div class="article-img-box">
-                    <img class="article-img" :src="item.imgUrl">
-                </div>
+                <article class="article-item" v-for="(item, index) in resourceArticleList.records " :key="index">
 
-                <div class="article-info-box">
-                    <h2 class="article-title">{{ item.title }}</h2>
-                </div>
+                    <div class="article-img-box">
+                        <img class="article-img" :src="item.imgUrl">
+                    </div>
 
-            </article>
+                    <div class="article-info-box">
+                        <h2 class="article-title">{{ item.title }}</h2>
+                    </div>
+
+                </article>
 
 
-            <!-- 
+                <!-- 
         分頁插件 total為總資料數(這邊設置20筆),  default-page-size代表每頁顯示資料(預設為10筆,這邊設置為5筆) 
         current-page當前頁數,官方建議使用v-model與current-page去與自己設定的變量做綁定,
         -->
-            <div class="common-pagination">
-                <el-pagination layout="prev, pager, next" :page-count="Number(resourceArticleList.pages)"
-                    :default-page-size="Number(resourceArticleList.size)" v-model:current-page="currentPage"
-                    :hide-on-single-page="true" :pager-count="5" />
+                <div class="common-pagination">
+                    <el-pagination layout="prev, pager, next" :page-count="Number(resourceArticleList.pages)"
+                        :default-page-size="Number(resourceArticleList.size)" v-model:current-page="currentPage"
+                        :hide-on-single-page="true" :pager-count="5" />
+                </div>
+
             </div>
 
-        </div>
 
+        </section>
 
-    </section>
-
+    </div>
 
 </template>
 
@@ -157,10 +160,12 @@ let resourceArticleList = reactive({
             border-radius: 16px;
             border: 1px solid #b1b1b1;
             box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.2);
+            transition: 0.5s;
 
             //當滑鼠碰到這篇文章時,改變字體顏色+圖片放大
             &:hover {
                 cursor: pointer;
+                background: $main-hover-bg;
 
                 .article-img-box {
                     img {

@@ -1,46 +1,49 @@
 <!--  -->
 <template>
 
-    <Breadcrumbs firstRoute="認識器捐" secoundRoute="器捐生命故事 - 受贈者篇"></Breadcrumbs>
+    <div>
 
-    <section class="common-seciton">
+        <Breadcrumbs firstRoute="認識器捐" secoundRoute="器捐生命故事 - 受贈者篇"></Breadcrumbs>
 
-        <h1 class="common-title">器捐生命故事 - 受贈者篇</h1>
+        <section class="common-seciton">
 
-        <div class="content-box">
+            <h1 class="common-title">器捐生命故事 - 受贈者篇</h1>
 
-            <article class="article-item" v-for="(item, index) in bookArticleList.records " :key="index">
-                <div class="article-img-box">
-                    <img class="article-img" :src="item.imgUrl">
+            <div class="content-box">
 
-                    <div class="article-info-box">
-                        <h2 class="article-title">{{ item.title }}</h2>
-                        <p class="article-description">
-                            {{ item.description }}
-                        </p>
+                <article class="article-item" v-for="(item, index) in bookArticleList.records " :key="index">
+                    <div class="article-img-box">
+                        <img class="article-img" :src="item.imgUrl">
+
+                        <div class="article-info-box">
+                            <h2 class="article-title">{{ item.title }}</h2>
+                            <p class="article-description">
+                                {{ item.description }}
+                            </p>
+                        </div>
+
                     </div>
 
-                </div>
 
 
+                </article>
 
-            </article>
-
-            <!-- 
+                <!-- 
         分頁插件 total為總資料數(這邊設置20筆),  default-page-size代表每頁顯示資料(預設為10筆,這邊設置為5筆) 
         current-page當前頁數,官方建議使用v-model與current-page去與自己設定的變量做綁定,
         -->
-            <div class="common-pagination">
-                <el-pagination layout="prev, pager, next" :page-count="Number(bookArticleList.pages)"
-                    :default-page-size="Number(bookArticleList.size)" v-model:current-page="currentPage"
-                    :hide-on-single-page="true" :pager-count="5" />
+                <div class="common-pagination">
+                    <el-pagination layout="prev, pager, next" :page-count="Number(bookArticleList.pages)"
+                        :default-page-size="Number(bookArticleList.size)" v-model:current-page="currentPage"
+                        :hide-on-single-page="true" :pager-count="5" />
+                </div>
+
             </div>
 
-        </div>
 
+        </section>
 
-    </section>
-
+    </div>
 
 </template>
 

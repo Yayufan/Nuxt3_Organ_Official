@@ -1,39 +1,43 @@
 <!--  -->
 <template>
 
-    <Breadcrumbs firstRoute="訊息看板" secoundRoute="最新消息"></Breadcrumbs>
+    <div>
 
-    <section class="common-seciton">
+        <Breadcrumbs firstRoute="訊息看板" secoundRoute="最新消息"></Breadcrumbs>
 
-        <h1 class="common-title">最新消息</h1>
+        <section class="common-seciton">
 
-        <div class="content-box">
+            <h1 class="common-title">最新消息</h1>
 
-            <article class="article-item" v-for="(item, index) in articleList.records " :key="index">
-                <div class="article-img-box">
-                    <img class="article-img" :src="item.imgUrl">
-                </div>
+            <div class="content-box">
 
-                <div class="article-info-box">
-                    <h2 class="article-title">{{ item.title }}</h2>
-                    <p class="article-description">
-                        {{ item.description }}
-                    </p>
-                </div>
+                <article class="article-item" v-for="(item, index) in articleList.records " :key="index">
+                    <div class="article-img-box">
+                        <img class="article-img" :src="item.imgUrl">
+                    </div>
 
-            </article>
+                    <div class="article-info-box">
+                        <h2 class="article-title">{{ item.title }}</h2>
+                        <p class="article-description">
+                            {{ item.description }}
+                        </p>
+                    </div>
 
-            <!-- 
+                </article>
+
+                <!-- 
         分頁插件 total為總資料數(這邊設置20筆),  default-page-size代表每頁顯示資料(預設為10筆,這邊設置為5筆) 
         current-page當前頁數,官方建議使用v-model與current-page去與自己設定的變量做綁定,
         -->
-            <div class="common-pagination">
-                <el-pagination layout="prev, pager, next" :page-count="Number(articleList.pages)"
-                    :default-page-size="Number(articleList.size)" v-model:current-page="currentPage"
-                    :hide-on-single-page="true" :pager-count="5" />
+                <div class="common-pagination">
+                    <el-pagination layout="prev, pager, next" :page-count="Number(articleList.pages)"
+                        :default-page-size="Number(articleList.size)" v-model:current-page="currentPage"
+                        :hide-on-single-page="true" :pager-count="5" />
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+    </div>
 
 </template>
 
@@ -108,11 +112,12 @@ let articleList = reactive({
         .article-item {
             display: flex;
             margin: 3% 0;
-
+            transition: 0.5s;
 
             //當滑鼠碰到這篇文章時,改變字體顏色+圖片放大
             &:hover {
                 cursor: pointer;
+                background: $main-hover-bg;
 
                 .article-img-box {
                     img {

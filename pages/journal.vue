@@ -1,38 +1,39 @@
 <!--  -->
 <template>
+    <div>
 
-    <Breadcrumbs firstRoute="認識器捐" secoundRoute="器官捐贈會刊"></Breadcrumbs>
+        <Breadcrumbs firstRoute="認識器捐" secoundRoute="器官捐贈會刊"></Breadcrumbs>
 
-    <section class="common-seciton">
+        <section class="common-seciton">
 
-        <h1 class="common-title">器官捐贈會刊</h1>
+            <h1 class="common-title">器官捐贈會刊</h1>
 
-        <div class="content-box">
+            <div class="content-box">
 
-            <article class="article-item" v-for="(item, index) in displayedJournaList " :key="index">
+                <article class="article-item" v-for="(item, index) in displayedJournaList " :key="index">
 
-                <div class="article-info-box">
-                    <a :href="item.downloadUrl" download>
-                        <h2 class="article-title">NO.
-                            <span class="number">{{ item.title }}</span>
-                            <br>
-                            電子會刊
-                        </h2>
-                    </a>
+                    <div class="article-info-box">
+                        <a :href="item.downloadUrl" download>
+                            <h2 class="article-title">NO.
+                                <span class="number">{{ item.title }}</span>
+                                <br>
+                                電子會刊
+                            </h2>
+                        </a>
+                    </div>
+
+                </article>
+
+                <div class="more-box">
+                    <button v-if="!showFullList" class="more-btn" @click="getOtherList">查看更多</button>
+                    <button v-else class="more-btn" @click="getOtherList"> 收起更多 </button>
                 </div>
 
-            </article>
-
-            <div class="more-box">
-                <button v-if="!showFullList" class="more-btn" @click="getOtherList">查看更多</button>
-                <button v-else class="more-btn" @click="getOtherList"> 收起更多 </button>
             </div>
 
-        </div>
 
-
-    </section>
-
+        </section>
+    </div>
 
 </template>
 

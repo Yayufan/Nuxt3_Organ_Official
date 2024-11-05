@@ -1,34 +1,38 @@
 <!--  -->
 <template>
 
-    <Breadcrumbs firstRoute="訊息看板" secoundRoute="合作申請書"></Breadcrumbs>
+    <div>
 
-    <section class="common-seciton">
+        <Breadcrumbs firstRoute="訊息看板" secoundRoute="合作申請書"></Breadcrumbs>
 
-        <h1 class="common-title">合作申請書</h1>
+        <section class="common-seciton">
 
-        <div class="content-box">
+            <h1 class="common-title">合作申請書</h1>
 
-            <p class="additional-information">
-                機構參訪、採訪申請，或其他的合作申請，請於2周前填寫合作申請單預約，
-                以了解您的需求，進行內部行政作業，在時間人力有限下，
-                無法一一受理所有的參訪申請，歡迎多加運用器捐協會官網了解相關資訊，謝謝~
-            </p>
+            <div class="content-box">
 
-            <article class="paragraph">
-                <h2 class="sub-title common-label">合作申請書下載</h2>
-                <div class="download-file-box">
-                    <a class="download-link" href="/files/cooperation_application_form.docx" download>合作申請書.doc</a>
-                    <a class="download-link" href="/files/cooperation_application_form.pdf" download>合作申請書.pdf</a>
-                </div>
+                <p class="additional-information">
+                    機構參訪、採訪申請，或其他的合作申請，請於2周前填寫合作申請單預約，
+                    以了解您的需求，進行內部行政作業，在時間人力有限下，
+                    無法一一受理所有的參訪申請，歡迎多加運用器捐協會官網了解相關資訊，謝謝~
+                </p>
 
-            </article>
+                <article class="paragraph">
+                    <h2 class="sub-title common-label">合作申請書下載</h2>
+                    <div class="download-file-box">
+                        <a class="download-link" href="/files/cooperation_application_form.docx" download>合作申請書.doc</a>
+                        <a class="download-link" href="/files/cooperation_application_form.pdf" download>合作申請書.pdf</a>
+                    </div>
+
+                </article>
 
 
-        </div>
+            </div>
 
 
-    </section>
+        </section>
+
+    </div>
 
 
 </template>

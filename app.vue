@@ -19,7 +19,7 @@
 <script setup lang="ts">
 
 // import Header3 from '@/components/layout/Header3.vue';
-import Header from './components/layout/Header.vue'; 
+import Header from './components/layout/Header.vue';
 import Menu from '@/components/layout/Menu.vue';
 import Footer from '@/components/layout/Footer.vue';
 import FooterOrigon from './components/layout/FooterOrigon.vue';
@@ -76,11 +76,20 @@ function handleScroll() {
 
 <style lang="scss">
 
-
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.4s;
+}
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+  filter: blur(1rem);
+}
 
 //覆蓋子選單的邊框
 .my-popper {
-  --el-popover-border-radius:15px;
+  --el-popover-border-radius: 15px;
+
   .el-menu--popup {
     border-radius: 15px;
     min-width: 150px !important;
@@ -90,9 +99,10 @@ function handleScroll() {
     --el-menu-hover-text-color: #6A6969 !important;
     --el-menu-hover-bg-color: none !important;
   }
-  li{
+
+  li {
     padding: 0 !important;
-    height:auto !important;
+    height: auto !important;
     margin: 0 10px !important;
     line-height: 30px !important;
   }
@@ -114,11 +124,11 @@ function handleScroll() {
   .menu-bar {
     position: sticky;
     top: 0;
-    z-index: 1000; 
+    z-index: 1000;
   }
-  
 
-  
+
+
 
 }
 </style>

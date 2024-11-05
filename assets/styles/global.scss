@@ -1,8 +1,33 @@
+/*全局路由過渡效果*/
+
+
+.page-enter-active,
+.page-leave-active {
+	transition: all 0.4s;
+}
+
+.page-enter-from,
+.page-leave-to {
+	opacity: 0;
+	filter: blur(1rem);
+}
+
+
 /* 主題色系 */
 $main-color: #4A863F;
 $main-content-color: #6D6D6D;
-$sub-color:#F49E19;
-$accent-color:#E9B2B1;
+$main-hover-bg: #E6EFD3;
+$main-hover-text: #363838;
+$main-hover-btn-bg: #C5CEB6;
+$main-hover-btn-text: #363838;
+
+$sub-color: #F49E19;
+$sub-hover-bg: #F8C882;
+$sub-hover-text: #494949;
+
+$accent-color: #E9B2B1;
+$accent-hover-bg: #E94F4D;
+
 
 
 /* 通用section 寬度及外間距 */
@@ -94,12 +119,13 @@ $common-title-letter-spacing: 0.1rem;
 /* 覆寫element plus  */
 .common-pagination {
 	width: 100%;
+
 	/**
 	使用Vue3 element plus 專屬的改變UI組件CSS 寫法 '深層覆蓋'
 	分頁組件引入盒子,重置分頁組件CSS 
 	*/
 	:deep(.el-pagination) {
-		
+
 		justify-content: center;
 
 		//重製將分頁組件背景色調為 '無'

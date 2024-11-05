@@ -1,45 +1,49 @@
 <!--  -->
 <template>
 
-    <Breadcrumbs firstRoute="認識器捐" secoundRoute="文宣下載"></Breadcrumbs>
+    <div>
 
-    <section class="common-seciton">
+        <Breadcrumbs firstRoute="認識器捐" secoundRoute="文宣下載"></Breadcrumbs>
 
-        <h1 class="common-title">文宣下載</h1>
+        <section class="common-seciton">
 
-        <div class="content-box">
+            <h1 class="common-title">文宣下載</h1>
 
-            <article class="article-item" v-for="(item, index) in articleList.records " :key="index">
-                <div class="article-img-box">
-                    <img class="article-img" :src="item.imgUrl">
-                </div>
+            <div class="content-box">
 
-                <div class="article-info-box">
-                    <div class="base-info">
-                        <h2 class="article-title">{{ item.title }}</h2>
-                        <p class="article-description">
-                            {{ item.description }}
-                        </p>
-                    </div>
-                    <div class="download-box">
-                        <a class="download-btn" :href="item.fileUrl" download>Download</a>
+                <article class="article-item" v-for="(item, index) in articleList.records " :key="index">
+                    <div class="article-img-box">
+                        <img class="article-img" :src="item.imgUrl">
                     </div>
 
-                </div>
+                    <div class="article-info-box">
+                        <div class="base-info">
+                            <h2 class="article-title">{{ item.title }}</h2>
+                            <p class="article-description">
+                                {{ item.description }}
+                            </p>
+                        </div>
+                        <div class="download-box">
+                            <a class="download-btn" :href="item.fileUrl" download>Download</a>
+                        </div>
 
-            </article>
+                    </div>
 
-            <!-- 
+                </article>
+
+                <!-- 
         分頁插件 total為總資料數(這邊設置20筆),  default-page-size代表每頁顯示資料(預設為10筆,這邊設置為5筆) 
         current-page當前頁數,官方建議使用v-model與current-page去與自己設定的變量做綁定,
         -->
-            <div class="common-pagination">
-                <el-pagination layout="prev, pager, next" :page-count="Number(articleList.pages)"
-                    :default-page-size="Number(articleList.size)" v-model:current-page="currentPage"
-                    :hide-on-single-page="true" :pager-count="5" />
+                <div class="common-pagination">
+                    <el-pagination layout="prev, pager, next" :page-count="Number(articleList.pages)"
+                        :default-page-size="Number(articleList.size)" v-model:current-page="currentPage"
+                        :hide-on-single-page="true" :pager-count="5" />
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+    </div>
 
 </template>
 
@@ -153,6 +157,7 @@ let articleList = reactive({
                         padding: 0.5rem 3rem;
                         border-radius: 16px;
                         font-weight: 550;
+                        transition: 0.5s;
 
                         &::after {
                             content: '';
@@ -169,6 +174,7 @@ let articleList = reactive({
 
                         &:hover {
                             cursor: pointer;
+                            font-size: 1.1rem;
                         }
                     }
                 }

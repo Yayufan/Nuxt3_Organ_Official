@@ -1,34 +1,38 @@
 <!--  -->
 <template>
 
-<Breadcrumbs firstRoute="加入我們" secoundRoute="協會年表" ></Breadcrumbs>
+    <div>
 
-    <section class="common-seciton">
+        <Breadcrumbs firstRoute="加入我們" secoundRoute="協會年表"></Breadcrumbs>
 
-        <h1 class="common-title">協會年表</h1>
+        <section class="common-seciton">
 
-        <div class="content-box">
-            <el-timeline style="max-width: 800px">
+            <h1 class="common-title">協會年表</h1>
 
-                <el-timeline-item placement="top" v-for="(item, index) in displayedChronologyList" :key="index"
-                    color="#4A863F" :timestamp="item.timestamp">
+            <div class="content-box">
+                <el-timeline style="max-width: 800px">
 
-                    <ul class="timeline-item-content">
-                        <li v-for="(content, index) in item.content">{{ content }}</li>
-                    </ul>
-                </el-timeline-item>
+                    <el-timeline-item placement="top" v-for="(item, index) in displayedChronologyList" :key="index"
+                        color="#4A863F" :timestamp="item.timestamp">
+
+                        <ul class="timeline-item-content">
+                            <li v-for="(content, index) in item.content">{{ content }}</li>
+                        </ul>
+                    </el-timeline-item>
 
 
-            </el-timeline>
+                </el-timeline>
 
-            <div class="more-box">
-                <button v-if="!showFullList" class="more-btn" @click="getOtherList">查看更多</button>
-                <button v-else class="more-btn" @click="getOtherList"> 收起更多 </button>
+                <div class="more-box">
+                    <button v-if="!showFullList" class="more-btn" @click="getOtherList">查看更多</button>
+                    <button v-else class="more-btn" @click="getOtherList"> 收起更多 </button>
+                </div>
+
+
             </div>
+        </section>
 
-
-        </div>
-    </section>
+    </div>
 </template>
 
 <script setup lang='ts'>
@@ -440,9 +444,12 @@ const getOtherList = () => {
                 letter-spacing: 0.1rem;
                 border: none;
                 font-weight: normal;
+                transition: 0.5s;
 
                 &:hover {
                     cursor: pointer;
+                    background-color: $main-hover-btn-bg;
+                    color: $main-hover-btn-text;
                 }
             }
         }

@@ -1,46 +1,49 @@
 <!--  -->
 <template>
+    <div>
 
-    <Breadcrumbs firstRoute="家屬關懷" secoundRoute="好書推薦"></Breadcrumbs>
+        <Breadcrumbs firstRoute="家屬關懷" secoundRoute="好書推薦"></Breadcrumbs>
 
-    <section class="common-seciton">
+        <section class="common-seciton">
 
-        <h1 class="common-title">好書推薦</h1>
+            <h1 class="common-title">好書推薦</h1>
 
-        <div class="content-box">
+            <div class="content-box">
 
-            <article class="book-article-item" v-for="(item, index) in bookArticleList.records " :key="index">
-                <div class="book-article-img-box">
-                    <img class="book-article-img" :src="item.imgUrl">
-                </div>
+                <article class="book-article-item" v-for="(item, index) in bookArticleList.records " :key="index">
+                    <div class="book-article-img-box">
+                        <img class="book-article-img" :src="item.imgUrl">
+                    </div>
 
-                <div class="book-article-info-box">
-                    <h2 class="book-article-title">{{ item.title }}</h2>
-                    <p class="book-article-description">
-                        {{ item.description }}
-                    </p>
-                </div>
+                    <div class="book-article-info-box">
+                        <h2 class="book-article-title">{{ item.title }}</h2>
+                        <p class="book-article-description">
+                            {{ item.description }}
+                        </p>
+                    </div>
 
-                <div class="more-box">
-                    <nuxt-link class="more-btn" to="/">查看更多</nuxt-link>
-                </div>
+                    <div class="more-box">
+                        <nuxt-link class="more-btn" to="/">查看更多</nuxt-link>
+                    </div>
 
-            </article>
+                </article>
 
-            <!-- 
+                <!-- 
         分頁插件 total為總資料數(這邊設置20筆),  default-page-size代表每頁顯示資料(預設為10筆,這邊設置為5筆) 
         current-page當前頁數,官方建議使用v-model與current-page去與自己設定的變量做綁定,
         -->
-            <div class="common-pagination">
-                <el-pagination layout="prev, pager, next" :page-count="Number(bookArticleList.pages)"
-                    :default-page-size="Number(bookArticleList.size)" v-model:current-page="currentPage"
-                    :hide-on-single-page="true" :pager-count="5" />
+                <div class="common-pagination">
+                    <el-pagination layout="prev, pager, next" :page-count="Number(bookArticleList.pages)"
+                        :default-page-size="Number(bookArticleList.size)" v-model:current-page="currentPage"
+                        :hide-on-single-page="true" :pager-count="5" />
+                </div>
+
             </div>
 
-        </div>
 
+        </section>
 
-    </section>
+    </div>
 
 
 </template>
@@ -184,9 +187,12 @@ let bookArticleList = reactive({
                     letter-spacing: 0.1rem;
                     border: none;
                     font-weight: normal;
+                    transition: 0.5s;
 
                     &:hover {
                         cursor: pointer;
+                        background-color: $sub-hover-bg;
+                        color: $sub-hover-text;
                     }
 
                 }

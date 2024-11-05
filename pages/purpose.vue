@@ -1,99 +1,102 @@
 <!--  -->
 <template>
 
-    <Breadcrumbs firstRoute="加入我們" secoundRoute="宗旨任務"></Breadcrumbs>
+    <div>
 
-    <section class="common-seciton">
+        <Breadcrumbs firstRoute="加入我們" secoundRoute="宗旨任務"></Breadcrumbs>
 
-        <h1 class="common-title">宗旨任務</h1>
-
-        <div class="content-box">
-
-            <article class="paragraph purpose-box">
-                <h2 class="sub-title">宗旨</h2>
-                <p class="content">
-                    現代移植醫學的進步已可挽救器官衰竭病患的生命，且提昇患者的生命品質，然而器官捐贈來源的短缺，
-                    <br>
-                    乃成為器官移植手術無法救人無數的阻礙，為協助醫療服務，提倡尊重生命理念，造福民眾的健康，特於
-                    <br>
-                    民國82年8月28日正式成立「社團法人中華民國器官捐贈協會」。
-                </p>
-            </article>
+        <section class="common-seciton">
 
 
-            <article class="paragraph mission-box">
-                <h2 class="sub-title">任務</h2>
-                <ol class="content">
-                    <li>促進一般民眾對器官捐贈的認知及參與。</li>
-                    <li>提供醫護專業人員器官捐贈推廣之合作。</li>
-                    <li>監督及協助宣導政府制定之有關器官捐贈與移植之法令。</li>
-                    <li>器官捐贈者家屬之悲傷輔導與陪伴。</li>
-                </ol>
-            </article>
 
-            <article class="paragraph ">
-                <h2 class="sub-title">組織架構</h2>
-                <div class="content organizational-structure-box ">
-                    <img src="@/assets/img/organizational-chart.png">
-                </div>
-            </article>
+            <h1 class="common-title">宗旨任務</h1>
 
-            <article class="paragraph ">
-                <h2 class="sub-title">歷屆理監事</h2>
-                <div class=" supervisors-box ">
+            <div class="content-box">
 
-                    <div class="supervisors-item" v-for="(item, index) in supervisorsList" :key="index">
-                        <p class="supervisors-session"> {{ item.session }} </p>
-                        <p class="supervisors-term-of-office">({{ item.termOfOffice }})</p>
+                <article class="paragraph purpose-box">
+                    <h2 class="sub-title">宗旨</h2>
+                    <p class="content">
+                        現代移植醫學的進步已可挽救器官衰竭病患的生命，且提昇患者的生命品質，然而器官捐贈來源的短缺，
+                        <br>
+                        乃成為器官移植手術無法救人無數的阻礙，為協助醫療服務，提倡尊重生命理念，造福民眾的健康，特於
+                        <br>
+                        民國82年8月28日正式成立「社團法人中華民國器官捐贈協會」。
+                    </p>
+                </article>
 
-                        <div class="supervisors-info">
-                            <div class="supervisors-info-label">理事長</div>：
-                            <div class="supervisors-info-content">{{ item.chairman }}</div>
-                        </div>
 
-                        <div class="supervisors-info">
-                            <div class="supervisors-info-label">常務理事</div>：
-                            <div class="supervisors-info-content">{{ item.executiveDirector }}</div>
-                        </div>
+                <article class="paragraph mission-box">
+                    <h2 class="sub-title">任務</h2>
+                    <ol class="content">
+                        <li>促進一般民眾對器官捐贈的認知及參與。</li>
+                        <li>提供醫護專業人員器官捐贈推廣之合作。</li>
+                        <li>監督及協助宣導政府制定之有關器官捐贈與移植之法令。</li>
+                        <li>器官捐贈者家屬之悲傷輔導與陪伴。</li>
+                    </ol>
+                </article>
 
-                        <div class="supervisors-info">
-                            <div class="supervisors-info-label">理事</div>：
-                            <div class="supervisors-info-content">{{ item.director }}</div>
-                        </div>
-
-                        <div class="supervisors-info">
-                            <div class="supervisors-info-label">常務監事</div>：
-                            <div class="supervisors-info-content">{{ item.executiveSupervisor }}</div>
-                        </div>
-
-                        <div class="supervisors-info">
-                            <div class="supervisors-info-label">監事</div>：
-                            <div class="supervisors-info-content">{{ item.supervisor }}</div>
-                        </div>
-
+                <article class="paragraph ">
+                    <h2 class="sub-title">組織架構</h2>
+                    <div class="content organizational-structure-box ">
+                        <img src="@/assets/img/organizational-chart.png">
                     </div>
-                </div>
+                </article>
 
-                <div class="supervisors-more-box">
-                    <button v-if="!showFullList" class="supervisors-more-btn" @click="getOtherList">查看更多</button>
-                    <button v-else class="supervisors-more-btn" @click="getOtherList"> 收起更多 </button>
-                </div>
+                <article class="paragraph ">
+                    <h2 class="sub-title">歷屆理監事</h2>
+                    <div class=" supervisors-box ">
 
-            </article>
+                        <div class="supervisors-item" v-for="(item, index) in supervisorsList" :key="index">
+                            <p class="supervisors-session"> {{ item.session }} </p>
+                            <p class="supervisors-term-of-office">({{ item.termOfOffice }})</p>
 
-            <article class="paragraph ">
-                <h2 class="sub-title">協會章程</h2>
-                <div class="content regulation-box">
-                    <a href="/files/regulation_1071005.pdf" download>社團法人章程-1071005修正版.pdf</a>
-                </div>
+                            <div class="supervisors-info">
+                                <div class="supervisors-info-label">理事長</div>：
+                                <div class="supervisors-info-content">{{ item.chairman }}</div>
+                            </div>
 
-            </article>
+                            <div class="supervisors-info">
+                                <div class="supervisors-info-label">常務理事</div>：
+                                <div class="supervisors-info-content">{{ item.executiveDirector }}</div>
+                            </div>
 
-        </div>
+                            <div class="supervisors-info">
+                                <div class="supervisors-info-label">理事</div>：
+                                <div class="supervisors-info-content">{{ item.director }}</div>
+                            </div>
 
+                            <div class="supervisors-info">
+                                <div class="supervisors-info-label">常務監事</div>：
+                                <div class="supervisors-info-content">{{ item.executiveSupervisor }}</div>
+                            </div>
 
-    </section>
+                            <div class="supervisors-info">
+                                <div class="supervisors-info-label">監事</div>：
+                                <div class="supervisors-info-content">{{ item.supervisor }}</div>
+                            </div>
 
+                        </div>
+                    </div>
+
+                    <div class="supervisors-more-box">
+                        <button v-if="!showFullList" class="supervisors-more-btn" @click="getOtherList">查看更多</button>
+                        <button v-else class="supervisors-more-btn" @click="getOtherList"> 收起更多 </button>
+                    </div>
+
+                </article>
+
+                <article class="paragraph ">
+                    <h2 class="sub-title">協會章程</h2>
+                    <div class="content regulation-box">
+                        <a href="/files/regulation_1071005.pdf" download>社團法人章程-1071005修正版.pdf</a>
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+    </div>
 
 </template>
 
@@ -442,9 +445,12 @@ const getOtherList = () => {
                 letter-spacing: 0.1rem;
                 border: none;
                 font-weight: normal;
+                transition: 0.5s;
 
                 &:hover {
                     cursor: pointer;
+                    background-color: $main-hover-btn-bg;
+                    color: $main-hover-btn-text;
                 }
             }
         }

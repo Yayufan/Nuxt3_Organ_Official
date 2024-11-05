@@ -1,42 +1,49 @@
 <!--  -->
 <template>
 
-    <Breadcrumbs firstRoute="加入我們" secoundRoute="歷年成果(簽卡分析)"></Breadcrumbs>
+    <div>
 
-    <section class="common-seciton">
+        <Breadcrumbs firstRoute="加入我們" secoundRoute="歷年成果(簽卡分析)"></Breadcrumbs>
 
-        <h1 class="common-title">歷年成果(簽卡分析)</h1>
+        <section class="common-seciton">
 
-        <div class="content-box">
+            <h1 class="common-title">歷年成果(簽卡分析)</h1>
 
-            <article class="paragraph">
-                <h2 class="sub-title common-label">年度工作報告</h2>
-                <div class="download-file-box">
-                    <a class="download-link" href="/files/109_work_result.pdf" download>109年度器捐協會 -
-                        工作成果報告.pdf</a>
-                    <a class="download-link" href="/files/110_work_result.pdf" download>110年度器捐協會 -
-                        工作成果報告.pdf</a>
-                    <a class="download-link" href="/files/111_work_result.pdf" download>111年度器捐協會 -
-                        工作成果報告.pdf</a>
-                </div>
+            <div class="content-box">
 
-            </article>
+                <article class="paragraph">
+                    <h2 class="sub-title common-label">年度工作報告</h2>
+                    <div class="download-file-box">
+                        <a class="download-link" href="/files/109_work_result.pdf" download>109年度器捐協會 -
+                            工作成果報告.pdf</a>
+                        <a class="download-link" href="/files/110_work_result.pdf" download>110年度器捐協會 -
+                            工作成果報告.pdf</a>
+                        <a class="download-link" href="/files/111_work_result.pdf" download>111年度器捐協會 -
+                            工作成果報告.pdf</a>
+                    </div>
 
-            <article class="paragraph">
-                <h2 class="sub-title common-label">年度簽卡分析</h2>
-                <div class="download-file-box">
-                    <a class="download-link" href="/files/109_data_analysis.pdf" download>109年器官捐贈認同簽屬 - 資料統計分析.pdf</a>
-                    <a class="download-link" href="/files/110_data_analysis.pdf" download>110年器官捐贈認同簽屬 - 資料統計分析.pdf</a>
-                    <a class="download-link" href="/files/111_data_analysis.pdf" download>111年器官捐贈認同簽屬 - 資料統計分析.pdf</a>
-                </div>
+                </article>
 
-            </article>
+                <article class="paragraph">
+                    <h2 class="sub-title common-label">年度簽卡分析</h2>
+                    <div class="download-file-box">
+                        <a class="download-link" href="/files/109_data_analysis.pdf" download>109年器官捐贈認同簽屬 -
+                            資料統計分析.pdf</a>
+                        <a class="download-link" href="/files/110_data_analysis.pdf" download>110年器官捐贈認同簽屬 -
+                            資料統計分析.pdf</a>
+                        <a class="download-link" href="/files/111_data_analysis.pdf" download>111年器官捐贈認同簽屬 -
+                            資料統計分析.pdf</a>
+                    </div>
+
+                </article>
 
 
-        </div>
+            </div>
 
 
-    </section>
+        </section>
+
+    </div>
 
 
 </template>

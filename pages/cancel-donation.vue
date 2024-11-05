@@ -1,46 +1,49 @@
 <!--  -->
 <template>
 
-    <Breadcrumbs firstRoute="簽署器捐" secoundRoute="撤銷器官簽署"></Breadcrumbs>
+    <div>
 
-    <section class="common-seciton">
+        <Breadcrumbs firstRoute="簽署器捐" secoundRoute="撤銷器官簽署"></Breadcrumbs>
 
-        <h1 class="common-title">撤銷器官簽署</h1>
+        <section class="common-seciton">
 
-        <div class="content-box">
+            <h1 class="common-title">撤銷器官簽署</h1>
 
-            <p class="additional-information">
-                現行經註記於健保卡之器官捐贈意願屬「具法律效力之同意」
-                <br><br>
-                不管您曾經透過哪些管道簽署器官捐贈，
-                <br><br>
-                如果您因故欲撤除器官捐贈意願註記，
-                <br><br>
-                請於本頁下載列印【器官捐贈意願撤回聲明書】
-                <br><br>
-                填寫後郵寄書面資料至本會
-                <br>
-                <br>
-                感謝您！
-            </p>
+            <div class="content-box">
 
-            <article class="paragraph">
-                <div class="download-file-box">
-                    <a class="download-link-ver2"
-                        href="/files/withdrawal-of-statement-of-intention-for-organ-donation.docx"
-                        download>器捐意願撤回聲明書.docx</a>
-                    <a class="download-link-ver2"
-                        href="/files/withdrawal-of-statement-of-intention-for-organ-donation.pdf"
-                        download>器捐意願撤回聲明書.pdf</a>
-                </div>
-            </article>
+                <p class="additional-information">
+                    現行經註記於健保卡之器官捐贈意願屬「具法律效力之同意」
+                    <br><br>
+                    不管您曾經透過哪些管道簽署器官捐贈，
+                    <br><br>
+                    如果您因故欲撤除器官捐贈意願註記，
+                    <br><br>
+                    請於本頁下載列印【器官捐贈意願撤回聲明書】
+                    <br><br>
+                    填寫後郵寄書面資料至本會
+                    <br>
+                    <br>
+                    感謝您！
+                </p>
+
+                <article class="paragraph">
+                    <div class="download-file-box">
+                        <a class="download-link-ver2"
+                            href="/files/withdrawal-of-statement-of-intention-for-organ-donation.docx"
+                            download>器捐意願撤回聲明書.docx</a>
+                        <a class="download-link-ver2"
+                            href="/files/withdrawal-of-statement-of-intention-for-organ-donation.pdf"
+                            download>器捐意願撤回聲明書.pdf</a>
+                    </div>
+                </article>
 
 
-        </div>
+            </div>
 
 
-    </section>
+        </section>
 
+    </div>
 
 </template>
 

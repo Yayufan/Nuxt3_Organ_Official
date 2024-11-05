@@ -3,14 +3,14 @@
 
     <div>
 
-        <Breadcrumbs firstRoute="捐贈贊助" secoundRoute="捐款支持-立即行動"></Breadcrumbs>
+        <Breadcrumbs firstRoute="捐贈贊助" secoundRoute="版畫有限量，愛心無限亮"></Breadcrumbs>
 
         <section class="common-seciton">
 
-            <h1 class="common-title">捐款支持-立即行動</h1>
+            <h1 class="common-title">版畫有限量，愛心無限亮</h1>
 
             <div class="function-bar">
-                <div class="donation-instructions common-label">捐款方式說明</div>
+                <div class="donation-instructions common-label">劉其偉版畫認購義賣</div>
                 <div class="function-box">
                     <nuxt-link target="_blank" to="https://web.intersoft.com.tw/donation/OnlineOrgan/Default.aspx"
                         class="go-to-donate">我要捐款</nuxt-link>
@@ -21,70 +21,43 @@
             <div class="content-box">
 
                 <article class="paragraph">
-                    <h2 class="sub-title">郵政劃撥</h2>
-                    <div class="donation-info ">
-                        <div class="common-label">戶名</div>
-                        <p class="content">社團法人中華民國器官捐贈協會</p>
+                    <div class="charity-painter-box">
+                        <div class="painter-img">
+                            <img src="/files/charity-painter.png">
+                        </div>
+                        <div class="painter-info">
+                            特此感謝劉其偉先生的長子劉怡孫先生捐贈版畫支持中華民國器官捐贈協會
+                        </div>
                     </div>
-                    <div class="donation-info">
-                        <div class="common-label">帳號</div>
-                        <p class="content">17424922</p>
-                    </div>
-                    <div class="number-mask">01</div>
                 </article>
 
                 <article class="paragraph">
-                    <h2 class="sub-title">ATM</h2>
-                    <div class="donation-info ">
-                        <div class="common-label">戶名</div>
-                        <p class="content">社團法人中華民國器官捐贈協會</p>
-                    </div>
-                    <div class="donation-info  ">
-                        <div class="common-label">搭配銀行</div>
-                        <ol class="content">
-                            <li>華南銀行(銀行代碼：008)<span class="bank">信維分行</span><br><br>帳 號：149-10-008398-4</li>
-                            <li>聯邦銀行(銀行代碼：803)<span class="bank">文林簡易分行</span><br><br>帳 號：048-50-8017900</li>
-                            <li>元大銀行(銀行代碼：806)<span class="bank">和平分行</span><br><br>帳 號：215-9200-1838088</li>
+                    <p>
+                        本會是由熱心公益人士籌募社會資源於民國82年（西元1993年）成立，<br>
 
-                        </ol>
-                    </div>
-                    <div class="number-mask">02</div>
-                </article>
+                        三十年來，持續對社會大眾進行器捐生命教育宣導，並且陪伴捐贈者家屬走過生命的失落。<br>
 
-                <article class="paragraph">
-                    <h2 class="sub-title">支&nbsp;&nbsp;票</h2>
-                    <div class="donation-info ">
-                        <div class="common-label">抬頭</div>
-                        <p class="content">社團法人中華民國器官捐贈協會</p>
-                    </div>
+                        協會服務經費仰賴會員與各界捐款贊助，您的支持是讓我們持續前行的重要能量。<br>
+                    </p>
 
-                    <div class="number-mask">03</div>
-                </article>
+                    <p>
+                        本次義賣之限量版畫為星座系列與生肖系列，採半抽象的方式，<br>
 
+                        以誇張與簡化的造形，融入個人豐富的想像力與感受而呈現出來。<br>
+                    </p>
 
+                    <p>
+                        您的認購將讓無價的藝術品更增添意義。<br>
+                    </p>
 
-                <article class="paragraph">
-                    <h2 class="sub-title">信&nbsp;用&nbsp;卡</h2>
-                    <div class="application-reminder">
-                        <p class="application-reminder-part01">點擊上方<span class="go-to-donate">我要捐款</span>進行線上捐款 或</p>
-                        <p class="application-reminder-part02">
-                            請填妥
-                            <a class="download-link" href="/files/donate.pdf" download>信用卡捐款單</a>
-                            <span class="note">(本會需負擔信用卡公司相關費用)</span>
-                        </p>
-                    </div>
+                    <p>
+                        敬請有意願認購之個人或公司行號撥冗致電本會02-2702-5150洽詢 翁專員。<br>
 
-                    <div class="number-mask">04</div>
-                </article>
-
-                <article class="paragraph">
-                    <h2 class="sub-title">郵局存簿轉帳</h2>
-                    <div class="application-reminder">請填妥
-                        <a class="download-link" href="/files/post-office-transfer-108.pdf" download>郵局捐款轉帳付款授權書</a>
-                    </div>
-                    <div class="number-mask">05</div>
+                        義賣款項均開立捐款收據隨版畫一同回寄。<br>
+                    </p>
 
                 </article>
+
 
             </div>
 
@@ -182,7 +155,7 @@ const drawer = ref(false)
         }
 
         .donation-instructions {
-            padding: 0.5rem 1rem;
+            padding: 0.5rem 2rem;
 
             @media screen and (max-width:481px) {
                 align-self: baseline;
@@ -271,11 +244,7 @@ const drawer = ref(false)
         /**這邊是處理通用段落、sub-title 和 內容 */
         .paragraph {
             position: relative;
-            //min-height: 100px;
-            border: 2px solid $main-color;
-            border-radius: 20px;
             background-color: #fff;
-            padding: 1rem 3rem;
             margin-bottom: 3%;
 
             @media screen and (max-width:480px) {
@@ -283,150 +252,33 @@ const drawer = ref(false)
                 margin-bottom: 6%;
             }
 
-            .sub-title {
-                color: #56575E;
-                font-size: 1.3rem;
-            }
 
-
-            .number-mask {
-                font-size: 2rem;
-                background-color: $accent-color;
-                color: white;
-                border-radius: 50%;
-                width: 3rem;
-                height: 3rem;
-                display: inline-block;
-                /* 使其為行內塊元素 */
-                text-align: center;
-                line-height: 3rem;
-                /* 行高等於圓形高度以置中 */
-                position: absolute;
-                /* 絕對定位 */
-                left: 0;
-                top: 2rem;
-                transform: translate(-50%, -50%);
-
-                @media screen and (max-width:480px) {
-                    top: 0;
-                }
-
-            }
-
-            /**這邊做部分特殊處理 */
-
-            .application-reminder {
-                margin-top: 1.5%;
-                font-weight: 600;
-
-                p {
-                    display: inline-block;
-
-                    @media screen and (max-width:480px) {
-                        display: block;
-                        margin: 1rem 0;
-                    }
-
-                    .note {
-                        font-size: 0.9rem;
-                    }
-
-                }
-
-                .go-to-donate {
-                    margin: 0 5px;
-                    padding: 4px 20px;
-                    background: $accent-color;
-                    color: #fff;
-                    border-radius: 4px;
-                }
-
-                .download-link {
-                    text-underline-offset: 3px;
-                    position: relative;
-                    top: -2px;
-                }
-
-
-            }
-
-
-            .donation-info {
-                display: flex;
-                align-items: baseline;
+            p {
                 margin: 3% 0;
-                font-weight: 600;
+                line-height: 3;
+            }
 
-                .common-label {
-                    min-width: 4rem;
+            .charity-painter-box {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .painter-img {
+                    margin-right: 10%;
+
+                    img {
+                        width: 100%;
+                    }
+                }
+
+                .painter-info {
+                    font-size: 1.9rem;
                     text-align: center;
-                    margin-right: 1rem;
-
-                    @media screen and (max-width:480px) {
-                        padding: 2px 4px;
-                    }
-
+                    line-height: 1.5;
                 }
-
-
-
-                ol {
-                    list-style: none;
-                    counter-reset: item;
-
-                    @media screen and (max-width:480px) {
-                        padding-left: 20px;
-                    }
-
-                }
-
-                li {
-                    counter-increment: item;
-                    margin-bottom: 2rem;
-                    position: relative;
-
-                    &:last-child {
-                        margin-bottom: 0;
-                    }
-
-                }
-
-                li::before {
-                    content: counter(item);
-                    background-color: orange;
-                    color: white;
-                    border-radius: 50%;
-                    width: 1.5rem;
-                    height: 1.5rem;
-                    display: inline-block;
-                    text-align: center;
-                    line-height: 1.5rem;
-                    position: absolute;
-                    left: -40px;
-                    top: 0;
-
-
-                    @media screen and (max-width:480px) {
-                        left: -20px;
-                    }
-
-                }
-
-                .bank {
-                    margin-left: 1rem;
-
-                    @media screen and (max-width:480px) {
-                        margin-left: 0.5rem;
-                    }
-
-                }
-
-
-
             }
 
         }
-
     }
 
     .donate-drawer-header {
