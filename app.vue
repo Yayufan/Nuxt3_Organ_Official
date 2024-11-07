@@ -41,7 +41,7 @@ const viewportWidth = useViewportWidth()
 
 
 
-
+const bottom  = ref(0);
 //掛載完畢
 onMounted(() => {
   //監聽滑鼠滾動事件
@@ -49,13 +49,13 @@ onMounted(() => {
 
   //首次加載時,加載視口寬度,
   viewportWidth.value = window.innerWidth;
+  bottom.value= document.documentElement.scrollHeight - window.innerHeight;
 
 })
-const bottom = document.documentElement.scrollHeight - window.innerHeight;
 const showTopButton = ref(false);
 watch(scrollPosition, (newValue) => {
     showTopButton.value = newValue > 130;
-    if (newValue < bottom - 300) {
+    if (newValue < bottom.value - 300) {
         isBottom.value = false;
     } else {
         isBottom.value = true;
