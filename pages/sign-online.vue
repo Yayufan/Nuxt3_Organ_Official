@@ -34,7 +34,7 @@
                     <el-form-item label="E-Mail：" label-width="250" prop="email" class="unnecessary email">
                         <el-input class="email-input" v-model="form.email" type="email"></el-input>
                     </el-form-item>
-                    <el-form-item label="聯絡地址：" label-width="270" prop="address" class="form-item1">
+                    <el-form-item label="聯絡地址：" label-width="270" prop="address" class="form-item1 address">
                         <el-input v-model="form.address" type="text"></el-input>
                     </el-form-item>
                     <el-form-item label="法定代理人姓名：" label-width="270" prop="legalRepresentativeName" class="form-item1">
@@ -281,7 +281,7 @@ const resetForm = (formEl: FormInstance | undefined) => {
         .statement {
             color: $main-content-color;
             max-width: 80%;
-            margin: 1% 0 0 10%;
+            margin: 1% 0 2rem 10%;
             font-size: 1rem;
 
             @media screen and (max-width:850px) {
@@ -351,7 +351,7 @@ const resetForm = (formEl: FormInstance | undefined) => {
                 }
 
                 .el-radio {
-                    margin-right: 0;
+                    margin-right: 1vw;
 
                     :deep(.el-radio__label) {
                         font-size: 1.3rem;
@@ -379,6 +379,10 @@ const resetForm = (formEl: FormInstance | undefined) => {
                 }
             }
 
+            .address {
+                margin-bottom: 5vw;
+            }
+
             .unnecessary {
                 padding-left: 0.9rem;
 
@@ -396,6 +400,7 @@ const resetForm = (formEl: FormInstance | undefined) => {
 
             //法定代理人身分證
             .legal-representative-ID {
+                margin-bottom: 3vw;
                 :deep(.el-form-item__label) {
                     @media screen and (max-width:850px) {
                         font-size: 0.9rem;
@@ -455,8 +460,9 @@ const resetForm = (formEl: FormInstance | undefined) => {
                 }
 
                 .el-checkbox {
-                    margin: 1rem 8vw 0 0;
+                    margin: 1rem 0 0 0;
                     max-width: 100%;
+                    min-width: 30%;
 
                     @media screen and (max-width:850px) {
                         margin-right: 0;

@@ -9,7 +9,7 @@
     <main class="content">
       <NuxtPage></NuxtPage>
     </main>
-    <el-button class="top-button" v-if="showTopButton" @click="backToTop"><img src="@/assets/img/top-button.png" alt="" class="top-button-img"></el-button>
+    <el-button class="top-button" :class="{'is-bottom': isBottom}" v-if="showTopButton" @click="backToTop"><img src="@/assets/img/top-button.png" alt="" class="top-button-img"></el-button>
     <!-- 共用的Footer -->
     <Footer></Footer>
   </div>
@@ -51,12 +51,19 @@ onMounted(() => {
   viewportWidth.value = window.innerWidth;
 
 })
-
+const bottom = document.documentElement.scrollHeight - window.innerHeight;
 const showTopButton = ref(false);
 watch(scrollPosition, (newValue) => {
     showTopButton.value = newValue > 130;
+    if (newValue < bottom - 300) {
+        isBottom.value = false;
+    } else {
+        isBottom.value = true;
+    }
 });
 
+
+const isBottom = ref(false);
 const backToTop = () => {
     window.scrollTo({
         top: 0,
@@ -140,15 +147,18 @@ function handleScroll() {
   .top-button {
     position: fixed;
     right: 1%;
-    bottom: 300px;
+    bottom: 10%;
+    // margin-bottom: 10%;
     width: 6rem;
     border: none;
+    opacity: 0.7;
     background-color: transparent;
     &:active{
       background-color: transparent;
       border: none;
     }
     &:hover{
+      opacity: 1;
       background-color: transparent;
       border: none;
     }
@@ -157,6 +167,11 @@ function handleScroll() {
     width: 100%;
     height: 100%;
   }
+
+  .is-bottom {
+    bottom: 350px !important;
+  }
+
   
 
 
