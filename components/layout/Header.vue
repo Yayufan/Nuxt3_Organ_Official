@@ -2,7 +2,8 @@
     <header class="PC-menu-box">
         <img class="hambuger-menu" src="@/assets/img/HamburgerMenu.png" alt="" @click="openMenu">
         <div class="logo-box">
-            <nuxt-link :to="'/'"><img ref="" class="logo" src="@/assets/img/logo.png" alt="logo"></img></nuxt-link>
+            <nuxt-link :to="'/'"><img ref="" class="logo" src="@/assets/img/logo.png" alt="logo"
+                    @click="closeMenu"></img></nuxt-link>
         </div>
         <div class="input-section">
             <el-input class="input" v-model="search">
@@ -15,7 +16,8 @@
             <nuxt-link class="contact" :to="'/'">聯絡我們</nuxt-link>
         </div>
     </header>
-    <div v-if="idOpened" class="menu">
+    <div v-if="isOpened" class="mask" @click="closeMenu"></div>
+    <div v-if="isOpened" class="menu">
         <div class="input-section">
             <el-input class="input" v-model="search">
                 <template #suffix>
@@ -24,18 +26,20 @@
                     </el-icon>
                 </template>
             </el-input>
+            <!-- <el-button class="cancel-button" @click="isOpened = false"><el-icon><ElIconClose /></el-icon></el-button> -->
         </div>
         <div class="menu-item-section">
             <div class="main-menu">
                 <div :class="['menu-item', { active: selectedIndex === index }]" v-for="(item, index) in menuItem"
-                    @click="selectItem(index)">{{ item.title }}<div class="icon-box"><el-icon
+                    @click="()=>selectItem(index)">{{ item.title }}<div class="icon-box"><el-icon
                             v-if="selectedIndex === index">
                             <ElIconArrowRight />
                         </el-icon></div>
                 </div>
             </div>
             <div class="sub-menu">
-                <div class="menu-item" v-for="item in submenu"><nuxt-link :to="item.link" @click="idOpened = false">{{ item.title }}</nuxt-link></div>
+                <div class="menu-item" v-for="item in submenu"><nuxt-link :to="item.link" @click="isOpened = false">{{
+                    item.title }}</nuxt-link></div>
             </div>
         </div>
     </div>
@@ -44,11 +48,16 @@
 import { Search } from '@element-plus/icons-vue'
 
 const search = ref('')
-const idOpened = ref(false)
+const isOpened = ref(false)
 
 const openMenu = () => {
-    idOpened.value = !idOpened.value
+    isOpened.value = !isOpened.value
 }
+const closeMenu = () => {
+    isOpened.value = false
+}
+
+
 
 const menuItem = [
     {
@@ -73,23 +82,23 @@ const menuItem = [
     },
     {
         title: '訊息看板',
-        subMenu: [{ title: '最新消息', link: 'news' }, { title: '活動花絮', link: '/eventHeights' }, { title: '合作申請單', link: '/cooperation' }]
+        subMenu: [{ title: '最新消息', link: 'news' }, { title: '活動花絮', link: '/event-highlights' }, { title: '合作申請單', link: '/cooperation' }]
     },
     {
         title: '認識器捐',
-        subMenu: [{ title: '器捐學堂', link: '/organ-donation' }, { title: '器捐捐贈會刊', link: '/jouranal' }, { title: '器捐生命故事:捐贈者家屬篇', link: '/story-donar-family' }, { title: '器捐生命故事:受捐者篇', link: '/story-recipient' }, { title: '影音專區', link: '/video-area' }, { title: '文宣下載', link: '/brochure-download' },{title:'法令規章', link:'/laws'} , {title:'白袍心聲', link:'/doctor-voice'}]
+        subMenu: [{ title: '器捐學堂', link: '/organ-donation' }, { title: '器捐捐贈會刊', link: '/journal' }, { title: '器捐生命故事:捐贈者家屬篇', link: '/story-donor-family' }, { title: '器捐生命故事:受捐者篇', link: '/story-recipient' }, { title: '影音專區', link: '/video-area' }, { title: '文宣下載', link: '/brochure-download' }, { title: '法令規章', link: '/laws' }, { title: '白袍心聲', link: '/doctor-voice' }]
     },
     {
         title: '家屬關懷',
-        subMenu: [{title: '協助資源', link: '/assistance-resources'},{title: '好書推薦', link: '/book-recommendations'},{title: '家屬資料填寫', link: '/'},{title: '社工專欄', link: '/social-work-column'},{title: '如果你要懷念我', link: '/miss-me'}]
+        subMenu: [{ title: '協助資源', link: '/assistance-resources' }, { title: '好書推薦', link: '/book-recommendations' }, { title: '家屬資料填寫', link: 'https://docs.google.com/forms/d/e/1FAIpQLScxrl0on7gvcaTYTI9knEgy0-dwGHhT7SeJfS183B8g811QHQ/viewform' }, { title: '社工專欄', link: '/social-work-column' }, { title: '如果你要懷念我', link: '/miss-me' }]
     },
     {
         title: '捐款贊助',
-        subMenu: [{title: '捐款支持-立即行動', link: '/donate'},{title: '版畫有限量，愛心無限亮', link: '/charity-sale'}]
+        subMenu: [{ title: '捐款支持-立即行動', link: '/donate' }, { title: '版畫有限量，愛心無限亮', link: '/charity-sale' }]
     },
     {
         title: '簽署器捐',
-        subMenu: [{title: '線上簽屬', link: '/sign-online'},{title: '簽卡停看聽', link: '/frequently-asked-questions'},{title: '撤銷簽屬', link: '/cancel-donation'}]
+        subMenu: [{ title: '線上簽屬', link: '/sign-online' }, { title: '簽卡停看聽', link: '/frequently-asked-questions' }, { title: '撤銷簽屬', link: '/cancel-donation' }]
     }
 ]
 const submenu = ref()
@@ -186,10 +195,23 @@ const selectItem = (index: number) => {
 
 }
 
+.mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 90;
+}
+
+
 .menu {
     display: none;
 
     @media screen and (max-width: 850px) {
+        -webkit-mask: linear-gradient(#fff, #fff);
+        mask: linear-gradient(#fff, #fff);
         // display: none;
         display: flex;
         flex-direction: column;
@@ -200,7 +222,7 @@ const selectItem = (index: number) => {
         left: 0;
         top: 10.8vw;
         z-index: 1000;
-        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); 
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
     }
 
     .input-section {
@@ -232,6 +254,7 @@ const selectItem = (index: number) => {
                 font-size: 0.6rem;
             }
         }
+
     }
 
     .menu-item-section {
@@ -281,6 +304,7 @@ const selectItem = (index: number) => {
             display: flex;
             width: 60%;
             flex-direction: column;
+
             // align-items: center;
             // justify-content: center;
             .menu-item {

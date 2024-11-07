@@ -9,7 +9,7 @@
     <main class="content">
       <NuxtPage></NuxtPage>
     </main>
-
+    <el-button class="top-button" v-if="showTopButton" @click="backToTop"><img src="@/assets/img/top-button.png" alt="" class="top-button-img"></el-button>
     <!-- 共用的Footer -->
     <Footer></Footer>
   </div>
@@ -49,9 +49,20 @@ onMounted(() => {
 
   //首次加載時,加載視口寬度,
   viewportWidth.value = window.innerWidth;
-  // console.log("Viewport width: " + viewportWidth.value);
 
 })
+
+const showTopButton = ref(false);
+watch(scrollPosition, (newValue) => {
+    showTopButton.value = newValue > 130;
+});
+
+const backToTop = () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
 
 //卸載之前
 onBeforeUnmount(() => {
@@ -126,7 +137,27 @@ function handleScroll() {
     top: 0;
     z-index: 1000;
   }
-
+  .top-button {
+    position: fixed;
+    right: 1%;
+    bottom: 300px;
+    width: 6rem;
+    border: none;
+    background-color: transparent;
+    &:active{
+      background-color: transparent;
+      border: none;
+    }
+    &:hover{
+      background-color: transparent;
+      border: none;
+    }
+  }
+  .top-button-img {
+    width: 100%;
+    height: 100%;
+  }
+  
 
 
 

@@ -36,8 +36,7 @@
                     </el-icon></el-button>
             </div>
             <div class="mobile-header-button-section">
-                <el-button class="active"
-                    @click="handleClick('eventHighlight')">活動花絮</el-button>
+                <el-button class="active" @click="handleClick('eventHighlight')">活動花絮</el-button>
             </div>
             <div class="mobile-article-box">
                 <div class="article-item" v-for="item in articleList.recoards">
@@ -164,6 +163,7 @@ let articleList = reactive({
 <style lang="scss" scoped>
 .main {
     width: 100%;
+
     @media screen and (max-width: 850px) {
         margin-top: 0.4vw;
     }
@@ -229,6 +229,7 @@ let articleList = reactive({
             color: #FFFFFF;
             margin-left: 10%;
             padding: 15px 0;
+
             @media screen and (max-width: 850px) {
                 margin-left: 3.5%;
                 text-align: center;
@@ -236,14 +237,16 @@ let articleList = reactive({
         }
 
         // 按鈕
-        .header-button-section, .mobile-header-button-section {
+        .header-button-section,
+        .mobile-header-button-section {
             background-color: #F4D4BE;
             display: flex;
             justify-content: space-around;
             padding: 10px 0;
+
             @media screen and (max-width: 850px) {
-                    justify-content: flex-start;
-                    padding-left: 10%;
+                justify-content: flex-start;
+                padding-left: 10%;
             }
 
             .el-button {
@@ -256,7 +259,12 @@ let articleList = reactive({
                 &:active {
                     border-color: #F4D4BE;
                 }
-                
+
+                // &.el-button:first-child {
+                //     background-color: #8F1D22;
+                //     color: white;
+                // }
+
                 &.el-button:not(:first-child) {
                     @media screen and (max-width: 850px) {
                         display: none;
@@ -271,10 +279,11 @@ let articleList = reactive({
             }
         }
 
-        
 
 
-        .article-box, .mobile-article-box {
+
+        .article-box,
+        .mobile-article-box {
             display: flex;
             justify-content: center;
             padding-bottom: 2rem;
@@ -337,10 +346,13 @@ let articleList = reactive({
                     color: #8F1D22;
                 }
             }
-            
+
         }
-        .mobile-header-button-section, .mobile-article-box {
+
+        .mobile-header-button-section,
+        .mobile-article-box {
             margin-bottom: 2vw;
+
             @media screen and (min-width: 850px) {
                 display: none;
             }
@@ -380,37 +392,39 @@ let articleList = reactive({
 
     .join-us-board {
         width: 100%;
-        // display: flex;
         margin-top: 5%;
+        justify-content: center;
+
 
         .title {
             margin-left: 10%;
             color: #E99B67;
-            font-size: 2.5rem;
+            font-size: 2rem;
+
             @media screen and (max-width: 850px) {
                 margin-left: 3.5%;
-                // text-align: center;
             }
         }
 
         .icon-link-box {
             display: flex;
             margin: 3% 0 0 10%;
-            // flex-wrap: wrap;
-            // width: 100%;
+
             @media screen and (max-width: 850px) {
-                width: 100%;
-                margin-left: 0;
+                max-width: 85%;
+                margin-left: 5%;
                 justify-content: center;
                 flex-wrap: wrap;
             }
-            
+
             .link-item {
                 @media screen and (max-width: 850px) {
                     width: 28%;
-                    margin: 0 0 2% 0;
+                    margin: 0 5px 2% 5px;
                 }
+
                 margin: 0 8% 2% 0;
+
                 // width: 100%;
                 p {
                     color: #91715F;
