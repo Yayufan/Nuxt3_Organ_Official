@@ -8,10 +8,13 @@
     <!-- 先用一個main標籤將之後要顯示的路由組件包起來 -->
     <main class="content">
       <NuxtPage></NuxtPage>
+      <!-- 將button放置在main內容下,預設使用fixed黏在整個頁面,到Footer時則轉為 absolute -->
+      <el-button class="top-button" :class="{ 'button-arrives-footer': buttonArrivesFooter }" v-if="showTopButton"
+        @click="backToTop"><img src="@/assets/img/top-button.png" alt="" class="top-button-img"></el-button>
     </main>
-    <el-button class="top-button" :class="{'is-bottom': isBottom}" v-if="showTopButton" @click="backToTop"><img src="@/assets/img/top-button.png" alt="" class="top-button-img"></el-button>
+
     <!-- 共用的Footer -->
-    <Footer></Footer>
+    <Footer ref="footerRef"></Footer>
   </div>
 
 </template>
@@ -22,15 +25,16 @@
 import Header from './components/layout/Header.vue';
 import Menu from '@/components/layout/Menu.vue';
 import Footer from '@/components/layout/Footer.vue';
-import FooterOrigon from './components/layout/FooterOrigon.vue';
-import SSRrequest from '@/composables/SSRrequest'
-import CSRrequest from '@/composables/CSRrequest'
-//引入toRaw變為普通對象
-import { toRaw, ref } from 'vue';
-import { countdownEmits, genFileId } from 'element-plus'
-import type { UploadProps, UploadInstance, UploadRawFile } from 'element-plus'
-import Breadcrumbs from './components/layout/Breadcrumbs.vue';
+import {  ref } from 'vue';
 
+//這邊注意只是獲取組件而已
+const footerRef = ref()
+
+//按鈕抵達Footer組件
+const buttonArrivesFooter = ref(false)
+
+//顯示Button變量
+const showTopButton = ref(false);
 
 //這邊使用在easyState.ts , export 出來的useScrollPosition
 //獲得全局共享變量scrollPosition
@@ -40,8 +44,6 @@ const scrollPosition = useScrollPosition()
 const viewportWidth = useViewportWidth()
 
 
-
-const bottom  = ref(0);
 //掛載完畢
 onMounted(() => {
   //監聽滑鼠滾動事件
@@ -49,33 +51,53 @@ onMounted(() => {
 
   //首次加載時,加載視口寬度,
   viewportWidth.value = window.innerWidth;
-  bottom.value= document.documentElement.scrollHeight - window.innerHeight;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // 當 footer 進入視口時，固定按鈕
+        buttonArrivesFooter.value = true;
+      } else {
+        // 當 footer 離開視口時，解放按鈕
+        buttonArrivesFooter.value = false;
+      }
+    });
+  }, {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0
+  });
+
+  // 確保 footer.value 是有效的 Element，然後才進行 observe
+  if (footerRef) {
+    const footerElement = footerRef.value?.$el
+    observer.observe(footerElement);  // 開始監控 footer
+  }
+
+  onBeforeUnmount(() => {
+    //移除observer
+    if (footerRef.value) {
+      observer.disconnect();
+    }
+
+    //移除監聽滑鼠滾動事件
+    window.removeEventListener('scroll', handleScroll);
+
+  })
 
 })
-const showTopButton = ref(false);
+
+//監聽滾動位置
 watch(scrollPosition, (newValue) => {
-    showTopButton.value = newValue > 130;
-    if (newValue < bottom.value - 300) {
-        isBottom.value = false;
-    } else {
-        isBottom.value = true;
-    }
+  showTopButton.value = newValue > 130;
 });
 
-
-const isBottom = ref(false);
 const backToTop = () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
 }
-
-//卸載之前
-onBeforeUnmount(() => {
-  //移除監聽滑鼠滾動事件
-  window.removeEventListener('scroll', handleScroll);
-})
 
 
 //當有滑鼠滾動事件被觸發,需要執行的回調函數
@@ -88,21 +110,10 @@ function handleScroll() {
 }
 
 
-
 </script>
 
 
 <style lang="scss">
-
-.page-enter-active,
-.page-leave-active {
-  transition: all 0.4s;
-}
-.page-enter-from,
-.page-leave-to {
-  opacity: 0;
-  filter: blur(1rem);
-}
 
 //覆蓋子選單的邊框
 .my-popper {
@@ -136,6 +147,7 @@ function handleScroll() {
 
   .content {
     flex-grow: 1;
+    position: relative;
 
   }
 
@@ -144,35 +156,40 @@ function handleScroll() {
     top: 0;
     z-index: 1000;
   }
+
   .top-button {
     position: fixed;
     right: 1%;
-    bottom: 10%;
+    bottom: 12vh;
     // margin-bottom: 10%;
     width: 6rem;
     border: none;
     opacity: 0.7;
     background-color: transparent;
-    &:active{
+    transition: 0.5s;
+
+
+    &:active {
       background-color: transparent;
       border: none;
     }
-    &:hover{
+
+    &:hover {
       opacity: 1;
       background-color: transparent;
       border: none;
     }
   }
+
   .top-button-img {
     width: 100%;
     height: 100%;
   }
 
-  .is-bottom {
-    bottom: 350px !important;
+  .button-arrives-footer {
+    position: absolute;
   }
 
-  
 
 
 

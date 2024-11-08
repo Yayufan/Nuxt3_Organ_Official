@@ -276,6 +276,7 @@ onMounted(() => {
                         -webkit-box-orient: vertical;
                         overflow: hidden;
                         -webkit-line-clamp: 3;
+                        line-clamp: 3;
                     }
 
                     //類型與日期, 日期將自身往右推5px

@@ -172,7 +172,7 @@ let bookArticleList = reactive({
                 position: absolute;
                 display: flex;
                 flex-direction: column;
-                justify-content: end;
+                justify-content: flex-end;
                 width: 100%;
                 height: 100%;
                 top: 0;

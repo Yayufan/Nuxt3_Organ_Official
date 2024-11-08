@@ -11,19 +11,24 @@
 
             <div class="content-box">
 
-                <div class="article-item" v-for="(item, index) in articleList.records " :key="index">
-                    <div class="article-img-box">
-                        <img class="article-img" :src="item.imgUrl">
-                    </div>
+                <transition-group name="pagination">
+                    <nuxt-link :to="{ name: 'doctor-voice-id', params: { id: item.articleId } }"
+                        v-for="(item, index) in articleList.records " :key="item.articleId">
+                        <div class="article-item">
+                            <div class="article-img-box">
+                                <img class="article-img" :src="'/minio/' + item.coverThumbnailUrl">
+                            </div>
 
-                    <div class="article-info-box">
-                        <h2 class="article-title">{{ item.title }}</h2>
-                        <p class="article-description">
-                            {{ item.description }}
-                        </p>
-                    </div>
+                            <div class="article-info-box">
+                                <h2 class="article-title">{{ item.title }}</h2>
+                                <p class="article-description">
+                                    {{ item.description }}
+                                </p>
+                            </div>
 
-                </div>
+                        </div>
+                    </nuxt-link>
+                </transition-group>
 
                 <!-- 
         分頁插件 total為總資料數(這邊設置20筆),  default-page-size代表每頁顯示資料(預設為10筆,這邊設置為5筆) 
@@ -49,39 +54,59 @@ import { ref, reactive } from 'vue'
 
 //設定分頁組件,currentPage當前頁數
 let currentPage = ref(1)
+let currentSize = ref(useState('currentSize', () => useIsMobile().value ? 4 : 5))
 
+const GROUP = "eventHighlights"
 
 let articleList = reactive({
     pages: 1,
     size: 5,
     records: [
         {
-            title: '語窩歡樂學苑-粉彩系列',
-            description: '2021年10月25日(周六) 10:00 ~ 12:00 還有名額，親手做份小禮物給自己的親朋好友吧',
-            imgUrl: 'https://exp-picture.cdn.bcebos.com/52fae62064fb960b77ff67d28fa355e982ae6c71.jpg?x-bce-process=image%2Fresize%2Cm_lfit%2Cw_640%2Climit_1%2Fformat%2Cf_auto%2Fquality%2Cq_80',
-        },
-        {
-            title: '語窩歡樂學苑-粉彩系列',
-            description: '2021年10月25日(周六) 10:00 ~ 12:00 還有名額，親手做份小禮物給自己的親朋好友吧',
-            imgUrl: 'https://exp-picture.cdn.bcebos.com/52fae62064fb960b77ff67d28fa355e982ae6c71.jpg?x-bce-process=image%2Fresize%2Cm_lfit%2Cw_640%2Climit_1%2Fformat%2Cf_auto%2Fquality%2Cq_80',
-        },
-        {
-            title: '語窩歡樂學苑-粉彩系列',
-            description: '2021年10月25日(周六) 10:00 ~ 12:00 還有名額，親手做份小禮物給自己的親朋好友吧',
-            imgUrl: 'https://exp-picture.cdn.bcebos.com/52fae62064fb960b77ff67d28fa355e982ae6c71.jpg?x-bce-process=image%2Fresize%2Cm_lfit%2Cw_640%2Climit_1%2Fformat%2Cf_auto%2Fquality%2Cq_80',
-        },
-        {
-            title: '語窩歡樂學苑-粉彩系列',
-            description: '2021年10月25日(周六) 10:00 ~ 12:00 還有名額，親手做份小禮物給自己的親朋好友吧',
-            imgUrl: 'https://exp-picture.cdn.bcebos.com/52fae62064fb960b77ff67d28fa355e982ae6c71.jpg?x-bce-process=image%2Fresize%2Cm_lfit%2Cw_640%2Climit_1%2Fformat%2Cf_auto%2Fquality%2Cq_80',
-        },
-        {
-            title: '語窩歡樂學苑-粉彩系列',
-            description: '2021年10月25日(周六) 10:00 ~ 12:00 還有名額，親手做份小禮物給自己的親朋好友吧',
-            imgUrl: 'https://exp-picture.cdn.bcebos.com/52fae62064fb960b77ff67d28fa355e982ae6c71.jpg?x-bce-process=image%2Fresize%2Cm_lfit%2Cw_640%2Climit_1%2Fformat%2Cf_auto%2Fquality%2Cq_80',
-        },
+            articleId: '',
+            title: '',
+            description: '',
+            coverThumbnailUrl: ''
+        }
     ]
 })
+
+
+
+//獲取分頁文章的資料
+const getArticleList = async (page: number, size: number) => {
+    let { data: response, pending } = await SSRrequest.get(`article/${GROUP}/pagination`, {
+        params: {
+            page,
+            size
+        }
+    })
+
+    // 直接更新 articleList 的值
+    if (response.value?.data) {
+        Object.assign(articleList, response.value.data)
+    }
+
+}
+
+//立即執行獲取資料
+await getArticleList(currentPage.value, currentSize.value)
+
+console.log(articleList)
+
+//監聽當前頁數的變化,如果有更動就call API 獲取數組數據
+watch(currentPage, (value, oldValue) => {
+
+    getArticleList(value, currentSize.value)
+
+    // 使用window.scrollTo()方法触发滚动效果，每當分頁數據改變,回到最上方
+    setTimeout(() => window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // 平滑滚动
+    }), 200)
+
+})
+
 
 
 </script>
@@ -148,6 +173,7 @@ let articleList = reactive({
                 }
 
                 img {
+                    aspect-ratio: 4 / 3;
                     transition: 0.5s;
                     width: 100%;
                     border-radius: 16px;

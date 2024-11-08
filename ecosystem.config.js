@@ -1,7 +1,7 @@
 module.exports = {
     apps: [
       {
-        name: '新川醫療',
+        name: '器捐協會',
         port: '3000',
         exec_mode: 'cluster',
         instances: '1',

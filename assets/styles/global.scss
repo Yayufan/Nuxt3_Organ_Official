@@ -1,6 +1,4 @@
 /*全局路由過渡效果*/
-
-
 .page-enter-active,
 .page-leave-active {
 	transition: all 0.4s;
@@ -10,6 +8,18 @@
 .page-leave-to {
 	opacity: 0;
 	filter: blur(1rem);
+}
+
+/* 分頁的過渡動畫 */
+.pagination-enter-active,
+.pagination-leave-active {
+	transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.pagination-enter,
+.pagination-leave-to {
+	opacity: 0;
+	transform: translateY(-40px);
 }
 
 

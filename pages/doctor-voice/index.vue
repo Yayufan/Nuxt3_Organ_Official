@@ -11,35 +11,36 @@
 
             <div class="content-box">
 
-                <article class="article-item" v-for="(item, index) in resourceArticleList.records " :key="index">
-
-
-                    <div class="article-img-box">
-                        <img class="article-img" src="@/assets/img/doctor-voice-img-01.png">
-                    </div>
-
-                    <div class="article-base">
-                        <div class="article-info-box">
-                            <h2 class="article-title">{{ item.title }}</h2>
-                            <p class="article-description">{{ item.description }}</p>
+                <transition-group name="pagination">
+                    <article class="article-item" v-for="(item, index) in articleList.records " :key="item.articleId">
+                        <div class="article-img-box">
+                            <img class="article-img" src="@/assets/img/doctor-voice-img-01.png">
                         </div>
 
-                        <div class="article-more-box">
-                            <button class="more-btn">查看更多</button>
+                        <div class="article-base">
+                            <div class="article-info-box">
+                                <h2 class="article-title">{{ item.title }}</h2>
+                                <p class="article-description">{{ item.description }}</p>
+                            </div>
+
+                            <div class="article-more-box">
+                                <nuxt-link class="more-btn"
+                                    :to="{ name: 'doctor-voice-id', params: { id: item.articleId } }">查看更多</nuxt-link>
+
+                            </div>
                         </div>
-
-                    </div>
-
-                </article>
+                    </article>
+                </transition-group>
 
 
                 <!-- 
         分頁插件 total為總資料數(這邊設置20筆),  default-page-size代表每頁顯示資料(預設為10筆,這邊設置為5筆) 
         current-page當前頁數,官方建議使用v-model與current-page去與自己設定的變量做綁定,
         -->
-                <div class="common-pagination">
-                    <el-pagination layout="prev, pager, next" :page-count="Number(resourceArticleList.pages)"
-                        :default-page-size="Number(resourceArticleList.size)" v-model:current-page="currentPage"
+
+                <div class="common-pagination" v-if="articleList.pages >= 1">
+                    <el-pagination layout="prev, pager, next" :page-count="Number(articleList.pages)"
+                        :default-page-size="Number(articleList.size)" v-model:current-page="currentPage"
                         :hide-on-single-page="true" :pager-count="5" />
                 </div>
 
@@ -59,33 +60,54 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
 //設定分頁組件,currentPage當前頁數
 let currentPage = ref(1)
+let currentSize = ref(useState('currentSize', () => useIsMobile().value ? 5 : 4))
 
-let resourceArticleList = reactive({
+const GROUP = "doctorVoice"
+
+let articleList = reactive({
     pages: 1,
     size: 4,
     records: [
         {
-            title: '小明的春天',
-            description: `白北榮總一般外科主治醫師 / 龍藉泉。\r\n\r\n原刊於中華民國器官捐贈協會會刊第22期 - 89年12月出刊`,
-            imgUrl: 'https://www.organ.org.tw/upload/%7B638599453067666981%7D_%E6%82%B2%E5%82%B7%E7%9A%84%E5%A4%A7%E8%85%A6.jpg',
-        },
-        {
-            title: '憶乃哥',
-            description: `白北榮總一般外科主治醫師 / 龍藉泉。\r\n\r\n原刊於中華民國器官捐贈協會會刊第22期 - 89年12月出刊`,
-            imgUrl: 'https://www.organ.org.tw/upload/%7B638599453067666981%7D_%E6%82%B2%E5%82%B7%E7%9A%84%E5%A4%A7%E8%85%A6.jpg',
-        },
-        {
-            title: '小明的春天',
-            description: `白北榮總一般外科主治醫師 / 龍藉泉。\r\n\r\n原刊於中華民國器官捐贈協會會刊第22期 - 89年12月出刊`,
-            imgUrl: 'https://www.organ.org.tw/upload/%7B638599453067666981%7D_%E6%82%B2%E5%82%B7%E7%9A%84%E5%A4%A7%E8%85%A6.jpg',
-        },
-        {
-            title: '憶乃哥',
-            description: `白北榮總一般外科主治醫師 / 龍藉泉。\r\n\r\n原刊於中華民國器官捐贈協會會刊第22期 - 89年12月出刊`,
-            imgUrl: 'https://www.organ.org.tw/upload/%7B638599453067666981%7D_%E6%82%B2%E5%82%B7%E7%9A%84%E5%A4%A7%E8%85%A6.jpg',
-        },
-
+            articleId: '',
+            title: '',
+            description: ''
+        }
     ]
+})
+
+
+//獲取分頁文章的資料
+const getArticleList = async (page: number, size: number) => {
+    let { data: response, pending } = await SSRrequest.get(`article/${GROUP}/pagination`, {
+        params: {
+            page,
+            size
+        }
+    })
+
+    // 直接更新 articleList 的值
+    if (response.value?.data) {
+        Object.assign(articleList, response.value.data)
+    }
+
+}
+
+//立即執行獲取資料
+await getArticleList(currentPage.value, currentSize.value)
+
+
+//監聽當前頁數的變化,如果有更動就call API 獲取數組數據
+watch(currentPage, (value, oldValue) => {
+
+    getArticleList(value, currentSize.value)
+
+    // 使用window.scrollTo()方法触发滚动效果，每當分頁數據改變,回到最上方
+    setTimeout(() => window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // 平滑滚动
+    }), 200)
+
 })
 
 
@@ -122,7 +144,6 @@ let resourceArticleList = reactive({
             margin-right: 0;
 
         }
-
 
         .article-item {
             position: relative;
@@ -195,6 +216,8 @@ let resourceArticleList = reactive({
                         display: -webkit-box;
                         -webkit-box-orient: vertical;
                         -webkit-line-clamp: 3;
+                        line-clamp: 3;
+                        /* 這是標準屬性 */
                         overflow: hidden;
 
                         @media screen and (max-width:481px) {
@@ -214,6 +237,7 @@ let resourceArticleList = reactive({
                     @media screen and (max-width:481px) {}
 
                     .more-btn {
+                        display: inline-block;
                         color: #fff;
                         background-color: $accent-color;
                         padding: 0.5rem 3rem;
@@ -231,8 +255,6 @@ let resourceArticleList = reactive({
                 }
 
             }
-
-
 
         }
 
