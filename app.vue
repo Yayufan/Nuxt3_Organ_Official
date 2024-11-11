@@ -21,7 +21,6 @@
 
 <script setup lang="ts">
 
-// import Header3 from '@/components/layout/Header3.vue';
 import Header from './components/layout/Header.vue';
 import Menu from '@/components/layout/Menu.vue';
 import Footer from '@/components/layout/Footer.vue';
@@ -53,7 +52,6 @@ onMounted(() => {
 
   //首次加載時,加載視口寬度,
   viewportWidth.value = window.innerWidth;
-  // bot  tom.value= document.documentElement.scrollHeight - window.innerHeight;
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
