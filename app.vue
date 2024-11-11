@@ -44,6 +44,8 @@ const scrollPosition = useScrollPosition()
 const viewportWidth = useViewportWidth()
 
 
+
+
 //掛載完畢
 onMounted(() => {
   //監聽滑鼠滾動事件
@@ -51,6 +53,7 @@ onMounted(() => {
 
   //首次加載時,加載視口寬度,
   viewportWidth.value = window.innerWidth;
+  // bot  tom.value= document.documentElement.scrollHeight - window.innerHeight;
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
