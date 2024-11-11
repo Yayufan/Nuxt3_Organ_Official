@@ -38,6 +38,12 @@
             width: 682.8px;
             
         }
+        @media screen and (max-width: 850px) {
+            width: 70%;
+            // padding: 0 10px;
+            margin-left: 13%;
+            
+        }
         margin: 0 auto;
         // margin-left: 14.4%;
         // width: 47rem;
