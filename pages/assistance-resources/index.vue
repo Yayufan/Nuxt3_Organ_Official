@@ -11,17 +11,27 @@
 
             <div class="content-box">
 
-                <article class="article-item" v-for="(item, index) in resourceArticleList.records " :key="index">
+                <transition-group name="pagination">
 
-                    <div class="article-img-box">
-                        <img class="article-img" :src="item.imgUrl">
-                    </div>
+                    <article class="article-item" v-for="(item, index) in articleList.records " :key="item.articleId">
 
-                    <div class="article-info-box">
-                        <h2 class="article-title">{{ item.title }}</h2>
-                    </div>
+                        <nuxt-link class="article-item-link"
+                            :to="{ name: 'assistance-resources-id', params: { id: item.articleId } }">
 
-                </article>
+                            <div class="article-img-box">
+                                <ClientOnly>
+                                    <img class="article-img" :src="item.coverThumbnailUrl">
+                                </ClientOnly>
+                            </div>
+
+                            <div class="article-info-box">
+                                <h2 class="article-title">{{ item.title }}</h2>
+                            </div>
+                        </nuxt-link>
+
+                    </article>
+
+                </transition-group>
 
 
                 <!-- 
@@ -29,8 +39,8 @@
         current-page當前頁數,官方建議使用v-model與current-page去與自己設定的變量做綁定,
         -->
                 <div class="common-pagination">
-                    <el-pagination layout="prev, pager, next" :page-count="Number(resourceArticleList.pages)"
-                        :default-page-size="Number(resourceArticleList.size)" v-model:current-page="currentPage"
+                    <el-pagination layout="prev, pager, next" :page-count="Number(articleList.pages)"
+                        :default-page-size="Number(articleList.size)" v-model:current-page="currentPage"
                         :hide-on-single-page="true" :pager-count="5" />
                 </div>
 
@@ -68,52 +78,63 @@ function getRandomImagePath(): string {
     return imagePaths[randomIndex];
 }
 
-let resourceArticleList = reactive({
+
+//設定分頁組件,currentPage當前頁數
+
+let currentSize = ref(useState('currentSize', () => useIsMobile().value ? 8 : 8))
+
+const GROUP = "assistanceResources"
+
+let articleList = reactive({
     pages: 1,
-    size: 8,
+    size: 4,
     records: [
         {
-            title: '愛的回憶寶盒、愛的回憶寶盒、愛的回憶寶盒、愛的回憶寶盒、愛的回憶寶盒',
-            description: `每個人都有情緒，但卻不是每個人都有學到好的方式來整理自己的情緒或是面對別人的情緒。這與我們過往經驗有關，當我們在孩提時代身心尚未成熟，遇到生活中的各種大小事所產生的種種情緒，會需要大人來安撫我們及幫助我們認識情緒，這樣能協助孩子瞭解自己的情緒以及長出安撫自己情緒的能力。\r\n\r\n若我們身邊的大人對情緒的認識有限，甚至也不知道如何安撫孩子的情緒，那我們會學到很多保護自己的方式則是壓抑情緒。在一般日常的生活裡，壓抑情緒是個很有效率的方法，讓我們把注意力先放在要面對的工作或維繫重要的關係，但在面對我們摯愛的親友過世時的悲傷，壓抑情緒短時間或許有用，但長期下來卻會對於我們的身、心產生不良的副作用。`,
-            imgUrl: getRandomImagePath(),
-        },
-        {
-            title: '走出哀傷，您可以這麼做',
-            description: '我們呱呱墜地來到人世，僅有食物和保暖是無法讓我們存活下來的，還有非常重要的東西，是圍繞在我們身邊、照顧我們的家人、親友，所給予我們的擁抱、關愛的眼神、歡迎的話語及微笑中所蘊含的愛的滋養，讓我們能夠順利成長。\r\n\r\n我們在愛的滋養中順利成長，也自然會以愛回報對方，在這樣的互動關係裡，我們建立起了非常重要的連結~~一份愛的關係。',
-            imgUrl: getRandomImagePath(),
-        },
-        {
-            title: '傾聽晤談陪伴，支持資源表',
-            description: `每個人都有情緒，但卻不是每個人都有學到好的方式來整理自己的情緒或是面對別人的情緒。這與我們過往經驗有關，當我們在孩提時代身心尚未成熟，遇到生活中的各種大小事所產生的種種情緒，會需要大人來安撫我們及幫助我們認識情緒，這樣能協助孩子瞭解自己的情緒以及長出安撫自己情緒的能力。\r\n\r\n若我們身邊的大人對情緒的認識有限，甚至也不知道如何安撫孩子的情緒，那我們會學到很多保護自己的方式則是壓抑情緒。在一般日常的生活裡，壓抑情緒是個很有效率的方法，讓我們把注意力先放在要面對的工作或維繫重要的關係，但在面對我們摯愛的親友過世時的悲傷，壓抑情緒短時間或許有用，但長期下來卻會對於我們的身、心產生不良的副作用。`,
-            imgUrl: getRandomImagePath(),
-        },
-        {
-            title: '愛的回憶寶盒',
-            description: '我們呱呱墜地來到人世，僅有食物和保暖是無法讓我們存活下來的，還有非常重要的東西，是圍繞在我們身邊、照顧我們的家人、親友，所給予我們的擁抱、關愛的眼神、歡迎的話語及微笑中所蘊含的愛的滋養，讓我們能夠順利成長。\r\n\r\n我們在愛的滋養中順利成長，也自然會以愛回報對方，在這樣的互動關係裡，我們建立起了非常重要的連結~~一份愛的關係。',
-            imgUrl: getRandomImagePath(),
-        },
-        {
-            title: '愛的回憶寶盒',
-            description: '我們呱呱墜地來到人世，僅有食物和保暖是無法讓我們存活下來的，還有非常重要的東西，是圍繞在我們身邊、照顧我們的家人、親友，所給予我們的擁抱、關愛的眼神、歡迎的話語及微笑中所蘊含的愛的滋養，讓我們能夠順利成長。\r\n\r\n我們在愛的滋養中順利成長，也自然會以愛回報對方，在這樣的互動關係裡，我們建立起了非常重要的連結~~一份愛的關係。',
-            imgUrl: getRandomImagePath(),
-        },
-        {
-            title: '愛的回憶寶盒',
-            description: '我們呱呱墜地來到人世，僅有食物和保暖是無法讓我們存活下來的，還有非常重要的東西，是圍繞在我們身邊、照顧我們的家人、親友，所給予我們的擁抱、關愛的眼神、歡迎的話語及微笑中所蘊含的愛的滋養，讓我們能夠順利成長。\r\n\r\n我們在愛的滋養中順利成長，也自然會以愛回報對方，在這樣的互動關係裡，我們建立起了非常重要的連結~~一份愛的關係。',
-            imgUrl: getRandomImagePath(),
-        },
-        {
-            title: '傾聽晤談陪伴，支持資源表',
-            description: `每個人都有情緒，但卻不是每個人都有學到好的方式來整理自己的情緒或是面對別人的情緒。這與我們過往經驗有關，當我們在孩提時代身心尚未成熟，遇到生活中的各種大小事所產生的種種情緒，會需要大人來安撫我們及幫助我們認識情緒，這樣能協助孩子瞭解自己的情緒以及長出安撫自己情緒的能力。\r\n\r\n若我們身邊的大人對情緒的認識有限，甚至也不知道如何安撫孩子的情緒，那我們會學到很多保護自己的方式則是壓抑情緒。在一般日常的生活裡，壓抑情緒是個很有效率的方法，讓我們把注意力先放在要面對的工作或維繫重要的關係，但在面對我們摯愛的親友過世時的悲傷，壓抑情緒短時間或許有用，但長期下來卻會對於我們的身、心產生不良的副作用。`,
-            imgUrl: getRandomImagePath(),
-        },
-        {
-            title: '愛的回憶寶盒',
-            description: '我們呱呱墜地來到人世，僅有食物和保暖是無法讓我們存活下來的，還有非常重要的東西，是圍繞在我們身邊、照顧我們的家人、親友，所給予我們的擁抱、關愛的眼神、歡迎的話語及微笑中所蘊含的愛的滋養，讓我們能夠順利成長。\r\n\r\n我們在愛的滋養中順利成長，也自然會以愛回報對方，在這樣的互動關係裡，我們建立起了非常重要的連結~~一份愛的關係。',
-            imgUrl: getRandomImagePath(),
-        },
-
+            articleId: '',
+            title: '',
+            description: '',
+            coverThumbnailUrl: getRandomImagePath()
+        }
     ]
+})
+
+
+//獲取分頁文章的資料
+const getArticleList = async (page: number, size: number) => {
+    let { data: response, pending } = await SSRrequest.get(`article/${GROUP}/pagination`, {
+        params: {
+            page,
+            size
+        }
+    })
+
+    // 直接更新 articleList 的值
+    if (response.value?.data) {
+        Object.assign(articleList, response.value.data)
+
+        // 為每篇文章添加隨機縮圖路徑
+        articleList.records.forEach(record => {
+            record.coverThumbnailUrl = getRandomImagePath();
+        });
+
+    }
+
+}
+
+//立即執行獲取資料
+await getArticleList(currentPage.value, currentSize.value)
+
+//監聽當前頁數的變化,如果有更動就call API 獲取數組數據
+watch(currentPage, (value, oldValue) => {
+
+    getArticleList(value, currentSize.value)
+
+    // 使用window.scrollTo()方法触发滚动效果，每當分頁數據改變,回到最上方
+    setTimeout(() => window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // 平滑滚动
+    }), 200)
+
 })
 
 
@@ -151,77 +172,81 @@ let resourceArticleList = reactive({
             margin-right: 0;
         }
 
-
         .article-item {
-            position: relative;
-            display: flex;
-            align-items: center;
-            width: 40%;
-            margin-bottom: 2%;
-            min-height: 5rem;
-            border-radius: 16px;
-            border: 1px solid #b1b1b1;
-            box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.2);
-            transition: 0.5s;
+            display: contents;
 
-            //當滑鼠碰到這篇文章時,改變字體顏色+圖片放大
-            &:hover {
-                cursor: pointer;
-                background: $main-hover-bg;
 
-                .article-img-box {
-                    img {
-                        scale: (1.05);
+            .article-item-link {
+                position: relative;
+                display: flex;
+                align-items: center;
+                width: 40%;
+                margin-bottom: 2%;
+                min-height: 5rem;
+                border-radius: 16px;
+                border: 1px solid #b1b1b1;
+                box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.2);
+                transition: 0.5s;
+
+                //當滑鼠碰到這篇文章時,改變字體顏色+圖片放大
+                &:hover {
+                    cursor: pointer;
+                    background: $main-hover-bg;
+
+                    .article-img-box {
+                        img {
+                            scale: (1.05);
+                        }
                     }
                 }
-            }
 
 
-            @media screen and (max-width:481px) {
-                width: 100%;
-                margin-bottom: 8%;
-            }
-
-
-            .article-img-box {
-                position: relative;
-                max-width: 6rem;
-                min-width: 6rem;
-                left: -2.3rem;
-
-
-                img {
-                    transition: 0.5s;
+                @media screen and (max-width:481px) {
                     width: 100%;
-                    aspect-ratio: 1 / 1;
-                    border: 1px solid #b1b1b1;
-                    border-radius: 50%;
-                    /* 也可以換成任何你想要的寬度 */
-                    display: block;
-                    /* 新增這行 */
-                    object-fit: cover;
-                    object-position: top center;
+                    margin-bottom: 8%;
                 }
-            }
 
-            .article-info-box {
-                text-align: left;
-                white-space: pre-wrap;
-                margin-right: 0.5rem;
-                //這組合是超過三行時使用...
-                display: -webkit-box;
-                -webkit-box-orient: vertical;
-                -webkit-line-clamp: 3;
-                line-clamp: 3;
-                overflow: hidden;
 
-                .article-title {
+                .article-img-box {
+                    position: relative;
+                    max-width: 6rem;
+                    min-width: 6rem;
+                    left: -2.3rem;
+
+
+                    img {
+                        transition: 0.5s;
+                        width: 100%;
+                        aspect-ratio: 1 / 1;
+                        border: 1px solid #b1b1b1;
+                        border-radius: 50%;
+                        /* 也可以換成任何你想要的寬度 */
+                        display: block;
+                        /* 新增這行 */
+                        object-fit: cover;
+                        object-position: top center;
+                    }
+                }
+
+                .article-info-box {
                     text-align: left;
-                    font-size: 1.1rem;
+                    white-space: pre-wrap;
+                    margin-right: 0.5rem;
+                    //這組合是超過三行時使用...
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 3;
+                    line-clamp: 3;
+                    overflow: hidden;
+
+                    .article-title {
+                        text-align: left;
+                        font-size: 1.1rem;
+                    }
+
                 }
 
             }
-
         }
 
     }

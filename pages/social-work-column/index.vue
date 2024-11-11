@@ -11,25 +11,28 @@
 
             <div class="content-box">
 
-                <article class="article-item" v-for="(item, index) in bookArticleList.records " :key="index">
+                <transition-group name="pagination">
 
-                    <div class="article-info-box">
-                        <h2 class="article-title">{{ item.title }}</h2>
-                        <p class="article-description">
-                            {{ item.description }}
-                        </p>
-                    </div>
+                    <article class="article-item" v-for="(item, index) in articleList.records " :key="item.articleId">
 
-                    <div class="more-box">
-                        <nuxt-link class="more-btn" to="/">查看更多</nuxt-link>
-                    </div>
+                        <div class="article-info-box">
+                            <h2 class="article-title">{{ item.title }}</h2>
+                            <p class="article-description">
+                                {{ item.description }}
+                            </p>
+                        </div>
 
-                    <div class="circle-mask"></div>
+                        <div class="more-box">
+                            <nuxt-link class="more-btn"
+                                :to="{ name: 'social-work-column-id', params: { id: item.articleId } }">查看更多</nuxt-link>
+                        </div>
 
-                </article>
+                        <div class="circle-mask"></div>
 
 
+                    </article>
 
+                </transition-group>
 
 
                 <!-- 
@@ -37,8 +40,8 @@
         current-page當前頁數,官方建議使用v-model與current-page去與自己設定的變量做綁定,
         -->
                 <div class="common-pagination">
-                    <el-pagination layout="prev, pager, next" :page-count="Number(bookArticleList.pages)"
-                        :default-page-size="Number(bookArticleList.size)" v-model:current-page="currentPage"
+                    <el-pagination layout="prev, pager, next" :page-count="Number(articleList.pages)"
+                        :default-page-size="Number(articleList.size)" v-model:current-page="currentPage"
                         :hide-on-single-page="true" :pager-count="5" />
                 </div>
 
@@ -56,35 +59,67 @@
 import { ref, reactive } from 'vue'
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
-//設定分頁組件,currentPage當前頁數
-let currentPage = ref(1)
+//根據裝置預設顯示數量
+const defaultSize = ref(useState('currentSize', () => useIsMobile().value ? 4 : 5))
 
-let bookArticleList = reactive({
+//拿到更新路由分頁參數 以及 獲取當前分頁參數的function
+const updatePaginationParams = useUpdatePaginationParams()
+//傳續判斷裝置後的預設值,這個就是分頁的size
+const { page, size } = useGetPaginationParams(defaultSize.value)
+
+//設定分頁組件,currentPage當前頁數
+let currentPage = ref(page)
+let currentSize = ref(size)
+
+const GROUP = "socialWorkColumn"
+
+let articleList = reactive({
     pages: 1,
     size: 4,
     records: [
         {
-            title: '情緒的力量',
-            description: `每個人都有情緒，但卻不是每個人都有學到好的方式來整理自己的情緒或是面對別人的情緒。這與我們過往經驗有關，當我們在孩提時代身心尚未成熟，遇到生活中的各種大小事所產生的種種情緒，會需要大人來安撫我們及幫助我們認識情緒，這樣能協助孩子瞭解自己的情緒以及長出安撫自己情緒的能力。\r\n\r\n若我們身邊的大人對情緒的認識有限，甚至也不知道如何安撫孩子的情緒，那我們會學到很多保護自己的方式則是壓抑情緒。在一般日常的生活裡，壓抑情緒是個很有效率的方法，讓我們把注意力先放在要面對的工作或維繫重要的關係，但在面對我們摯愛的親友過世時的悲傷，壓抑情緒短時間或許有用，但長期下來卻會對於我們的身、心產生不良的副作用。`,
-            imgUrl: 'https://www.organ.org.tw/upload/%7B638599453067666981%7D_%E6%82%B2%E5%82%B7%E7%9A%84%E5%A4%A7%E8%85%A6.jpg',
-        },
-        {
-            title: '《如果用心去愛，必然經歷悲傷》',
-            description: '我們呱呱墜地來到人世，僅有食物和保暖是無法讓我們存活下來的，還有非常重要的東西，是圍繞在我們身邊、照顧我們的家人、親友，所給予我們的擁抱、關愛的眼神、歡迎的話語及微笑中所蘊含的愛的滋養，讓我們能夠順利成長。\r\n\r\n我們在愛的滋養中順利成長，也自然會以愛回報對方，在這樣的互動關係裡，我們建立起了非常重要的連結~~一份愛的關係。',
-            imgUrl: 'https://www.organ.org.tw/upload/%7B638375450668952219%7D_1.jpg',
-        },
-        {
-            title: '情緒的力量',
-            description: `每個人都有情緒，但卻不是每個人都有學到好的方式來整理自己的情緒或是面對別人的情緒。這與我們過往經驗有關，當我們在孩提時代身心尚未成熟，遇到生活中的各種大小事所產生的種種情緒，會需要大人來安撫我們及幫助我們認識情緒，這樣能協助孩子瞭解自己的情緒以及長出安撫自己情緒的能力。\r\n\r\n若我們身邊的大人對情緒的認識有限，甚至也不知道如何安撫孩子的情緒，那我們會學到很多保護自己的方式則是壓抑情緒。在一般日常的生活裡，壓抑情緒是個很有效率的方法，讓我們把注意力先放在要面對的工作或維繫重要的關係，但在面對我們摯愛的親友過世時的悲傷，壓抑情緒短時間或許有用，但長期下來卻會對於我們的身、心產生不良的副作用。`,
-            imgUrl: 'https://www.organ.org.tw/upload/%7B638599453067666981%7D_%E6%82%B2%E5%82%B7%E7%9A%84%E5%A4%A7%E8%85%A6.jpg',
-        },
-        {
-            title: '《如果用心去愛，必然經歷悲傷》',
-            description: '我們呱呱墜地來到人世，僅有食物和保暖是無法讓我們存活下來的，還有非常重要的東西，是圍繞在我們身邊、照顧我們的家人、親友，所給予我們的擁抱、關愛的眼神、歡迎的話語及微笑中所蘊含的愛的滋養，讓我們能夠順利成長。\r\n\r\n我們在愛的滋養中順利成長，也自然會以愛回報對方，在這樣的互動關係裡，我們建立起了非常重要的連結~~一份愛的關係。',
-            imgUrl: 'https://www.organ.org.tw/upload/%7B638375450668952219%7D_1.jpg',
-        },
-
+            articleId: '',
+            title: '',
+            description: '',
+            coverThumbnailUrl: ''
+        }
     ]
+})
+
+
+
+//獲取分頁文章的資料
+const getArticleList = async (page: number, size: number) => {
+    let { data: response, pending } = await SSRrequest.get(`article/${GROUP}/pagination`, {
+        params: {
+            page,
+            size
+        }
+    })
+
+    // 直接更新 articleList 的值
+    if (response.value?.data) {
+        Object.assign(articleList, response.value.data)
+
+    }
+
+}
+
+//立即執行獲取資料
+await getArticleList(currentPage.value, currentSize.value)
+
+//監聽當前頁數的變化,如果有更動就call API 獲取數組數據
+watch(currentPage, (value, oldValue) => {
+
+    updatePaginationParams(value, currentSize.value)
+    getArticleList(value, currentSize.value)
+
+    // 使用window.scrollTo()方法触发滚动效果，每當分頁數據改變,回到最上方
+    setTimeout(() => window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // 平滑滚动
+    }), 200)
+
 })
 
 
@@ -123,6 +158,8 @@ let bookArticleList = reactive({
         @media screen and (max-width:481px) {
             margin-left: 0;
         }
+
+
 
 
         .article-item {
