@@ -15,9 +15,9 @@
         <div class="message-board-box">
             <div class="title">訊息看板</div>
             <div class="header-button-section">
-                <el-button :class="{ active: activeLink === 'news' }" @click="handleClick('news')">最新消息</el-button>
+                <el-button :class="{ active: activeLink === 'news' }" :disabled="isMobile"  @click="handleClick('news')">最新消息</el-button>
                 <el-button :class="{ active: activeLink === 'eventHighlights' }"
-                    @click="handleClick('eventHighlight')">活動花絮</el-button>
+                    @click="handleClick('eventHighlights')">活動花絮</el-button>
                 <el-button :class="{ active: activeLink === 'form' }" @click="handleClick('form')">合作申請單</el-button>
             </div>
             <div class="article-box">
@@ -40,7 +40,7 @@
                 </el-button>
             </div>
             <div class="mobile-header-button-section">
-                <el-button class="active" @click="handleClick('eventHighlight')">活動花絮</el-button>
+                <el-button class="active"  disabled>活動花絮</el-button>
             </div>
             <div class="mobile-article-box">
                 <div class="article-item" v-for="item in articleList.records">
@@ -104,10 +104,12 @@ const activeLink = ref('eventHighlights');
 
 //根據裝置預設顯示數量
 // const defaultSize = ref(useState('currentSize', () => useIsMobile().value ? 8 : 8))
+const isMobile = ref<boolean>(useIsMobile().value);
 const defaultSize = ref(useIsMobile().value ? 3 : 5)
 
 //傳續判斷裝置後的預設值,這個就是分頁的size
 const { page, size } = useGetPaginationParams(defaultSize.value)
+
 
 //設定分頁組件,currentPage當前頁數
 let currentPage = ref(page)
@@ -144,10 +146,10 @@ const getArticleList = async (page: number, size: number) => {
 
 }
 
-//立即執行獲取資料
+// //立即執行獲取資料
 await getArticleList(currentPage.value, currentSize.value)
 
-//監聽當前頁數的變化,如果有更動就call API 獲取數組數據
+// //監聽當前頁數的變化,如果有更動就call API 獲取數組數據
 watch(currentPage, (value, oldValue) => {
     getArticleList(value, currentSize.value)
 })
@@ -169,8 +171,10 @@ const toggleNextPage = () => {
 }
 
 const handleClick = (link: string) => {
+    console.log(isMobile.value)
     activeLink.value = link;
 }
+
 
 
 // const updateViewWidth = () => {
@@ -261,7 +265,7 @@ const handleClick = (link: string) => {
         // 標題
         .title {
             display: inline-block;
-            font-size: 2rem;
+            font-size: 1.5rem;
             color: #FFFFFF;
             margin-left: 10%;
             padding: 15px 0;
@@ -280,7 +284,7 @@ const handleClick = (link: string) => {
             justify-content: space-around;
             padding: 10px 0;
 
-            @media screen and (max-width: 850px) {
+            @media screen and (max-width: 481px) {
                 justify-content: flex-start;
                 padding-left: 10%;
             }
@@ -290,6 +294,7 @@ const handleClick = (link: string) => {
                 color: #8F1D22;
                 font-size: 1rem;
                 background-color: #F4D4BE;
+                
 
                 // 點擊時的邊框顏色
                 &:active {
@@ -300,9 +305,13 @@ const handleClick = (link: string) => {
                 //     background-color: #8F1D22;
                 //     color: white;
                 // }
+                @media screen and (max-width: 481px) {
+                    background-color: #8F1D22;
+                    color: white;
+                }
 
                 &.el-button:not(:first-child) {
-                    @media screen and (max-width: 850px) {
+                    @media screen and (max-width: 481px) {
                         display: none;
                     }
                 }
@@ -327,7 +336,7 @@ const handleClick = (link: string) => {
             .el-button {
 
                 // 行動裝置下隱藏
-                @media screen and (max-width: 850px) {
+                @media screen and (max-width: 481px) {
                     display: none;
                 }
 
@@ -354,14 +363,20 @@ const handleClick = (link: string) => {
                 margin: 1vw 5px;
 
                 @media screen and (max-width: 850px) {
+                    max-width: 15vw;
+                }
+                @media screen and (max-width: 481px) {
                     max-width: 30vw;
                 }
-
+                
                 .article-img {
                     width: 100%;
                     height: 17vw;
-
+                    
                     @media screen and (max-width: 850px) {
+                        height: 15vw;
+                    }
+                    @media screen and (max-width: 481px) {
                         height: 30vw;
                     }
                 }
@@ -389,13 +404,13 @@ const handleClick = (link: string) => {
         .mobile-article-box {
             margin-bottom: 2vw;
 
-            @media screen and (min-width: 850px) {
+            @media screen and (min-width: 481px) {
                 display: none;
             }
         }
 
         .page-box {
-            @media screen and (max-width: 850px) {
+            @media screen and (max-width: 481px) {
                 display: none;
             }
 
@@ -435,7 +450,7 @@ const handleClick = (link: string) => {
         .title {
             margin-left: 10%;
             color: #E99B67;
-            font-size: 2rem;
+            font-size: 1.5rem;
 
             @media screen and (max-width: 850px) {
                 margin-left: 3.5%;
