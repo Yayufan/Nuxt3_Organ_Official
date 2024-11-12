@@ -13,27 +13,36 @@
 
             <div class="content-box">
 
-                <article class="article-item" v-for="(item, index) in bookArticleList.records " :key="index">
-                    <div class="article-img-box">
-                        <img class="article-img" :src="item.imgUrl">
-                    </div>
+                <transition-group name="pagination">
 
-                    <div class="article-info-box">
-                        <h2 class="article-title">{{ item.title }}</h2>
-                        <p class="article-description">
-                            {{ item.description }}
-                        </p>
-                    </div>
+                    <article class="article-item" v-for="(item, index) in articleList.records " :key="item.articleId">
 
-                </article>
+                        <nuxt-link class="article-item-link"
+                            :to="{ name: 'organ-donation-id', params: { id: item.articleId } }">
+
+                            <div class="article-img-box">
+                                <img class="article-img" :src="`/minio${item.coverThumbnailUrl}`">
+                            </div>
+
+                            <div class="article-info-box">
+                                <h2 class="article-title">{{ item.title }}</h2>
+                                <p class="article-description">
+                                    {{ item.description }}
+                                </p>
+                            </div>
+                        </nuxt-link>
+
+                    </article>
+
+                </transition-group>
 
                 <!-- 
         分頁插件 total為總資料數(這邊設置20筆),  default-page-size代表每頁顯示資料(預設為10筆,這邊設置為5筆) 
         current-page當前頁數,官方建議使用v-model與current-page去與自己設定的變量做綁定,
         -->
                 <div class="common-pagination">
-                    <el-pagination layout="prev, pager, next" :page-count="Number(bookArticleList.pages)"
-                        :default-page-size="Number(bookArticleList.size)" v-model:current-page="currentPage"
+                    <el-pagination layout="prev, pager, next" :page-count="Number(articleList.pages)"
+                        :default-page-size="Number(articleList.size)" v-model:current-page="currentPage"
                         :hide-on-single-page="true" :pager-count="5" />
                 </div>
 
@@ -51,76 +60,71 @@
 import { ref, reactive } from 'vue'
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
-//設定分頁組件,currentPage當前頁數.value
-let currentPage = ref(1)
 
-let bookArticleList = reactive({
-    pages: 9,
-    size: 9,
+//根據裝置預設顯示數量
+// const defaultSize = ref(useState('currentSize', () => useIsMobile().value ? 8 : 8))
+const defaultSize = ref(useIsMobile().value ? 4 : 9)
+
+//拿到更新路由分頁參數 以及 獲取當前分頁參數的function
+const updatePaginationParams = useUpdatePaginationParams()
+//傳續判斷裝置後的預設值,這個就是分頁的size
+const { page, size } = useGetPaginationParams(defaultSize.value)
+
+//設定分頁組件,currentPage當前頁數
+let currentPage = ref(page)
+let currentSize = ref(size)
+
+const GROUP = "organDonation"
+
+let articleList = reactive({
+    pages: 1,
+    size: 4,
     records: [
         {
-            title: '年紀太大不能器捐？',
-            description: '簽署器捐同意書有年齡限制嘛？',
-            imgUrl: '/img/default-article-img.jpg',
-        },
-        {
-            title: '認識器官捐贈 – 簽卡FAQ',
-            description: '2021年不只是器捐簽卡同意書信件如雪片般飛來，不論是官網留言、粉專提問或是致電協會，民眾諮詢也是同樣踴躍，那麼哪些問題是大家常常詢問的呢？',
-            imgUrl: '/img/default-article-img.jpg',
-        },
-        {
-            title: '年紀太大不能器捐？',
-            description: '簽署器捐同意書有年齡限制嘛？',
-            imgUrl: '/img/default-article-img.jpg',
-        },
-        {
-            title: '年紀太大不能器捐？',
-            description: '簽署器捐同意書有年齡限制嘛？',
-            imgUrl: '/img/default-article-img.jpg',
-        },
-        {
-            title: '認識器官捐贈 – 簽卡FAQ',
-            description: '2021年不只是器捐簽卡同意書信件如雪片般飛來，不論是官網留言、粉專提問或是致電協會，民眾諮詢也是同樣踴躍，那麼哪些問題是大家常常詢問的呢？',
-            imgUrl: '/img/default-article-img.jpg',
-        },
-        {
-            title: '年紀太大不能器捐？',
-            description: '簽署器捐同意書有年齡限制嘛？',
-            imgUrl: '/img/default-article-img.jpg',
-        },
-        {
-            title: '年紀太大不能器捐？',
-            description: '簽署器捐同意書有年齡限制嘛？',
-            imgUrl: '/img/default-article-img.jpg',
-        },
-        {
-            title: '認識器官捐贈 – 簽卡FAQ',
-            description: '2021年不只是器捐簽卡同意書信件如雪片般飛來，不論是官網留言、粉專提問或是致電協會，民眾諮詢也是同樣踴躍，那麼哪些問題是大家常常詢問的呢？',
-            imgUrl: '/img/default-article-img.jpg',
-        },
-        {
-            title: '年紀太大不能器捐？',
-            description: '簽署器捐同意書有年齡限制嘛？',
-            imgUrl: '/img/default-article-img.jpg',
-        },
+            articleId: '',
+            title: '',
+            description: '',
+            coverThumbnailUrl: ''
+        }
     ]
 })
 
-//獲取視口寬度及判斷是否為Mobile裝置
-const { width, isMobile } = useWindowSize()
-console.log('預設個數', bookArticleList.size)
 
-console.log(bookArticleList)
+//獲取分頁文章的資料
+const getArticleList = async (page: number, size: number) => {
+    let { data: response, pending } = await SSRrequest.get(`article/${GROUP}/pagination`, {
+        params: {
+            page,
+            size
+        }
+    })
 
-onMounted(() => {
-    //如果使用者裝置是使用mobile,更改顯示數量
-    if (isMobile.value) {
-        bookArticleList.size = 4
+    // 直接更新 articleList 的值
+    if (response.value?.data) {
+        Object.assign(articleList, response.value.data)
+
     }
 
-    console.log('根據使用者裝置變更預設個數', bookArticleList.size)
-    console.log(bookArticleList)
+}
+
+//立即執行獲取資料
+await getArticleList(currentPage.value, currentSize.value)
+
+//監聽當前頁數的變化,如果有更動就call API 獲取數組數據
+watch(currentPage, (value, oldValue) => {
+
+    //更新URL參數以及獲取新的分頁資料
+    updatePaginationParams(value, currentSize.value)
+    getArticleList(value, currentSize.value)
+
+    // 使用window.scrollTo()方法触发滚动效果，每當分頁數據改變,回到最上方
+    setTimeout(() => window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // 平滑滚动
+    }), 200)
+
 })
+
 
 
 </script>
@@ -163,60 +167,62 @@ onMounted(() => {
             padding: 1rem 1rem;
             transition: 0.5s;
 
-            //當滑鼠碰到這篇文章時,改變字體顏色+圖片放大
-            &:hover {
-                cursor: pointer;
-                background: $main-hover-bg;
+            .article-item-link {
+
+                //當滑鼠碰到這篇文章時,改變字體顏色+圖片放大
+                &:hover {
+                    cursor: pointer;
+                    background: $main-hover-bg;
+
+                    .article-img-box {
+                        img {
+                            scale: (1.05);
+                        }
+                    }
+                }
+
+                @media screen and (max-width:480px) {
+                    width: 42%;
+                }
 
                 .article-img-box {
                     img {
-                        scale: (1.05);
+                        transition: 0.5s;
+                        aspect-ratio: 4/3;
+                        width: 100%;
+                        /* 也可以換成任何你想要的寬度 */
+                        display: block;
+                        /* 新增這行 */
+                        object-fit: fill;
+                        object-position: top center;
+                        border-radius: 16px;
                     }
                 }
-            }
 
-            @media screen and (max-width:480px) {
-                width: 85%;
-                margin: 0 auto;
-            }
+                .article-info-box {
+                    text-align: left;
 
-            .article-img-box {
-                img {
-                    transition: 0.5s;
-                    aspect-ratio: 4/3;
-                    width: 100%;
-                    /* 也可以換成任何你想要的寬度 */
-                    display: block;
-                    /* 新增這行 */
-                    object-fit: fill;
-                    object-position: top center;
-                    border-radius: 16px;
-                }
-            }
+                    .article-title {
+                        font-size: 1.2rem;
+                        margin: 0.8rem 0;
+                    }
 
-            .article-info-box {
-                text-align: left;
+                    .article-description {
+                        color: $main-content-color;
+                        //這組合是超過三行時使用...
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 3;
+                        line-clamp: 3;
+                        overflow: hidden;
 
-                .article-title {
-                    font-size: 1.2rem;
-                    margin: 0.8rem 0;
-                }
-
-                .article-description {
-                    color: $main-content-color;
-                    //這組合是超過三行時使用...
-                    display: -webkit-box;
-                    -webkit-box-orient: vertical;
-                    -webkit-line-clamp: 3;
-                    line-clamp: 3;
-                    overflow: hidden;
+                    }
 
                 }
 
+
+
             }
-
-
-
         }
 
     }

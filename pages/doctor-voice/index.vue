@@ -58,9 +58,22 @@
 import { ref, reactive } from 'vue'
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
+
+
 //設定分頁組件,currentPage當前頁數
-let currentPage = ref(1)
-let currentSize = ref(useState('currentSize', () => useIsMobile().value ? 5 : 4))
+//根據裝置預設顯示數量
+// const defaultSize = ref(useState('currentSize', () => useIsMobile().value ? 8 : 8))
+const defaultSize = ref(useIsMobile().value ? 5 : 4)
+
+//拿到更新路由分頁參數 以及 獲取當前分頁參數的function
+const updatePaginationParams = useUpdatePaginationParams()
+//傳續判斷裝置後的預設值,這個就是分頁的size
+const { page, size } = useGetPaginationParams(defaultSize.value)
+
+
+//設定分頁組件,currentPage當前頁數
+let currentPage = ref(page)
+let currentSize = ref(size)
 
 const GROUP = "doctorVoice"
 
@@ -71,7 +84,8 @@ let articleList = reactive({
         {
             articleId: '',
             title: '',
-            description: ''
+            description: '',
+            coverThumbnailUrl: ''
         }
     ]
 })
@@ -89,6 +103,7 @@ const getArticleList = async (page: number, size: number) => {
     // 直接更新 articleList 的值
     if (response.value?.data) {
         Object.assign(articleList, response.value.data)
+
     }
 
 }
@@ -96,10 +111,11 @@ const getArticleList = async (page: number, size: number) => {
 //立即執行獲取資料
 await getArticleList(currentPage.value, currentSize.value)
 
-
 //監聽當前頁數的變化,如果有更動就call API 獲取數組數據
 watch(currentPage, (value, oldValue) => {
 
+    //更新URL參數以及獲取新的分頁資料
+    updatePaginationParams(value, currentSize.value)
     getArticleList(value, currentSize.value)
 
     // 使用window.scrollTo()方法触发滚动效果，每當分頁數據改變,回到最上方
@@ -109,7 +125,6 @@ watch(currentPage, (value, oldValue) => {
     }), 200)
 
 })
-
 
 </script>
 

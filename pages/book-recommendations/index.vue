@@ -10,31 +10,37 @@
 
             <div class="content-box">
 
-                <article class="book-article-item" v-for="(item, index) in bookArticleList.records " :key="index">
-                    <div class="book-article-img-box">
-                        <img class="book-article-img" :src="item.imgUrl">
-                    </div>
+                <transition-group name="pagination">
 
-                    <div class="book-article-info-box">
-                        <h2 class="book-article-title">{{ item.title }}</h2>
-                        <p class="book-article-description">
-                            {{ item.description }}
-                        </p>
-                    </div>
+                    <article class="book-article-item" v-for="(item, index) in articleList.records "
+                        :key="item.articleId">
+                        <div class="book-article-img-box">
+                            <img class="book-article-img" :src="`minio${item.coverThumbnailUrl}`">
+                        </div>
 
-                    <div class="more-box">
-                        <nuxt-link class="more-btn" to="/">查看更多</nuxt-link>
-                    </div>
+                        <div class="book-article-info-box">
+                            <h2 class="book-article-title">{{ item.title }}</h2>
+                            <p class="book-article-description">
+                                {{ item.description }}
+                            </p>
+                        </div>
 
-                </article>
+                        <div class="more-box">
+                            <nuxt-link class="more-btn"
+                                :to="{ name: 'book-recommendations-id', params: { id: item.articleId } }">查看更多</nuxt-link>
+                        </div>
+
+                    </article>
+
+                </transition-group>
 
                 <!-- 
         分頁插件 total為總資料數(這邊設置20筆),  default-page-size代表每頁顯示資料(預設為10筆,這邊設置為5筆) 
         current-page當前頁數,官方建議使用v-model與current-page去與自己設定的變量做綁定,
         -->
                 <div class="common-pagination">
-                    <el-pagination layout="prev, pager, next" :page-count="Number(bookArticleList.pages)"
-                        :default-page-size="Number(bookArticleList.size)" v-model:current-page="currentPage"
+                    <el-pagination layout="prev, pager, next" :page-count="Number(articleList.pages)"
+                        :default-page-size="Number(articleList.size)" v-model:current-page="currentPage"
                         :hide-on-single-page="true" :pager-count="5" />
                 </div>
 
@@ -53,48 +59,71 @@
 import { ref, reactive } from 'vue'
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
-//設定分頁組件,currentPage當前頁數
-let currentPage = ref(1)
+//根據裝置預設顯示數量
+// const defaultSize = ref(useState('currentSize', () => useIsMobile().value ? 4 : 4))
+const defaultSize = ref(useIsMobile().value ? 4 : 6)
 
-let bookArticleList = reactive({
-    pages: 9,
-    size: 6,
+//拿到更新路由分頁參數 以及 獲取當前分頁參數的function
+const updatePaginationParams = useUpdatePaginationParams()
+//傳續判斷裝置後的預設值,這個就是分頁的size
+const { page, size } = useGetPaginationParams(defaultSize.value)
+
+
+//設定分頁組件,currentPage當前頁數
+let currentPage = ref(page)
+let currentSize = ref(size)
+
+const GROUP = "bookRecommendations"
+
+let articleList = reactive({
+    pages: 1,
+    size: 4,
     records: [
         {
-            title: '悲傷的大腦',
-            description: '一位心理神經免疫學者的傷慟考，從腦科學探究失去摯愛的悲痛與修復',
-            imgUrl: 'https://www.organ.org.tw/upload/%7B638599453067666981%7D_%E6%82%B2%E5%82%B7%E7%9A%84%E5%A4%A7%E8%85%A6.jpg',
-        },
-        {
-            title: '悲傷的大腦',
-            description: '一位心理神經免疫學者的傷慟考，從腦科學探究失去摯愛的悲痛與修復',
-            imgUrl: 'https://www.organ.org.tw/upload/%7B638375450668952219%7D_1.jpg',
-        },
-        {
-            title: '悲傷的大腦',
-            description: '一位心理神經免疫學者的傷慟考，從腦科學探究失去摯愛的悲痛與修復',
-            imgUrl: 'https://www.organ.org.tw/upload/%7B638375448517077126%7D_%E4%BD%A0%E5%80%BC%E5%BE%97%E5%A5%BD%E5%A5%BD%E6%82%B2%E5%82%B7.jpg',
-        },
-        {
-            title: '悲傷的大腦',
-            description: '一位心理神經免疫學者的傷慟考，從腦科學探究失去摯愛的悲痛與修復',
-            imgUrl: 'https://www.organ.org.tw/upload/%7B638375445637921884%7D_1.jpg',
-        },
-        {
-            title: '悲傷的大腦',
-            description: '一位心理神經免疫學者的傷慟考，從腦科學探究失去摯愛的悲痛與修復',
-            imgUrl: 'https://www.organ.org.tw/upload/%7B638375445637921884%7D_1.jpg',
-        },
-        {
-            title: '悲傷的大腦',
-            description: '一位心理神經免疫學者的傷慟考，從腦科學探究失去摯愛的悲痛與修復',
-            imgUrl: 'https://www.organ.org.tw/upload/%7B638375445637921884%7D_1.jpg',
+            articleId: '',
+            title: '',
+            description: '',
+            coverThumbnailUrl: ''
         }
     ]
 })
 
 
 
+//獲取分頁文章的資料
+const getArticleList = async (page: number, size: number) => {
+    let { data: response, pending } = await SSRrequest.get(`article/${GROUP}/pagination`, {
+        params: {
+            page,
+            size
+        }
+    })
+
+    // 直接更新 articleList 的值
+    if (response.value?.data) {
+        Object.assign(articleList, response.value.data)
+
+    }
+
+}
+
+//立即執行獲取資料
+await getArticleList(currentPage.value, currentSize.value)
+
+//監聽當前頁數的變化,如果有更動就call API 獲取數組數據
+watch(currentPage, (value, oldValue) => {
+
+    //更新URL參數以及獲取新的分頁資料
+    updatePaginationParams(value, currentSize.value)
+    getArticleList(value, currentSize.value)
+
+    // 使用window.scrollTo()方法触发滚动效果，每當分頁數據改變,回到最上方
+    setTimeout(() => window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // 平滑滚动
+    }), 200)
+
+})
 
 </script>
 
@@ -131,10 +160,14 @@ let bookArticleList = reactive({
         .book-article-item {
             margin-bottom: 2%;
             width: 26%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
 
             @media screen and (max-width:480px) {
                 width: 45%;
                 margin: 0 auto;
+
             }
 
             .book-article-img-box {

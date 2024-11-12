@@ -3,15 +3,7 @@
 
     <section class="article-section">
 
-        <el-breadcrumb :separator-icon="ArrowRight" class="article-breadcrumb">
-            <el-breadcrumb-item :to="{ path: '/' }">首頁</el-breadcrumb-item>
-            <el-breadcrumb-item :to="{ path: '/medical-knowledge' }">醫學新知</el-breadcrumb-item>
-            <el-breadcrumb-item>{{ article.type }}</el-breadcrumb-item>
-        </el-breadcrumb>
-
-        <div class="type-title-box">
-            <p>{{ article.type }}</p>
-        </div>
+        <Breadcrumbs2 firstRoute="社工專區" :secoundRoute="article.title"></Breadcrumbs2>
 
         <div class="title-box">
             <div class="title">{{ article.title }}</div>
@@ -29,7 +21,8 @@
 
 import { ref, reactive } from 'vue'
 import 'ckeditor5/ckeditor5.css';
-import { ArrowRight } from '@element-plus/icons-vue'
+import Breadcrumbs2 from '@/components/layout/Breadcrumbs2.vue'
+
 const route = useRoute();
 
 //預設假資料
@@ -57,60 +50,23 @@ await getArticle()
 
 <style scoped lang="scss">
 .article-section {
-    margin: 3% auto;
+    margin: 0 auto;
+    margin-bottom: 3%;
     font-family: initial;
 
-    .article-breadcrumb {
-        margin: 0 8%;
-    }
-
-    /** 重寫麵包屑導航樣式 */
-
-    :deep(.el-breadcrumb) {
-        font-size: 1rem;
-        letter-spacing: 0.1rem;
-    }
-
-    :deep(.el-breadcrumb__inner.is-link:hover) {
-        color: var(--el-text-color-regular);
-    }
-
-    :deep(.el-breadcrumb__inner.is-link) {
-        color: #242B64;
-    }
-
-    :deep(.el-breadcrumb__separator) {
-        color: #242B64;
-    }
-
-    .type-title-box {
-        margin: 1% 0 2% 0;
-        font-size: 2rem;
-        background: #F2F2F2;
-        color: #1C2B6D;
-        letter-spacing: 0.2rem;
-        padding: 1% 0;
-
-        p {
-            margin-left: 8%;
-            font-weight: 550;
-        }
-    }
-
     .title-box {
-        
-        margin: 0 8%;
-        margin-bottom: 2%;
+        margin: 3% 8%;
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding-bottom: 1%;
         border-bottom: 1px #686A69 solid;
-        font-size: 1.2rem;
-        color: #242B64;
+        font-size: 1.4rem;
+        color: $main-color;
 
         .title {
             letter-spacing: 0.2rem;
+            font-weight: 600;
         }
 
         .announcementDate {

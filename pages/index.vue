@@ -16,34 +16,38 @@
             <div class="title">訊息看板</div>
             <div class="header-button-section">
                 <el-button :class="{ active: activeLink === 'news' }" @click="handleClick('news')">最新消息</el-button>
-                <el-button :class="{ active: activeLink === 'eventHighlight' }"
+                <el-button :class="{ active: activeLink === 'eventHighlights' }"
                     @click="handleClick('eventHighlight')">活動花絮</el-button>
                 <el-button :class="{ active: activeLink === 'form' }" @click="handleClick('form')">合作申請單</el-button>
             </div>
             <div class="article-box">
-                <el-button><el-icon>
+                <el-button class="pre-page-btn" @click="togglePrePage()">
+                    <el-icon>
                         <ElIconArrowLeft />
-                    </el-icon></el-button>
-                <div class="article-item" v-for="item in articleList.recoards">
+                    </el-icon>
+                </el-button>
+                <div class="article-item" v-for="item in articleList.records">
                     <div class="article-img">
-                        <nuxt-link to="/"><img :src="item.imgUrl" alt=""></nuxt-link>
+                        <nuxt-link to="/"><img :src="`/minio${item.coverThumbnailUrl}`" alt=""></nuxt-link>
                     </div>
-                    <p>{{ item.date }}</p>
+                    <!-- <p>{{ item.date }}</p> -->
                     <p>{{ item.description }}</p>
                 </div>
-                <el-button><el-icon>
+                <el-button class="next-page-btn" @click="toggleNextPage()">
+                    <el-icon>
                         <ElIconArrowRight />
-                    </el-icon></el-button>
+                    </el-icon>
+                </el-button>
             </div>
             <div class="mobile-header-button-section">
                 <el-button class="active" @click="handleClick('eventHighlight')">活動花絮</el-button>
             </div>
             <div class="mobile-article-box">
-                <div class="article-item" v-for="item in articleList.recoards">
+                <div class="article-item" v-for="item in articleList.records">
                     <div class="article-img">
-                        <nuxt-link to="/"><img :src="item.imgUrl" alt=""></nuxt-link>
+                        <nuxt-link to="/"><img :src="`/minio${item.coverThumbnailUrl}`" alt=""></nuxt-link>
                     </div>
-                    <p>{{ item.date }}</p>
+                    <!-- <p>{{ item.date }}</p> -->
                     <p>{{ item.description }}</p>
                 </div>
             </div>
@@ -94,68 +98,100 @@
 <script setup lang='ts'>
 
 const viewWidth = ref(0);
-onMounted(() => {
-    updateViewWidth();
-    window.addEventListener('resize', updateViewWidth);
+const activeLink = ref('eventHighlights');
+
+/** */
+
+//根據裝置預設顯示數量
+// const defaultSize = ref(useState('currentSize', () => useIsMobile().value ? 8 : 8))
+const defaultSize = ref(useIsMobile().value ? 3 : 5)
+
+//傳續判斷裝置後的預設值,這個就是分頁的size
+const { page, size } = useGetPaginationParams(defaultSize.value)
+
+//設定分頁組件,currentPage當前頁數
+let currentPage = ref(page)
+let currentSize = ref(size)
+
+let articleList = reactive({
+    pages: 1,
+    size: 4,
+    records: [
+        {
+            articleId: '',
+            title: '',
+            description: '',
+            coverThumbnailUrl: ''
+        }
+    ]
 })
 
-const updateViewWidth = () => {
-    viewWidth.value = document.documentElement.clientWidth;
-    if (viewWidth.value < 850) {
-        articleList.size = 3;
-        articleList.recoards = articleList.recoards.slice(0, 3);
-    } else {
-        articleList.size = 5;
+
+//獲取分頁文章的資料
+const getArticleList = async (page: number, size: number) => {
+    let { data: response, pending } = await SSRrequest.get(`article/${activeLink.value}/pagination`, {
+        params: {
+            page,
+            size
+        }
+    })
+
+    // 直接更新 articleList 的值
+    if (response.value?.data) {
+        Object.assign(articleList, response.value.data)
+
+    }
+
+}
+
+//立即執行獲取資料
+await getArticleList(currentPage.value, currentSize.value)
+
+//監聽當前頁數的變化,如果有更動就call API 獲取數組數據
+watch(currentPage, (value, oldValue) => {
+    getArticleList(value, currentSize.value)
+})
+
+/**-----------------之前的------------------------- */
+
+//手動切換上一頁
+const togglePrePage = () => {
+    if (currentPage.value > 1) {
+        currentPage.value--
     }
 }
 
-
-onUnmounted(() => {
-    window.removeEventListener('resize', updateViewWidth);
-})
-
-
-
-
-const activeLink = ref('news');
+//手動切換下一頁
+const toggleNextPage = () => {
+    if (currentPage.value < articleList.pages) {
+        currentPage.value++
+    }
+}
 
 const handleClick = (link: string) => {
     activeLink.value = link;
 }
 
-const currentPage = ref(1)
 
-let articleList = reactive({
-    pages: 2,
-    size: 5,
-    recoards: [
-        {
-            date: '2024.10.21',
-            description: '怡馨調心成長工作坊-中區',
-            imgUrl: 'https://assets.monica.im/tools-web/_next/static/media/imageGeneratorFeatureIntro1.9f5e7e23.webp',
-        },
-        {
-            date: '2024.10.21',
-            description: '怡馨調心成長工作坊-中區',
-            imgUrl: 'https://assets.monica.im/tools-web/_next/static/media/imageGeneratorFeatureIntro1.9f5e7e23.webp',
-        },
-        {
-            date: '2024.10.21',
-            description: '怡馨調心成長工作坊-中區',
-            imgUrl: 'https://assets.monica.im/tools-web/_next/static/media/imageGeneratorFeatureIntro1.9f5e7e23.webp',
-        },
-        {
-            date: '2024.10.21',
-            description: '怡馨調心成長工作坊-中區怡馨調心成長工作坊-中區怡馨調心成長工作坊-中區',
-            imgUrl: 'https://assets.monica.im/tools-web/_next/static/media/imageGeneratorFeatureIntro1.9f5e7e23.webp',
-        },
-        {
-            date: '2024.10.21',
-            description: '怡馨調心成長工作坊-中區',
-            imgUrl: 'https://assets.monica.im/tools-web/_next/static/media/imageGeneratorFeatureIntro1.9f5e7e23.webp',
-        },
-    ]
-})
+// const updateViewWidth = () => {
+//     viewWidth.value = document.documentElement.clientWidth;
+//     if (viewWidth.value < 850) {
+//         articleList.size = 3;
+//         articleList.records = articleList.records.slice(0, 3);
+//     } else {
+//         articleList.size = 5;
+//     }
+// }
+
+
+// onMounted(() => {
+//     updateViewWidth();
+//     window.addEventListener('resize', updateViewWidth);
+// })
+
+// onUnmounted(() => {
+//     window.removeEventListener('resize', updateViewWidth);
+// })
 
 
 
@@ -435,6 +471,7 @@ let articleList = reactive({
 
             img {
                 width: 100%;
+                transition: 0.5s;
 
                 &:hover {
                     transform: scale(1.1);

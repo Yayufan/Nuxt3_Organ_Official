@@ -2,7 +2,6 @@
 <template>
 
     <div>
-
         <Breadcrumbs firstRoute="家屬關懷" secoundRoute="社工專欄"></Breadcrumbs>
 
         <section class="common-section">
@@ -59,13 +58,16 @@
 import { ref, reactive } from 'vue'
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
+
 //根據裝置預設顯示數量
-const defaultSize = ref(useState('currentSize', () => useIsMobile().value ? 4 : 5))
+// const defaultSize = ref(useState('currentSize', () => useIsMobile().value ? 4 : 4))
+const defaultSize = ref( useIsMobile().value ? 4 : 4)
 
 //拿到更新路由分頁參數 以及 獲取當前分頁參數的function
 const updatePaginationParams = useUpdatePaginationParams()
 //傳續判斷裝置後的預設值,這個就是分頁的size
 const { page, size } = useGetPaginationParams(defaultSize.value)
+
 
 //設定分頁組件,currentPage當前頁數
 let currentPage = ref(page)
@@ -111,6 +113,7 @@ await getArticleList(currentPage.value, currentSize.value)
 //監聽當前頁數的變化,如果有更動就call API 獲取數組數據
 watch(currentPage, (value, oldValue) => {
 
+    //更新URL參數以及獲取新的分頁資料
     updatePaginationParams(value, currentSize.value)
     getArticleList(value, currentSize.value)
 
@@ -158,8 +161,6 @@ watch(currentPage, (value, oldValue) => {
         @media screen and (max-width:481px) {
             margin-left: 0;
         }
-
-
 
 
         .article-item {

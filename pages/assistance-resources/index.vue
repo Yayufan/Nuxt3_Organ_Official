@@ -58,10 +58,6 @@
 import { ref, reactive } from 'vue'
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
-
-//設定分頁組件,currentPage當前頁數
-let currentPage = ref(1)
-
 // 定義圖片來源路徑
 const imagePaths = [
     "/img/resource-img-01.png",
@@ -80,8 +76,18 @@ function getRandomImagePath(): string {
 
 
 //設定分頁組件,currentPage當前頁數
+//根據裝置預設顯示數量
+// const defaultSize = ref(useState('currentSize', () => useIsMobile().value ? 8 : 8))
+const defaultSize = ref(useIsMobile().value ? 8 : 8)
 
-let currentSize = ref(useState('currentSize', () => useIsMobile().value ? 8 : 8))
+//拿到更新路由分頁參數 以及 獲取當前分頁參數的function
+const updatePaginationParams = useUpdatePaginationParams()
+//傳續判斷裝置後的預設值,這個就是分頁的size
+const { page, size } = useGetPaginationParams(defaultSize.value)
+
+//設定分頁組件,currentPage當前頁數
+let currentPage = ref(page)
+let currentSize = ref(size)
 
 const GROUP = "assistanceResources"
 
@@ -173,20 +179,21 @@ watch(currentPage, (value, oldValue) => {
         }
 
         .article-item {
-            display: contents;
 
+            width: 40%;
+            margin-bottom: 2%;
+            min-height: 5rem;
+            border-radius: 16px;
+            border: 1px solid #b1b1b1;
+            box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.2);
+            transition: 0.5s;
 
             .article-item-link {
+
                 position: relative;
                 display: flex;
                 align-items: center;
-                width: 40%;
-                margin-bottom: 2%;
-                min-height: 5rem;
-                border-radius: 16px;
-                border: 1px solid #b1b1b1;
-                box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.2);
-                transition: 0.5s;
+
 
                 //當滑鼠碰到這篇文章時,改變字體顏色+圖片放大
                 &:hover {
