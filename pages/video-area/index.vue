@@ -168,14 +168,12 @@ watch(currentPage, (value, oldValue) => {
             border-radius: 16px;
             box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
 
+            @media screen and (max-width:480px) {
+                width: 100%;
+                margin: 8% auto;
+            }
 
             .article-item-link {
-
-                @media screen and (max-width:480px) {
-                    width: 100%;
-                    margin: 8% auto;
-                }
-
 
                 //當滑鼠碰到這篇文章時,改變字體顏色+圖片放大
                 &:hover {

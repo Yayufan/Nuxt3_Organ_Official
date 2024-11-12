@@ -167,6 +167,10 @@ watch(currentPage, (value, oldValue) => {
             padding: 1rem 1rem;
             transition: 0.5s;
 
+            @media screen and (max-width:480px) {
+                width: 42%;
+            }
+
             .article-item-link {
 
                 //當滑鼠碰到這篇文章時,改變字體顏色+圖片放大
@@ -181,9 +185,7 @@ watch(currentPage, (value, oldValue) => {
                     }
                 }
 
-                @media screen and (max-width:480px) {
-                    width: 42%;
-                }
+
 
                 .article-img-box {
                     img {

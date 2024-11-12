@@ -1,7 +1,7 @@
 <template>
   <!-- 最外層新增一個wrapper,是為了搭配content 撐開中間內容為空的路由組件來達成一頁的效果  -->
   <div class="wrapper">
-
+   
     <!-- 共用的Header -->
     <Header></Header>
     <Menu class="menu-bar"></Menu>

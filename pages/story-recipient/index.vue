@@ -161,6 +161,12 @@ watch(currentPage, (value, oldValue) => {
             margin-bottom: 3%;
             width: 48%;
 
+            @media screen and (max-width:480px) {
+                width: 80%;
+                margin: 5% auto;
+            }
+
+
             .article-item-link {
 
                 //當滑鼠碰到這篇文章時,改變字體顏色+圖片放大
@@ -174,10 +180,6 @@ watch(currentPage, (value, oldValue) => {
                     }
                 }
 
-                @media screen and (max-width:480px) {
-                    width: 80%;
-                    margin: 5% auto;
-                }
 
                 .article-img-box {
                     position: relative;

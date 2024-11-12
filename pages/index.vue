@@ -15,10 +15,13 @@
         <div class="message-board-box">
             <div class="title">訊息看板</div>
             <div class="header-button-section">
-                <el-button :class="{ active: activeLink === 'news' }" :disabled="isMobile"  @click="handleClick('news')">最新消息</el-button>
+                <el-button :class="{ active: activeLink === 'news' }" :disabled="isMobile"
+                    @click="handleClick('news')">最新消息</el-button>
                 <el-button :class="{ active: activeLink === 'eventHighlights' }"
                     @click="handleClick('eventHighlights')">活動花絮</el-button>
-                <el-button :class="{ active: activeLink === 'form' }" @click="handleClick('form')">合作申請單</el-button>
+                <el-button :class="{ active: activeLink === 'form' }">
+                    <nuxt-link class="btn-link" to="/cooperation">合作申請單</nuxt-link>
+                </el-button>
             </div>
             <div class="article-box">
                 <el-button class="pre-page-btn" @click="togglePrePage()">
@@ -39,11 +42,13 @@
                     </el-icon>
                 </el-button>
             </div>
+
+
             <div class="mobile-header-button-section">
-                <el-button class="active"  disabled>活動花絮</el-button>
+                <el-button class="active" disabled>活動花絮</el-button>
             </div>
             <div class="mobile-article-box">
-                <div class="article-item" v-for="item in articleList.records">
+                <div class="article-item" v-for="item in eventHighlightsList.records">
                     <div class="article-img">
                         <nuxt-link to="/"><img :src="`/minio${item.coverThumbnailUrl}`" alt=""></nuxt-link>
                     </div>
@@ -98,7 +103,7 @@
 <script setup lang='ts'>
 
 const viewWidth = ref(0);
-const activeLink = ref('eventHighlights');
+const activeLink = ref('news');
 
 /** */
 
@@ -129,6 +134,20 @@ let articleList = reactive({
 })
 
 
+let eventHighlightsList = reactive({
+    pages: 1,
+    size: 4,
+    records: [
+        {
+            articleId: '',
+            title: '',
+            description: '',
+            coverThumbnailUrl: ''
+        }
+    ]
+})
+
+
 //獲取分頁文章的資料
 const getArticleList = async (page: number, size: number) => {
     let { data: response, pending } = await SSRrequest.get(`article/${activeLink.value}/pagination`, {
@@ -141,13 +160,30 @@ const getArticleList = async (page: number, size: number) => {
     // 直接更新 articleList 的值
     if (response.value?.data) {
         Object.assign(articleList, response.value.data)
-
     }
 
 }
 
+//獲取分頁文章的資料
+const getEventHighlightsList = async (page: number, size: number) => {
+    let { data: response, pending } = await SSRrequest.get(`article/eventHighlights/pagination`, {
+        params: {
+            page,
+            size
+        }
+    })
+
+    // 直接更新 articleList 的值
+    if (response.value?.data) {
+        Object.assign(eventHighlightsList, response.value.data)
+    }
+
+}
+
+
 // //立即執行獲取資料
 await getArticleList(currentPage.value, currentSize.value)
+await getEventHighlightsList(currentPage.value, currentSize.value)
 
 // //監聽當前頁數的變化,如果有更動就call API 獲取數組數據
 watch(currentPage, (value, oldValue) => {
@@ -173,6 +209,7 @@ const toggleNextPage = () => {
 const handleClick = (link: string) => {
     console.log(isMobile.value)
     activeLink.value = link;
+    getArticleList(currentPage.value, currentSize.value)
 }
 
 
@@ -294,7 +331,11 @@ const handleClick = (link: string) => {
                 color: #8F1D22;
                 font-size: 1rem;
                 background-color: #F4D4BE;
-                
+
+                .btn-link {
+                    color: inherit;
+                }
+
 
                 // 點擊時的邊框顏色
                 &:active {
@@ -365,17 +406,19 @@ const handleClick = (link: string) => {
                 @media screen and (max-width: 850px) {
                     max-width: 15vw;
                 }
+
                 @media screen and (max-width: 481px) {
                     max-width: 30vw;
                 }
-                
+
                 .article-img {
                     width: 100%;
                     height: 17vw;
-                    
+
                     @media screen and (max-width: 850px) {
                         height: 15vw;
                     }
+
                     @media screen and (max-width: 481px) {
                         height: 30vw;
                     }

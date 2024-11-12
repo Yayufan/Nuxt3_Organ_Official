@@ -160,6 +160,7 @@ watch(currentPage, (value, oldValue) => {
 
         @media screen and (max-width:481px) {
             margin-left: 0;
+            margin-right: 0;
         }
 
 

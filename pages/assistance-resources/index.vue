@@ -188,6 +188,11 @@ watch(currentPage, (value, oldValue) => {
             box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.2);
             transition: 0.5s;
 
+            @media screen and (max-width:481px) {
+                width: 100%;
+                margin-bottom: 8%;
+            }
+
             .article-item-link {
 
                 position: relative;
@@ -206,13 +211,6 @@ watch(currentPage, (value, oldValue) => {
                         }
                     }
                 }
-
-
-                @media screen and (max-width:481px) {
-                    width: 100%;
-                    margin-bottom: 8%;
-                }
-
 
                 .article-img-box {
                     position: relative;

@@ -23,7 +23,7 @@ export default defineNuxtConfig({
     //如果是需要設置再Nginx或者Apache的子目路上,需要加上baseURL,務必記得加上/線, 它就會自動在需要的地方上增加子目錄層級,
     //但是這邊要注意,如果是由後端給的URL字串,要訪問靜態目錄結構的URL 則需要注意路徑問題,如果是Minio其實沒這個問題
     // baseURL: "/organ2/",
-    baseURL:"/",
+    baseURL: "/",
 
     head: {
       charset: 'utf-8', //預設,不設置也行
@@ -43,6 +43,10 @@ export default defineNuxtConfig({
       ],
       //引入第三方外部JS可能會用到
       script: [
+        {
+          src: 'https://cse.google.com/cse.js?cx=93296d208c72f464b',
+          async: true
+        }
         // <script src="https://myawesome-lib.js"></script>  如果你像引入這個
         // { src: 'https://awesome-lib.js' }  //請這樣寫
       ]

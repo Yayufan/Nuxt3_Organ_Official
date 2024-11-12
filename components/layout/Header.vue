@@ -6,19 +6,26 @@
                     @click="closeMenu"></img></nuxt-link>
         </div>
         <div class="input-section">
-            <el-input class="input" v-model="search">
+            <div class="gcse-search"></div>
+
+            <!-- <el-input class="input" v-model="search">
                 <template #suffix>
                     <el-icon class="el-input__icon">
                         <ElIconSearch />
                     </el-icon>
                 </template>
-            </el-input>
+</el-input> -->
+
             <nuxt-link class="contact" :to="'/'">聯絡我們</nuxt-link>
         </div>
     </header>
     <div v-if="isOpened" class="mask" @click="closeMenu"></div>
-    <div v-if="isOpened" class="menu">
-        <div class="input-section">
+    <div v-show="isOpened" class="menu">
+
+        <!-- <div class="gcse-search"></div> -->
+        <!-- <img style="width: 90%;margin: 5px auto"  ref="" class="logo" src="@/assets/img/logo.png" alt="logo" @click="closeMenu"></img> -->
+
+        <!-- <div class="input-section">
             <el-input class="input" v-model="search">
                 <template #suffix>
                     <el-icon class="el-input__icon">
@@ -26,12 +33,14 @@
                     </el-icon>
                 </template>
             </el-input>
-            <!-- <el-button class="cancel-button" @click="isOpened = false"><el-icon><ElIconClose /></el-icon></el-button> -->
-        </div>
+
+            <el-button class="cancel-button" @click="isOpened = false"><el-icon><ElIconClose /></el-icon></el-button>
+        </div> -->
+
         <div class="menu-item-section">
             <div class="main-menu">
                 <div :class="['menu-item', { active: selectedIndex === index }]" v-for="(item, index) in menuItem"
-                    @click="()=>selectItem(index)">{{ item.title }}<div class="icon-box"><el-icon
+                    @click="() => selectItem(index)">{{ item.title }}<div class="icon-box"><el-icon
                             v-if="selectedIndex === index">
                             <ElIconArrowRight />
                         </el-icon></div>
@@ -45,6 +54,7 @@
     </div>
 </template>
 <script lang="ts" setup>
+
 import { Search } from '@element-plus/icons-vue'
 
 const search = ref('')
@@ -110,7 +120,9 @@ const selectItem = (index: number) => {
     selectedIndex.value = index;
     submenu.value = menuItem[index].subMenu;
 }
+
 </script>
+
 <style lang="scss" scoped>
 .PC-menu-box {
     width: 100%;
@@ -151,15 +163,17 @@ const selectItem = (index: number) => {
     }
 
     .input-section {
-        @media screen and (max-width: 850px) {
-            display: none;
-        }
 
         width: 25vw;
         display: flex;
-        align-items: flex-end;
+        // align-items: flex-end;
+        align-items: center;
         margin-left: 15vw;
         padding-bottom: 0.5rem;
+
+        @media screen and (max-width: 850px) {
+            display: none;
+        }
 
         .el-input {
             width: 16vw;

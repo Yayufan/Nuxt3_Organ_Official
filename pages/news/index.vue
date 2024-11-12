@@ -11,19 +11,26 @@
 
             <div class="content-box">
 
-                <article class="article-item" v-for="(item, index) in articleList.records " :key="index">
-                    <div class="article-img-box">
-                        <img class="article-img" :src="item.imgUrl">
-                    </div>
+                <transition-group name="pagination">
 
-                    <div class="article-info-box">
-                        <h2 class="article-title">{{ item.title }}</h2>
-                        <p class="article-description">
-                            {{ item.description }}
-                        </p>
-                    </div>
+                    <article class="article-item" v-for="(item, index) in articleList.records " :key="item.articleId">
 
-                </article>
+                        <nuxt-link class="article-item-link"
+                            :to="{ name: 'news-id', params: { id: item.articleId } }">
+                            <div class="article-img-box">
+                                <img class="article-img" :src="`/minio${item.coverThumbnailUrl}`">
+                            </div>
+
+                            <div class="article-info-box">
+                                <h2 class="article-title">{{ item.title }}</h2>
+                                <p class="article-description">
+                                    {{ item.description }}
+                                </p>
+                            </div>
+                        </nuxt-link>
+
+                    </article>
+                </transition-group>
 
                 <!-- 
         分頁插件 total為總資料數(這邊設置20筆),  default-page-size代表每頁顯示資料(預設為10筆,這邊設置為5筆) 
@@ -47,35 +54,68 @@ import { descriptionProps } from 'element-plus';
 import { ref, reactive } from 'vue'
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
-//設定分頁組件,currentPage當前頁數
-let currentPage = ref(1)
+//根據裝置預設顯示數量
+// const defaultSize = ref(useState('currentSize', () => useIsMobile().value ? 8 : 8))
+const defaultSize = ref(useIsMobile().value ? 4 : 4)
 
+//拿到更新路由分頁參數 以及 獲取當前分頁參數的function
+const updatePaginationParams = useUpdatePaginationParams()
+//傳續判斷裝置後的預設值,這個就是分頁的size
+const { page, size } = useGetPaginationParams(defaultSize.value)
+
+//設定分頁組件,currentPage當前頁數
+let currentPage = ref(page)
+let currentSize = ref(size)
+
+const GROUP = "news"
 
 let articleList = reactive({
-    pages: 6,
+    pages: 1,
     size: 4,
     records: [
         {
-            title: '怡馨調心成長工作房-中區',
-            description: '身體與心理是一體的兩面，兩者有著互相影響、密不可分的關係，今年我們邀請芳療師和身體工作的經絡老師，來跟大家分享如何運用香氣、經絡按摩的方法來照顧好自己的身體與心理，才有更多力量面對生活的種種挑戰，歡迎大家一起來學期吧',
-            imgUrl: 'https://miro.medium.com/v2/resize:fit:1006/format:webp/1*4j2A9niz0eq-mRaCPUffpg.png',
-        },
-        {
-            title: '怡馨調心成長工作房-中區',
-            description: '身體與心理是一體的兩面，兩者有著互相影響、密不可分的關係，今年我們邀請芳療師和身體工作的經絡老師，來跟大家分享如何運用香氣、經絡按摩的方法來照顧好自己的身體與心理，才有更多力量面對生活的種種挑戰，歡迎大家一起來學期吧',
-            imgUrl: 'https://miro.medium.com/v2/resize:fit:1006/format:webp/1*4j2A9niz0eq-mRaCPUffpg.png',
-        },
-        {
-            title: '怡馨調心成長工作房-中區',
-            description: '身體與心理是一體的兩面，兩者有著互相影響、密不可分的關係，今年我們邀請芳療師和身體工作的經絡老師，來跟大家分享如何運用香氣、經絡按摩的方法來照顧好自己的身體與心理，才有更多力量面對生活的種種挑戰，歡迎大家一起來學期吧',
-            imgUrl: 'https://miro.medium.com/v2/resize:fit:1006/format:webp/1*4j2A9niz0eq-mRaCPUffpg.png',
-        },
-        {
-            title: '怡馨調心成長工作房-中區',
-            description: '身體與心理是一體的兩面，兩者有著互相影響、密不可分的關係，今年我們邀請芳療師和身體工作的經絡老師，來跟大家分享如何運用香氣、經絡按摩的方法來照顧好自己的身體與心理，才有更多力量面對生活的種種挑戰，歡迎大家一起來學期吧',
-            imgUrl: 'https://miro.medium.com/v2/resize:fit:1006/format:webp/1*4j2A9niz0eq-mRaCPUffpg.png',
+            articleId: '',
+            title: '',
+            description: '',
+            coverThumbnailUrl: ''
         }
     ]
+})
+
+
+//獲取分頁文章的資料
+const getArticleList = async (page: number, size: number) => {
+    let { data: response, pending } = await SSRrequest.get(`article/${GROUP}/pagination`, {
+        params: {
+            page,
+            size
+        }
+    })
+
+    // 直接更新 articleList 的值
+    if (response.value?.data) {
+        Object.assign(articleList, response.value.data)
+
+    }
+
+}
+
+//立即執行獲取資料
+await getArticleList(currentPage.value, currentSize.value)
+
+//監聽當前頁數的變化,如果有更動就call API 獲取數組數據
+watch(currentPage, (value, oldValue) => {
+
+    //更新URL參數以及獲取新的分頁資料
+    updatePaginationParams(value, currentSize.value)
+    getArticleList(value, currentSize.value)
+
+    // 使用window.scrollTo()方法触发滚动效果，每當分頁數據改變,回到最上方
+    setTimeout(() => window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // 平滑滚动
+    }), 200)
+
 })
 
 
@@ -110,9 +150,12 @@ let articleList = reactive({
         }
 
         .article-item {
-            display: flex;
             margin: 3% 0;
             transition: 0.5s;
+
+            .article-item-link {
+                display: flex;
+            }
 
             //當滑鼠碰到這篇文章時,改變字體顏色+圖片放大
             &:hover {
@@ -141,12 +184,11 @@ let articleList = reactive({
 
 
                 img {
-                    aspect-ratio: 1 / 1;
+                    aspect-ratio: 4 / 3;
                     width: 100%;
                     /* 也可以換成任何你想要的寬度 */
                     display: block;
                     /* 新增這行 */
-                    object-fit: cover;
                     object-position: top center;
                     border-radius: 16px;
                     transition: 0.5s;

@@ -58,7 +58,7 @@ import { ref, reactive } from 'vue'
 
 //根據裝置預設顯示數量
 // const defaultSize = ref(useState('currentSize', () => useIsMobile().value ? 8 : 8))
-const defaultSize = ref(useIsMobile().value ? 4 : 4)
+const defaultSize = ref(useIsMobile().value ? 4 : 5)
 
 //拿到更新路由分頁參數 以及 獲取當前分頁參數的function
 const updatePaginationParams = useUpdatePaginationParams()
