@@ -215,6 +215,11 @@ const goToBottom = () => {
             font-size: 1rem;
             margin-left: 1vw;
             padding-bottom: 0.1vw;
+            cursor: pointer;
+
+            &:hover {
+                border-bottom: 1px solid $main-color;
+            }
         }
     }
 
