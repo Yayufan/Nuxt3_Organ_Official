@@ -16,7 +16,7 @@
                 </template>
 </el-input> -->
 
-            <nuxt-link class="contact" :to="'/'">聯絡我們</nuxt-link>
+            <nuxt-link class="contact" @click="goToBottom">聯絡我們</nuxt-link>
         </div>
     </header>
     <div v-if="isOpened" class="mask" @click="closeMenu"></div>
@@ -120,6 +120,17 @@ const selectItem = (index: number) => {
     selectedIndex.value = index;
     submenu.value = menuItem[index].subMenu;
 }
+
+const goToBottom = () => {
+
+    window.scrollTo(
+        {
+            top: document.documentElement.scrollHeight,
+            behavior: 'smooth'
+        }
+    )
+}
+
 
 </script>
 
