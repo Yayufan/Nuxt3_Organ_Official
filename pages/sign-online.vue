@@ -7,23 +7,31 @@
             <div class="content-box">
                 <p class="title">器官捐贈同意書</p>
                 <div class="statement">
-                    <p>本人瞭解醫療有其極限，而愛心可以延續，經閱讀，知悉後列說明後，願意簽署<a class="donation-form" href="/files/organs-donate-consent.pdf" target="_blank"><u>【器官捐贈同意書】</u></a>，
+                    <p>本人瞭解醫療有其極限，而愛心可以延續，經閱讀，知悉後列說明後，願意簽署
+                        <a class="donation-form" href="/files/organs-donate-consent.pdf" target="_blank">
+                            <u>【器官捐贈同意書】</u>
+                        </a>，
                     </p>
                     <p>並將此意願註記於健保卡，於生命之盡頭，捐贈可用器官，讓其他需要的病人能因此而獲得重生機會。</p>
-                    <p>如須撤銷器捐同意，請下載<a class="cancel-form" href="/files/cancel-organs-donate.pdf" target="_blank"><u>【撤銷器捐同意書】</u></a>填寫後由寄正本到本會。</p>
+                    <p>如須撤銷器捐同意，請下載
+                        <a class="cancel-form" href="/files/cancel-organs-donate.pdf" target="_blank">
+                            <u>【撤銷器捐同意書】</u>
+                        </a>填寫後由寄正本到本會。
+                    </p>
                 </div>
             </div>
+
             <div class="form-section">
                 <p class="notice">(以下欄位有<span>*</span>標示者為必填)</p>
                 <el-form ref="ruleFormRef" class="form" :model="form" :rules="formRules" label-position="left">
                     <el-form-item label="簽署人：" label-width="270" prop="name" class="form-item1">
                         <el-input v-model="form.name" type="text"></el-input>
                     </el-form-item>
-                    <el-form-item label="國民身分證統一編號：" prop="ID" label-width="270" class="form-item1">
-                        <el-input v-model="form.ID" type="text"></el-input>
+                    <el-form-item label="國民身分證統一編號：" prop="idCard" label-width="270" class="form-item1">
+                        <el-input v-model="form.idCard" type="text"></el-input>
                     </el-form-item>
                     <el-form-item label="出生日期：" label-width="270" prop="birthday" class="form-item1">
-                        <el-date-picker v-model="form.birthday" type="date" value-format="yyyy-mm-dd"></el-date-picker>
+                        <el-date-picker v-model="form.birthday" type="date" value-format="YYYY-MM-DD"></el-date-picker>
                     </el-form-item>
                     <el-form-item label="連絡電話：" label-width="270" prop="contactNumber" class="form-item1">
                         <el-input v-model="form.contactNumber" type="tel"></el-input>
@@ -57,7 +65,7 @@
                             <el-input v-model="form.wordToFamily" type="textarea" rows="6"></el-input>
                         </el-form-item>
                     </div>
-                    <el-form-item class="donate-organs unnecessary" label="願意捐贈器官/組織項目(可複選)">
+                    <el-form-item class="donate-organs unnecessary" label="願意捐贈器官/組織項目(可複選)" prop="donateOrgans">
                         <el-checkbox-group v-model="form.donateOrgans">
                             <div class="checkbox-div">
                                 <el-checkbox label="全部捐贈" value="all"></el-checkbox>
@@ -87,8 +95,8 @@
                     </div>
                     <div class="submit-section">
                         <el-form-item>
-                            <el-button class="submit" @click="() => submitForm(ruleFormRef)">送出資料</el-button>
-                            <el-button class="reset" @click="() => resetForm(ruleFormRef)">重新填寫</el-button>
+                            <el-button class="submit" @click="submitForm(ruleFormRef)">送出資料</el-button>
+                            <el-button class="reset" @click="resetForm(ruleFormRef)">重新填寫</el-button>
                         </el-form-item>
                     </div>
                 </el-form>
@@ -136,11 +144,10 @@
 <script lang="ts" setup>
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 import type { FormInstance, FormRules } from 'element-plus'
-import { tr } from 'element-plus/es/locale/index.mjs';
 
 interface form {
     name: string,
-    ID: string,
+    idCard: string,
     birthday: string,
     contactNumber: string,
     phoneNumber: string,
@@ -156,7 +163,7 @@ interface form {
 
 const form = reactive<form>({
     name: '',
-    ID: '',
+    idCard: '',
     birthday: '',
     contactNumber: '',
     phoneNumber: '',
@@ -167,7 +174,7 @@ const form = reactive<form>({
     consentCard: '-1',
     reason: '',
     wordToFamily: '',
-    donateOrgans: []
+    donateOrgans: ["lung", "skin", "smallIntestine"]
 })
 
 const approveInstructions = ref(false)
@@ -175,7 +182,7 @@ const drawer = ref(false)
 const isReadInstructions = ref(false)
 
 watch(() => approveInstructions.value, (newVal) => {
-    if (newVal&&!isReadInstructions.value) {
+    if (newVal && !isReadInstructions.value) {
         drawer.value = true;
     }
 })
@@ -190,29 +197,69 @@ watch(() => drawer.value, (newVal) => {
 const ruleFormRef = ref<FormInstance>()
 const formRules = reactive<FormRules<form>>({
     name: [
-        { required: true, message: '請輸入簽署人', trigger: 'blur' }
+        {
+            required: true,
+            message: '請輸入簽署人',
+            trigger: 'blur'
+        }
     ],
-    ID: [
-        { required: true, message: '請輸入國民身分證統一編號', trigger: 'blur' }
+    idCard: [
+        {
+            required: true,
+            message: '請輸入國民身分證統一編號',
+            trigger: 'blur'
+        }
     ],
     birthday: [
-        { required: true, message: '請輸入出生日期', trigger: 'blur' }
+        {
+            required: true,
+            message: '請輸入出生日期',
+            trigger: 'blur'
+        }
     ],
     contactNumber: [
-        { required: true, message: '請輸入連絡電話', trigger: 'blur' }
+        {
+            required: true,
+            message: '請輸入連絡電話',
+            trigger: 'blur'
+        }
     ],
     phoneNumber: [
-        { required: true, message: '請輸入手機號碼', trigger: 'blur' }
+        {
+            required: true,
+            message: '請輸入手機號碼',
+            trigger: 'blur'
+        }
     ],
     address: [
-        { required: true, message: '請輸入聯絡地址', trigger: 'blur' }
+        {
+            required: true,
+            message: '請輸入聯絡地址',
+            trigger: 'blur'
+        }
     ],
     legalRepresentativeName: [
-        { required: true, message: '請輸入法定代理人姓名', trigger: 'blur' }
+        {
+            required: true,
+            message: '請輸入法定代理人姓名',
+            trigger: 'blur'
+        }
     ],
     legalRepresentativeID: [
-        { required: true, message: '請輸入法定代理人國民身分證統一編號', trigger: 'blur' }
-    ]
+        {
+            required: true,
+            message: '請輸入法定代理人國民身分證統一編號'
+            , trigger: 'blur'
+        }
+    ],
+    donateOrgans: [
+        {
+            type: 'array',
+            required: true,
+            message: '請至少勾選一個捐贈項目',
+            trigger: 'change',
+        },
+    ],
 
 })
 
@@ -227,6 +274,7 @@ const submitForm = async (formEl: FormInstance | undefined) => {
             }
             console.log(form)
         } else {
+            ElMessage.error("請填寫完整的資訊")
             console.log('error submit!', fields)
         }
     })
@@ -240,11 +288,19 @@ const resetForm = (formEl: FormInstance | undefined) => {
     console.log(form);
 }
 </script>
+
 <style lang="scss" scoped>
 .common-section {
     width: $common-section-width;
     margin: $common-section-margin;
     font-family: $common-section-font-family;
+
+    @media screen and (max-width:481px) {
+        :deep(.el-drawer) {
+            width: 80% !important;
+        }
+
+    }
 
     .common-title {
         color: $main-color;
@@ -323,7 +379,8 @@ const resetForm = (formEl: FormInstance | undefined) => {
     //表單區塊
     .form-section {
         background-color: #F2F2F1;
-        padding: 1% 10%;
+        // padding: 1% 10%;
+        padding: 1% 11%;
 
         // 提醒標示
         .notice {
@@ -392,7 +449,8 @@ const resetForm = (formEl: FormInstance | undefined) => {
 
                     @media screen and (max-width:850px) {
                         font-size: 0.9rem;
-                        width: 65%;
+                        // width: 65%;
+                        width: 70%;
 
                     }
                 }
@@ -401,6 +459,7 @@ const resetForm = (formEl: FormInstance | undefined) => {
             //法定代理人身分證
             .legal-representative-ID {
                 margin-bottom: 3vw;
+
                 :deep(.el-form-item__label) {
                     @media screen and (max-width:850px) {
                         font-size: 0.9rem;
