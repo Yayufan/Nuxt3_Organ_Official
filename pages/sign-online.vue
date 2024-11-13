@@ -48,8 +48,9 @@
                     <el-form-item label="法定代理人姓名：" label-width="270" prop="legalRepresentativeName" class="form-item1">
                         <el-input v-model="form.legalRepresentativeName" type="text"></el-input>
                     </el-form-item>
-                    <el-form-item label="法定代理人國民身分證統一編號：" class="legal-representative-ID" prop="legalRepresentativeID">
-                        <el-input v-model="form.legalRepresentativeID" type="text"></el-input>
+                    <el-form-item label="法定代理人國民身分證統一編號：" class="legal-representative-ID"
+                        prop="legalRepresentativeIdCard">
+                        <el-input v-model="form.legalRepresentativeIdCard" type="text"></el-input>
                     </el-form-item>
                     <el-form-item label="本人獲得器官捐贈同意卡：" class="unnecessary form-item1 consent-card">
                         <el-radio-group v-model="form.consentCard">
@@ -145,55 +146,9 @@
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 import type { FormInstance, FormRules } from 'element-plus'
 
-interface form {
-    name: string,
-    idCard: string,
-    birthday: string,
-    contactNumber: string,
-    phoneNumber: string,
-    email: string,
-    address: string,
-    legalRepresentativeName: string,
-    legalRepresentativeID: string,
-    consentCard: string,
-    reason: string,
-    wordToFamily: string,
-    donateOrgans: string[]
-}
-
-const form = reactive<form>({
-    name: '',
-    idCard: '',
-    birthday: '',
-    contactNumber: '',
-    phoneNumber: '',
-    email: '',
-    address: '',
-    legalRepresentativeName: '',
-    legalRepresentativeID: '',
-    consentCard: '-1',
-    reason: '',
-    wordToFamily: '',
-    donateOrgans: ["lung", "skin", "smallIntestine"]
-})
-
 const approveInstructions = ref(false)
 const drawer = ref(false)
 const isReadInstructions = ref(false)
-
-watch(() => approveInstructions.value, (newVal) => {
-    if (newVal && !isReadInstructions.value) {
-        drawer.value = true;
-    }
-})
-
-watch(() => drawer.value, (newVal) => {
-    if (newVal) {
-        isReadInstructions.value = true;
-    }
-})
-
-
 const ruleFormRef = ref<FormInstance>()
 const formRules = reactive<FormRules<form>>({
     name: [
@@ -212,8 +167,14 @@ const formRules = reactive<FormRules<form>>({
     ],
     birthday: [
         {
+
             required: true,
             message: '請輸入出生日期',
+            trigger: 'blur'
+        },
+        {
+            type: 'date',
+            message: '請依照正確格是輸入: yyyy-mm-dd',
             trigger: 'blur'
         }
     ],
@@ -245,7 +206,7 @@ const formRules = reactive<FormRules<form>>({
             trigger: 'blur'
         }
     ],
-    legalRepresentativeID: [
+    legalRepresentativeIdCard: [
         {
             required: true,
             message: '請輸入法定代理人國民身分證統一編號'
@@ -263,16 +224,89 @@ const formRules = reactive<FormRules<form>>({
 
 })
 
+interface form {
+    name: string,
+    idCard: string,
+    birthday: string,
+    contactNumber: string,
+    phoneNumber: string,
+    email: string,
+    address: string,
+    legalRepresentativeName: string,
+    legalRepresentativeIdCard: string,
+    consentCard: string,
+    reason: string,
+    wordToFamily: string,
+    donateOrgans: string[]
+}
+
+const form = reactive<form>({
+    name: '',
+    idCard: '',
+    birthday: '',
+    contactNumber: '',
+    phoneNumber: '',
+    email: '',
+    address: '',
+    legalRepresentativeName: '',
+    legalRepresentativeIdCard: '',
+    consentCard: '-1',
+    reason: '',
+    wordToFamily: '',
+    donateOrgans: ["lung", "skin", "smallIntestine"]
+})
+
+
+
+watch(() => approveInstructions.value, (newVal) => {
+    if (newVal && !isReadInstructions.value) {
+        drawer.value = true;
+    }
+})
+
+watch(() => drawer.value, (newVal) => {
+    if (newVal) {
+        isReadInstructions.value = true;
+    }
+})
+
+const insertConsentForm = async () => {
+    let res = await CSRrequest.post("organ-donation-consent", {
+        body: form
+    })
+    return res
+
+}
+
+const ScreenLoading = () => {
+    const loading = ElLoading.service({
+        lock: true,
+        text: 'Loading',
+        background: 'rgba(0, 0, 0, 0.7)',
+    })
+    setTimeout(() => {
+        loading.close()
+    }, 2000)
+}
+
 const submitForm = async (formEl: FormInstance | undefined) => {
     if (!formEl) return
-    await formEl.validate((valid, fields) => {
+    await formEl.validate(async (valid, fields) => {
         if (valid) {
             if (approveInstructions.value) {
-                console.log('submit!', form)
+                // console.log('submit!', form)
+                ScreenLoading()
+                let res = await insertConsentForm()
+                if (res.code != 200) {
+                    ElMessage.error(res.msg)
+                    return
+                }
+                ElMessage.success("上傳成功")
+                resetForm(ruleFormRef.value)
+
             } else {
                 ElMessage.error('請先閱讀並同意說明事項')
             }
-            console.log(form)
         } else {
             ElMessage.error("請填寫完整的資訊")
             console.log('error submit!', fields)
@@ -287,6 +321,8 @@ const resetForm = (formEl: FormInstance | undefined) => {
     form.donateOrgans = []
     console.log(form);
 }
+
+
 </script>
 
 <style lang="scss" scoped>
