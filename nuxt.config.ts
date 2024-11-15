@@ -78,10 +78,11 @@ export default defineNuxtConfig({
     '@element-plus/nuxt',
     'nuxt-gtag'
   ],
+  //這是一個GA4 配置項,如果有報錯是暫時的,安裝完依賴,重開Vscode, 以及npm run dev跑一次
   gtag: {
-    id: 'G-XXXXXXXXXX'
+    id: 'G-LCR3TC6YH8'
   },
-  //這是一個配置項,如果有報錯是暫時的,安裝完依賴,重開Vscode, 以及npm run dev跑一次
+  //這是一個elementPlus配置項,如果有報錯是暫時的,安裝完依賴,重開Vscode, 以及npm run dev跑一次
   elementPlus: {
     //預設icon是不會自動引入的,預設為false, 他只接受String | false 兩種配置
     //在使用icon的時候 就要加上前墜ElIcon, 例如使用Search Icon , 就得寫成 ElIconSearch
