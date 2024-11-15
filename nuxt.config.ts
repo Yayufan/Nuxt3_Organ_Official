@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   //   port: 3000
   // },
 
+
   //運行時的配置
   runtimeConfig: {
     //運行時配置,僅服務器端可訪問
@@ -74,7 +75,8 @@ export default defineNuxtConfig({
   },
   //使用模塊,Element Plus
   modules: [
-    '@element-plus/nuxt'
+    '@element-plus/nuxt',
+    'nuxt-gtag'
   ],
   //這是一個配置項,如果有報錯是暫時的,安裝完依賴,重開Vscode, 以及npm run dev跑一次
   elementPlus: {
@@ -83,6 +85,9 @@ export default defineNuxtConfig({
     icon: 'ElIcon',
 
     /** 其他Options */
+  },
+  gtag: {
+    id: 'G-XXXXXXXXXX'
   },
   nitro: {
     prerender: {
