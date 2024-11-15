@@ -80,6 +80,7 @@ export default defineNuxtConfig({
   ],
   //這是一個GA4 配置項,如果有報錯是暫時的,安裝完依賴,重開Vscode, 以及npm run dev跑一次
   gtag: {
+    //id是追蹤代碼,都是G-開頭的
     id: 'G-LCR3TC6YH8'
   },
   //這是一個elementPlus配置項,如果有報錯是暫時的,安裝完依賴,重開Vscode, 以及npm run dev跑一次
