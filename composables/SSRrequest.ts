@@ -47,7 +47,7 @@ export default {
     get(url: string, options?: object) {
         return useFetch<ReturnData2>(url, {
             //baseURL不寫預設好像是抓自己的當前的所有路徑再加上url參數
-            baseURL: "http://localhost" +this.config().public.apiBase,
+            baseURL: this.config().public.domain + this.config().public.apiBase,
             method: 'get',
             ...options,
         })
