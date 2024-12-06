@@ -96,7 +96,7 @@ const menuItem = [
     },
     {
         title: '認識器捐',
-        subMenu: [{ title: '器捐學堂', link: '/organ-donation' }, { title: '器捐捐贈會刊', link: '/journal' }, { title: '器捐生命故事:捐贈者家屬篇', link: '/story-donor-family' }, { title: '器捐生命故事:受捐者篇', link: '/story-recipient' }, { title: '影音專區', link: '/video-area' }, { title: '文宣下載', link: '/brochure-download' }, { title: '法令規章', link: '/laws' }, { title: '白袍心聲', link: '/doctor-voice' }]
+        subMenu: [{ title: '器捐學堂', link: '/organ-donation' }, { title: '器捐捐贈會刊', link: '/journal' }, { title: '器捐生命故事:捐贈者家屬篇', link: '/story-donor-family' }, { title: '器捐生命故事:受贈者篇', link: '/story-recipient' }, { title: '影音專區', link: '/video-area' }, { title: '文宣下載', link: '/brochure-download' }, { title: '法令規章', link: '/laws' }, { title: '白袍心聲', link: '/doctor-voice' }]
     },
     {
         title: '家屬關懷',
@@ -108,7 +108,7 @@ const menuItem = [
     },
     {
         title: '簽署器捐',
-        subMenu: [{ title: '線上簽屬', link: '/sign-online' }, { title: '簽卡停看聽', link: '/frequently-asked-questions' }, { title: '撤銷簽屬', link: '/cancel-donation' }]
+        subMenu: [{ title: '線上簽署', link: '/sign-online' }, { title: '簽卡停看聽', link: '/frequently-asked-questions' }, { title: '撤銷簽署', link: '/cancel-donation' }]
     }
 ]
 const submenu = ref()

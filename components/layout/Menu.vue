@@ -63,10 +63,10 @@
             </el-sub-menu>
             <el-sub-menu index="6">
                 <template #title>簽署器捐</template>
-                <nuxt-link to="/sign-online"><el-menu-item index="sign-online">線上簽屬</el-menu-item></nuxt-link>
+                <nuxt-link to="/sign-online"><el-menu-item index="sign-online">線上簽署</el-menu-item></nuxt-link>
                 <nuxt-link to="/frequently-asked-questions"><el-menu-item
                         index="frequently-asked-questions">簽卡停看聽</el-menu-item></nuxt-link>
-                <nuxt-link to="/cancel-donation"><el-menu-item index="cancel-donation">撤銷簽屬</el-menu-item></nuxt-link>
+                <nuxt-link to="/cancel-donation"><el-menu-item index="cancel-donation">撤銷簽署</el-menu-item></nuxt-link>
             </el-sub-menu>
         </el-menu>
     </div>
