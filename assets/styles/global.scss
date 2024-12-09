@@ -90,7 +90,9 @@ $common-title-letter-spacing: 0.1rem;
 	text-underline-offset: 0.3rem;
 	letter-spacing: 0.1rem;
 	font-weight: 550;
+	transition: 0.5s;
 
+	
 	&::after {
 		content: '';
 		display: inline-block;
@@ -103,6 +105,12 @@ $common-title-letter-spacing: 0.1rem;
 		background-size: contain;
 		/* 確保圖標縮放到合適尺寸 */
 	}
+
+	&:hover{
+		font-size: 1.05rem;
+	}
+
+
 }
 
 .download-link-ver2 {
@@ -111,6 +119,7 @@ $common-title-letter-spacing: 0.1rem;
 	text-underline-offset: 0.3rem;
 	letter-spacing: 0.1rem;
 	font-weight: 550;
+	transition: 0.5s;
 
 	&::before {
 		content: '';
@@ -123,6 +132,10 @@ $common-title-letter-spacing: 0.1rem;
 		background: url("@/assets/img/download-file-green.svg") no-repeat;
 		background-size: contain;
 		/* 確保圖標縮放到合適尺寸 */
+	}
+
+	&:hover{
+		font-size: 1.05rem;
 	}
 }
 

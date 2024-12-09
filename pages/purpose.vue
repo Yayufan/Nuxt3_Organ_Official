@@ -88,7 +88,8 @@
                 <article class="paragraph ">
                     <h2 class="sub-title">協會章程</h2>
                     <div class="content regulation-box">
-                        <a href="/files/regulation_1071005.pdf" target="_blank">社團法人章程-1071005修正版.pdf</a>
+                        <a class="download-link" href="/files/regulation_1071005.pdf"
+                            target="_blank">社團法人章程-1071005修正版.pdf</a>
                     </div>
 
                 </article>
@@ -380,9 +381,9 @@ const getOtherList = () => {
         .supervisors-box {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-evenly;
+            justify-content: flex-start;
             margin-top: 3%;
-          
+
 
 
             .supervisors-item {
@@ -393,6 +394,7 @@ const getOtherList = () => {
                 border-radius: 16px;
                 box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
                 margin-bottom: 2%;
+                margin-right: 1%;
                 padding: 0.7rem;
 
                 @media screen and (max-width:850px) {
@@ -432,10 +434,9 @@ const getOtherList = () => {
 
                     .supervisors-info-content {
                         /* 允许换行 */
-                        white-space: normal; 
+                        white-space: normal;
                         /** 文字不因換行而分段 */
                         word-break: keep-all
-
                     }
 
                 }
@@ -470,26 +471,6 @@ const getOtherList = () => {
         .regulation-box {
             margin-bottom: 3%;
 
-            a {
-                color: $main-color;
-                text-decoration: underline;
-                text-underline-offset: 0.3rem;
-                letter-spacing: 0.1rem;
-                font-weight: 550;
-
-                &::after {
-                    content: '';
-                    display: inline-block;
-                    width: 1.2rem;
-                    height: 1.2rem;
-                    position: relative;
-                    top: 0.3rem;
-                    margin-left: 8px;
-                    background: url("@/assets/img/download-file-green.svg") no-repeat;
-                    background-size: contain;
-                    /* 確保圖標縮放到合適尺寸 */
-                }
-            }
         }
 
     }
