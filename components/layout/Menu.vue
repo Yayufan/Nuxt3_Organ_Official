@@ -31,15 +31,19 @@
                 <template #title>認識器捐</template>
                 <nuxt-link to="/organ-donation"><el-menu-item index="organ-donation">器捐學堂</el-menu-item></nuxt-link>
                 <nuxt-link to="/journal"><el-menu-item index="journal">器捐捐贈會刊</el-menu-item></nuxt-link>
+                <nuxt-link to="/video-area"><el-menu-item index="video-area">影音專區</el-menu-item></nuxt-link>
+                <nuxt-link to="/brochure-download">
+                    <el-menu-item index="brochure-download">文宣下載</el-menu-item>
+                </nuxt-link>
+
                 <nuxt-link to="/story-donor-family"><el-menu-item
                         index="story-donor-family">器捐生命故事:捐贈者家屬篇</el-menu-item></nuxt-link>
                 <nuxt-link to="/story-recipient"><el-menu-item
-                        index="story-recipient">器捐生命故事:受捐者篇</el-menu-item></nuxt-link>
-                <nuxt-link to="/video-area"><el-menu-item index="video-area">影音專區</el-menu-item></nuxt-link>
-                <nuxt-link to="/brochure-download"><el-menu-item
-                        index="brochure-download">文宣下載</el-menu-item></nuxt-link>
-                <nuxt-link to="/laws"><el-menu-item index="laws">法令規章</el-menu-item></nuxt-link>
+                        index="story-recipient">器捐生命故事:受贈者篇</el-menu-item></nuxt-link>
                 <nuxt-link to="/doctor-voice"><el-menu-item index="doctor-voice">白袍心聲</el-menu-item></nuxt-link>
+
+                <nuxt-link to="/laws"><el-menu-item index="laws">法令規章</el-menu-item></nuxt-link>
+
 
             </el-sub-menu>
             <el-sub-menu index="4">
@@ -48,11 +52,12 @@
                         index="assistance-resources">協助資源</el-menu-item></nuxt-link>
                 <nuxt-link :to="'/book-recommendations'"><el-menu-item
                         index="book-recommendations">好書推薦</el-menu-item></nuxt-link>
+                <nuxt-link :to="'/social-work-column'"><el-menu-item
+                        index="social-work-column">社工專欄</el-menu-item></nuxt-link>
                 <nuxt-link
                     to="https://docs.google.com/forms/d/e/1FAIpQLScxrl0on7gvcaTYTI9knEgy0-dwGHhT7SeJfS183B8g811QHQ/viewform"><el-menu-item
                         index="form">家屬資料填寫</el-menu-item></nuxt-link>
-                <nuxt-link :to="'/social-work-column'"><el-menu-item
-                        index="social-work-column">社工專欄</el-menu-item></nuxt-link>
+
                 <nuxt-link :to="'/miss-me'"><el-menu-item index="miss-me">如果你要懷念我</el-menu-item></nuxt-link>
             </el-sub-menu>
             <el-sub-menu index="5">
@@ -93,7 +98,7 @@ watch(scrollPosition, (newValue) => {
     box-shadow: 0 2px 0px rgba(0, 0, 0, 0.1);
     display: flex;
     // justify-content: center;
-    
+
 
     .PC-navbar {
         border-bottom: none;

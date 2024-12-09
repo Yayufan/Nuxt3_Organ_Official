@@ -31,27 +31,27 @@
                     <div class="download-file-box">
                         <div class="download-item">
                             <a class="download-link-ver2"
-                                href="https://law.moj.gov.tw/LawClass/LawAll.aspx?PCode=L0020024">人體器官移植條例</a><span>（76年6月19日公布／110年1月20日修正）</span>
+                                href="https://law.moj.gov.tw/LawClass/LawAll.aspx?PCode=L0020024" target="_blank" >人體器官移植條例</a><span>（76年6月19日公布／110年1月20日修正）</span>
                         </div>
                         <div class="download-item">
                             <a class="download-link-ver2"
-                                href="https://law.moj.gov.tw/LawClass/LawAll.aspx?PCode=L0020027">人體器官移植條例施行細則</a><span>（77年3月11日發布／113年1月22日修正）</span>
+                                href="https://law.moj.gov.tw/LawClass/LawAll.aspx?PCode=L0020027" target="_blank" >人體器官移植條例施行細則</a><span>（77年3月11日發布／113年1月22日修正）</span>
                         </div>
 
                         <div class="download-item">
                             <a class="download-link-ver2"
-                                href="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0020079&kw=%e8%85%a6%e6%ad%bb%e5%88%a4%e5%ae%9a%e6%ba%96%e5%89%87">腦死判定準則</a><span>（93年8月9日發布／101年12月17日修正）</span>
+                                href="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0020079&kw=%e8%85%a6%e6%ad%bb%e5%88%a4%e5%ae%9a%e6%ba%96%e5%89%87" target="_blank" >腦死判定準則</a><span>（93年8月9日發布／101年12月17日修正）</span>
                         </div>
                         <div class="download-item">
                             <a class="download-link-ver2"
-                                href="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0020183&kw=%e4%ba%ba%e9%ab%94%e5%99%a8%e5%ae%98%e7%a7%bb%e6%a4%8d%e5%88%86%e9%85%8d">人體器官移植分配及管理辦法</a><span>（103年9月10日發布／107年12月28日修正）</span>
+                                href="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0020183&kw=%e4%ba%ba%e9%ab%94%e5%99%a8%e5%ae%98%e7%a7%bb%e6%a4%8d%e5%88%86%e9%85%8d" target="_blank" >人體器官移植分配及管理辦法</a><span>（103年9月10日發布／107年12月28日修正）</span>
                         </div>
                         <div class="download-item">
                             <p class="supplementary-information">附表：各器官分配原則</p>
                         </div>
                         <div class="download-item">
                             <a class="download-link-ver2"
-                                href="https://www.torsc.org.tw/docDetail.jsp?uid=33&pid=30&doc_id=942&rn=-1257896009">死後器官捐贈者基準</a><span>（依據行政院衛生福利部函衛部醫字第1080000531號）</span>
+                                href="https://www.torsc.org.tw/docDetail.jsp?uid=33&pid=30&doc_id=942&rn=-1257896009" target="_blank" >死後器官捐贈者基準</a><span>（依據行政院衛生福利部函衛部醫字第1080000531號）</span>
                         </div>
                     </div>
 
@@ -69,11 +69,11 @@
                     </p>
 
                     <div class="download-file-box">
-                        <a class="download-link-ver2" href="https://www.declarationofistanbul.org/">伊斯坦堡宣言</a>
-                        <a class="download-link-ver2" href="/files/donor_benchmark_sheet.doc" download>捐贈者基準表.doc</a>
+                        <a class="download-link-ver2" href="https://www.declarationofistanbul.org/" target="_blank" >伊斯坦堡宣言</a>
+                        <a class="download-link-ver2" href="/files/donor_benchmark_sheet.doc" target="_blank">捐贈者基準表.doc</a>
                         <a class="download-link-ver2" href="/files/istanbul_declaration_zh.doc"
-                            download>伊斯坦堡宣言中譯文.doc</a>
-                        <a class="download-link-ver2" href="/files/laws_attachment.pdf" download>附表.pdf</a>
+                        target="_blank" >伊斯坦堡宣言中譯文.doc</a>
+                        <a class="download-link-ver2" href="/files/laws_attachment.pdf" target="_blank">附表.pdf</a>
                     </div>
 
                 </article>

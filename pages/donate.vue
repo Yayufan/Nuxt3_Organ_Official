@@ -69,7 +69,7 @@
                         <p class="application-reminder-part01">點擊上方<span class="go-to-donate">我要捐款</span>進行線上捐款 或</p>
                         <p class="application-reminder-part02">
                             請填妥
-                            <a class="download-link" href="/files/donate.pdf" download>信用卡捐款單</a>
+                            <a class="download-link" href="/files/donate.pdf" target="_blank" >信用卡捐款單</a>
                             <span class="note">(本會需負擔信用卡公司相關費用)</span>
                         </p>
                     </div>
@@ -80,7 +80,7 @@
                 <article class="paragraph">
                     <h2 class="sub-title">郵局存簿轉帳</h2>
                     <div class="application-reminder">請填妥
-                        <a class="download-link" href="/files/post-office-transfer-108.pdf" download>郵局捐款轉帳付款授權書</a>
+                        <a class="download-link" href="/files/post-office-transfer-108.pdf" target="_blank" >郵局捐款轉帳付款授權書</a>
                     </div>
                     <div class="number-mask">05</div>
 

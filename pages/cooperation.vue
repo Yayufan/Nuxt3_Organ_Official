@@ -20,8 +20,8 @@
                 <article class="paragraph">
                     <h2 class="sub-title common-label">合作申請書下載</h2>
                     <div class="download-file-box">
-                        <a class="download-link" href="/files/cooperation_application_form.docx" download>合作申請書.doc</a>
-                        <a class="download-link" href="/files/cooperation_application_form.pdf" download>合作申請書.pdf</a>
+                        <a class="download-link" href="/files/cooperation_application_form.docx" target="_blank">合作申請書.doc</a>
+                        <a class="download-link" href="/files/cooperation_application_form.pdf" target="_blank">合作申請書.pdf</a>
                     </div>
 
                 </article>

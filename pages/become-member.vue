@@ -1,6 +1,6 @@
 <!--  -->
 <template>
-    
+
     <div>
 
         <Breadcrumbs firstRoute="加入我們" secoundRoute="加入會員"></Breadcrumbs>
@@ -73,9 +73,9 @@
                             <div class="common-label">個人</div>
                             <div class="download-file-box">
                                 <a class="download-link" href="/files/personal_membership_application_form.doc"
-                                    download>個人會員入會申請書.doc</a>
+                                    target="_blank">個人會員入會申請書.doc</a>
                                 <a class="download-link" href="/files/personal_membership_application_form.pdf"
-                                    download>個人會員入會申請書.pdf</a>
+                                    target="_blank">個人會員入會申請書.pdf</a>
                             </div>
                         </div>
 
@@ -83,9 +83,9 @@
                             <div class="common-label">團體</div>
                             <div class="download-file-box">
                                 <a class="download-link" href="/files/group_membership_application_form.doc"
-                                    download>團體會員入會申請書.doc</a>
+                                    target="_blank">團體會員入會申請書.doc</a>
                                 <a class="download-link" href="/files/group_membership_application_form.pdf"
-                                    download>團體會員入會申請書.pdf</a>
+                                    target="_blank">團體會員入會申請書.pdf</a>
                             </div>
                         </div>
 

@@ -24,7 +24,7 @@
                             </p>
                         </div>
                         <div class="download-box">
-                            <a class="download-btn" :href="item.fileUrl" download>Download</a>
+                            <a class="download-btn" :href="item.fileUrl" target="_blank">Download</a>
                         </div>
 
                     </div>

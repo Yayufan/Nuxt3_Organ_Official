@@ -30,10 +30,10 @@
                     <div class="download-file-box">
                         <a class="download-link-ver2"
                             href="/files/withdrawal-of-statement-of-intention-for-organ-donation.docx"
-                            download>器捐意願撤回聲明書.docx</a>
+                            target="_blank" >器捐意願撤回聲明書.docx</a>
                         <a class="download-link-ver2"
                             href="/files/withdrawal-of-statement-of-intention-for-organ-donation.pdf"
-                            download>器捐意願撤回聲明書.pdf</a>
+                            target="_blank" >器捐意願撤回聲明書.pdf</a>
                     </div>
                 </article>
 
