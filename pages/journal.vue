@@ -10,19 +10,23 @@
 
             <div class="content-box">
 
-                <article class="article-item" v-for="(item, index) in displayedJournaList " :key="index">
+                <div class="journal-box">
 
-                    <div class="article-info-box">
-                        <a :href="item.downloadUrl" download>
+                    <nuxt-link class="article-item" v-for="(item, index) in displayedJournaList " :key="index"
+                        target="_blank" :to="item.downloadUrl">
+
+                        <div class="article-info-box">
+
                             <h2 class="article-title">NO.
                                 <span class="number">{{ item.title }}</span>
                                 <br>
                                 電子會刊
                             </h2>
-                        </a>
-                    </div>
 
-                </article>
+                        </div>
+
+                    </nuxt-link>
+                </div>
 
                 <div class="more-box">
                     <button v-if="!showFullList" class="more-btn" @click="getOtherList">查看更多</button>
@@ -167,6 +171,42 @@ let journaFullList = reactive(
             imgUrl: '/img/default-article-img.jpg',
             downloadUrl: '/files/journa/74.pdf'
         },
+        {
+            title: '73',
+            description: '簽署器捐同意書有年齡限制嘛？',
+            imgUrl: '/img/default-article-img.jpg',
+            downloadUrl: '/files/journa/73.pdf'
+        },
+        {
+            title: '72',
+            description: '簽署器捐同意書有年齡限制嘛？',
+            imgUrl: '/img/default-article-img.jpg',
+            downloadUrl: '/files/journa/72.pdf'
+        },
+        {
+            title: '71',
+            description: '簽署器捐同意書有年齡限制嘛？',
+            imgUrl: '/img/default-article-img.jpg',
+            downloadUrl: '/files/journa/71.pdf'
+        },
+        {
+            title: '70',
+            description: '簽署器捐同意書有年齡限制嘛？',
+            imgUrl: '/img/default-article-img.jpg',
+            downloadUrl: '/files/journa/70.pdf'
+        },
+        {
+            title: '69',
+            description: '簽署器捐同意書有年齡限制嘛？',
+            imgUrl: '/img/default-article-img.jpg',
+            downloadUrl: '/files/journa/69.pdf'
+        },
+        {
+            title: '68',
+            description: '簽署器捐同意書有年齡限制嘛？',
+            imgUrl: '/img/default-article-img.jpg',
+            downloadUrl: '/files/journa/68.pdf'
+        },
     ]
 )
 
@@ -219,71 +259,86 @@ const getOtherList = () => {
     .content-box {
         margin-left: 10%;
         margin-right: 10%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
+
 
         @media screen and (max-width:481px) {
             margin-left: 0;
             margin-right: 0;
         }
 
-        .article-item {
+        .journal-box {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 5%;
-            border-radius: 50%;
-            border: 3px solid $sub-color;
-            box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
-            width: 200px;
-            height: 200px;
-            transition: 0.5s;
-            color: $sub-color;
+            flex-wrap: wrap;
+            justify-content: flex-start;
 
-            //當滑鼠碰到這篇文章時,改變字體顏色+圖片放大
-            &:hover {
-                cursor: pointer;
-                background: $sub-color ;
-
-                .article-title {
-                    color: #fff !important;
-                }
-
-            }
-
-            @media screen and (max-width:480px) {
-                width: 90px;
-                height: 90px;
-                margin: 5% auto;
-            }
-
-
-            .article-info-box {
+            .article-item {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 5%;
+                margin-right: 4%;
+                border-radius: 50%;
+                border: 3px solid $sub-color;
+                box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
+                width: 200px;
+                height: 200px;
+                transition: 0.5s;
                 color: $sub-color;
 
-                .article-title {
-                    font-size: 1.5rem;
-                    color: $sub-color;
+                //當滑鼠碰到這篇文章時,改變字體顏色+圖片放大
+                &:hover {
+                    cursor: pointer;
+                    background: $sub-color ;
 
-                    @media screen and (max-width:480px) {
-                        font-size: 1.3rem;
+                    .article-title {
+                        color: #fff !important;
                     }
 
-                    .number {
-                        font-size: 3rem;
+                }
+
+                @media screen and (max-width:810px) {
+                    width: 155px;
+                    height: 155px;
+                    margin: 5% auto;
+                }
+
+                @media screen and (max-width:480px) {
+                    width: 90px;
+                    height: 90px;
+                    margin: 5% auto;
+                }
+
+
+                .article-info-box {
+                    color: $sub-color;
+
+                    .article-title {
+                        font-size: 1.5rem;
+                        color: $sub-color;
 
                         @media screen and (max-width:480px) {
-                            font-size: 2.7rem;
+                            font-size: 1.3rem;
                         }
+
+                        .number {
+                            font-size: 3rem;
+
+                            @media screen and (max-width:480px) {
+                                font-size: 2.7rem;
+                            }
+                        }
+
                     }
 
                 }
 
             }
 
+
         }
+
+
 
 
 
