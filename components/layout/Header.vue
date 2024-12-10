@@ -171,7 +171,8 @@ const goToBottom = () => {
 .PC-menu-box {
     width: 100%;
     display: flex;
-    justify-content: center;
+    //justify-content: center;
+    justify-content: space-between;
 
     @media screen and (max-width: 850px) {
         justify-content: flex-start;
@@ -191,7 +192,8 @@ const goToBottom = () => {
     }
 
     .logo-box {
-        margin-left: 40vw;
+        // margin-left: 40vw;
+        margin-left: 4%;
 
         @media screen and (max-width: 850px) {
             // margin: 0 0 1.5vw 0;
