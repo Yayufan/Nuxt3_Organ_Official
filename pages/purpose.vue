@@ -305,6 +305,7 @@ const getOtherList = () => {
             background-color: $main-color;
             padding: 5px 2.5rem;
             border-radius: 16px;
+            font-size: $paragraph-font-size;
 
             @media screen and (max-width:480px) {
                 margin-left: 0;
@@ -315,6 +316,7 @@ const getOtherList = () => {
         .content {
             margin-left: 14%;
             margin-top: 2%;
+            font-size: $paragraph-font-size;
         }
 
 
@@ -383,7 +385,6 @@ const getOtherList = () => {
             flex-wrap: wrap;
             justify-content: flex-start;
             margin-top: 3%;
-
 
 
             .supervisors-item {

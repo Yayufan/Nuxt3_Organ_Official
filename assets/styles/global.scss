@@ -47,8 +47,14 @@ $common-section-font-family: "Times New Roman, Times, serif";
 
 /* 通用Title 設定 */
 $common-title-font-weight: 550;
-$common-title-font-size: 1.5rem;
+$common-title-font-size: 2rem;
 $common-title-letter-spacing: 0.1rem;
+
+/* 內文字的大小 */
+$paragraph-font-size:1.5rem;
+
+$inner-box-font-size:1.3rem;
+
 
 // 在螢幕寬度大於 1024px（PC）時
 @media (min-width: 1025px) {
