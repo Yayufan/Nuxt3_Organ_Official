@@ -45,6 +45,7 @@ export default defineNuxtConfig({
       //引入第三方外部JS可能會用到
       script: [
         {
+          //google 程式化搜尋引擎
           src: 'https://cse.google.com/cse.js?cx=93296d208c72f464b',
           async: true
         }
@@ -80,8 +81,8 @@ export default defineNuxtConfig({
   ],
   //這是一個GA4 配置項,如果有報錯是暫時的,安裝完依賴,重開Vscode, 以及npm run dev跑一次
   gtag: {
-    //id是追蹤代碼,都是G-開頭的
-    id: 'G-LCR3TC6YH8'
+    //id是追蹤代碼,都是G-開頭的 
+    id: process.env.NUXT_PUBLIC_GA4ID
   },
   //這是一個elementPlus配置項,如果有報錯是暫時的,安裝完依賴,重開Vscode, 以及npm run dev跑一次
   elementPlus: {
