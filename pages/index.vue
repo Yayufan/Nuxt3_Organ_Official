@@ -12,8 +12,44 @@
             </el-carousel-item>
         </el-carousel>
 
-        
-        <div class="message-board-box">
+        <div class="join-us-board">
+            <p class="title">快速連結</p>
+            <div class="icon-link-box">
+                <div class="link-item">
+                    <nuxt-link to="/news">
+                        <img src="@/assets/img/purpose-icon.png" alt="">
+                    </nuxt-link>
+                    <p>最新消息</p>
+                </div>
+                <div class="link-item">
+                    <nuxt-link to="/organ-donation">
+                        <img src="@/assets/img/become-member-icon.png" alt="">
+                    </nuxt-link>
+                    <p>認識器捐</p>
+                </div>
+                <div class="link-item">
+                    <nuxt-link to="/donate">
+                        <img src="@/assets/img/association-chronology-icon.png" alt="">
+                    </nuxt-link>
+                    <p>線上捐款</p>
+                </div>
+                <div class="link-item">
+                    <nuxt-link to="/frequently-asked-questions">
+                        <img src="@/assets/img/achievements-icon.png" alt="">
+                    </nuxt-link>
+                    <p>簽卡Q&A</p>
+                </div>
+                <div class="link-item">
+                    <nuxt-link to="https://www.facebook.com/organassociation/">
+                        <img src="@/assets/img/facebook-icon.png" alt="">
+                    </nuxt-link>
+                    <p>FB 粉絲團</p>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- <div class="message-board-box">
             <div class="title">訊息看板</div>
             <div class="header-button-section">
                 <el-button :class="{ active: activeLink === 'news' }" :disabled="isMobile"
@@ -34,7 +70,6 @@
                     <div class="article-img">
                         <nuxt-link to="/"><img :src="`/minio${item.coverThumbnailUrl}`" alt=""></nuxt-link>
                     </div>
-                    <!-- <p>{{ item.date }}</p> -->
                     <p>{{ item.description }}</p>
                 </div>
                 <el-button class="next-page-btn" @click="toggleNextPage()">
@@ -53,7 +88,6 @@
                     <div class="article-img">
                         <nuxt-link to="/"><img :src="`/minio${item.coverThumbnailUrl}`" alt=""></nuxt-link>
                     </div>
-                    <!-- <p>{{ item.date }}</p> -->
                     <p>{{ item.description }}</p>
                 </div>
             </div>
@@ -61,48 +95,9 @@
                 <el-pagination size="small" layout="prev, pager, next" :page-count="Number(articleList.pages)"
                     :page-size="5" v-model:current-page="currentPage" :hide-on-single-page="true" />
             </div>
-        </div>
-
-        <div class="join-us-board">
-            <p class="title">加入我們</p>
-            <div class="icon-link-box">
-                <div class="link-item">
-                    <nuxt-link to="/purpose">
-                        <img src="@/assets/img/purpose-icon.png" alt="">
-                    </nuxt-link>
-                    <p>宗旨任務</p>
-                </div>
-                <div class="link-item">
-                    <nuxt-link to="/become-member">
-                        <img src="@/assets/img/become-member-icon.png" alt="">
-                    </nuxt-link>
-                    <p>加入會員</p>
-                </div>
-                <div class="link-item">
-                    <nuxt-link to="/association-chronology">
-                        <img src="@/assets/img/association-chronology-icon.png" alt="">
-                    </nuxt-link>
-                    <p>協會年表</p>
-                </div>
-                <div class="link-item">
-                    <nuxt-link to="/achievements">
-                        <img src="@/assets/img/achievements-icon.png" alt="">
-                    </nuxt-link>
-                    <p>歷年成果</p>
-                    <p>(簽卡分析)</p>
-                </div>
-                <div class="link-item">
-                    <nuxt-link to="https://www.facebook.com/organassociation/">
-                        <img src="@/assets/img/facebook-icon.png" alt="">
-                    </nuxt-link>
-                    <p>粉絲團臉書</p>
-                </div>
-            </div>
-        </div>
+        </div> -->
 
 
-
-        
     </main>
 </template>
 
@@ -110,8 +105,6 @@
 
 const viewWidth = ref(0);
 const activeLink = ref('news');
-
-/** */
 
 //根據裝置預設顯示數量
 // const defaultSize = ref(useState('currentSize', () => useIsMobile().value ? 8 : 8))
@@ -219,29 +212,6 @@ const handleClick = (link: string) => {
 }
 
 
-
-// const updateViewWidth = () => {
-//     viewWidth.value = document.documentElement.clientWidth;
-//     if (viewWidth.value < 850) {
-//         articleList.size = 3;
-//         articleList.records = articleList.records.slice(0, 3);
-//     } else {
-//         articleList.size = 5;
-//     }
-// }
-
-
-// onMounted(() => {
-//     updateViewWidth();
-//     window.addEventListener('resize', updateViewWidth);
-// })
-
-// onUnmounted(() => {
-//     window.removeEventListener('resize', updateViewWidth);
-// })
-
-
-
 </script>
 <style lang="scss" scoped>
 .main {
@@ -265,7 +235,10 @@ const handleClick = (link: string) => {
 
         img {
             width: 100%;
-            // height: 100%;
+
+            @media screen and (max-width: 850px) {
+                height: 100%;
+            }
         }
 
         :deep(.el-carousel__container) {
@@ -492,8 +465,10 @@ const handleClick = (link: string) => {
 
     .join-us-board {
         width: 100%;
-        margin-top: 5%;
         justify-content: center;
+        // margin-top: 5%;
+        margin-bottom: 3%;
+
 
 
         .title {
