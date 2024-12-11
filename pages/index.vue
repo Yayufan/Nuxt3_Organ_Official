@@ -12,43 +12,7 @@
             </el-carousel-item>
         </el-carousel>
 
-        <div class="join-us-board">
-            <p class="title">加入我們</p>
-            <div class="icon-link-box">
-                <div class="link-item">
-                    <nuxt-link to="/purpose">
-                        <img src="@/assets/img/purpose-icon.png" alt="">
-                    </nuxt-link>
-                    <p>宗旨任務</p>
-                </div>
-                <div class="link-item">
-                    <nuxt-link to="/become-member">
-                        <img src="@/assets/img/become-member-icon.png" alt="">
-                    </nuxt-link>
-                    <p>加入會員</p>
-                </div>
-                <div class="link-item">
-                    <nuxt-link to="/association-chronology">
-                        <img src="@/assets/img/association-chronology-icon.png" alt="">
-                    </nuxt-link>
-                    <p>協會年表</p>
-                </div>
-                <div class="link-item">
-                    <nuxt-link to="/achievements">
-                        <img src="@/assets/img/achievements-icon.png" alt="">
-                    </nuxt-link>
-                    <p>歷年成果</p>
-                    <p>(簽卡分析)</p>
-                </div>
-                <div class="link-item">
-                    <nuxt-link to="https://www.facebook.com/organassociation/">
-                        <img src="@/assets/img/facebook-icon.png" alt="">
-                    </nuxt-link>
-                    <p>粉絲團臉書</p>
-                </div>
-            </div>
-        </div>
-
+        
         <div class="message-board-box">
             <div class="title">訊息看板</div>
             <div class="header-button-section">
@@ -98,6 +62,44 @@
                     :page-size="5" v-model:current-page="currentPage" :hide-on-single-page="true" />
             </div>
         </div>
+
+        <div class="join-us-board">
+            <p class="title">加入我們</p>
+            <div class="icon-link-box">
+                <div class="link-item">
+                    <nuxt-link to="/purpose">
+                        <img src="@/assets/img/purpose-icon.png" alt="">
+                    </nuxt-link>
+                    <p>宗旨任務</p>
+                </div>
+                <div class="link-item">
+                    <nuxt-link to="/become-member">
+                        <img src="@/assets/img/become-member-icon.png" alt="">
+                    </nuxt-link>
+                    <p>加入會員</p>
+                </div>
+                <div class="link-item">
+                    <nuxt-link to="/association-chronology">
+                        <img src="@/assets/img/association-chronology-icon.png" alt="">
+                    </nuxt-link>
+                    <p>協會年表</p>
+                </div>
+                <div class="link-item">
+                    <nuxt-link to="/achievements">
+                        <img src="@/assets/img/achievements-icon.png" alt="">
+                    </nuxt-link>
+                    <p>歷年成果</p>
+                    <p>(簽卡分析)</p>
+                </div>
+                <div class="link-item">
+                    <nuxt-link to="https://www.facebook.com/organassociation/">
+                        <img src="@/assets/img/facebook-icon.png" alt="">
+                    </nuxt-link>
+                    <p>粉絲團臉書</p>
+                </div>
+            </div>
+        </div>
+
 
 
         
