@@ -61,7 +61,7 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
 //根據裝置預設顯示數量
 // const defaultSize = ref(useState('currentSize', () => useIsMobile().value ? 4 : 4))
-const defaultSize = ref( useIsMobile().value ? 4 : 4)
+const defaultSize = ref(useIsMobile().value ? 4 : 4)
 
 //拿到更新路由分頁參數 以及 獲取當前分頁參數的function
 const updatePaginationParams = useUpdatePaginationParams()
@@ -188,12 +188,13 @@ watch(currentPage, (value, oldValue) => {
 
                 .article-title {
                     text-align: center;
-                    font-size: 1.2rem;
+                    font-size: $inner-box-title-font-size;
                     margin: 1rem 0;
                 }
 
                 .article-description {
                     color: $main-content-color;
+                    font-size: $inner-box-font-size;
 
                     @media screen and (max-width:481px) {
                         //這組合是超過三行時使用...

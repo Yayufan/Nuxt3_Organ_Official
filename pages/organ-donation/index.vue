@@ -205,17 +205,17 @@ watch(currentPage, (value, oldValue) => {
                     text-align: left;
 
                     .article-title {
-                        font-size: 1.2rem;
+                        font-size: $inner-box-title-font-size;
                         margin: 0.8rem 0;
                     }
 
                     .article-description {
                         color: $main-content-color;
+                        font-size: $inner-box-font-size;
                         //這組合是超過三行時使用...
                         display: -webkit-box;
                         -webkit-box-orient: vertical;
                         -webkit-line-clamp: 3;
-                        line-clamp: 3;
                         overflow: hidden;
 
                     }

@@ -10,14 +10,14 @@
                     <p>本人瞭解醫療有其極限，而愛心可以延續，經閱讀，知悉後列說明後，願意簽署
                         <a class="donation-form" href="/files/organs-donate-consent.pdf" target="_blank">
                             <u>【器官捐贈同意書】</u>
-                        </a>，
-                    </p>
-                    <p>並將此意願註記於健保卡，於生命之盡頭，捐贈可用器官，讓其他需要的病人能因此而獲得重生機會。</p>
-                    <p>如須撤銷器捐同意，請下載
+                        </a>，並將此意願註記於健保卡，於生命之盡頭，捐贈可用器官，讓其他需要的病人能因此而獲得重生機會。
+
+                        如須撤銷器捐同意，請下載
                         <a class="cancel-form" href="/files/cancel-organs-donate.pdf" target="_blank">
                             <u>【撤銷器捐同意書】</u>
                         </a>填寫後由寄正本到本會。
                     </p>
+
                 </div>
             </div>
 
@@ -368,13 +368,14 @@ const resetForm = (formEl: FormInstance | undefined) => {
             padding: 5px 15px;
             letter-spacing: 0.1rem;
             border-radius: 35px;
+            font-size: $paragraph-title-font-size;
         }
 
         .statement {
             color: $main-content-color;
             max-width: 80%;
-            margin: 1% 0 2rem 10%;
-            font-size: 1rem;
+            margin: 1% 0 2rem 4rem;
+            font-size: $paragraph-font-size;
 
             @media screen and (max-width:850px) {
                 max-width: 100%;
@@ -599,7 +600,7 @@ const resetForm = (formEl: FormInstance | undefined) => {
                 .el-button {
                     border-radius: 25px;
                     color: white;
-                    font-size: 1rem;
+                    font-size: $inner-box-font-size;
                     padding: 0 2rem;
                 }
 

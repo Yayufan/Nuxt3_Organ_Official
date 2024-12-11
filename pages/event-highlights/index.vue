@@ -199,12 +199,13 @@ watch(currentPage, (value, oldValue) => {
                     margin-left: 1rem;
 
                     .article-title {
-                        font-size: 1.2rem;
+                        font-size: $inner-box-title-font-size;
                         margin: 0.3rem 0;
                     }
 
                     .article-description {
                         color: $main-content-color;
+                        font-size: $inner-box-font-size;
 
                         @media screen and (max-width:480px) {
                             display: -webkit-box;

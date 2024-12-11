@@ -29,7 +29,7 @@
     .breadcrumb {
         display: flex;
         line-height: 100%;
-        font-size: 1rem;
+        font-size: $inner-box-font-size;
         font-weight: normal;
         letter-spacing: 0.1rem;
         color: $main-content-color;

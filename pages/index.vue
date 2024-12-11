@@ -528,7 +528,7 @@ const handleClick = (link: string) => {
                 // width: 100%;
                 p {
                     color: #91715F;
-                    font-size: 1rem;
+                    font-size: $paragraph-font-size;
                     text-align: center;
                 }
             }

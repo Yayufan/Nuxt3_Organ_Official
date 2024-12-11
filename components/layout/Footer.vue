@@ -90,7 +90,6 @@ const updateDate = ref('2024年10月21日')
         margin-top: 2%;
         margin-bottom: 2%;
         padding-left: 2%;
-        font-size: 0.8rem;
         color: $main-content-color;
         display: flex;
         flex-direction: column;
@@ -109,7 +108,7 @@ const updateDate = ref('2024年10月21日')
             align-items: center;
             display: flex;
             padding: 0.3rem 0;
-            font-size: 1rem;
+            font-size: $inner-box-font-size;
 
             @media screen and (max-width:850px) {
                 display: block;

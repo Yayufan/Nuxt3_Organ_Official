@@ -190,6 +190,7 @@ const drawer = ref(false)
 
         .donation-instructions {
             padding: 0.5rem 1rem;
+            font-size: $paragraph-title-font-size;
 
             @media screen and (max-width:481px) {
                 align-self: baseline;
@@ -293,7 +294,7 @@ const drawer = ref(false)
 
             .sub-title {
                 color: #56575E;
-                font-size: 1.3rem;
+                font-size: $paragraph-title-font-size;
             }
 
 
@@ -326,6 +327,7 @@ const drawer = ref(false)
             .application-reminder {
                 margin-top: 1.5%;
                 font-weight: 600;
+                font-size: $paragraph-font-size;
 
                 p {
                     display: inline-block;
@@ -364,6 +366,7 @@ const drawer = ref(false)
                 align-items: baseline;
                 margin: 3% 0;
                 font-weight: 600;
+                font-size: $paragraph-font-size;
 
                 .common-label {
                     min-width: 4rem;

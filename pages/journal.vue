@@ -277,7 +277,7 @@ const getOtherList = () => {
                 justify-content: center;
                 align-items: center;
                 margin-bottom: 5%;
-                margin-right: 4%;
+                margin-right: 4.5%;
                 border-radius: 50%;
                 border: 3px solid $sub-color;
                 box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);

@@ -139,12 +139,13 @@ let articleList = reactive({
                 .base-info {
 
                     .article-title {
-                        font-size: 1.2rem;
+                        font-size: $inner-box-title-font-size;
                     }
 
                     .article-description {
                         margin-top: 1rem;
                         color: $main-content-color;
+                        font-size: $inner-box-font-size;
                     }
                 }
 

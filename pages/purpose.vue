@@ -305,7 +305,7 @@ const getOtherList = () => {
             background-color: $main-color;
             padding: 5px 2.5rem;
             border-radius: 16px;
-            font-size: $paragraph-font-size;
+            font-size: $paragraph-title-font-size;
 
             @media screen and (max-width:480px) {
                 margin-left: 0;
@@ -411,18 +411,19 @@ const getOtherList = () => {
 
                 .supervisors-session {
                     text-align: center;
-                    font-size: 1.3rem;
+                    font-size: $inner-box-title-font-size;
                 }
 
                 .supervisors-term-of-office {
                     text-align: center;
+                    font-size: $inner-box-font-size;
                 }
 
                 .supervisors-info {
                     display: flex;
                     justify-content: flex-start;
                     align-items: baseline;
-                    font-size: 0.9rem;
+                    font-size: $inner-box-font-size;
 
                     margin: 5% 0;
 

@@ -397,6 +397,7 @@ const scrollToSection = (section: any) => {
                         .QA-info {
                             color: $main-content-color;
                             line-height: 2;
+                            font-size: $inner-box-font-size;
 
                         }
 

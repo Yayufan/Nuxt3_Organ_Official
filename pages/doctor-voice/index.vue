@@ -223,15 +223,15 @@ watch(currentPage, (value, oldValue) => {
 
                     .article-title {
                         text-align: left;
-                        font-size: 1.3rem;
+                        font-size: $inner-box-title-font-size;
                     }
 
                     .article-description {
+                        font-size: $inner-box-font-size;
                         //這組合是超過三行時使用...
                         display: -webkit-box;
                         -webkit-box-orient: vertical;
                         -webkit-line-clamp: 3;
-                        line-clamp: 3;
                         /* 這是標準屬性 */
                         overflow: hidden;
 

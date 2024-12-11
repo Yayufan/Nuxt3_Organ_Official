@@ -144,12 +144,13 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
                 margin-left: 2rem;
                 margin-bottom: 2rem;
                 line-height: 1.5;
+                font-size: $paragraph-font-size;
                 color: $main-content-color;
             }
         }
 
         .sub-title {
-            font-size: 1.2rem;
+            font-size:$paragraph-title-font-size ;
             padding: 0.5rem 2rem;
             margin-bottom: 1.5rem
         }

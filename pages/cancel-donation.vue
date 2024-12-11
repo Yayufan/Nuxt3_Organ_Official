@@ -83,7 +83,7 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
         .additional-information {
             margin-left: 1.7rem;
             // margin-bottom: 5rem;
-            font-size: 1rem;
+            font-size: $paragraph-font-size;
             max-width: 900px;
             line-height: 1.5;
         }

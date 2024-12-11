@@ -7,8 +7,6 @@
 
         <section class="common-section">
 
-
-
             <h1 class="common-title">加入會員</h1>
 
             <div class="content-box">
@@ -158,10 +156,11 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
             background-color: #fff;
             padding: 1rem 3rem;
             margin-bottom: 3%;
+            font-size: $inner-box-title-font-size ;
 
             .sub-title {
                 color: #56575E;
-                font-size: 1.3rem;
+                font-size: $paragraph-title-font-size;
             }
 
 
@@ -197,6 +196,7 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
             .individual-member-box {
                 margin: 3% 0;
+
             }
 
             .download-box {
@@ -211,6 +211,11 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
                 .download-item {
                     display: flex;
                     align-items: center;
+
+                    .common-label{
+                        text-wrap-mode: nowrap;
+                    }
+
                 }
 
                 .download-file-box {
@@ -220,6 +225,7 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
                     // max-width: 10rem;
                     .download-link {
                         margin: 1rem 0.9rem;
+                        text-wrap-mode: nowrap;
                     }
 
                 }

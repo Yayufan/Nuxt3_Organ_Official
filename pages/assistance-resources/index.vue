@@ -241,12 +241,11 @@ watch(currentPage, (value, oldValue) => {
                     display: -webkit-box;
                     -webkit-box-orient: vertical;
                     -webkit-line-clamp: 3;
-                    line-clamp: 3;
                     overflow: hidden;
 
                     .article-title {
                         text-align: left;
-                        font-size: 1.1rem;
+                        font-size: $inner-box-title-font-size;
                     }
 
                 }

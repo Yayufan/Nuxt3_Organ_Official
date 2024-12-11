@@ -161,6 +161,7 @@ const drawer = ref(false)
 
         .donation-instructions {
             padding: 0.5rem 2rem;
+            font-size: $paragraph-font-size;
 
             @media screen and (max-width:481px) {
                 align-self: baseline;
@@ -266,6 +267,7 @@ const drawer = ref(false)
             p {
                 margin-top: 3%;
                 line-height: 1.5;
+                font-size: $paragraph-font-size;
             }
 
             .info-part {

@@ -289,7 +289,7 @@ const setActive = (button: any) => {
     .content-box {
         margin-left: 8%;
         display: flex;
-        font-size: 1rem;
+        font-size: $inner-box-title-font-size;
         color: $main-content-color;
 
         .pc-content-box {

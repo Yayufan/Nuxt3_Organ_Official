@@ -216,7 +216,7 @@ watch(currentPage, (value, oldValue) => {
                     border-radius: 16px;
 
                     .article-title {
-                        font-size: 1.2rem;
+                        font-size: $inner-box-title-font-size;
                         margin: 0.4rem 0;
                         margin-left: 5%;
                     }
@@ -224,6 +224,7 @@ watch(currentPage, (value, oldValue) => {
                     .article-description {
                         margin-bottom: 5%;
                         margin-left: 5%;
+                        font-size: $inner-box-font-size;
                         overflow: hidden;
                         white-space: nowrap;
                         text-overflow: ellipsis;

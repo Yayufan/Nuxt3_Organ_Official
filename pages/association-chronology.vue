@@ -402,7 +402,7 @@ const getOtherList = () => {
         @media screen and (max-width:481px) {
             margin-left: 0;
 
-            .el-timeline{
+            .el-timeline {
                 padding-left: 0;
             }
 
@@ -414,10 +414,15 @@ const getOtherList = () => {
 
 
         :deep(.el-timeline-item__timestamp) {
-            font-size: 1rem;
+            font-size: $inner-box-title-font-size;
             font-weight: 550;
             color: $main-color;
             letter-spacing: 0.1rem;
+        }
+
+
+        :deep(.el-timeline-item__content) {
+            font-size: $inner-box-font-size;
         }
 
 
@@ -429,7 +434,7 @@ const getOtherList = () => {
             li {
 
                 &::marker {
-                    font-size: 1.2rem;
+                    font-size: $inner-box-title-font-size;
                     color: pink;
                 }
             }

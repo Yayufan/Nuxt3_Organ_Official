@@ -196,7 +196,7 @@ watch(currentPage, (value, oldValue) => {
                     background: #99BF83;
                     color: #fff;
                     text-align: center;
-                    font-size: 1.1rem;
+                    font-size: $inner-box-title-font-size;
                     overflow: hidden;
                     white-space: nowrap;
                     text-overflow: ellipsis;
@@ -245,6 +245,7 @@ watch(currentPage, (value, oldValue) => {
 
                 .article-description {
                     color: $main-content-color;
+                    font-size: $inner-box-font-size;
                     //這組合是超過三行時使用...
                     display: -webkit-box;
                     -webkit-box-orient: vertical;

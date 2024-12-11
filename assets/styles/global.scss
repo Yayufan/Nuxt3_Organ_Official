@@ -47,12 +47,16 @@ $common-section-font-family: "Times New Roman, Times, serif";
 
 /* 通用Title 設定 */
 $common-title-font-weight: 550;
-$common-title-font-size: 1.5rem;
+$common-title-font-size: 1.8rem;
 $common-title-letter-spacing: 0.1rem;
 
 /* 內文字的大小 */
-$paragraph-font-size:1rem;
-$inner-box-font-size:1rem;
+$paragraph-title-font-size:1.5rem;
+$paragraph-font-size:1.3rem;
+
+/* 文章盒子字的大小 */
+$inner-box-title-font-size:1.3rem;
+$inner-box-font-size:1.1rem;
 
 
 // 在螢幕寬度大於 1024px（PC）時
@@ -96,6 +100,7 @@ $inner-box-font-size:1rem;
 	letter-spacing: 0.1rem;
 	font-weight: 550;
 	transition: 0.5s;
+	font-size: $inner-box-title-font-size;
 
 	
 	&::after {
@@ -112,7 +117,7 @@ $inner-box-font-size:1rem;
 	}
 
 	&:hover{
-		font-size: 1.05rem;
+		font-size: $paragraph-title-font-size;
 	}
 
 
@@ -125,6 +130,7 @@ $inner-box-font-size:1rem;
 	letter-spacing: 0.1rem;
 	font-weight: 550;
 	transition: 0.5s;
+	font-size: $inner-box-title-font-size;
 
 	&::before {
 		content: '';
@@ -140,7 +146,7 @@ $inner-box-font-size:1rem;
 	}
 
 	&:hover{
-		font-size: 1.05rem;
+		font-size: $paragraph-title-font-size;
 	}
 }
 
