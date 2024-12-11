@@ -18,7 +18,7 @@ logs
 .fleet
 .idea
 
-# Local env files
-.env
-.env.*
-!.env.example
+# Local env files , 如果真的想忽略再打開
+#.env
+#.env.*
+#!.env.example
