@@ -202,6 +202,7 @@ watch(currentPage, (value, oldValue) => {
                 .article-title {
                     font-size: $inner-box-title-font-size;
                     margin: 0.3rem 0;
+                    color: $main-content-color;
                 }
 
                 .article-description {

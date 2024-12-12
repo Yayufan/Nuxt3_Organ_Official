@@ -246,6 +246,7 @@ watch(currentPage, (value, oldValue) => {
                     .article-title {
                         text-align: left;
                         font-size: $inner-box-title-font-size;
+                        color: $main-content-color;
                     }
 
                 }

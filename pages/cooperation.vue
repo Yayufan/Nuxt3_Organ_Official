@@ -76,6 +76,7 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
             font-size: $paragraph-font-size;
             max-width: 1050px;
             line-height: 1.5;
+            color: $main-content-color;
         }
 
         .paragraph {

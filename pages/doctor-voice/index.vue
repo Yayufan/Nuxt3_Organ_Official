@@ -224,10 +224,12 @@ watch(currentPage, (value, oldValue) => {
                     .article-title {
                         text-align: left;
                         font-size: $inner-box-title-font-size;
+                        color: $main-content-color;
                     }
 
                     .article-description {
                         font-size: $inner-box-font-size;
+                        color: $main-content-color;
                         //這組合是超過三行時使用...
                         display: -webkit-box;
                         -webkit-box-orient: vertical;
