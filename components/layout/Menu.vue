@@ -94,13 +94,16 @@ watch(scrollPosition, (newValue) => {
         display: none;
     }
 
-    /**修改element plus menu 組件顏色變量 */
+    /**修改element plus menu 組件顏色變量 , 修改其他CSS變量且使用SCSS變量時 要使用#{$變量名} 才不會報錯*/
 
-    // 设置背景颜色
+    // 设置選單背景颜色
     --el-menu-bg-color: #{$main-color};
+    // 設置選單文字顏色
     --el-menu-text-color: #{$main-bg-text-color};
+    //設置選單hover時的文字顏色
     --el-menu-hover-text-color: #{$main-color};
-
+    //設置選單active時的文字顏色
+    --el-menu-active-color: #{$main-bg-text-color};
 
     background-color: $main-color;
     min-width: 100%;
@@ -108,18 +111,17 @@ watch(scrollPosition, (newValue) => {
     display: flex;
     // justify-content: center;
 
+    //特別處理當父選單被選擇時, 還去選擇這個父選單 及其 子選單的顏色狀況
     :deep(.el-menu--horizontal>.el-sub-menu .el-sub-menu__title:hover) {
-        background-color: $main-hover-bg;
+        background-color: $main-active-color;
+        color: $main-bg-text-color;
     }
-
-
 
     .PC-navbar {
         border-bottom: none;
         padding: 0;
         margin-left: auto;
         margin-right: auto;
-
 
 
         .el-sub-menu {
