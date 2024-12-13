@@ -89,34 +89,48 @@ watch(scrollPosition, (newValue) => {
 
 <style lang="scss" scoped>
 .menu-section {
+
     @media screen and (max-width: 850px) {
         display: none;
     }
 
-    background-color: #FFFFFF;
+    /**修改element plus menu 組件顏色變量 */
+
+    // 设置背景颜色
+    --el-menu-bg-color: #{$main-color};
+    --el-menu-text-color: #{$main-bg-text-color};
+    --el-menu-hover-text-color: #{$main-color};
+
+
+    background-color: $main-color;
     min-width: 100%;
     box-shadow: 0 2px 0px rgba(0, 0, 0, 0.1);
     display: flex;
     // justify-content: center;
 
+    :deep(.el-menu--horizontal>.el-sub-menu .el-sub-menu__title:hover) {
+        background-color: $main-hover-bg;
+    }
+
+
 
     .PC-navbar {
         border-bottom: none;
-        margin-top: 20px;
         padding: 0;
         margin-left: auto;
         margin-right: auto;
 
 
+
         .el-sub-menu {
             :deep(.el-sub-menu__title) {
-                color: $main-color;
-                font-size: 1.4rem;
-                padding-left: 0;
-                padding-right: 37px;
-                border-bottom: none;
-                margin-right: 3rem;
 
+                margin: 0 1rem;
+                font-size: 1.4rem;
+                border-bottom: none;
+                // padding-left: 0;
+                // padding-right: 37px;
+                // margin-right: 3rem;
 
                 @media screen and (max-width: 1100px) {
                     font-size: 1.2rem;

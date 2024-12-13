@@ -13,7 +13,7 @@
                 <el-timeline style="max-width: 800px">
 
                     <el-timeline-item placement="top" v-for="(item, index) in displayedChronologyList" :key="index"
-                        color="#4A863F" :timestamp="item.timestamp">
+                        class="my-timeline-item"  :timestamp="item.timestamp">
 
                         <ul class="timeline-item-content">
                             <li v-for="(content, index) in item.content">{{ content }}</li>
@@ -412,6 +412,16 @@ const getOtherList = () => {
             margin: 3% 0;
         }
 
+
+        /** 覆寫element plus組件  */
+
+        :deep(.el-timeline-item__node){
+            background-color: $main-color;
+        }
+
+        :deep(.el-timeline-item__tail){
+            border-left: 2px solid $main-color;
+        }
 
         :deep(.el-timeline-item__timestamp) {
             font-size: $inner-box-title-font-size;

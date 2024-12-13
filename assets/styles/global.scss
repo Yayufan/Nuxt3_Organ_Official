@@ -23,12 +23,29 @@
 }
 
 
-/* 主題色系 */
-$main-color: #4A863F;
+/* 綠色主視覺 */
+// $main-color: #4A863F;
+// $main-content-color: black;
+// $main-hover-bg: #E6EFD3;
+// $main-hover-text: #363838;
+// $main-hover-btn-bg: #C5CEB6;
+// $main-hover-btn-text: #363838;
+
+// $sub-color: #F49E19;
+// $sub-hover-bg: #F8C882;
+// $sub-hover-text: #494949;
+
+// $accent-color: #E9B2B1;
+// $accent-hover-bg: #E94F4D;
+
+/* 橙色主視覺 */
+$main-color: #E78112;
 $main-content-color: black;
-$main-hover-bg: #E6EFD3;
+$main-bg-text-color:#fff;
+
+$main-hover-bg: #FFE6CF;
 $main-hover-text: #363838;
-$main-hover-btn-bg: #C5CEB6;
+$main-hover-btn-bg: #edaf6e;
 $main-hover-btn-text: #363838;
 
 $sub-color: #F49E19;
@@ -37,7 +54,6 @@ $sub-hover-text: #494949;
 
 $accent-color: #E9B2B1;
 $accent-hover-bg: #E94F4D;
-
 
 
 /* 通用section 寬度及外間距 */

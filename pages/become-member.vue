@@ -151,7 +151,7 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
         .paragraph {
             position: relative;
             //min-height: 100px;
-            border: 5px solid #E5E8E0;
+            border: 5px solid $main-color;
             border-radius: 80px 40px 40px 40px;
             background-color: #fff;
             padding: 1rem 3rem;
@@ -159,14 +159,14 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
             font-size: $inner-box-title-font-size ;
 
             .sub-title {
-                color: #56575E;
+                color: $main-content-color;
                 font-size: $paragraph-title-font-size;
             }
 
 
             .number-mask {
                 font-size: 2rem;
-                background-color: #C5CEB6;
+                background-color: $main-color;
                 color: white;
                 border-radius: 50%;
                 width: 2.5rem;

@@ -336,10 +336,12 @@ const getOtherList = () => {
                 /* 每個項目的上下間距 */
                 position: relative;
                 /* 相對定位，為子元素定位 */
+                list-style: disc;
             }
 
             li::before {
-                content: counter(item);
+               
+                // content: counter(item); 需要可以打開,這是自製的1,2,3,4
                 /* 插入計數器的數值 */
                 background-color: orange;
                 /* 背景顏色 */
@@ -391,7 +393,7 @@ const getOtherList = () => {
                 width: 30.5%;
                 flex-wrap: wrap;
                 color: #fff;
-                background-color: #96B6A2;
+                background-color: $main-color;
                 border-radius: 16px;
                 box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
                 margin-bottom: 2%;
