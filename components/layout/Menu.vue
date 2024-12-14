@@ -90,8 +90,7 @@ watch(scrollPosition, (newValue) => {
 <style lang="scss" scoped>
 .menu-section {
 
-    /**修改element plus menu 組件顏色變量 , 修改其他CSS變量且使用SCSS變量時 要使用#{$變量名} 才不會報錯*/
-
+    //修改element plus menu 組件顏色變量 , 修改其他CSS變量且使用SCSS變量時 要使用#{$變量名} 才不會報錯
     // 设置選單背景颜色
     --el-menu-bg-color: #{$main-color};
     // 設置選單文字顏色
