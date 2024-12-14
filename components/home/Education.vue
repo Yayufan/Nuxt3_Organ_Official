@@ -108,7 +108,7 @@ const medicalConditions = [
                         display: inline-block;
                         width: 8px;
                         height: 8px;
-                        background-color: #666666;
+                        background: #666666;
                         border-radius: 50%;
                         margin-right: 0.5rem;
                     }

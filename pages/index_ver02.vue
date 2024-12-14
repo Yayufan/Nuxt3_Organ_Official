@@ -301,7 +301,7 @@ const handleClick = (link: string) => {
     // 訊息看板
     .message-board-box {
         width: 100%;
-        background-color: #E9B2B1;
+        background: #E9B2B1;
         border-radius: 35px;
 
         // 標題
@@ -321,7 +321,7 @@ const handleClick = (link: string) => {
         // 按鈕
         .header-button-section,
         .mobile-header-button-section {
-            background-color: #F4D4BE;
+            background: #F4D4BE;
             display: flex;
             justify-content: space-around;
             padding: 10px 0;
@@ -335,7 +335,7 @@ const handleClick = (link: string) => {
                 border-radius: 40px;
                 color: #8F1D22;
                 font-size: 1rem;
-                background-color: #F4D4BE;
+                background: #F4D4BE;
 
                 .btn-link {
                     color: inherit;
@@ -348,11 +348,11 @@ const handleClick = (link: string) => {
                 }
 
                 // &.el-button:first-child {
-                //     background-color: #8F1D22;
+                //     background: #8F1D22;
                 //     color: white;
                 // }
                 @media screen and (max-width: 481px) {
-                    background-color: #8F1D22;
+                    background: #8F1D22;
                     color: white;
                 }
 
@@ -365,7 +365,7 @@ const handleClick = (link: string) => {
 
             // 被選中的按鈕
             .active {
-                background-color: #8F1D22;
+                background: #8F1D22;
                 color: white;
             }
         }
@@ -386,7 +386,7 @@ const handleClick = (link: string) => {
                     display: none;
                 }
 
-                background-color: #C4D5D2;
+                background: #C4D5D2;
                 color: white;
                 border: none;
                 border-radius: 50%;

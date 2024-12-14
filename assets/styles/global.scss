@@ -43,12 +43,16 @@ $main-color: #E78112;
 $main-content-color: black;
 $main-bg-text-color:#fff;
 
+$main-gradient: linear-gradient(90deg, #ff7e5f, #feb47b);
+
 $main-hover-bg: #FFE6CF;
 $main-hover-text: #363838;
 $main-hover-btn-bg: #edaf6e;
 $main-hover-btn-text: #363838;
 
 $main-active-color:#e78112;
+
+
 
 $sub-color: #F49E19;
 $sub-hover-bg: #F8C882;
@@ -106,7 +110,7 @@ $inner-box-font-size:1.1rem;
 	display: inline-block;
 	border-radius: 16px;
 	color: #fff;
-	background-color: $main-color;
+	background: $main-color;
 	padding: 2px 12px;
 }
 

@@ -236,7 +236,6 @@ const drawer = ref(false)
     .content-box {
         margin-left: 10%;
         margin-right: 10%;
-        // background-color: aqua;
         color: $main-content-color;
 
         @media screen and (max-width:481px) {
@@ -263,7 +262,7 @@ const drawer = ref(false)
         /**這邊是處理通用段落、sub-title 和 內容 */
         .paragraph {
             position: relative;
-            background-color: #fff;
+            background: #fff;
             margin-bottom: 3%;
 
             @media screen and (max-width:480px) {

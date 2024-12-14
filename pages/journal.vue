@@ -356,7 +356,7 @@ const getOtherList = () => {
 
             .more-btn {
                 color: #fff;
-                background-color: $sub-color;
+                background: $sub-color;
                 padding: 1rem 5rem;
                 border-radius: 16px;
                 letter-spacing: 0.1rem;

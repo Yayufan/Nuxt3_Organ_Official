@@ -221,7 +221,7 @@ watch(currentPage, (value, oldValue) => {
                 .more-btn {
                     display: block;
                     color: #fff;
-                    background-color: $sub-color;
+                    background: $sub-color;
                     width: 40%;
                     margin: 0 auto;
                     padding: 0.5rem 0;
@@ -233,7 +233,7 @@ watch(currentPage, (value, oldValue) => {
 
                     &:hover {
                         cursor: pointer;
-                        background-color: $sub-hover-bg;
+                        background: $sub-hover-bg;
                         color: $sub-hover-text;
                     }
 
@@ -250,7 +250,7 @@ watch(currentPage, (value, oldValue) => {
                 height: 3.5rem;
                 border: 3px solid #fff;
                 border-radius: 50%;
-                background-color: $sub-color;
+                background: $sub-color;
                 transform: translate(-50%, -50%);
             }
 

@@ -263,7 +263,7 @@ watch(currentPage, (value, oldValue) => {
                     .more-btn {
                         display: inline-block;
                         color: #fff;
-                        background-color: $accent-color;
+                        background: $accent-color;
                         padding: 0.5rem 3rem;
                         border-radius: 16px;
                         letter-spacing: 0.1rem;
@@ -273,7 +273,7 @@ watch(currentPage, (value, oldValue) => {
 
                         &:hover {
                             cursor: pointer;
-                            background-color: $accent-hover-bg;
+                            background: $accent-hover-bg;
                         }
                     }
                 }

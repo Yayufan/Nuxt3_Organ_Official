@@ -139,7 +139,6 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
     .content-box {
 
-        // background-color: aqua;
         width: 100%;
         color: $main-content-color;
 
@@ -160,7 +159,7 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
             //min-height: 100px;
             border: 5px solid $main-color;
             border-radius: 80px 40px 40px 40px;
-            background-color: #fff;
+            background: #fff;
             padding: 1rem 3rem;
             margin-bottom: 3%;
             font-size: $inner-box-title-font-size ;
@@ -173,7 +172,7 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
             .number-mask {
                 font-size: 2rem;
-                background-color: $main-color;
+                background: $main-color;
                 color: white;
                 border-radius: 50%;
                 width: 2.5rem;

@@ -290,7 +290,6 @@ const getOtherList = () => {
     }
 
     .content-box {
-        // background-color: aqua;
         width: 100%;
         color: $main-content-color;
 
@@ -309,7 +308,7 @@ const getOtherList = () => {
             display: inline-block;
             margin-left: 10%;
             color: #fff;
-            background-color: $main-color;
+            background: $main-color;
             padding: 5px 2.5rem;
             border-radius: 16px;
             font-size: $paragraph-title-font-size;
@@ -350,7 +349,7 @@ const getOtherList = () => {
                
                 // content: counter(item); 需要可以打開,這是自製的1,2,3,4
                 /* 插入計數器的數值 */
-                background-color: orange;
+                background: orange;
                 /* 背景顏色 */
                 color: white;
                 /* 文字顏色 */
@@ -400,7 +399,7 @@ const getOtherList = () => {
                 width: 30.5%;
                 flex-wrap: wrap;
                 color: #fff;
-                background-color: $main-color;
+                background: $main-color;
                 border-radius: 16px;
                 box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
                 margin-bottom: 2%;
@@ -461,7 +460,7 @@ const getOtherList = () => {
 
             .supervisors-more-btn {
                 color: #fff;
-                background-color: $main-color;
+                background: $main-color;
                 padding: 1rem 5rem;
                 border-radius: 16px;
                 letter-spacing: 0.1rem;
@@ -471,7 +470,7 @@ const getOtherList = () => {
 
                 &:hover {
                     cursor: pointer;
-                    background-color: $main-hover-btn-bg;
+                    background: $main-hover-btn-bg;
                     color: $main-hover-btn-text;
                 }
             }

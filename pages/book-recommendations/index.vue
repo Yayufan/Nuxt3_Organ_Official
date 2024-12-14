@@ -219,7 +219,7 @@ watch(currentPage, (value, oldValue) => {
                 .more-btn {
                     display: block;
                     color: #fff;
-                    background-color: $sub-color;
+                    background: $sub-color;
                     width: 75%;
                     margin: 0 auto;
                     padding: 0.5rem 0;
@@ -231,7 +231,7 @@ watch(currentPage, (value, oldValue) => {
 
                     &:hover {
                         cursor: pointer;
-                        background-color: $sub-hover-bg;
+                        background: $sub-hover-bg;
                         color: $sub-hover-text;
                     }
 

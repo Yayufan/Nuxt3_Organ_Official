@@ -48,7 +48,7 @@ const updateDate = ref('2024年10月21日')
 </script>
 <style lang="scss" scoped>
 .footer-box {
-    background-color: #EFEFEE;
+    background: #EFEFEE;
 
     .copyright {
         display: flex;
@@ -67,7 +67,7 @@ const updateDate = ref('2024年10月21日')
 }
 
 .footer-info {
-    background-color: #EFEFEE;
+    background: #EFEFEE;
     display: flex;
     justify-content: space-around;
     width: 100%;

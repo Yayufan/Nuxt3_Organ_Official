@@ -266,7 +266,7 @@ const goToBottom = () => {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.5);
     z-index: 90;
 }
 
@@ -280,7 +280,7 @@ const goToBottom = () => {
         // display: none;
         display: flex;
         flex-direction: column;
-        background-color: #FFFFFF;
+        background: #FFFFFF;
         // min-height: 750px;
         width: 65vw;
         position: absolute;
@@ -359,7 +359,7 @@ const goToBottom = () => {
 
                 &.active {
                     color: #FFFFFF;
-                    background-color: #9BB179;
+                    background: #9BB179;
                     border-color: #9BB179;
                 }
             }

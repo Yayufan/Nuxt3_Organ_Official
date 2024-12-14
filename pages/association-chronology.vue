@@ -465,7 +465,7 @@ const getOtherList = () => {
 
             .more-btn {
                 color: #fff;
-                background-color: $main-color;
+                background: $main-color;
                 padding: 1rem 5rem;
                 border-radius: 16px;
                 letter-spacing: 0.1rem;
@@ -475,7 +475,7 @@ const getOtherList = () => {
 
                 &:hover {
                     cursor: pointer;
-                    background-color: $main-hover-btn-bg;
+                    background: $main-hover-btn-bg;
                     color: $main-hover-btn-text;
                 }
             }

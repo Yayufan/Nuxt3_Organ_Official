@@ -215,7 +215,7 @@ section {
                     &:hover {
                         border-color: #450C73;
                         border-width: 2px;
-                        background-color: rgba(183, 183, 183, 0.1);
+                        background: rgba(183, 183, 183, 0.1);
                     }
 
                     >a {
@@ -227,7 +227,7 @@ section {
                     /**消息的日期 */
                     .NewsItemDate {
                         padding: 8px 12px;
-                        background-color: #450C73;
+                        background: #450C73;
                         color: #fff;
                     }
 

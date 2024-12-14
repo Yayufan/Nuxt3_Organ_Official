@@ -265,7 +265,6 @@ const drawer = ref(false)
     .content-box {
         margin-left: 10%;
         margin-right: 10%;
-        // background-color: aqua;
         color: $main-content-color;
 
         .step-btn-box {
@@ -290,7 +289,7 @@ const drawer = ref(false)
             //min-height: 100px;
             border: 2px solid $main-color;
             border-radius: 20px;
-            background-color: #fff;
+            background: #fff;
             padding: 1rem 3rem;
             margin-bottom: 3%;
 
@@ -307,7 +306,7 @@ const drawer = ref(false)
 
             .number-mask {
                 font-size: 2rem;
-                background-color: $accent-color;
+                background: $accent-color;
                 color: white;
                 border-radius: 50%;
                 width: 3rem;
@@ -411,7 +410,7 @@ const drawer = ref(false)
 
                 li::before {
                     content: counter(item);
-                    background-color: orange;
+                    background: orange;
                     color: white;
                     border-radius: 50%;
                     width: 1.5rem;

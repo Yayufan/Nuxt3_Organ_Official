@@ -376,7 +376,7 @@ const scrollToSection = (section: any) => {
                         margin-left: 3rem;
                         width: calc(100% - 2.9rem - 5%);
                         height: 1px;
-                        background-color: #A8A8A8;
+                        background: #A8A8A8;
                     }
 
 

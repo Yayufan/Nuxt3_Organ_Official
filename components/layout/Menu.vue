@@ -100,7 +100,7 @@ watch(scrollPosition, (newValue) => {
     //設置選單active時的文字顏色
     --el-menu-active-color: #{$main-bg-text-color};
 
-    background-color: $main-color;
+    background: $main-color;
     min-width: 100%;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
     display: flex;
@@ -174,10 +174,10 @@ watch(scrollPosition, (newValue) => {
         .el-menu-item {
             font-size: 1rem;
             color: black;
-            background-color: #FFFFFF;
+            background: #FFFFFF;
 
             &:hover {
-                background-color: #FFFFFF;
+                background: #FFFFFF;
                 color: $main-color;
             }
         }

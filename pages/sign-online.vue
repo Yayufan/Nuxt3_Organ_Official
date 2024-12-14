@@ -367,7 +367,7 @@ const resetForm = (formEl: FormInstance | undefined) => {
         }
 
         .title {
-            background-color: $main-color;
+            background: $main-color;
             color: white;
             // width: 10vw;
             display: inline-block;
@@ -422,7 +422,7 @@ const resetForm = (formEl: FormInstance | undefined) => {
 
     //表單區塊
     .form-section {
-        background-color: #F2F2F1;
+        background: #F2F2F1;
         // padding: 1% 10%;
         padding: 1% 11%;
 
@@ -612,11 +612,11 @@ const resetForm = (formEl: FormInstance | undefined) => {
                 }
 
                 .submit {
-                    background-color: #E9B2B1;
+                    background: #E9B2B1;
                 }
 
                 .reset {
-                    background-color: #F49E19;
+                    background: #F49E19;
                 }
             }
         }

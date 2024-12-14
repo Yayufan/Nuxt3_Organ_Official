@@ -32,7 +32,7 @@
                     </div>
 
                     <div class="serviceItem">
-                        <div class="itemIconBox" style="background-color: #CAF0C7;">
+                        <div class="itemIconBox" style="background: #CAF0C7;">
                             <ElIconMonitor class="icon" />
                         </div>
                         <div class="itemTitle">Web Design</div>
@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="serviceItem">
-                        <div class="itemIconBox" style="background-color: #FFE9F3;">
+                        <div class="itemIconBox" style="background: #FFE9F3;">
                             <ElIconNotebook class="icon" />
                         </div>
                         <div class="itemTitle">SEO Services</div>
@@ -61,7 +61,7 @@
                     </div>
 
                     <div class="serviceItem">
-                        <div class="itemIconBox" style="background-color: #CDF7F6;">
+                        <div class="itemIconBox" style="background: #CDF7F6;">
                             <ElIconStar class="icon" />
                         </div>
                         <div class="itemTitle">Content Marketing</div>

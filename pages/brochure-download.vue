@@ -162,7 +162,7 @@ let articleList = reactive({
 
                     .download-btn {
                         color: #fff;
-                        background-color: $main-color;
+                        background: $main-color;
                         padding: 0.5rem 3rem;
                         border-radius: 16px;
                         font-weight: 550;

@@ -57,7 +57,7 @@ const goToPath = (targetPath:string)=>{
 <style scoped lang="scss">
 section {
     width: 100%;
-    background-color: $main-color;
+    background: $main-color;
 
     .introduceOuterBox {
         width: 90%;
@@ -112,7 +112,7 @@ section {
                 margin-top: 2rem;
 
                 .filledBtn {
-                    background-color: #2F3F9F;
+                    background: #2F3F9F;
                     border-color: #2F3F9F;
                     color: #fff;
                     border-radius: 50rem;
@@ -121,7 +121,7 @@ section {
                     cursor: pointer;
 
                     &:hover {
-                        background-color: #283687;
+                        background: #283687;
                         border-color: #26327f;
                     }
 
@@ -129,7 +129,7 @@ section {
                 }
 
                 .hollowBtn {
-                    background-color: transparent;
+                    background: transparent;
                     border-color: #2F3F9F;
                     color: #26327f;
                     border-radius: 50rem;
@@ -139,7 +139,7 @@ section {
                     cursor: pointer;
 
                     &:hover {
-                        background-color: #283687;
+                        background: #283687;
                         border-color: #26327f;
                         color: #fff;
                     }

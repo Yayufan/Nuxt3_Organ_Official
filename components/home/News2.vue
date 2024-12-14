@@ -183,13 +183,13 @@ await getNewsLimit(1, 5)
                     display: inline-block;
                     text-wrap: nowrap;
                     margin-top: 2%;
-                    background-color: #C3E2EA;
+                    background: #C3E2EA;
                     color: #005B7E;
                     border: none;
                     border-radius: 0.7rem;
                     padding: 10%;
                     cursor: pointer;
-                    transition: background-color 0.2s;
+                    transition: background 0.2s;
 
                     &:hover {
                         background: #C3E2EA;

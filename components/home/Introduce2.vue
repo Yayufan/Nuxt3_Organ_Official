@@ -36,11 +36,11 @@ const goToPath = (targetPath: string) => {
 <style scoped lang="scss">
 .introduce-section {
     width: 100%;
-    background-color: #C0DEE6;
+    background: #C0DEE6;
 
     .introduce-img-box {
         width: 100%;
-        background-color: #C0DEE6;
+        background: #C0DEE6;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -86,16 +86,16 @@ const goToPath = (targetPath: string) => {
             .more-info-btn {
                 margin-top: 2%;
                 color: #005B7E;
-                background-color: #ffffff;
+                background: #ffffff;
                 border: none;
                 border-radius: 0.7rem;
                 padding: 2%;
                 cursor: pointer;
-                transition: background-color 0.2s;
+                transition: background 0.2s;
 
                 &:hover {
                     color: #647DBD;
-                    background-color: #f5f5f5;
+                    background: #f5f5f5;
                 }
 
             }
@@ -103,7 +103,7 @@ const goToPath = (targetPath: string) => {
         }
 
         img {
-            background-color: #C0DEE6;
+            background: #C0DEE6;
             display: block;
             width: 100%;
         }
