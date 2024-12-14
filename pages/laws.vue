@@ -109,6 +109,13 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
         margin-left: 10%;
         margin-bottom: 2%;
 
+        &::before {
+            display: inline;
+            content: "";
+            border-left: 3px solid $main-color;
+            padding-right: 10px;
+        }
+
         @media screen and (max-width:481px) {
             margin-left: 1rem;
             margin-bottom: 10%;

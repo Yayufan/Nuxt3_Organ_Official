@@ -235,6 +235,13 @@ const scrollToSection = (section: any) => {
         margin-left: 10%;
         margin-bottom: 2%;
 
+        &::before {
+            display: inline;
+            content: "";
+            border-left: 3px solid $main-color;
+            padding-right: 10px;
+        }
+
         @media screen and (max-width:481px) {
             margin-left: 0;
         }

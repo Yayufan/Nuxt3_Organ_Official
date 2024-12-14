@@ -228,10 +228,22 @@ const handleClick = (link: string) => {
     }
 
     .carousel-box {
+        /**以下為修改的地方 */
+        position: relative;
+        background: $main-color;
+        padding-top: 50px;
 
         .el-carousel {
             height: 400px;
-            max-width: 100%; //原本為100%
+            max-width: 85%; //原本為100%
+
+            /**以下為修改的地方 */
+            position: absolute;
+            width: 100%;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top: 13.5rem;
+            border-radius: 16px;
 
             @media screen and (max-width: 850px) {
                 height: 200px;
@@ -480,7 +492,11 @@ const handleClick = (link: string) => {
     .join-us-board {
         width: 100%;
         justify-content: center;
+        // margin-top:5% 原本為5%
+        margin-top: 25%;
         margin-bottom: 3%;
+
+
 
         .title {
             margin-left: 10%;

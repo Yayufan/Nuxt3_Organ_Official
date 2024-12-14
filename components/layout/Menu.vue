@@ -102,7 +102,7 @@ watch(scrollPosition, (newValue) => {
 
     background-color: $main-color;
     min-width: 100%;
-    box-shadow: 0 2px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
     display: flex;
     // justify-content: center;
 
