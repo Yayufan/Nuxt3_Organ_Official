@@ -41,17 +41,17 @@
 /* 橙色主視覺 */
 $main-color: #E78112;
 $main-content-color: black;
-$main-bg-text-color:#fff;
+$main-bg-text-color: #fff;
 
 $main-gradient: linear-gradient(90deg, #ff7e5f, #feb47b);
 
+//Menu-item hover 時的顏色
 $main-hover-bg: #FFE6CF;
-$main-hover-text: #363838;
+$main-hover-text: #ef7f47;
+
+//主色Button的背景色 和 按鈕字型色
 $main-hover-btn-bg: #edaf6e;
 $main-hover-btn-text: #363838;
-
-$main-active-color:#e78112;
-
 
 
 $sub-color: #F49E19;
@@ -60,6 +60,29 @@ $sub-hover-text: #494949;
 
 $accent-color: #E9B2B1;
 $accent-hover-bg: #E94F4D;
+
+
+/* 粉色主視覺 */
+
+// $main-color: #D38A9D;
+// $main-content-color: black;
+// $main-bg-text-color:#fff;
+
+// $main-gradient: linear-gradient(90deg, #ff7e5f, #feb47b);
+
+// $main-hover-bg: #FFE6CF;
+// $main-hover-text: #d991a4;
+// $main-hover-btn-bg: #F1E7E8;
+// $main-hover-btn-text: #363838;
+
+
+// $sub-color: #F49E19;
+// $sub-hover-bg: #F8C882;
+// $sub-hover-text: #494949;
+
+// $accent-color: #E9B2B1;
+// $accent-hover-bg: #E94F4D;
+
 
 
 /* 通用section 寬度及外間距 */
@@ -73,12 +96,12 @@ $common-title-font-size: 1.8rem;
 $common-title-letter-spacing: 0.1rem;
 
 /* 內文字的大小 */
-$paragraph-title-font-size:1.5rem;
-$paragraph-font-size:1.3rem;
+$paragraph-title-font-size: 1.5rem;
+$paragraph-font-size: 1.3rem;
 
 /* 文章盒子字的大小 */
-$inner-box-title-font-size:1.3rem;
-$inner-box-font-size:1.1rem;
+$inner-box-title-font-size: 1.3rem;
+$inner-box-font-size: 1.1rem;
 
 
 // 在螢幕寬度大於 1024px（PC）時
@@ -124,7 +147,7 @@ $inner-box-font-size:1.1rem;
 	transition: 0.5s;
 	font-size: $inner-box-title-font-size;
 
-	
+
 	&::after {
 		content: '';
 		display: inline-block;
@@ -138,7 +161,7 @@ $inner-box-font-size:1.1rem;
 		/* 確保圖標縮放到合適尺寸 */
 	}
 
-	&:hover{
+	&:hover {
 		font-size: $paragraph-title-font-size;
 	}
 
@@ -167,7 +190,7 @@ $inner-box-font-size:1.1rem;
 		/* 確保圖標縮放到合適尺寸 */
 	}
 
-	&:hover{
+	&:hover {
 		font-size: $paragraph-title-font-size;
 	}
 }

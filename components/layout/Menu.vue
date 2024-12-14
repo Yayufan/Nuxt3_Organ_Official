@@ -110,11 +110,14 @@ watch(scrollPosition, (newValue) => {
         display: none;
     }
 
+
     //特別處理當父選單被選擇時, 還去選擇這個父選單 及其 子選單的顏色狀況
     :deep(.el-menu--horizontal>.el-sub-menu .el-sub-menu__title:hover) {
-        background-color: $main-active-color;
-        color: $main-bg-text-color;
+        background-color: $main-hover-bg;
+        color: $main-hover-text;
+
     }
+
 
     .PC-navbar {
         border-bottom: none;

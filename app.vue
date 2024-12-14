@@ -1,7 +1,7 @@
 <template>
   <!-- 最外層新增一個wrapper,是為了搭配content 撐開中間內容為空的路由組件來達成一頁的效果  -->
   <div class="wrapper">
-   
+
     <!-- 共用的Header -->
     <Header></Header>
     <Menu class="menu-bar"></Menu>
@@ -24,7 +24,7 @@
 import Header from './components/layout/Header.vue';
 import Menu from '@/components/layout/Menu.vue';
 import Footer from '@/components/layout/Footer.vue';
-import {  ref } from 'vue';
+import { ref } from 'vue';
 
 //這邊注意只是獲取組件而已
 const footerRef = ref()
@@ -115,7 +115,6 @@ function handleScroll() {
 
 
 <style lang="scss">
-
 //覆蓋子選單的邊框
 .my-popper {
   --el-popover-border-radius: 15px;
@@ -124,10 +123,6 @@ function handleScroll() {
     border-radius: 15px;
     min-width: 150px !important;
     padding: 0 !important;
-    --el-menu-text-color: #1C2B6E !important;
-    --el-menu-active-color: #6A6969 !important;
-    --el-menu-hover-text-color: #6A6969 !important;
-    --el-menu-hover-bg-color: none !important;
   }
 
   li {
@@ -139,6 +134,7 @@ function handleScroll() {
 
 }
 
+
 //這個設定是撐開中間內容為空的組件
 //讓他Header組件和Footer組件固定在最上方和最下方
 .wrapper {
@@ -149,6 +145,7 @@ function handleScroll() {
   .content {
     flex-grow: 1;
     position: relative;
+    // background: #F1E7E8;
 
   }
 
