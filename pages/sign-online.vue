@@ -94,6 +94,17 @@
                                     @click="drawer = true">我已閱讀並同意說明事項</u></el-checkbox>
                         </el-form-item>
                     </div>
+
+                    <div class="captcha-box">
+                        <client-only>
+                            <img v-if="captchaImg" :src="captchaImg" @click="refreshCaptcha" alt="點擊刷新驗證碼"
+                                class="captcha-image" />
+                        </client-only>
+                        <el-form-item prop="verificationCode" class="captcha-label">
+                            <el-input v-model="form.verificationCode" type="text"></el-input>
+                        </el-form-item>
+                    </div>
+
                     <div class="submit-section">
                         <el-form-item>
                             <el-button class="submit" @click="submitForm(ruleFormRef)">送出資料</el-button>
@@ -145,6 +156,36 @@
 <script lang="ts" setup>
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 import type { FormInstance, FormRules } from 'element-plus'
+
+/** 驗證碼，僅在客户端执行 */
+// 定義驗證碼圖片
+const captchaImg = ref('')
+
+// 只在客户端调用
+const refreshCaptcha = async () => {
+    try {
+        const response = await CSRrequest.get('organ-donation-consent/captcha',)
+
+        console.log('響應為:', response)
+
+        captchaImg.value = response.data.image
+        form.verificationKey = response.data.key
+
+        console.log("驗證碼key為:", form.verificationKey)
+
+
+    } catch (error) {
+        console.error('刷新驗證碼失敗', error)
+    }
+}
+
+//頁面掛載時調用
+onMounted(() => {
+    refreshCaptcha()
+})
+
+
+/**------------------------- */
 
 const approveInstructions = ref(false)
 const drawer = ref(false)
@@ -221,6 +262,13 @@ const formRules = reactive<FormRules<form>>({
             trigger: 'change',
         },
     ],
+    verificationCode: [
+        {
+            required: true,
+            message: '請輸入驗證碼'
+            , trigger: 'blur'
+        }
+    ],
 
 })
 
@@ -237,7 +285,9 @@ interface form {
     consentCard: string,
     reason: string,
     wordToFamily: string,
-    donateOrgans: string[]
+    donateOrgans: string[],
+    verificationKey: string,
+    verificationCode: string
 }
 
 const form = reactive<form>({
@@ -253,7 +303,9 @@ const form = reactive<form>({
     consentCard: '-1',
     reason: '',
     wordToFamily: '',
-    donateOrgans: ["lung", "skin", "smallIntestine"]
+    donateOrgans: [],
+    verificationKey: "",
+    verificationCode: ""
 })
 
 
@@ -299,10 +351,13 @@ const submitForm = async (formEl: FormInstance | undefined) => {
                 let res = await insertConsentForm()
                 if (res.code != 200) {
                     ElMessage.error(res.msg)
+                    //錯誤後重刷新驗證碼
+                    refreshCaptcha()
                     return
                 }
                 ElMessage.success("上傳成功")
                 resetForm(ruleFormRef.value)
+                
 
             } else {
                 ElMessage.error('請先閱讀並同意說明事項')
@@ -598,6 +653,20 @@ const resetForm = (formEl: FormInstance | undefined) => {
                 :deep(.el-checkbox__inner) {
                     border-radius: 25px;
                 }
+            }
+
+            .captcha-box {
+                display: flex;
+                justify-content: center;
+                align-items: flex-end;
+                margin-top: 1rem;
+                margin-bottom: 1.3rem;
+
+                .captcha-label {
+                    margin-bottom: 0;
+                    margin-left: 20px;
+                }
+
             }
 
             .submit-section {
