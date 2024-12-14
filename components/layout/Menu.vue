@@ -90,10 +90,6 @@ watch(scrollPosition, (newValue) => {
 <style lang="scss" scoped>
 .menu-section {
 
-    @media screen and (max-width: 850px) {
-        display: none;
-    }
-
     /**修改element plus menu 組件顏色變量 , 修改其他CSS變量且使用SCSS變量時 要使用#{$變量名} 才不會報錯*/
 
     // 设置選單背景颜色
@@ -110,6 +106,10 @@ watch(scrollPosition, (newValue) => {
     box-shadow: 0 2px 0px rgba(0, 0, 0, 0.1);
     display: flex;
     // justify-content: center;
+
+    @media screen and (max-width: 850px) {
+        display: none;
+    }
 
     //特別處理當父選單被選擇時, 還去選擇這個父選單 及其 子選單的顏色狀況
     :deep(.el-menu--horizontal>.el-sub-menu .el-sub-menu__title:hover) {
