@@ -36,16 +36,16 @@
                     <p>線上捐款</p>
                 </div>
                 <div class="link-item">
-                    <nuxt-link to="/frequently-asked-questions">
+                    <nuxt-link to="/sign-online">
                         <img src="@/assets/img/achievements-icon.png" alt="">
                     </nuxt-link>
-                    <p>簽卡Q&A</p>
+                    <p>簽署器捐</p>
                 </div>
                 <div class="link-item">
-                    <nuxt-link to="https://www.facebook.com/organassociation/">
+                    <nuxt-link to="/story-donor-family">
                         <img src="@/assets/img/facebook-icon.png" alt="">
                     </nuxt-link>
-                    <p>FB 粉絲團</p>
+                    <p>家屬關懷</p>
                 </div>
             </div>
         </div>
