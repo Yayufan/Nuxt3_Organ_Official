@@ -116,6 +116,8 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
     font-family: $common-section-font-family;
 
 
+
+
     .common-title {
         color: $main-color;
         font-weight: $common-title-font-weight;
@@ -209,6 +211,7 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
                 display: flex;
                 align-items: center;
                 justify-content: space-around;
+                flex-wrap: wrap;
 
                 @media screen and (max-width:480px) {
                     flex-direction: column;

@@ -381,6 +381,14 @@ const getOtherList = () => {
     margin: $common-section-margin;
     font-family: $common-section-font-family;
 
+    @media screen and (max-width:850px) {
+        margin: 3% 0;
+    }
+
+    @media screen and (max-width:481px) {
+        margin: 3% 0 3% 1%;
+    }
+
 
     .common-title {
         color: $main-color;

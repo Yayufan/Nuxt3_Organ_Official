@@ -175,7 +175,12 @@ watch(currentPage, (value, oldValue) => {
             border-radius: 16px;
             box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
 
-            @media screen and (max-width:480px) {
+            @media screen and (max-width:850px) {
+                width: 45%;
+                margin: 8% auto;
+            }
+
+            @media screen and (max-width:481px) {
                 width: 100%;
                 margin: 8% auto;
             }
@@ -200,7 +205,7 @@ watch(currentPage, (value, oldValue) => {
                     left: 50%;
                     transform: translate(-50%, -50%);
                     z-index: 50;
-                    background: #99BF83;
+                    background: $main-color;
                     color: #fff;
                     text-align: center;
                     font-size: $inner-box-title-font-size;

@@ -257,7 +257,7 @@ const handleClick = (link: string) => {
             }
 
             :deep(.el-carousel__arrow) {
-                background-color: #EE7C84;
+                background-color: $main-color;
                 // margin-bottom: 3%;
                 top: 40%;
             }

@@ -188,6 +188,11 @@ watch(currentPage, (value, oldValue) => {
                     max-width: 15rem;
                     min-width: 145px;
 
+                    @media screen and (max-width:850px) {
+                        max-width: 200px;
+                    }
+
+
 
                     @media screen and (max-width:481px) {
                         max-width: 145px;

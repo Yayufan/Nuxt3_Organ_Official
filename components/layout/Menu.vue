@@ -110,9 +110,15 @@ watch(scrollPosition, (newValue) => {
         display: none;
     }
 
-
     //特別處理當父選單被選擇時, 還去選擇這個父選單 及其 子選單的顏色狀況
     :deep(.el-menu--horizontal>.el-sub-menu .el-sub-menu__title:hover) {
+        background-color: $main-hover-bg;
+        color: $main-hover-text;
+
+    }
+
+    //特別處理當父選單li被選擇時, 去改變li 內 div的顏色狀況
+    :deep(.el-menu--horizontal>.el-sub-menu:hover .el-sub-menu__title) {
         background-color: $main-hover-bg;
         color: $main-hover-text;
 

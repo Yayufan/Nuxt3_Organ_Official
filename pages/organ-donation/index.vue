@@ -174,6 +174,10 @@ watch(currentPage, (value, oldValue) => {
             padding: 1rem 1rem;
             transition: 0.5s;
 
+            @media screen and (max-width:850px) {
+                width: 43%;
+            }
+
             @media screen and (max-width:480px) {
                 width: 42%;
             }

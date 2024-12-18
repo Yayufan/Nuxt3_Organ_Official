@@ -219,7 +219,7 @@ watch(currentPage, (value, oldValue) => {
                     z-index: 50;
                     text-align: left;
                     color: #fff;
-                    background: linear-gradient(to top, rgba(100, 138, 72, 0.9) 10%, rgba(193, 193, 193, 0.4));
+                    background: linear-gradient(to top, rgba(234, 133, 77, 0.9) 10%, rgba(193, 193, 193, 0.4));
                     border-radius: 16px;
 
                     .article-title {

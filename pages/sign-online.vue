@@ -441,14 +441,14 @@ const resetForm = (formEl: FormInstance | undefined) => {
 
             @media screen and (max-width:850px) {
                 max-width: 100%;
-                margin: 1% 0 0 0;
+                margin: 2% 0 2% 0;
                 font-size: 0.9rem;
-
             }
 
             p {
                 @media screen and (max-width:850px) {
                     display: inline;
+                    line-height: 1.5;
 
                 }
             }
@@ -465,7 +465,7 @@ const resetForm = (formEl: FormInstance | undefined) => {
         }
 
         .cancel-form {
-            color: #F49E19;
+            color: red;
             padding: 0 5px;
             font-size: 1.3rem;
 

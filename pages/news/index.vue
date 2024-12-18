@@ -15,8 +15,7 @@
 
                     <article class="article-item" v-for="(item, index) in articleList.records " :key="item.articleId">
 
-                        <nuxt-link class="article-item-link"
-                            :to="{ name: 'news-id', params: { id: item.articleId } }">
+                        <nuxt-link class="article-item-link" :to="{ name: 'news-id', params: { id: item.articleId } }">
                             <div class="article-img-box">
                                 <img class="article-img" :src="`/minio${item.coverThumbnailUrl}`">
                             </div>
@@ -184,6 +183,10 @@ watch(currentPage, (value, oldValue) => {
             .article-img-box {
                 max-width: 15rem;
                 min-width: 145px;
+
+                @media screen and (max-width:850px) {
+                    max-width: 200px;
+                }
 
                 @media screen and (max-width:481px) {
                     max-width: 145px;

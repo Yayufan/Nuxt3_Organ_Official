@@ -268,6 +268,15 @@ const getOtherList = () => {
     margin: $common-section-margin;
     font-family: $common-section-font-family;
 
+    @media screen and (max-width:850px) {
+        margin: 3% 0;
+    }
+
+    @media screen and (max-width:481px) {
+        margin: 3% 0 3% 1%;
+    }
+
+
     .common-title {
         color: $main-color;
         font-weight: $common-title-font-weight;
@@ -323,6 +332,11 @@ const getOtherList = () => {
             margin-left: 14%;
             margin-top: 2%;
             font-size: $paragraph-font-size;
+
+            @media screen and (max-width:481px) {
+                margin-left: 5%;
+            }
+
         }
 
 
@@ -342,12 +356,12 @@ const getOtherList = () => {
                 /* 每個項目的上下間距 */
                 position: relative;
                 /* 相對定位，為子元素定位 */
-                list-style: disc;
+                // list-style: disc;
             }
 
             li::before {
-               
-                // content: counter(item); 需要可以打開,這是自製的1,2,3,4
+
+                content: counter(item); //需要可以打開,這是自製的1,2,3,4
                 /* 插入計數器的數值 */
                 background: orange;
                 /* 背景顏色 */
@@ -380,6 +394,7 @@ const getOtherList = () => {
         /** 組織架構盒子內的樣式  */
         .organizational-structure-box {
             max-width: 65%;
+            margin: 0 auto;
             margin-top: 3%;
 
             img {
@@ -393,6 +408,10 @@ const getOtherList = () => {
             flex-wrap: wrap;
             justify-content: flex-start;
             margin-top: 3%;
+
+            @media screen and (max-width:850px) {
+                margin-left: 5%;
+            }
 
 
             .supervisors-item {
@@ -443,10 +462,19 @@ const getOtherList = () => {
                     }
 
                     .supervisors-info-content {
+                        //white-space: normal;
                         /* 允许换行 */
+                        // word-break: keep-all;                       
                         white-space: normal;
-                        /** 文字不因換行而分段 */
-                        word-break: keep-all
+                        line-break: strict;
+                        word-break: keep-all;
+                        hyphens: none;
+
+                        @supports (-webkit-touch-callout: none) {
+                            word-break: normal
+                        }
+
+
                     }
 
                 }
