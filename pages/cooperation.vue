@@ -84,6 +84,12 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
             max-width: 1050px;
             line-height: 1.5;
             color: $main-content-color;
+
+            @media screen and (max-width:481px) {
+                width: 80%;
+            }
+
+            
         }
 
         .paragraph {

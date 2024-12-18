@@ -273,6 +273,14 @@ const setActive = (button: any) => {
     margin: $common-section-margin;
     font-family: $common-section-font-family;
 
+    @media screen and (max-width:850px) {
+        margin: 3% 0;
+    }
+
+    @media screen and (max-width:481px) {
+        margin: 3% 0 3% 3%;
+    }
+
     .common-title {
         color: $main-color;
         font-weight: $common-title-font-weight;
@@ -332,7 +340,7 @@ const setActive = (button: any) => {
                 //這樣已經讓內容並排了
                 display: flex;
                 overflow: hidden;
-                width: 100%;
+                width: 93%;
             }
 
             .mobile-zh-tw-content.is-active {

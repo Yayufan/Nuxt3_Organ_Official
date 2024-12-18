@@ -213,7 +213,7 @@ const drawer = ref(false)
             font-size: 1.2rem;
             margin: 0 5px;
             padding: 0.5rem 2rem;
-            background: $accent-color;
+            background: #EF8989;
             color: #fff;
             border-radius: 16px;
             border: none;
@@ -307,7 +307,7 @@ const drawer = ref(false)
 
             .number-mask {
                 font-size: 2rem;
-                background: $accent-color;
+                background: #F29F6A;
                 color: white;
                 border-radius: 50%;
                 width: 3rem;

@@ -159,8 +159,8 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
         .paragraph {
             position: relative;
             //min-height: 100px;
-            border: 5px solid $main-color;
-            border-radius: 80px 40px 40px 40px;
+            border: 5px solid #EDD0BF;
+            border-radius: 40px 40px 40px 40px;
             background: #fff;
             padding: 1rem 3rem;
             margin-bottom: 3%;
@@ -187,7 +187,7 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
                 position: absolute;
                 /* 絕對定位 */
                 left: 0;
-                top: 7%;
+                top: 2%;
                 transform: translateY(-50%);
                 /* 調整位置至垂直中心 */
             }

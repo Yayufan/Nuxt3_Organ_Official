@@ -134,6 +134,14 @@ watch(currentPage, (value, oldValue) => {
     margin: $common-section-margin;
     font-family: $common-section-font-family;
 
+    @media screen and (max-width:850px) {
+        margin: 3% 0;
+    }
+
+    @media screen and (max-width:481px) {
+        margin: 3% 0 3% 1%;
+    }
+
     .common-title {
         color: $main-color;
         font-weight: $common-title-font-weight;
@@ -255,8 +263,8 @@ watch(currentPage, (value, oldValue) => {
                 .article-more-box {
                     text-align: center;
                     margin-right: 1.5rem;
-
-                    text-wrap-mode: nowrap;
+                    white-space: nowrap;
+                    // text-wrap-mode: nowrap;
 
                     @media screen and (max-width:481px) {}
 

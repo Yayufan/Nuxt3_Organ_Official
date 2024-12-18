@@ -125,6 +125,15 @@ const drawer = ref(false)
     font-family: $common-section-font-family;
 
     
+    @media screen and (max-width:850px) {
+        
+    }
+
+    @media screen and (max-width:481px) {
+        margin: 3% 0 3% 1%;
+    }
+
+    
     @media screen and (max-width:481px) {
         :deep(.el-drawer) {
             width: 80% !important;
@@ -267,6 +276,7 @@ const drawer = ref(false)
 
             @media screen and (max-width:480px) {
                 margin-bottom: 6%;
+                margin-right: 6%;
             }
 
 

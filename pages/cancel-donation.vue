@@ -85,6 +85,7 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
         @media screen and (max-width:481px) {
             margin-left: 0;
+            width: 90%;
         }
 
         .additional-information {

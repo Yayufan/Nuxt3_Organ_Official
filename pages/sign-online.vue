@@ -357,7 +357,7 @@ const submitForm = async (formEl: FormInstance | undefined) => {
                 }
                 ElMessage.success("上傳成功")
                 resetForm(ruleFormRef.value)
-                
+
 
             } else {
                 ElMessage.error('請先閱讀並同意說明事項')
@@ -385,6 +385,14 @@ const resetForm = (formEl: FormInstance | undefined) => {
     width: $common-section-width;
     margin: $common-section-margin;
     font-family: $common-section-font-family;
+
+    @media screen and (max-width:850px) {
+        margin: 3% 0;
+    }
+
+    @media screen and (max-width:481px) {
+        margin: 3% 0 3% 3%;
+    }
 
     @media screen and (max-width:481px) {
         :deep(.el-drawer) {
@@ -441,7 +449,7 @@ const resetForm = (formEl: FormInstance | undefined) => {
 
             @media screen and (max-width:850px) {
                 max-width: 100%;
-                margin: 2% 0 2% 0;
+                margin: 2% 5% 2% 0;
                 font-size: 0.9rem;
             }
 
@@ -481,6 +489,14 @@ const resetForm = (formEl: FormInstance | undefined) => {
         // padding: 1% 10%;
         padding: 1% 11%;
 
+        @media screen and (max-width:850px) {
+            margin-left: 8%;
+        }
+
+        @media screen and (max-width:850px) {
+            margin-left: 1%;
+        }
+
         // 提醒標示
         .notice {
             color: $main-content-color;
@@ -495,6 +511,12 @@ const resetForm = (formEl: FormInstance | undefined) => {
 
             .form-item1,
             .legal-representative-ID {
+
+                @media screen and (max-width:481px) {
+                    flex-direction: column;
+                }
+
+
                 :deep(.el-form-item__label) {
                     font-size: 1.3rem;
                     color: black;
@@ -523,6 +545,11 @@ const resetForm = (formEl: FormInstance | undefined) => {
             }
 
             .email {
+
+                @media screen and (max-width:481px) {
+                    flex-direction: column;
+                }
+
                 :deep(.el-form-item__label) {
                     margin-right: 0.3rem;
 
@@ -541,6 +568,10 @@ const resetForm = (formEl: FormInstance | undefined) => {
 
             .unnecessary {
                 padding-left: 0.9rem;
+
+                @media screen and (max-width:481px) {
+                    padding-left: inherit;
+                }
 
                 :deep(.el-form-item__label) {
                     font-size: 1.3rem;
