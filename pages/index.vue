@@ -43,7 +43,7 @@
                 </div>
                 <div class="link-item">
                     <nuxt-link to="/story-donor-family">
-                        <img src="@/assets/img/facebook-icon.png" alt="">
+                        <img src="@/assets/img/family-support-icon.png" alt="">
                     </nuxt-link>
                     <p>家屬關懷</p>
                 </div>
@@ -238,7 +238,7 @@ const handleClick = (link: string) => {
             }
 
             /** 20241214新增 */
-            .el-carousel__item{
+            .el-carousel__item {
                 border-radius: 16px;
             }
 
@@ -480,6 +480,7 @@ const handleClick = (link: string) => {
     .join-us-board {
         width: 100%;
         justify-content: center;
+        margin-top: 3%;
         margin-bottom: 3%;
 
         .title {
