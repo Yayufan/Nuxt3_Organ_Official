@@ -354,6 +354,7 @@ const scrollToSection = (section: any) => {
                 img {
                     width: 100%;
                     max-width: 14vw;
+                    filter: drop-shadow(5px 8px 7px rgba(0, 0, 0, 0.5));
 
                     @media screen and (max-width:850px) {
                         max-width: 22vw;

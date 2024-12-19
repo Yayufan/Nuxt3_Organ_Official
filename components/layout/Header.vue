@@ -221,6 +221,17 @@ const goToBottom = () => {
             display: none;
         }
 
+
+        :deep(.gsc-search-button-v2) {
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        :deep(.gsc-input-box) {
+            border-radius: 8px;
+        }
+
+
         .el-input {
             width: 16vw;
         }
@@ -359,8 +370,8 @@ const goToBottom = () => {
 
                 &.active {
                     color: #FFFFFF;
-                    background: #9BB179;
-                    border-color: #9BB179;
+                    background: $main-color;
+                    border-color: $main-color;
                 }
             }
         }
