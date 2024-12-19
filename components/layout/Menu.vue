@@ -15,7 +15,7 @@
                         index="association-chronology">協會年表</el-menu-item></nuxt-link>
                 <nuxt-link :to="'/achievements'"><el-menu-item
                         index="achievements">歷年成果(簽卡分析)</el-menu-item></nuxt-link>
-                <nuxt-link :to="'https://www.facebook.com/organassociation/'"><el-menu-item
+                <nuxt-link :to="'https://www.facebook.com/organassociation/'" target="_blank" ><el-menu-item
                         index="facebook">臉書粉絲團</el-menu-item></nuxt-link>
             </el-sub-menu>
 

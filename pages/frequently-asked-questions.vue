@@ -10,17 +10,30 @@
             <h1 class="common-title">簽卡停看聽</h1>
 
             <div class="schematic-diagram-box">
-                <div class="schematic-item green-block " @click="scrollToSection('article01')">健保IC卡註記</div>
-                <div class="schematic-item yellow-block" @click="scrollToSection('article02')">器捐卡遺失</div>
-                <div class="schematic-item red-block " @click="scrollToSection('article03')">法定代理人</div>
-                <div class="schematic-item blue-block" @click="scrollToSection('article04')">簽卡管道</div>
-                <div class="schematic-item orange-block" @click="scrollToSection('article05')">B肝帶原</div>
+                <div class="schematic-item  " @click="scrollToSection('article01')">
+                    <img src="@/assets/img/FAQ01.png">
+                </div>
+                <div class="schematic-item " @click="scrollToSection('article02')">
+                    <img src="@/assets/img/FAQ02.png">
+                </div>
+                <div class="schematic-item  " @click="scrollToSection('article03')">
+                    <img src="@/assets/img/FAQ03.png">
+                </div>
+                <div class="schematic-item " @click="scrollToSection('article04')">
+                    <img src="@/assets/img/FAQ04.png">
+                </div>
+                <div class="schematic-item " @click="scrollToSection('article05')">
+                    <img src="@/assets/img/FAQ05.png">
+                </div>
             </div>
 
             <div class="content-box">
 
                 <article class="paragraph" ref="article01">
-                    <h2 class="green-block sub-title ">健保IC卡註記</h2>
+                    <h2 class="sub-title ">
+                        <img src="@/assets/img/FAQ01.png">
+                        <hr class="green-hr">
+                    </h2>
                     <div class="QA-box">
 
                         <div class="QA-item">
@@ -57,8 +70,11 @@
                             <div class="answer-box">
                                 <div class="QA-icon green-text"></div>
                                 <div class="QA-info">
-                                    手機下載健保快易通APP，即可登入查詢，查詢方式詳見本會器捐學堂自行查詢健保卡註記狀態說明；攜帶健保IC卡到健保署、醫療院所健保IC卡讀卡機查詢，或至衛生福利部安寧緩和醫療及器官捐贈意願資訊系統以自然人憑證查詢
-                                    https://hpcod.mohw.gov.tw/HospWeb/MOPages/login.aspx，或於政府機關辦公時間撥電話查詢，電話02-2358-2186。
+                                    手機下載健保快易通APP，即可登入查詢，查詢方式詳見本會器捐學堂自行查詢健保卡註記狀態說明；
+                                    攜帶健保IC卡到健保署、醫療院所健保IC卡讀卡機查詢，
+                                    或至衛生福利部安寧緩和醫療及器官捐贈意願資訊系統以自然人憑證查詢
+                                    https://hpcod.mohw.gov.tw/HospWeb/MOPages/login.aspx，或於政府機關辦公時間撥電話查詢，
+                                    電話02-2358-2186。
                                 </div>
                             </div>
                         </div>
@@ -68,7 +84,10 @@
                 </article>
 
                 <article class="paragraph" ref="article02">
-                    <h2 class="yellow-block sub-title">器捐卡遺失</h2>
+                    <h2 class=" sub-title">
+                        <img src="@/assets/img/FAQ02.png">
+                        <hr class="yellow-hr">
+                    </h2>
 
                     <div class="QA-box">
 
@@ -115,7 +134,10 @@
                 </article>
 
                 <article class="paragraph" ref="article03">
-                    <h2 class="red-block sub-title">法定代理人</h2>
+                    <h2 class="sub-title">
+                        <img src="@/assets/img/FAQ03.png">
+                        <hr class="red-hr">
+                    </h2>
                     <div class="QA-box">
                         <div class="QA-item">
                             <div class="question-box">
@@ -134,7 +156,10 @@
                 </article>
 
                 <article class="paragraph " ref="article04">
-                    <h2 class="blue-block sub-title">簽卡管道</h2>
+                    <h2 class="sub-title">
+                        <img src="@/assets/img/FAQ04.png">
+                        <hr class="blue-hr">
+                    </h2>
                     <div class="QA-box">
                         <div class="QA-item">
                             <div class="question-box">
@@ -155,15 +180,18 @@
                 </article>
 
                 <article class="paragraph" ref="article05">
-                    <h2 class="orange-block sub-title">B肝帶原</h2>
+                    <h2 class=" sub-title">
+                        <img src="@/assets/img/FAQ05.png">
+                        <hr class="brown-hr">
+                    </h2>
                     <div class="QA-box">
                         <div class="QA-item">
                             <div class="question-box">
-                                <div class="QA-icon orange-text "></div>
+                                <div class="QA-icon brown-text "></div>
                                 <div class="QA-info">B型肝炎帶原者能作器官捐贈嗎？</div>
                             </div>
                             <div class="answer-box">
-                                <div class="QA-icon orange-text"></div>
+                                <div class="QA-icon brown-text"></div>
                                 <div class="QA-info">
                                     依現行分配原則而言，B型肝炎帶原者仍然可以捐贈器官給同為B型肝炎表面抗原陽性的等待器官移植患者；C型肝炎也一樣哦！更詳細的分配原則，有興趣的朋友可以參考人體器官移植條例作更深入的了解。
                                 </div>
@@ -172,11 +200,11 @@
 
                         <div class="QA-item">
                             <div class="question-box">
-                                <div class="QA-icon orange-text "></div>
+                                <div class="QA-icon brown-text "></div>
                                 <div class="QA-info">簽卡前需要身體健康檢查嗎？</div>
                             </div>
                             <div class="answer-box">
-                                <div class="QA-icon orange-text"></div>
+                                <div class="QA-icon brown-text"></div>
                                 <div class="QA-info">
                                     其實並不需要特地為了簽署器捐同意卡而作身體健康檢查哦！簽署器官捐贈同意卡和實際捐贈，中間還有好大一段距離呢！只要我們秉持著認同「尊重生命．器官捐贈」的理念，好好經營自己的生活和健康，就是最大的福氣！
                                 </div>
@@ -227,6 +255,15 @@ const scrollToSection = (section: any) => {
     margin: $common-section-margin;
     font-family: $common-section-font-family;
 
+    @media screen and (max-width:850px) {
+        margin: 3% 0;
+    }
+
+    @media screen and (max-width:481px) {
+        margin: 3% 0 3% 1%;
+    }
+
+
     .common-title {
         color: $main-color;
         font-weight: $common-title-font-weight;
@@ -251,7 +288,7 @@ const scrollToSection = (section: any) => {
         margin-top: 5%;
         margin-left: 5%;
         display: flex;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
         flex-wrap: wrap;
         font-size: 1.3rem;
@@ -268,68 +305,28 @@ const scrollToSection = (section: any) => {
 
 
         .schematic-item {
-            padding: 1rem 0;
             color: #fff;
-            width: 20%;
+            width: 26%;
             text-align: center;
             position: relative;
             transition: 0.5s;
+            margin-right: 3%;
+            cursor: pointer;
+
+            @media screen and (max-width:481px) {
+                width: 45%;
+            }
 
             &:hover {
-                cursor: pointer;
-                font-size: 1.4rem;
-
+                scale: 1.1;
             }
 
-            @media screen and (max-width:480px) {
-                width: 33%;
-
-                &:nth-child(3) {
-                    border-radius: 0 8px 8px 0;
-
-                    &::after {
-                        content: none;
-                    }
-                }
-
-                &:nth-child(4) {
-                    border-radius: 0 0 0 8px;
-                }
-
-                &:last-child {
-                    border-radius: 0 0 8px 0 !important;
-                }
-
+            img {
+                width: 100%;
+                /* 添加形状阴影 */
+                filter: drop-shadow(5px 8px 7px rgba(0, 0, 0, 0.5));
             }
 
-            &::after {
-                content: '';
-                position: absolute;
-                transform: translate(-50%, -50%);
-                top: 50%;
-                left: 100%;
-                z-index: 50;
-                width: 2rem;
-                height: 2rem;
-                border-radius: 50%;
-                background: inherit;
-            }
-
-            &:first-child {
-                border-radius: 8px 0 0 8px;
-            }
-
-            &:last-child {
-
-                &::after {
-                    content: none;
-                }
-
-                border-radius: 0 8px 8px 0;
-
-
-
-            }
 
         }
 
@@ -348,9 +345,36 @@ const scrollToSection = (section: any) => {
             .sub-title {
                 color: #fff;
                 font-size: 1.2rem;
-                display: inline-block;
+                display: flex;
+                align-items: center;
                 padding: 0.5rem 0.8rem;
                 border-radius: 16px;
+                position: relative;
+
+                img {
+                    width: 100%;
+                    max-width: 14vw;
+
+                    @media screen and (max-width:850px) {
+                        max-width: 22vw;
+                    }
+
+                    @media screen and (max-width:481px) {
+                        max-width: 30vw;
+                    }
+
+                }
+
+                hr {
+                    width: 100%;
+                    margin-left: 6px;
+                    height: 0;
+                }
+
+
+
+
+
             }
 
             .QA-box {
@@ -375,8 +399,10 @@ const scrollToSection = (section: any) => {
                         bottom: -0.5rem;
                         margin-left: 3rem;
                         width: calc(100% - 2.9rem - 5%);
-                        height: 1px;
-                        background: #A8A8A8;
+                        border: 1px solid transparent;
+                        /* 设置透明边框 */
+                        border-image: repeating-linear-gradient(90deg, #A8A8A8 0, #A8A8A8 5px, transparent 5px, transparent 10px) 30;
+
                     }
 
 
@@ -405,6 +431,13 @@ const scrollToSection = (section: any) => {
                             color: $main-content-color;
                             line-height: 2;
                             font-size: $inner-box-font-size;
+                            word-break: break-all;
+
+                            @media screen and (max-width:850px) {}
+
+                            @media screen and (max-width:481px) {
+                                margin-right: 7%;
+                            }
 
                         }
 
@@ -440,43 +473,46 @@ const scrollToSection = (section: any) => {
 
 
 //不同顏色
-.green-block {
-    background: #94AA8F;
-}
-
 .green-text {
     color: #94AA8F;
 }
 
-.yellow-block {
-    background: #EEC46B;
+.green-hr {
+    border: 1px solid #94AA8F;
+    ;
 }
 
 .yellow-text {
     color: #EEC46B;
 }
 
-.red-block {
-    background: #C75A73;
+.yellow-hr {
+    border: 1px solid #EEC46B;
 }
 
 .red-text {
     color: #C75A73;
 }
 
-.blue-block {
-    background: #196B9C;
+.red-hr {
+    border: 1px solid #C75A73;
 }
+
 
 .blue-text {
     color: #196B9C;
 }
 
-.orange-block {
-    background: #F49E19;
+.blue-hr {
+    border: 1px solid #196B9C;
 }
 
-.orange-text {
-    color: #F49E19;
+
+.brown-text {
+    color: #995A39;
+}
+
+.brown-hr {
+    border: 1px solid #995A39;
 }
 </style>

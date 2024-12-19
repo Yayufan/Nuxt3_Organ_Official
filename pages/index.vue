@@ -253,7 +253,7 @@ const handleClick = (link: string) => {
             }
 
             :deep(.el-carousel__container) {
-                height: 80%;
+                height: 100%;
             }
 
             :deep(.el-carousel__arrow) {
