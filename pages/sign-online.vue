@@ -33,6 +33,12 @@
                     <el-form-item label="出生日期：" label-width="270" prop="birthday" class="form-item1">
                         <el-date-picker v-model="form.birthday" type="date" value-format="YYYY-MM-DD"></el-date-picker>
                     </el-form-item>
+                    <el-form-item label="性別：" label-width="270" prop="gender" class="form-item1">
+                        <el-radio-group v-model="form.gender">
+                            <el-radio label="男" value="1"></el-radio>
+                            <el-radio label="女" value="2"></el-radio>
+                        </el-radio-group>
+                    </el-form-item>
                     <el-form-item label="連絡電話：" label-width="270" prop="contactNumber" class="form-item1">
                         <el-input v-model="form.contactNumber" type="tel"></el-input>
                     </el-form-item>
@@ -219,6 +225,14 @@ const formRules = reactive<FormRules<form>>({
             trigger: 'blur'
         }
     ],
+    gender: [
+        {
+            required: true,
+            message: '請選擇性別',
+            trigger: 'blur'
+        }
+    ]
+    ,
     contactNumber: [
         {
             required: true,
@@ -276,6 +290,7 @@ interface form {
     name: string,
     idCard: string,
     birthday: string,
+    gender:string,
     contactNumber: string,
     phoneNumber: string,
     email: string,
@@ -294,6 +309,7 @@ const form = reactive<form>({
     name: '',
     idCard: '',
     birthday: '',
+    gender:'',
     contactNumber: '',
     phoneNumber: '',
     email: '',
