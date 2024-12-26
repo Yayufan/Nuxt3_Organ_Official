@@ -6,8 +6,8 @@
                     <p class="info-content association-name">社團法人中華民國器官捐贈協會</p>
                 </div>
                 <div class="info-box">
-                    <p class="info-content"><img class="map-icon" src="@/assets/img/MapMarkedAlt.svg"
-                            alt="">地址:106台北市大安區信義路四段24號6樓</p>
+                    <nuxt-link target="_blank" to="https://maps.app.goo.gl/PonnhAGW4TMa7NVJA"  class="info-content external-link"><img class="map-icon" src="@/assets/img/MapMarkedAlt.svg"
+                            alt="">地址:106台北市大安區信義路四段24號6樓</nuxt-link>
                 </div>
                 <div class="info-box">
                     <p class="info-content"><img class="phone-icon" src="@/assets/img/LocalPhoneRound.svg"
@@ -119,6 +119,15 @@ const updateDate = ref('2024年10月21日')
             .visitors-number-content,
             .info-content {
                 line-height: 1.5rem;
+            }
+
+            .external-link{
+                color: black;
+
+                &:hover{
+                    text-decoration: underline;
+                }
+
             }
 
             .map-icon,

@@ -55,7 +55,7 @@
                 <nuxt-link :to="'/social-work-column'"><el-menu-item
                         index="social-work-column">社工專欄</el-menu-item></nuxt-link>
                 <nuxt-link
-                    to="https://docs.google.com/forms/d/e/1FAIpQLScxrl0on7gvcaTYTI9knEgy0-dwGHhT7SeJfS183B8g811QHQ/viewform"><el-menu-item
+                    to="/family-information"><el-menu-item
                         index="form">家屬資料填寫</el-menu-item></nuxt-link>
 
                 <nuxt-link :to="'/miss-me'"><el-menu-item index="miss-me">如果你要懷念我</el-menu-item></nuxt-link>

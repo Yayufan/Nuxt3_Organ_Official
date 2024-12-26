@@ -76,18 +76,21 @@
                         <el-checkbox-group v-model="form.donateOrgans">
                             <div class="checkbox-div">
                                 <el-checkbox label="全部捐贈" value="all"></el-checkbox>
-                                <el-checkbox label="肺臟" value="lung"></el-checkbox>
+                                <el-checkbox label="心臟" value="heart"></el-checkbox>
+                                <el-checkbox label="肝臟" value="liver"></el-checkbox>
                                 <el-checkbox label="胰臟" value="pancreas"></el-checkbox>
+                                
+                                
+                            </div>
+                            <div class="checkbox-div">
+                                <el-checkbox label="肺臟" value="lung"></el-checkbox>
+                                <el-checkbox label="腎臟" value="kidney"></el-checkbox>
+                                <el-checkbox label="心瓣膜" value="heartValve"></el-checkbox>
                                 <el-checkbox label="小腸" value="smallIntestine"></el-checkbox>
+                
                             </div>
                             <div class="checkbox-div">
                                 <el-checkbox label="皮膚" value="skin"></el-checkbox>
-                                <el-checkbox label="心瓣膜" value="heartValve"></el-checkbox>
-                                <el-checkbox label="心臟" value="heart"></el-checkbox>
-                                <el-checkbox label="肝臟" value="liver"></el-checkbox>
-                            </div>
-                            <div class="checkbox-div">
-                                <el-checkbox label="腎臟" value="kidney"></el-checkbox>
                                 <el-checkbox label="眼角膜" value="cornea"></el-checkbox>
                                 <el-checkbox label="骨骼" value="bones"></el-checkbox>
                                 <el-checkbox label="血管" value="bloodVessels"></el-checkbox>
@@ -163,6 +166,78 @@
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 import type { FormInstance, FormRules } from 'element-plus'
 
+
+/**身分證校驗函數 */
+// 定义校验结果类型
+interface CheckResult {
+    valid: boolean;
+    message: string;
+}
+
+// 校验逻辑函数
+function checkCkDigit(code: string): CheckResult {
+    if (!/^[A-Z][0-9]{9}$/.test(code)) {
+        return { valid: false, message: "身份證格式不正確" };
+    }
+
+    const codeMap: Record<string, number> = {
+        A: 10,
+        B: 11,
+        C: 12,
+        D: 13,
+        E: 14,
+        F: 15,
+        G: 16,
+        H: 17,
+        I: 34,
+        J: 18,
+        K: 19,
+        L: 20,
+        M: 21,
+        N: 22,
+        O: 35,
+        P: 23,
+        Q: 24,
+        R: 25,
+        S: 26,
+        T: 27,
+        U: 28,
+        V: 29,
+        W: 32,
+        X: 30,
+        Y: 31,
+        Z: 33,
+    };
+
+    const placeCode = codeMap[code[0]];
+    if (!placeCode) {
+        return { valid: false, message: "首碼無效" };
+    }
+
+    const bodyCode = code.substring(1, 9);
+    const lastCode = code[9];
+
+    const calHead = (num: number): number =>
+        Math.floor(num / 10) * 1 + (num % 10) * 9;
+
+    const calBody = (code: string): number => {
+        let sum = 0;
+        for (let i = 0; i < code.length; i++) {
+            sum += parseInt(code[i]) * (8 - i);
+        }
+        return sum;
+    };
+
+    const idSum =
+        calHead(placeCode) + calBody(bodyCode) + parseInt(lastCode) * 1;
+    const isValid = idSum % 10 === 0;
+
+    return isValid
+        ? { valid: true, message: "合法" }
+        : { valid: false, message: "身分證號不合法" };
+}
+//-----------------------------------------------------------
+
 /** 驗證碼，僅在客户端执行 */
 // 定義驗證碼圖片
 const captchaImg = ref('')
@@ -210,7 +285,19 @@ const formRules = reactive<FormRules<form>>({
             required: true,
             message: '請輸入國民身分證統一編號',
             trigger: 'blur'
-        }
+        },
+        {
+            validator: (
+                rule: unknown,
+                value: string,
+                callback: (error?: Error) => void
+            ) => {
+                const { valid, message } = checkCkDigit(value);
+                if (!valid) callback(new Error(message));
+                else callback();
+            },
+            trigger: "blur",
+        },
     ],
     birthday: [
         {
@@ -266,7 +353,19 @@ const formRules = reactive<FormRules<form>>({
             required: true,
             message: '請輸入法定代理人國民身分證統一編號'
             , trigger: 'blur'
-        }
+        },
+        {
+            validator: (
+                rule: unknown,
+                value: string,
+                callback: (error?: Error) => void
+            ) => {
+                const { valid, message } = checkCkDigit(value);
+                if (!valid) callback(new Error(message));
+                else callback();
+            },
+            trigger: "blur",
+        },
     ],
     donateOrgans: [
         {
@@ -290,7 +389,7 @@ interface form {
     name: string,
     idCard: string,
     birthday: string,
-    gender:string,
+    gender: string,
     contactNumber: string,
     phoneNumber: string,
     email: string,
@@ -309,7 +408,7 @@ const form = reactive<form>({
     name: '',
     idCard: '',
     birthday: '',
-    gender:'',
+    gender: '',
     contactNumber: '',
     phoneNumber: '',
     email: '',

@@ -124,7 +124,7 @@ const menuItem = [
             { title: '協助資源', link: '/assistance-resources' },
             { title: '好書推薦', link: '/book-recommendations' },
             { title: '社工專欄', link: '/social-work-column' },
-            { title: '家屬資料填寫', link: 'https://docs.google.com/forms/d/e/1FAIpQLScxrl0on7gvcaTYTI9knEgy0-dwGHhT7SeJfS183B8g811QHQ/viewform' },
+            { title: '家屬資料填寫', link: '/family-infomation' },
             { title: '如果你要懷念我', link: '/miss-me' }
         ]
     },

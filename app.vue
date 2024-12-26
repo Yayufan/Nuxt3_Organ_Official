@@ -9,7 +9,7 @@
     <main class="content">
       <NuxtPage></NuxtPage>
 
-      <nuxt-link class="fix-button01" to="/become-member">
+      <nuxt-link class="fix-button01" to="/sign-online">
         <img src="@/assets/img/join-us.png">
       </nuxt-link>
 
