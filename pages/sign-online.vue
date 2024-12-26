@@ -23,7 +23,7 @@
 
             <div class="form-section">
                 <p class="notice">(以下欄位有<span>*</span>標示者為必填)</p>
-                <el-form ref="ruleFormRef" class="form" :model="form" :rules="formRules" label-position="left">
+                <el-form ref="ruleFormRef" class="form" :model="form" :rules="formRules" label-position="left" :validate-on-rule-change="false">
                     <el-form-item label="簽署人：" label-width="270" prop="name" class="form-item1">
                         <el-input v-model="form.name" type="text"></el-input>
                     </el-form-item>
@@ -79,15 +79,15 @@
                                 <el-checkbox label="心臟" value="heart"></el-checkbox>
                                 <el-checkbox label="肝臟" value="liver"></el-checkbox>
                                 <el-checkbox label="胰臟" value="pancreas"></el-checkbox>
-                                
-                                
+
+
                             </div>
                             <div class="checkbox-div">
                                 <el-checkbox label="肺臟" value="lung"></el-checkbox>
                                 <el-checkbox label="腎臟" value="kidney"></el-checkbox>
                                 <el-checkbox label="心瓣膜" value="heartValve"></el-checkbox>
                                 <el-checkbox label="小腸" value="smallIntestine"></el-checkbox>
-                
+
                             </div>
                             <div class="checkbox-div">
                                 <el-checkbox label="皮膚" value="skin"></el-checkbox>
@@ -166,6 +166,10 @@
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 import type { FormInstance, FormRules } from 'element-plus'
 
+
+
+
+// ---------------------------------------------------
 
 /**身分證校驗函數 */
 // 定义校验结果类型
@@ -304,13 +308,14 @@ const formRules = reactive<FormRules<form>>({
 
             required: true,
             message: '請輸入出生日期',
-            trigger: 'blur'
+            trigger: 'change'
         },
         {
             type: 'date',
             message: '請依照正確格是輸入: yyyy-mm-dd',
-            trigger: 'blur'
-        }
+            trigger: 'change'
+        },
+        { validator: checkAge, trigger: 'blur' }
     ],
     gender: [
         {
@@ -341,32 +346,20 @@ const formRules = reactive<FormRules<form>>({
             trigger: 'blur'
         }
     ],
-    legalRepresentativeName: [
-        {
-            required: true,
-            message: '請輸入法定代理人姓名',
-            trigger: 'blur'
-        }
-    ],
-    legalRepresentativeIdCard: [
-        {
-            required: true,
-            message: '請輸入法定代理人國民身分證統一編號'
-            , trigger: 'blur'
-        },
-        {
-            validator: (
-                rule: unknown,
-                value: string,
-                callback: (error?: Error) => void
-            ) => {
-                const { valid, message } = checkCkDigit(value);
-                if (!valid) callback(new Error(message));
-                else callback();
-            },
-            trigger: "blur",
-        },
-    ],
+    // legalRepresentativeName: [
+    //     {
+    //         required: false,
+    //         message: '請輸入法定代理人姓名',
+    //         trigger: 'change'
+    //     }
+    // ],
+    // legalRepresentativeIdCard: [
+    //     {
+    //         required: false,
+    //         message: '請輸入法定代理人國民身分證統一編號'
+    //         , trigger: 'change'
+    //     },
+    // ],
     donateOrgans: [
         {
             type: 'array',
@@ -424,6 +417,74 @@ const form = reactive<form>({
 })
 
 
+/**
+ * 
+ * 
+ */
+/** 年齡校驗  */
+// 年龄检查逻辑
+function checkAge(rule: any, value: any, callback: Function) {
+    if (!value) {
+        return callback(new Error('請選擇出生日期'));
+    }
+    const today = new Date();
+    const birthDate = new Date(value);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    if (age < 20) {
+        if (!form.legalRepresentativeName || !form.legalRepresentativeIdCard) {
+            return callback(new Error('未滿20歲，必須填寫法定代理人信息'));
+        }
+    }
+    callback();
+}
+
+// 监听生日字段变化，动态设置法定代理人信息的必填规则
+watch(() => form.birthday, (newValue) => {
+    const today = new Date();
+    const birthDate = new Date(newValue);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+
+    if (age < 20) {
+        formRules.legalRepresentativeName = [{ required: true, message: '法定代理人姓名為必填項目', trigger: 'blur' }];
+        formRules.legalRepresentativeIdCard = [{ required: true, message: '法定代理人身分證為必填項目', trigger: 'blur' }, {
+            validator: (
+                rule: unknown,
+                value: string,
+                callback: (error?: Error) => void
+            ) => {
+                const { valid, message } = checkCkDigit(value);
+                if (!valid) callback(new Error(message));
+                else callback();
+            },
+            trigger: "blur",
+        },];
+    } else {
+        formRules.legalRepresentativeName = [{
+            required: false,
+            message: '請輸入法定代理人姓名',
+            trigger: 'blur'
+        }];
+        formRules.legalRepresentativeIdCard = [
+            {
+                required: false,
+                message: '請輸入法定代理人身分證',
+                trigger: 'blur'
+            }
+        ];
+    }
+});
+
+
+
+//-----------------------------------
 
 watch(() => approveInstructions.value, (newVal) => {
     if (newVal && !isReadInstructions.value) {
