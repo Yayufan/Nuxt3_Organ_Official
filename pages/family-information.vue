@@ -12,34 +12,21 @@
             <div class="content-box">
 
                 <article class="paragraph">
-                    <h2 class="sub-title common-label">年度工作報告</h2>
-                    <div class="download-file-box">
-                        <a class="download-link" href="/files/109_work_result.pdf" target="_blank" >109年度器捐協會 -
-                            工作成果報告.pdf</a>
-                        <a class="download-link" href="/files/110_work_result.pdf" target="_blank" >110年度器捐協會 -
-                            工作成果報告.pdf</a>
-                        <a class="download-link" href="/files/111_work_result.pdf" target="_blank" >111年度器捐協會 -
-                            工作成果報告.pdf</a>
-                    </div>
 
-                </article>
+                    <p>本會每年為捐贈者家屬舉辦各類型關懷活動與諮詢協談</p>
 
-                <article class="paragraph">
-                    <h2 class="sub-title common-label">年度簽卡分析</h2>
-                    <div class="download-file-box">
-                        <a class="download-link" href="/files/109_data_analysis.pdf" target="_blank" >109年器官捐贈認同簽屬 -
-                            資料統計分析.pdf</a>
-                        <a class="download-link" href="/files/110_data_analysis.pdf" target="_blank" >110年器官捐贈認同簽屬 -
-                            資料統計分析.pdf</a>
-                        <a class="download-link" href="/files/111_data_analysis.pdf" target="_blank">111年器官捐贈認同簽屬 -
-                            資料統計分析.pdf</a>
-                    </div>
+                    <p>誠摯邀請家屬們參與</p>
+
+                    <p>請將您的想法和需求告訴我們</p>
+
+                    <p>將由本會社工員與您聯繫</p>
+
+                    <p>家屬資料<nuxt-link class="google-form" target="_blank" to="https://docs.google.com/forms/d/e/1FAIpQLScxrl0on7gvcaTYTI9knEgy0-dwGHhT7SeJfS183B8g811QHQ/viewform" >填寫</nuxt-link></p>
 
                 </article>
 
 
             </div>
-
 
         </section>
 
@@ -91,28 +78,27 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
         .paragraph {
             margin: 3% 0;
-        }
-
-        .sub-title {
+            line-height: 2;
             font-size: 1.2rem;
-        }
 
-        .download-file-box {
-            display: flex;
-            flex-direction: column;
-            margin-left: 2.5rem;
-
-            @media screen and (max-width:480px) {
-                margin-left: 1rem;
+            p{
+                
             }
 
-            .download-link {
-                margin: 0.5rem;
-                /** 這邊是為了將a標籤從flex block 狀態,改為inline block 狀態  */
-                align-self: flex-start;
+            .google-form{
+                text-decoration: underline;
+                font-weight: 700;
+                color: $main-color;
+                font-size: 1.4rem;
+                transition: 0.5s;
+
+                &:hover{
+                    font-size: 1.45rem;
+                }
             }
 
         }
+
     }
 }
 </style>

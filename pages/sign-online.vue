@@ -315,7 +315,7 @@ const formRules = reactive<FormRules<form>>({
             message: '請依照正確格是輸入: yyyy-mm-dd',
             trigger: 'change'
         },
-        { validator: checkAge, trigger: 'blur' }
+        // { validator: checkAge, trigger: 'blur' }
     ],
     gender: [
         {
@@ -423,24 +423,24 @@ const form = reactive<form>({
  */
 /** 年齡校驗  */
 // 年龄检查逻辑
-function checkAge(rule: any, value: any, callback: Function) {
-    if (!value) {
-        return callback(new Error('請選擇出生日期'));
-    }
-    const today = new Date();
-    const birthDate = new Date(value);
-    let age = today.getFullYear() - birthDate.getFullYear();
-    const m = today.getMonth() - birthDate.getMonth();
-    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-        age--;
-    }
-    if (age < 20) {
-        if (!form.legalRepresentativeName || !form.legalRepresentativeIdCard) {
-            return callback(new Error('未滿20歲，必須填寫法定代理人信息'));
-        }
-    }
-    callback();
-}
+// function checkAge(rule: any, value: any, callback: Function) {
+//     if (!value) {
+//         return callback(new Error('請選擇出生日期'));
+//     }
+//     const today = new Date();
+//     const birthDate = new Date(value);
+//     let age = today.getFullYear() - birthDate.getFullYear();
+//     const m = today.getMonth() - birthDate.getMonth();
+//     if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+//         age--;
+//     }
+//     if (age < 20) {
+//         if (!form.legalRepresentativeName || !form.legalRepresentativeIdCard) {
+//             return callback(new Error('未滿20歲，必須填寫法定代理人信息'));
+//         }
+//     }
+//     callback();
+// }
 
 // 监听生日字段变化，动态设置法定代理人信息的必填规则
 watch(() => form.birthday, (newValue) => {
