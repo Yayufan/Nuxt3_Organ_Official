@@ -22,12 +22,16 @@
                             <div class="article-img-box">
                                 <img class="article-img" :src="`/minio${item.coverThumbnailUrl}`">
 
+
+
                                 <div class="article-info-box">
+
                                     <h2 class="article-title">{{ item.title }}</h2>
                                     <p class="article-description">
                                         {{ item.description }}
                                     </p>
                                 </div>
+
 
                             </div>
                         </nuxt-link>
@@ -181,15 +185,8 @@ watch(currentPage, (value, oldValue) => {
                 //當滑鼠碰到這篇文章時,改變字體顏色+圖片放大
                 &:hover {
                     cursor: pointer;
-
-                    .article-img-box {
-                        img {
-                            scale: (1.05);
-                        }
-                    }
+                    scale: 1.05;
                 }
-
-
 
                 .article-img-box {
                     position: relative;
@@ -210,11 +207,40 @@ watch(currentPage, (value, oldValue) => {
                     }
                 }
 
+                .article-info-box {
+
+                    background-image: url('@/assets/img/brush-effect.png');
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat; // 防止圖片重複
+                    background-position: center; // 將圖片置中\
+                    text-align: center;
+                    padding: 5px 0;
+                    transition: 0.5s;
+
+                    .article-title {
+                        font-size: 1.4rem;
+                        font-weight: bold;
+                        color: black;
+                    }
+
+                    .article-description {
+                        font-size: 1.2rem;
+                        color: black;
+                    }
+
+                }
+
+
+
+
 
 
             }
-        }
 
+
+
+        }
     }
+
 }
 </style>
