@@ -14,12 +14,8 @@
                 <article class="paragraph">
                     <h2 class="sub-title common-label">年度工作報告</h2>
                     <div class="download-file-box">
-                        <a class="download-link" href="/files/109_work_result.pdf" target="_blank" >109年度器捐協會 -
-                            工作成果報告.pdf</a>
-                        <a class="download-link" href="/files/110_work_result.pdf" target="_blank" >110年度器捐協會 -
-                            工作成果報告.pdf</a>
-                        <a class="download-link" href="/files/111_work_result.pdf" target="_blank" >111年度器捐協會 -
-                            工作成果報告.pdf</a>
+                        <a class="download-link" v-for="item in workResultFileList" :key="item.fileId"
+                            :href="'minio' + item.path" target="_blank">{{ item.name }}</a>
                     </div>
 
                 </article>
@@ -27,12 +23,8 @@
                 <article class="paragraph">
                     <h2 class="sub-title common-label">年度簽卡分析</h2>
                     <div class="download-file-box">
-                        <a class="download-link" href="/files/109_data_analysis.pdf" target="_blank" >109年器官捐贈認同簽屬 -
-                            資料統計分析.pdf</a>
-                        <a class="download-link" href="/files/110_data_analysis.pdf" target="_blank" >110年器官捐贈認同簽屬 -
-                            資料統計分析.pdf</a>
-                        <a class="download-link" href="/files/111_data_analysis.pdf" target="_blank">111年器官捐贈認同簽屬 -
-                            資料統計分析.pdf</a>
+                        <a class="download-link" v-for="item in dataAnalysisFileList" :key="item.fileId"
+                            :href="'minio' + item.path" target="_blank">{{ item.name }}</a>
                     </div>
 
                 </article>
@@ -52,6 +44,44 @@
 
 import { ref, reactive } from 'vue'
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
+
+const GROUP = "achievementsFile"
+
+const workResult = "工作報告"
+const dataAnalysis = "簽卡分析"
+
+let workResultFileList = reactive<Record<string, any>[]>([])
+let dataAnalysisFileList = reactive<Record<string, any>[]>([])
+
+//獲取工作成果所有檔案的資料
+const getWorkResultFileList = async () => {
+    let { data: response, pending } = await SSRrequest.get(`file/${GROUP}/${workResult}`, {})
+
+    // 直接更新 fileList 的值
+    if (response.value?.data) {
+        Object.assign(workResultFileList, response.value.data)
+    }
+
+}
+
+//獲取所有檔案的資料
+const getdataAnalysisFileList = async () => {
+    let { data: response, pending } = await SSRrequest.get(`file/${GROUP}/${dataAnalysis}`, {})
+
+    // 直接更新 fileList 的值
+    if (response.value?.data) {
+        Object.assign(dataAnalysisFileList, response.value.data)
+    }
+
+}
+
+//立即執行獲取資料
+await getWorkResultFileList()
+await getdataAnalysisFileList()
+
+console.log("這是工作成果: ", workResultFileList)
+console.log("這是簽卡分析: ", dataAnalysisFileList)
+
 
 </script>
 
