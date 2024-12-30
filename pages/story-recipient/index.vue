@@ -208,33 +208,23 @@ watch(currentPage, (value, oldValue) => {
                 }
 
                 .article-info-box {
-                    position: absolute;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: flex-end;
-                    width: 100%;
-                    height: 100%;
-                    top: 0;
-                    left: 0;
-                    z-index: 50;
-                    text-align: left;
-                    color: #fff;
-                    background: linear-gradient(to top, rgba(234, 133, 77, 0.9) 10%, rgba(193, 193, 193, 0.4));
-                    border-radius: 16px;
+                    background-image: url('@/assets/img/brush-effect.png');
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat; // 防止圖片重複
+                    background-position: center; // 將圖片置中\
+                    text-align: center;
+                    padding: 5px 0;
+                    transition: 0.5s;
 
                     .article-title {
-                        font-size: $inner-box-title-font-size;
-                        margin: 0.4rem 0;
-                        margin-left: 5%;
+                        font-size: 1.4rem;
+                        font-weight: bold;
+                        color: black;
                     }
 
                     .article-description {
-                        margin-bottom: 5%;
-                        margin-left: 5%;
-                        font-size: $inner-box-font-size;
-                        overflow: hidden;
-                        white-space: nowrap;
-                        text-overflow: ellipsis;
+                        font-size: 1.2rem;
+                        color: black;
                     }
 
                 }
