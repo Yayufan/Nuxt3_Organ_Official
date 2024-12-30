@@ -185,7 +185,12 @@ watch(currentPage, (value, oldValue) => {
                 //當滑鼠碰到這篇文章時,改變字體顏色+圖片放大
                 &:hover {
                     cursor: pointer;
-                    scale: 1.05;
+
+                    .article-img-box {
+                        img {
+                            scale: (1.05);
+                        }
+                    }
                 }
 
                 .article-img-box {
