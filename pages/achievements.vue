@@ -13,18 +13,45 @@
 
                 <article class="paragraph">
                     <h2 class="sub-title common-label">年度工作報告</h2>
-                    <div class="download-file-box">
-                        <a class="download-link" v-for="item in workResultFileList" :key="item.fileId"
-                            :href="'minio' + item.path" target="_blank">{{ item.name }}</a>
+
+                    <div class="journal-box">
+
+                        <nuxt-link class="article-item" v-for="(item, index) in workResultFileList " :key="item.fileId"
+                            target="_blank" :to="'minio' + item.path">
+
+                            <div class="article-info-box">
+
+                                <h2 class="article-title">
+                                    <span class="number">{{ item.name }}</span>年
+                                    <br>
+                                    工作成果
+                                </h2>
+
+                            </div>
+
+                        </nuxt-link>
                     </div>
 
                 </article>
 
                 <article class="paragraph">
                     <h2 class="sub-title common-label">年度簽卡分析</h2>
-                    <div class="download-file-box">
-                        <a class="download-link" v-for="item in dataAnalysisFileList" :key="item.fileId"
-                            :href="'minio' + item.path" target="_blank">{{ item.name }}</a>
+                    <div class="journal-box">
+
+                        <nuxt-link class="article-item" v-for="(item, index) in dataAnalysisFileList "
+                            :key="item.fileId" target="_blank" :to="'minio' + item.path">
+
+                            <div class="article-info-box">
+
+                                <h2 class="article-title">
+                                    <span class="number">{{ item.name }}</span>年
+                                    <br>
+                                    簽卡分析
+                                </h2>
+
+                            </div>
+
+                        </nuxt-link>
                     </div>
 
                 </article>
@@ -121,6 +148,81 @@ console.log("這是簽卡分析: ", dataAnalysisFileList)
 
         .paragraph {
             margin: 3% 0;
+
+            .journal-box {
+                margin-top: 3%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+
+                .article-item {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    margin-bottom: 5%;
+                    margin-right: 4.5%;
+                    border-radius: 50%;
+                    border: 3px solid $sub-color;
+                    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
+                    width: 200px;
+                    height: 200px;
+                    transition: 0.5s;
+                    color: $sub-color;
+
+                    //當滑鼠碰到這篇文章時,改變字體顏色+圖片放大
+                    &:hover {
+                        cursor: pointer;
+                        background: $sub-color ;
+
+                        .article-title {
+                            color: #fff !important;
+                        }
+
+                    }
+
+                    @media screen and (max-width:810px) {
+                        width: 155px;
+                        height: 155px;
+                        margin: 5% auto;
+                    }
+
+                    @media screen and (max-width:480px) {
+                        width: 90px;
+                        height: 90px;
+                        margin: 5% auto;
+                    }
+
+
+                    .article-info-box {
+                        color: $sub-color;
+
+                        .article-title {
+                            font-size: 1.5rem;
+                            color: $sub-color;
+
+                            @media screen and (max-width:480px) {
+                                font-size: 1.3rem;
+                            }
+
+                            .number {
+                                font-size: 3rem;
+
+                                @media screen and (max-width:480px) {
+                                    font-size: 2.7rem;
+                                }
+                            }
+
+                        }
+
+                    }
+
+                }
+
+
+            }
+
+
         }
 
         .sub-title {
