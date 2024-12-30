@@ -64,7 +64,7 @@ const getWorkResultFileList = async () => {
 
 }
 
-//獲取所有檔案的資料
+//獲取簽卡分析所有檔案的資料
 const getdataAnalysisFileList = async () => {
     let { data: response, pending } = await SSRrequest.get(`file/${GROUP}/${dataAnalysis}`, {})
 

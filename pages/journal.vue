@@ -12,13 +12,13 @@
 
                 <div class="journal-box">
 
-                    <nuxt-link class="article-item" v-for="(item, index) in displayedJournaList " :key="index"
-                        target="_blank" :to="item.downloadUrl">
+                    <nuxt-link class="article-item" v-for="(item, index) in displayedJournaList " :key="item.fileId"
+                        target="_blank" :to="'minio' + item.path">
 
                         <div class="article-info-box">
 
                             <h2 class="article-title">NO.
-                                <span class="number">{{ item.title }}</span>
+                                <span class="number">{{ item.name }}</span>
                                 <br>
                                 電子會刊
                             </h2>
@@ -46,10 +46,11 @@
 import { ref, reactive } from 'vue'
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
+const GROUP = "journalFile"
 
 let showFullList = ref(false)
 
-let journaFullList = reactive(
+let journaFullList = reactive<Record<string, any>[]>(
     [
         {
             title: '93',
@@ -211,6 +212,18 @@ let journaFullList = reactive(
 )
 
 
+const getJournaFullList = async () => {
+    let { data: response, pending } = await SSRrequest.get(`file/${GROUP}`, {})
+
+    // 直接更新 fileList 的值
+    if (response.value?.data) {
+        Object.assign(journaFullList, response.value.data)
+    }
+
+}
+
+//立即執行獲取資料
+await getJournaFullList()
 
 //初始化名單,原始名單的前12位,slice 會返回一個新數組
 let initJournaList = computed(() => { return journaFullList.slice(0, 12); })
