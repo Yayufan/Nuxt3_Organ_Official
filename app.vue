@@ -10,7 +10,7 @@
       <NuxtPage></NuxtPage>
 
       <nuxt-link class="fix-button01" to="/sign-online">
-        <img src="@/assets/img/join-us.png">
+        <img src="@/assets/img/sign-online.png">
       </nuxt-link>
 
       <nuxt-link class="fix-button02" to="/donate">
