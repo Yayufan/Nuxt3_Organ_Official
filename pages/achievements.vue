@@ -14,7 +14,7 @@
                 <article class="paragraph">
                     <h2 class="sub-title common-label">年度工作報告</h2>
 
-                    <div class="journal-box">
+                    <div class="sticky-notes-box">
 
                         <nuxt-link class="article-item" v-for="(item, index) in workResultFileList " :key="item.fileId"
                             target="_blank" :to="'minio' + item.path">
@@ -36,7 +36,7 @@
 
                 <article class="paragraph">
                     <h2 class="sub-title common-label">年度簽卡分析</h2>
-                    <div class="journal-box">
+                    <div class="sticky-notes-box">
 
                         <nuxt-link class="article-item" v-for="(item, index) in dataAnalysisFileList "
                             :key="item.fileId" target="_blank" :to="'minio' + item.path">
@@ -149,79 +149,61 @@ console.log("這是簽卡分析: ", dataAnalysisFileList)
         .paragraph {
             margin: 3% 0;
 
-            .journal-box {
-                margin-top: 3%;
+            .sticky-notes-box {
+                margin: 3% 0;
                 display: flex;
-                flex-wrap: wrap;
                 justify-content: flex-start;
+                align-items: center;
+                flex-wrap: wrap;
 
                 .article-item {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    margin-bottom: 5%;
-                    margin-right: 4.5%;
-                    border-radius: 50%;
-                    border: 3px solid $sub-color;
-                    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
-                    width: 200px;
-                    height: 200px;
+                    margin: 0 1.5%;
+                    background-image: url('@/assets/img/sticky-notes.png');
+                    // background: url("@/assets/img/sticky-notes.png");
+                    filter: drop-shadow(5px 8px 7px rgba(0, 0, 0, 0.5));
+                    background-size: contain;
+                    background-repeat: no-repeat; // 防止圖片重複
+                    background-position: center; // 將圖片置中
                     transition: 0.5s;
-                    color: $sub-color;
 
-                    //當滑鼠碰到這篇文章時,改變字體顏色+圖片放大
-                    &:hover {
-                        cursor: pointer;
-                        background: $sub-color ;
+                    @media screen and (max-width:850px) {
+                        margin: 1.5% 1.5%;
 
-                        .article-title {
-                            color: #fff !important;
-                        }
-
-                    }
-
-                    @media screen and (max-width:810px) {
-                        width: 155px;
-                        height: 155px;
-                        margin: 5% auto;
                     }
 
                     @media screen and (max-width:480px) {
-                        width: 90px;
-                        height: 90px;
-                        margin: 5% auto;
+                        margin: 1.5% 0;
                     }
 
+                    &:hover {
+                        scale: 1.1;
+                    }
 
-                    .article-info-box {
-                        color: $sub-color;
+                    .article-title {
+                        font-size: 2.2rem;
+                        padding: 3.5rem;
+                        text-align: center;
+                        color: $main-color;
 
-                        .article-title {
-                            font-size: 1.5rem;
-                            color: $sub-color;
-
-                            @media screen and (max-width:480px) {
-                                font-size: 1.3rem;
-                            }
-
-                            .number {
-                                font-size: 3rem;
-
-                                @media screen and (max-width:480px) {
-                                    font-size: 2.7rem;
-                                }
-                            }
-
+                        @media screen and (max-width:850px) {
+                            font-size: 1.8rem;
                         }
 
+                        @media screen and (max-width: 480px) {
+                            padding: 3rem 5rem;
+                        }
+
+                        .number {
+                            font-size: 4rem
+                        }
                     }
 
                 }
 
 
-            }
 
+
+            }
 
         }
 
