@@ -210,38 +210,6 @@ watch(currentPage, (value, oldValue) => {
                     }
                 }
 
-                .article-info-box {
-                    position: absolute;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: flex-end;
-                    width: 100%;
-                    height: 100%;
-                    top: 0;
-                    left: 0;
-                    z-index: 50;
-                    text-align: left;
-                    color: #fff;
-                    background: linear-gradient(to top, rgba(241, 156, 36, 0.9) 10%, rgba(193, 193, 193, 0.4));
-                    border-radius: 16px;
-
-                    .article-title {
-                        font-size: $inner-box-title-font-size;
-                        margin: 0.4rem 0;
-                        margin-left: 5%;
-                    }
-
-                    .article-description {
-                        margin-bottom: 5%;
-                        margin-left: 5%;
-                        font-size: $inner-box-font-size;
-                        overflow: hidden;
-                        white-space: nowrap;
-                        text-overflow: ellipsis;
-                    }
-
-                }
-
 
 
             }
