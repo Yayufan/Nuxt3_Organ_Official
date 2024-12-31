@@ -63,9 +63,6 @@ const imagePaths = [
     "/img/resource-img-01.png",
     "/img/resource-img-02.png",
     "/img/resource-img-03.png",
-    "/img/resource-img-04.png",
-    "/img/resource-img-05.png",
-    "/img/resource-img-06.png",
 ];
 
 // 隨機返回一個圖片路徑

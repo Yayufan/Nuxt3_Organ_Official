@@ -14,7 +14,7 @@
                 <transition-group name="pagination">
                     <article class="article-item" v-for="(item, index) in articleList.records " :key="item.articleId">
                         <div class="article-img-box">
-                            <img class="article-img" src="@/assets/img/doctor-voice-img-01.png">
+                            <img class="article-img" :src="item.coverThumbnailUrl">
                         </div>
 
                         <div class="article-base">
@@ -58,7 +58,12 @@
 import { ref, reactive } from 'vue'
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
-
+// 定義圖片來源路徑
+const imagePaths = [
+    "/img/doctor-voice-img-01.png",
+    "/img/doctor-voice-img-02.png",
+    "/img/doctor-voice-img-03.png",
+];
 
 //設定分頁組件,currentPage當前頁數
 //根據裝置預設顯示數量
@@ -85,10 +90,19 @@ let articleList = reactive({
             articleId: '',
             title: '',
             description: '',
-            coverThumbnailUrl: ''
+            coverThumbnailUrl: getRandomImagePath()
         }
     ]
 })
+
+
+
+// 隨機返回一個圖片路徑
+function getRandomImagePath(): string {
+    const randomIndex = Math.floor(Math.random() * imagePaths.length);
+    return imagePaths[randomIndex];
+}
+
 
 
 //獲取分頁文章的資料
@@ -104,7 +118,15 @@ const getArticleList = async (page: number, size: number) => {
     if (response.value?.data) {
         Object.assign(articleList, response.value.data)
 
+
+        // 為每篇文章添加隨機縮圖路徑
+        articleList.records.forEach(record => {
+            record.coverThumbnailUrl = getRandomImagePath();
+        });
+
     }
+
+
 
 }
 
