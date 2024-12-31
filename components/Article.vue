@@ -274,7 +274,7 @@ section {
             width: 30%;
             max-width: 400px;
             max-width: 400px;
-            : #F7F7F7;
+            color: #F7F7F7;
 
             //手機視口RWD響應
             @media screen and (max-width:481px) {
