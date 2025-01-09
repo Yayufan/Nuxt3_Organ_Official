@@ -46,7 +46,6 @@
 
             </div>
 
-
         </section>
 
     </div>
@@ -57,19 +56,6 @@
 
 import { ref, reactive } from 'vue'
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
-
-// 定義圖片來源路徑
-const imagePaths = [
-    "/img/resource-img-01.png",
-    "/img/resource-img-02.png",
-    "/img/resource-img-03.png",
-];
-
-// 隨機返回一個圖片路徑
-function getRandomImagePath(): string {
-    const randomIndex = Math.floor(Math.random() * imagePaths.length);
-    return imagePaths[randomIndex];
-}
 
 
 //設定分頁組件,currentPage當前頁數
@@ -96,7 +82,8 @@ let articleList = reactive({
             articleId: '',
             title: '',
             description: '',
-            coverThumbnailUrl: getRandomImagePath()
+            coverThumbnailUrl: '',
+            type: ''
         }
     ]
 })
@@ -104,6 +91,7 @@ let articleList = reactive({
 
 //獲取分頁文章的資料
 const getArticleList = async (page: number, size: number) => {
+
     let { data: response, pending } = await SSRrequest.get(`article/${GROUP}/pagination`, {
         params: {
             page,
@@ -117,7 +105,21 @@ const getArticleList = async (page: number, size: number) => {
 
         // 為每篇文章添加隨機縮圖路徑
         articleList.records.forEach(record => {
-            record.coverThumbnailUrl = getRandomImagePath();
+
+            switch (record.type) {
+                case "飛行的鳥":
+                    record.coverThumbnailUrl = "/img/resource-img-01.png";
+                    break;
+                case "擁抱":
+                    record.coverThumbnailUrl = "/img/resource-img-02.png";
+                    break;
+                case "燭光":
+                    record.coverThumbnailUrl = "/img/resource-img-03.png";
+                    break;
+                default:
+                    record.coverThumbnailUrl = "/img/resource-img-01.png";
+                    break;
+            }
         });
 
     }
