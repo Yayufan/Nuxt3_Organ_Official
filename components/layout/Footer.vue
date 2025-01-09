@@ -31,8 +31,7 @@
                     <p class="info-content">戶名:社團法人中華民國器官捐贈協會</p>
                 </div>
                 <div class="info-box">
-                    <p class="info-content">訪客人數 {{ numberOfVisitors }} (當年度{{ numberOfVisitorsThisyear }}) <span class="update-time">更新日期 {{
-                        updateDate }}</span></p>
+                    <p class="info-content">瀏覽人次 {{ numberOfVisitors }}</p>
                 </div>
             </div>
         </div>
@@ -42,9 +41,20 @@
     </footer>
 </template>
 <script setup lang="ts">
-const numberOfVisitors = ref(3977434)
-const numberOfVisitorsThisyear = ref(156520)
-const updateDate = ref('2024年10月21日')
+const numberOfVisitors = ref(0)
+
+//獲取瀏覽人次funciton
+const getViewCount = async ()=>{
+    let response = await CSRrequest.get("setting/get-view-count")
+    numberOfVisitors.value = response.data.viewCount
+}
+
+//頁面加載完成時，獲取瀏覽人次
+onMounted(()=>{
+    getViewCount()
+})
+
+
 </script>
 <style lang="scss" scoped>
 .footer-box {
