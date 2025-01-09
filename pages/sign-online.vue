@@ -23,7 +23,8 @@
 
             <div class="form-section">
                 <p class="notice">(以下欄位有<span>*</span>標示者為必填)</p>
-                <el-form ref="ruleFormRef" class="form" :model="form" :rules="formRules" label-position="left" :validate-on-rule-change="false">
+                <el-form ref="ruleFormRef" class="form" :model="form" :rules="formRules" label-position="left"
+                    :validate-on-rule-change="false">
                     <el-form-item label="簽署人：" label-width="270" prop="name" class="form-item1">
                         <el-input v-model="form.name" type="text"></el-input>
                     </el-form-item>
@@ -75,25 +76,75 @@
                     <el-form-item class="donate-organs unnecessary" label="願意捐贈器官/組織項目(可複選)" prop="donateOrgans">
                         <el-checkbox-group v-model="form.donateOrgans">
                             <div class="checkbox-div">
-                                <el-checkbox label="全部捐贈" value="all"></el-checkbox>
-                                <el-checkbox label="心臟" value="heart"></el-checkbox>
-                                <el-checkbox label="肝臟" value="liver"></el-checkbox>
-                                <el-checkbox label="胰臟" value="pancreas"></el-checkbox>
+                                <el-checkbox value="all">
+                                    <template #default>
+                                        <span style="color: red;">全部捐贈</span>
+                                    </template>
+                                </el-checkbox>
+                                <el-checkbox value="heart">
+                                    <template #default>
+                                        <span style="color: blue;">心臟</span>
+                                    </template>
+                                </el-checkbox>
+                                <el-checkbox value="liver">
+                                    <template #default>
+                                        <span style="color: blue;">肝臟</span>
+                                    </template>
+                                </el-checkbox>
+
+                                <el-checkbox value="pancreas">
+                                    <template #default>
+                                        <span style="color: blue;">胰臟</span>
+                                    </template>
+                                </el-checkbox>
 
 
                             </div>
                             <div class="checkbox-div">
-                                <el-checkbox label="肺臟" value="lung"></el-checkbox>
-                                <el-checkbox label="腎臟" value="kidney"></el-checkbox>
-                                <el-checkbox label="心瓣膜" value="heartValve"></el-checkbox>
-                                <el-checkbox label="小腸" value="smallIntestine"></el-checkbox>
+                                <el-checkbox value="lung">
+                                    <template #default>
+                                        <span style="color: blue;">肺臟</span>
+                                    </template>
+                                </el-checkbox>
+                                <el-checkbox value="kidney">
+                                    <template #default>
+                                        <span style="color: blue;">腎臟</span>
+                                    </template>
+                                </el-checkbox>
+
+                                <el-checkbox value="heartValve">
+                                    <template #default>
+                                        <span style="color: green;">心瓣膜</span>
+                                    </template>
+                                </el-checkbox>
+                                <el-checkbox value="smallIntestine">
+                                    <template #default>
+                                        <span style="color: green;">小腸</span>
+                                    </template>
+                                </el-checkbox>
 
                             </div>
                             <div class="checkbox-div">
-                                <el-checkbox label="皮膚" value="skin"></el-checkbox>
-                                <el-checkbox label="眼角膜" value="cornea"></el-checkbox>
-                                <el-checkbox label="骨骼" value="bones"></el-checkbox>
-                                <el-checkbox label="血管" value="bloodVessels"></el-checkbox>
+                                <el-checkbox value="skin">
+                                    <template #default>
+                                        <span style="color: green;">皮膚</span>
+                                    </template>
+                                </el-checkbox>
+                                <el-checkbox value="cornea">
+                                    <template #default>
+                                        <span style="color: green;">眼角膜</span>
+                                    </template>
+                                </el-checkbox>
+                                <el-checkbox value="bones">
+                                    <template #default>
+                                        <span style="color: green;">骨骼</span>
+                                    </template>
+                                </el-checkbox>
+                                <el-checkbox value="bloodVessels">
+                                    <template #default>
+                                        <span style="color: green;">血管</span>
+                                    </template>
+                                </el-checkbox>
                             </div>
                         </el-checkbox-group>
                     </el-form-item>
