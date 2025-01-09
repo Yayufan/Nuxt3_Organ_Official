@@ -452,7 +452,7 @@ watch(() => form.birthday, (newValue) => {
         age--;
     }
 
-    if (age < 20) {
+    if (age < 18) {
         formRules.legalRepresentativeName = [{ required: true, message: '法定代理人姓名為必填項目', trigger: 'blur' }];
         formRules.legalRepresentativeIdCard = [{ required: true, message: '法定代理人身分證為必填項目', trigger: 'blur' }, {
             validator: (

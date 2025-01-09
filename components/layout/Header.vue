@@ -109,7 +109,7 @@ const menuItem = [
         title: '認識器捐',
         subMenu: [
             { title: '器捐學堂', link: '/organ-donation' },
-            { title: '器捐捐贈會刊', link: '/journal' },
+            { title: '器官捐贈會刊', link: '/journal' },
             { title: '影音專區', link: '/video-area' },
             { title: '文宣下載', link: '/brochure-download' },
             { title: '器捐生命故事:捐贈者家屬篇', link: '/story-donor-family' },

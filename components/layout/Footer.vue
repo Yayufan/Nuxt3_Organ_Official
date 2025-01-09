@@ -16,7 +16,7 @@
                 </div>
                 <div class="info-box">
                     <p class="info-content"><img class="email-icon" src="@/assets/img/EmailRound.svg"
-                            alt="">聯絡信箱:office@organ.org.tw</p>
+                            alt="">聯絡信箱:<a class="external-link"  href="mailto:office@organ.org.tw" >office@organ.org.tw</a></p>
                 </div>
             </div>
             <div class="footer-item2">

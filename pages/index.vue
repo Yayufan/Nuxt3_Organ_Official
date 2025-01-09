@@ -42,7 +42,7 @@
                     <p>簽署器捐</p>
                 </div>
                 <div class="link-item">
-                    <nuxt-link to="/story-donor-family">
+                    <nuxt-link to="/assistance-resources">
                         <img src="@/assets/img/family-support-icon.png" alt="">
                     </nuxt-link>
                     <p>家屬關懷</p>
