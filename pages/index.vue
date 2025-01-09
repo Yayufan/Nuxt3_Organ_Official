@@ -213,6 +213,11 @@ const handleClick = (link: string) => {
     getArticleList(currentPage.value, currentSize.value)
 }
 
+//頁面渲染完畢時，調用後端API，瀏覽人次+1
+onMounted(()=>{
+    CSRrequest.get("setting/add-view-count")
+})
+
 
 </script>
 <style lang="scss" scoped>
