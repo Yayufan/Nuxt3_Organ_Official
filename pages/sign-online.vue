@@ -112,14 +112,15 @@
                                     </template>
                                 </el-checkbox>
 
-                                <el-checkbox value="heartValve">
-                                    <template #default>
-                                        <span style="color: green;">心瓣膜</span>
-                                    </template>
-                                </el-checkbox>
                                 <el-checkbox value="smallIntestine">
                                     <template #default>
                                         <span style="color: green;">小腸</span>
+                                    </template>
+                                </el-checkbox>
+
+                                <el-checkbox value="heartValve">
+                                    <template #default>
+                                        <span style="color: green;">心瓣膜</span>
                                     </template>
                                 </el-checkbox>
 
