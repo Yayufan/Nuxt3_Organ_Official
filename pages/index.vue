@@ -28,7 +28,7 @@
         <div class="paragraph">
             <p class="title">活動花絮</p>
             <div class="article-box">
-                <nuxt-link class="event-highlight-item" v-for="(item, index) in eventHighlightsList.records"
+                <nuxt-link class="event-highlight-item" :to="`/event-highlights/${item.articleId}`"  v-for="(item, index) in eventHighlightsList.records"
                     :key="item.articleId">
                     {{ item.title }}
                 </nuxt-link>
@@ -314,8 +314,6 @@ onMounted(() => {
 
             }
         }
-
-
 
     }
 
