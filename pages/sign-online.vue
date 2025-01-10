@@ -78,23 +78,23 @@
                             <div class="checkbox-div">
                                 <el-checkbox value="all">
                                     <template #default>
-                                        <span style="color: red;">全部捐贈</span>
+                                        <span class="donate-all-color">全部捐贈</span>
                                     </template>
                                 </el-checkbox>
                                 <el-checkbox value="heart">
                                     <template #default>
-                                        <span style="color: blue;">心臟</span>
+                                        <span class="organ-color">心臟</span>
                                     </template>
                                 </el-checkbox>
                                 <el-checkbox value="liver">
                                     <template #default>
-                                        <span style="color: blue;">肝臟</span>
+                                        <span class="organ-color">肝臟</span>
                                     </template>
                                 </el-checkbox>
 
                                 <el-checkbox value="pancreas">
                                     <template #default>
-                                        <span style="color: blue;">胰臟</span>
+                                        <span class="organ-color">胰臟</span>
                                     </template>
                                 </el-checkbox>
 
@@ -103,24 +103,24 @@
                             <div class="checkbox-div">
                                 <el-checkbox value="lung">
                                     <template #default>
-                                        <span style="color: blue;">肺臟</span>
+                                        <span class="organ-color">肺臟</span>
                                     </template>
                                 </el-checkbox>
                                 <el-checkbox value="kidney">
                                     <template #default>
-                                        <span style="color: blue;">腎臟</span>
+                                        <span class="organ-color">腎臟</span>
                                     </template>
                                 </el-checkbox>
 
                                 <el-checkbox value="smallIntestine">
                                     <template #default>
-                                        <span style="color: green;">小腸</span>
+                                        <span class="tissue-color">小腸</span>
                                     </template>
                                 </el-checkbox>
 
                                 <el-checkbox value="heartValve">
                                     <template #default>
-                                        <span style="color: green;">心瓣膜</span>
+                                        <span class="tissue-color">心瓣膜</span>
                                     </template>
                                 </el-checkbox>
 
@@ -128,22 +128,22 @@
                             <div class="checkbox-div">
                                 <el-checkbox value="skin">
                                     <template #default>
-                                        <span style="color: green;">皮膚</span>
+                                        <span class="tissue-color">皮膚</span>
                                     </template>
                                 </el-checkbox>
                                 <el-checkbox value="cornea">
                                     <template #default>
-                                        <span style="color: green;">眼角膜</span>
+                                        <span class="tissue-color">眼角膜</span>
                                     </template>
                                 </el-checkbox>
                                 <el-checkbox value="bones">
                                     <template #default>
-                                        <span style="color: green;">骨骼</span>
+                                        <span class="tissue-color">骨骼</span>
                                     </template>
                                 </el-checkbox>
                                 <el-checkbox value="bloodVessels">
                                     <template #default>
-                                        <span style="color: green;">血管</span>
+                                        <span class="tissue-color">血管</span>
                                     </template>
                                 </el-checkbox>
                             </div>
@@ -873,6 +873,22 @@ const resetForm = (formEl: FormInstance | undefined) => {
                     .checkbox-div {
                         display: flex;
                         justify-content: space-between;
+
+                        .donate-all-color {
+                            color: black;
+                            font-weight: 600;
+                        }
+
+                        .organ-color {
+                            color: #c65a73;
+                            font-weight: 600;
+                        }
+
+                        .tissue-color {
+                            color: #dd7e1a;
+                            font-weight: 600;
+                        }
+
                     }
                 }
 
@@ -905,8 +921,9 @@ const resetForm = (formEl: FormInstance | undefined) => {
                 justify-content: center;
 
                 :deep(.el-checkbox__label) {
-                    color: $main-color;
+                    color: #9d5b39;
                     font-size: 1.3rem;
+                    font-weight: 600;
                 }
 
                 :deep(.el-checkbox__inner) {
