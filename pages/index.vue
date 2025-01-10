@@ -18,7 +18,8 @@
             <p class="title">最新消息</p>
             <div class="article-box">
 
-                <nuxt-link class="news-item" :to="`/news/${item.articleId}`"  v-for="(item, index) in newsList.records" :key="item.articleId">
+                <nuxt-link class="news-item" :to="`/news/${item.articleId}`" v-for="(item, index) in newsList.records"
+                    :key="item.articleId">
                     {{ item.title }}
                 </nuxt-link>
             </div>
@@ -81,7 +82,7 @@ const activeLink = ref('news');
 //根據裝置預設顯示數量
 // const defaultSize = ref(useState('currentSize', () => useIsMobile().value ? 8 : 8))
 const isMobile = ref<boolean>(useIsMobile().value);
-const defaultSize = ref(useIsMobile().value ? 3 : 5)
+const defaultSize = ref(useIsMobile().value ? 3 : 3)
 
 //傳續判斷裝置後的預設值,這個就是分頁的size
 const { page, size } = useGetPaginationParams(defaultSize.value)
@@ -253,6 +254,14 @@ onMounted(() => {
             @media screen and (max-width: 850px) {
                 margin-left: 3.5%;
             }
+
+            &::before {
+                display: inline;
+                content: "";
+                border-left: 3px solid $main-color;
+                padding-right: 10px;
+            }
+
         }
 
 
@@ -268,12 +277,12 @@ onMounted(() => {
             }
 
             .news-item {
-                color: #fff;
+                color: black;
                 line-height: 1.5;
                 padding: 1rem 0;
                 padding-left: 1rem;
                 display: block;
-                background: url("@/assets/img/news-bg.png");
+                background: url("@/assets/img/event-highlight-bg.png");
                 background-repeat: no-repeat;
                 background-size: 100% 100%;
                 background-position: center center;
