@@ -3,7 +3,7 @@
 
     <div>
 
-        <Breadcrumbs firstRoute="捐贈贊助" secoundRoute="捐款支持-立即行動"></Breadcrumbs>
+        <Breadcrumbs firstRoute="捐款贊助" secoundRoute="捐款支持-立即行動"></Breadcrumbs>
 
         <section class="common-section">
 
@@ -69,7 +69,7 @@
                         <p class="application-reminder-part01">點擊上方<span class="go-to-donate">我要捐款</span>進行線上捐款 或</p>
                         <p class="application-reminder-part02">
                             請填妥
-                            <a class="download-link" href="/files/donate.pdf" target="_blank">信用卡捐款單</a>
+                            <a class="download-link-only" href="/files/donate.pdf" target="_blank">信用卡捐款單</a>
                             <span class="note">(本會需負擔信用卡公司相關費用)</span>
                         </p>
                     </div>
@@ -80,7 +80,7 @@
                 <article class="paragraph">
                     <h2 class="sub-title">郵局存簿轉帳</h2>
                     <div class="application-reminder">請填妥
-                        <a class="download-link" href="/files/post-office-transfer-108.pdf"
+                        <a class="download-link-only" href="/files/post-office-transfer-108.pdf"
                             target="_blank">郵局捐款轉帳付款授權書</a>
                     </div>
                     <div class="number-mask">05</div>
@@ -363,10 +363,35 @@ const drawer = ref(false)
                     border-radius: 4px;
                 }
 
-                .download-link {
+                .download-link-only {
                     text-underline-offset: 3px;
                     position: relative;
                     top: -2px;
+                    text-decoration: none;
+                    color: $main-color;
+                    text-underline-offset: 0.3rem;
+                    letter-spacing: 0.1rem;
+                    font-weight: 550;
+                    transition: 0.5s;
+                    font-size: $inner-box-title-font-size;
+
+                    &::after {
+                        content: '';
+                        display: inline-block;
+                        width: 1.2rem;
+                        height: 1.2rem;
+                        position: relative;
+                        top: 0.3rem;
+                        margin-left: 0.5rem;
+                        background: url("@/assets/img/download-file-main.svg") no-repeat;
+                        background-size: contain;
+                        /* 確保圖標縮放到合適尺寸 */
+                    }
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+
                 }
 
 

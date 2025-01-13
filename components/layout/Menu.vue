@@ -61,7 +61,7 @@
                 <nuxt-link :to="'/miss-me'"><el-menu-item index="miss-me">如果你要懷念我</el-menu-item></nuxt-link>
             </el-sub-menu>
             <el-sub-menu index="5">
-                <template #title>捐贈贊助</template>
+                <template #title>捐款贊助</template>
                 <nuxt-link :to="'/donate'"><el-menu-item index="donate">捐款支持-立即行動</el-menu-item></nuxt-link>
                 <nuxt-link :to="'/charity-sale'"><el-menu-item
                         index="charity-sale">版畫有限量，愛心無限亮</el-menu-item></nuxt-link>

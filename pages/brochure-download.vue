@@ -64,8 +64,8 @@ let articleList = reactive({
         {
             title: '器官捐贈生命教育手冊',
             description: '歡迎來電索取紙本',
-            imgUrl: 'img/109_brochure.jpg',
-            fileUrl: 'files/109_brochure.pdf'
+            imgUrl: 'img/113_brochure.jpg',
+            fileUrl: 'files/113_brochure.pdf'
         },
         {
             title: '摺頁DM',

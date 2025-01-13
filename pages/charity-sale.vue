@@ -3,7 +3,7 @@
 
     <div>
 
-        <Breadcrumbs firstRoute="捐贈贊助" secoundRoute="版畫有限量，愛心無限亮"></Breadcrumbs>
+        <Breadcrumbs firstRoute="捐款贊助" secoundRoute="版畫有限量，愛心無限亮"></Breadcrumbs>
 
         <section class="common-section">
 
