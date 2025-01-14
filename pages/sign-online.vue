@@ -889,6 +889,7 @@ const resetForm = (formEl: FormInstance | undefined) => {
 
                     @media screen and (max-width:850px) {
                         font-size: 0.9rem;
+                        width: 250px !important;
                         // width: 40% !important;
 
                     }
