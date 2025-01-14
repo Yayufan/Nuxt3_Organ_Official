@@ -25,38 +25,46 @@
                 <p class="notice">(以下欄位有<span>*</span>標示者為必填)</p>
                 <el-form ref="ruleFormRef" class="form" :model="form" :rules="formRules" label-position="left"
                     :validate-on-rule-change="false">
-                    <el-form-item label="簽署人：" label-width="270" prop="name" class="form-item1">
+                    <el-form-item label="簽署人：" label-width="330" prop="name" class="form-item1">
                         <el-input v-model="form.name" type="text"></el-input>
                     </el-form-item>
-                    <el-form-item label="國民身分證統一編號：" prop="idCard" label-width="270" class="form-item1">
+
+                    <el-form-item label="國籍" label-width="330" prop="country" class="form-item1">
+                        <el-radio-group v-model="form.country">
+                            <el-radio label="台灣籍" value="台灣籍"></el-radio>
+                            <el-radio label="外國籍" value="外國籍"></el-radio>
+                        </el-radio-group>
+                    </el-form-item>
+
+                    <el-form-item label="國民身分證統一編號/居留證號：" prop="idCard" label-width="330" class="form-item1">
                         <el-input v-model="form.idCard" type="text"></el-input>
                     </el-form-item>
-                    <el-form-item label="出生日期：" label-width="270" prop="birthday" class="form-item1">
+                    <el-form-item label="出生日期：" label-width="330" prop="birthday" class="form-item1">
                         <el-date-picker v-model="form.birthday" type="date" value-format="YYYY-MM-DD"></el-date-picker>
                     </el-form-item>
-                    <el-form-item label="性別：" label-width="270" prop="gender" class="form-item1">
+                    <el-form-item label="性別：" label-width="330" prop="gender" class="form-item1">
                         <el-radio-group v-model="form.gender">
                             <el-radio label="男" value="1"></el-radio>
                             <el-radio label="女" value="2"></el-radio>
                         </el-radio-group>
                     </el-form-item>
-                    <el-form-item label="連絡電話：" label-width="270" prop="contactNumber" class="form-item1">
+                    <el-form-item label="連絡電話：" label-width="330" prop="contactNumber" class="form-item1">
                         <el-input v-model="form.contactNumber" type="tel"></el-input>
                     </el-form-item>
-                    <el-form-item label="手機號碼：" label-width="270" prop="phoneNumber" class="form-item1">
+                    <el-form-item label="手機號碼：" label-width="330" prop="phoneNumber" class="form-item1">
                         <el-input v-model="form.phoneNumber" type="tel"></el-input>
                     </el-form-item>
-                    <el-form-item label="E-Mail：" label-width="250" prop="email" class="unnecessary email">
+                    <el-form-item label="E-Mail：" label-width="310" prop="email" class="unnecessary email">
                         <el-input class="email-input" v-model="form.email" type="email"></el-input>
                     </el-form-item>
-                    <el-form-item label="聯絡地址：" label-width="270" prop="address" class="form-item1 address">
+                    <el-form-item label="聯絡地址：" label-width="330" prop="address" class="form-item1 address">
                         <el-input v-model="form.address" type="text"></el-input>
                     </el-form-item>
-                    <el-form-item label="法定代理人姓名：" label-width="270" prop="legalRepresentativeName" class="form-item1">
+                    <el-form-item label="法定代理人姓名：" label-width="330" prop="legalRepresentativeName" class="form-item1">
                         <el-input v-model="form.legalRepresentativeName" type="text"></el-input>
                     </el-form-item>
                     <el-form-item label="法定代理人國民身分證統一編號：" class="legal-representative-ID"
-                        prop="legalRepresentativeIdCard">
+                        prop="legalRepresentativeIdCard" label-width="330">
                         <el-input v-model="form.legalRepresentativeIdCard" type="text"></el-input>
                     </el-form-item>
                     <el-form-item label="本人獲得器官捐贈同意卡：" class="unnecessary form-item1 consent-card">
@@ -230,40 +238,42 @@ interface CheckResult {
     message: string;
 }
 
-// 校验逻辑函数
+// 地區碼轉換表
+const codeMap: Record<string, number> = {
+    A: 10,
+    B: 11,
+    C: 12,
+    D: 13,
+    E: 14,
+    F: 15,
+    G: 16,
+    H: 17,
+    I: 34,
+    J: 18,
+    K: 19,
+    L: 20,
+    M: 21,
+    N: 22,
+    O: 35,
+    P: 23,
+    Q: 24,
+    R: 25,
+    S: 26,
+    T: 27,
+    U: 28,
+    V: 29,
+    W: 32,
+    X: 30,
+    Y: 31,
+    Z: 33,
+};
+
+
+// 校验逻辑國民身分證字號函数
 function checkCkDigit(code: string): CheckResult {
-    if (!/^[A-Z][0-9]{9}$/.test(code)) {
+    if (!/^[A-Z][12][0-9]{8}$/.test(code)) {
         return { valid: false, message: "身份證格式不正確" };
     }
-
-    const codeMap: Record<string, number> = {
-        A: 10,
-        B: 11,
-        C: 12,
-        D: 13,
-        E: 14,
-        F: 15,
-        G: 16,
-        H: 17,
-        I: 34,
-        J: 18,
-        K: 19,
-        L: 20,
-        M: 21,
-        N: 22,
-        O: 35,
-        P: 23,
-        Q: 24,
-        R: 25,
-        S: 26,
-        T: 27,
-        U: 28,
-        V: 29,
-        W: 32,
-        X: 30,
-        Y: 31,
-        Z: 33,
-    };
 
     const placeCode = codeMap[code[0]];
     if (!placeCode) {
@@ -271,6 +281,7 @@ function checkCkDigit(code: string): CheckResult {
     }
 
     const bodyCode = code.substring(1, 9);
+    console.log()
     const lastCode = code[9];
 
     const calHead = (num: number): number =>
@@ -292,6 +303,132 @@ function checkCkDigit(code: string): CheckResult {
         ? { valid: true, message: "合法" }
         : { valid: false, message: "身分證號不合法" };
 }
+
+// 舊版居留證號驗證邏輯
+const checkOldResidentCertificate = (code: string): CheckResult => {
+    if (!/^[A-Z][A-D][0-9]{8}$/.test(code)) {
+        return { valid: false, message: '舊版居留證格式不正確' };
+    }
+
+    const placeCode = codeMap[code[0]];
+    const genderCode = codeMap[code[1]] % 10; // 取個位數;
+    // console.log("舊版校驗性別碼為: ", genderCode)
+    const bodyCode = code.substring(2, 9);
+    // console.log("舊版校驗區域碼為 ", bodyCode)
+
+    const lastCode = code[9];
+
+    if (!placeCode || genderCode === undefined) {
+        return { valid: false, message: '首碼或性別碼無效' };
+    }
+
+    // 計算num 除以10的商,並向下取整,獲取10位數字
+    // 例如，num = 23，则 Math.floor(23 / 10) 为 2。
+    const calHead = (num: number): number => {
+        // console.log("舊版校驗地區值 ", (Math.floor(num / 10) * 1) + ((num % 10) * 9))
+        return (Math.floor(num / 10) * 1) + ((num % 10) * 9);
+    }
+
+
+    const calBody = (code: string): number => {
+        let sum = 0;
+        // console.log("舊版body code長度", code.length)
+        for (let i = 0; i < code.length; i++) {
+            // console.log("當前code號 ", code[i])
+            sum += parseInt(code[i]) * (7 - i);
+        }
+        return sum;
+    };
+
+    const idSum =
+        calHead(placeCode) + genderCode * 8 + calBody(bodyCode) + parseInt(lastCode) * 1;
+
+    console.log("舊版居留證號值", idSum)
+
+    const isValid = idSum % 10 === 0;
+
+    return isValid
+        ? { valid: true, message: '合法' }
+        : { valid: false, message: '舊版居留證號不合法' };
+};
+
+// 新版居留證驗證邏輯
+const checkNewResidentCertificate = (code: string): CheckResult => {
+    if (!/^[A-Z][89][0-9]{8}$/.test(code)) {
+        return { valid: false, message: '新版居留證格式不正確' };
+    }
+
+    const placeCode = codeMap[code[0]];
+    const bodyCode = code.substring(1, 9);
+    console.log("新版body code ", bodyCode)
+    const lastCode = code[9];
+
+    if (!placeCode === undefined) {
+        return { valid: false, message: '首碼無效' };
+    }
+
+    const calHead = (num: number): number =>
+        Math.floor(num / 10) * 1 + (num % 10) * 9;
+
+    const calBody = (code: string): number => {
+        let sum = 0;
+        for (let i = 0; i < code.length; i++) {
+            sum += parseInt(code[i]) * (8 - i);
+        }
+        return sum;
+    };
+
+    const idSum =
+        calHead(placeCode) + calBody(bodyCode) + parseInt(lastCode) * 1;
+
+    console.log("新版居留證號值", idSum)
+
+    const isValid = idSum % 10 === 0;
+
+    return isValid
+        ? { valid: true, message: '合法' }
+        : { valid: false, message: '新版居留證號不合法' };
+};
+
+// 居留證驗證邏輯（舊版或新版）
+const checkResidentCertificate = (code: string): CheckResult => {
+    const oldResult = checkOldResidentCertificate(code);
+    const newResult = checkNewResidentCertificate(code);
+
+    if (oldResult.valid || newResult.valid) {
+        return { valid: true, message: '合法' };
+    } else {
+        return { valid: false, message: '居留證號不合法' };
+    }
+};
+
+
+/**--------------------------------------------------------------- */
+
+// 動態驗證函數
+const validateIdCard = (rule: any, value: string, callback: any) => {
+    if (form.country === '台灣籍') {
+        const result = checkCkDigit(value);
+        if (!result.valid) {
+            callback(new Error(result.message));
+        } else {
+            callback();
+        }
+    } else if (form.country === '外國籍') {
+        const result = checkResidentCertificate(value);
+        if (!result.valid) {
+            callback(new Error(result.message));
+        } else {
+            callback();
+        }
+    } else {
+        callback(new Error("請先選擇國籍"));
+    }
+};
+
+
+
+
 //-----------------------------------------------------------
 
 /** 驗證碼，僅在客户端执行 */
@@ -339,19 +476,11 @@ const formRules = reactive<FormRules<form>>({
     idCard: [
         {
             required: true,
-            message: '請輸入國民身分證統一編號',
+            message: '請輸入國民身分證統一編號/居留證號',
             trigger: 'blur'
         },
         {
-            validator: (
-                rule: unknown,
-                value: string,
-                callback: (error?: Error) => void
-            ) => {
-                const { valid, message } = checkCkDigit(value);
-                if (!valid) callback(new Error(message));
-                else callback();
-            },
+            validator: validateIdCard,
             trigger: "blur",
         },
     ],
@@ -427,6 +556,13 @@ const formRules = reactive<FormRules<form>>({
             , trigger: 'blur'
         }
     ],
+    country: [
+        {
+            required: true,
+            message: '請選擇國籍'
+            , trigger: 'blur'
+        }
+    ]
 
 })
 
@@ -446,7 +582,8 @@ interface form {
     wordToFamily: string,
     donateOrgans: string[],
     verificationKey: string,
-    verificationCode: string
+    verificationCode: string,
+    country: string
 }
 
 const form = reactive<form>({
@@ -465,7 +602,8 @@ const form = reactive<form>({
     wordToFamily: '',
     donateOrgans: [],
     verificationKey: "",
-    verificationCode: ""
+    verificationCode: "",
+    country: ""
 })
 
 
@@ -751,7 +889,7 @@ const resetForm = (formEl: FormInstance | undefined) => {
 
                     @media screen and (max-width:850px) {
                         font-size: 0.9rem;
-                        width: 40% !important;
+                        // width: 40% !important;
 
                     }
                 }
