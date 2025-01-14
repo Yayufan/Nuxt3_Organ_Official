@@ -272,7 +272,7 @@ const codeMap: Record<string, number> = {
 // 校验逻辑國民身分證字號函数
 function checkCkDigit(code: string): CheckResult {
     if (!/^[A-Z][12][0-9]{8}$/.test(code)) {
-        return { valid: false, message: "身份證格式不正確" };
+        return { valid: false, message: "身分證格式不正確" };
     }
 
     const placeCode = codeMap[code[0]];
