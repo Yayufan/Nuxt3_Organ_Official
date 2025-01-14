@@ -122,7 +122,7 @@
 
                                 <el-checkbox value="smallIntestine">
                                     <template #default>
-                                        <span class="tissue-color">小腸</span>
+                                        <span class="organ-color">腸</span>
                                     </template>
                                 </el-checkbox>
 
