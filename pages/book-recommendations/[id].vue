@@ -46,6 +46,30 @@ const getArticle = async () => {
 
 await getArticle()
 
+/**---------------------------------------------------- */
+
+//獲取當前domain
+const domain = useRuntimeConfig().public.domain
+
+const articleAttachmentList = reactive<Record<string, any>[]>([])
+
+const getArticleAttachment = async () => {
+    let { data: response } = await SSRrequest.get(`article-attachment/${route.params.id}`)
+
+    // 直接更新 articleAttachmentList
+    if (response.value?.data) {
+        //先清空,在抓取
+        articleAttachmentList.length = 0
+        Object.assign(articleAttachmentList, response.value.data)
+
+    } else {
+        articleAttachmentList.length = 0
+    }
+}
+
+await getArticleAttachment()
+
+
 
 
 </script>
