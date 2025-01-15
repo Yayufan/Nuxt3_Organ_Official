@@ -79,5 +79,10 @@ await getArticle()
         margin: 0 8%;
     }
 
+    .aricle-attachment-box {
+        margin: 0 8%;
+        margin-top: 3%;
+    }
+
 }
 </style>

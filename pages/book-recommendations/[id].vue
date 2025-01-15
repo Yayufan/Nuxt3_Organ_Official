@@ -46,6 +46,8 @@ const getArticle = async () => {
 
 await getArticle()
 
+
+
 </script>
 
 <style scoped lang="scss">
@@ -77,6 +79,11 @@ await getArticle()
 
     .article-content {
         margin: 0 8%;
+    }
+
+    .aricle-attachment-box {
+        margin: 0 8%;
+        margin-top: 3%;
     }
 
 }
