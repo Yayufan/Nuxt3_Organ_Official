@@ -13,6 +13,14 @@
         <div class="article-content ck-content" v-html="htmlContent">
 
         </div>
+
+        <div class="aricle-attachment-box">
+            <a class="download-link" target="_blank" :href="`${domain}/minio${item.path}`"
+                v-for="(item, index) in articleAttachmentList" :key="item.articleAttachmentId">
+                {{ item.name }}
+            </a>
+        </div>
+
     </section>
 
 </template>
