@@ -81,6 +81,7 @@ await getArticleAttachment()
 </script>
 
 <style scoped lang="scss">
+
 .article-section {
     margin: 0 auto;
     margin-bottom: 3%;
