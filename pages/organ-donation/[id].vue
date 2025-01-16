@@ -113,7 +113,14 @@ await getArticleAttachment()
 
     .aricle-attachment-box {
         margin: 0 8%;
+        display: flex;
+        flex-direction: column;
         margin-top: 3%;
+
+        .file-link{
+            margin: 10px 0;
+        }
+
     }
 
 }

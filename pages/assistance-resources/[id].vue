@@ -16,7 +16,7 @@
 
 
         <div class="aricle-attachment-box">
-            <a class="download-link" target="_blank" :href="`${domain}/minio${item.path}`"
+            <a class="download-link file-link" target="_blank" :href="`${domain}/minio${item.path}`"
                 v-for="(item, index) in articleAttachmentList" :key="item.articleAttachmentId">
                 {{ item.name }}
             </a>
@@ -114,7 +114,14 @@ await getArticleAttachment()
 
     .aricle-attachment-box {
         margin: 0 8%;
+        display: flex;
+        flex-direction: column;
         margin-top: 3%;
+
+        .file-link{
+            margin: 10px 0;
+        }
+
     }
 
 }
