@@ -74,10 +74,10 @@
                         </el-radio-group>
                     </el-form-item>
                     <div class="text-area">
-                        <el-form-item class="reason unnecessary" label="簽署的原因：" label-width="auto">
+                        <el-form-item class="reason unnecessary" label="簽署的原因：" label-width="auto" prop="reason" >
                             <el-input v-model="form.reason" type="textarea" rows="6"></el-input>
                         </el-form-item>
-                        <el-form-item class="word-to-family unnecessary" label="給家人的話：" label-width="auto">
+                        <el-form-item class="word-to-family unnecessary" label="給家人的話：" label-width="auto" prop="wordToFamily" >
                             <el-input v-model="form.wordToFamily" type="textarea" rows="6"></el-input>
                         </el-form-item>
                     </div>
@@ -562,7 +562,8 @@ const formRules = reactive<FormRules<form>>({
             message: '請選擇國籍'
             , trigger: 'blur'
         }
-    ]
+    ],
+    
 
 })
 
