@@ -2,14 +2,8 @@
     <main class="main">
         <div class="carousel-box">
             <el-carousel arrow="always" indicator-position="outside">
-                <el-carousel-item>
-                    <img src="@/assets/img/carousel-item3.jpg" alt="">
-                </el-carousel-item>
-                <el-carousel-item>
-                    <img src="@/assets/img/carousel-item2.jpg" alt="">
-                </el-carousel-item>
-                <el-carousel-item>
-                    <img src="@/assets/img/carousel-item1.jpg" alt="">
+                <el-carousel-item v-for="(item, index) in homeCarouselList" :key="item.fileId">
+                    <img :src="'minio' + item.path" :alt="item.name">
                 </el-carousel-item>
             </el-carousel>
         </div>
@@ -28,8 +22,8 @@
         <div class="paragraph">
             <p class="title">活動花絮</p>
             <div class="article-box">
-                <nuxt-link class="event-highlight-item" :to="`/event-highlights/${item.articleId}`"  v-for="(item, index) in eventHighlightsList.records"
-                    :key="item.articleId">
+                <nuxt-link class="event-highlight-item" :to="`/event-highlights/${item.articleId}`"
+                    v-for="(item, index) in eventHighlightsList.records" :key="item.articleId">
                     {{ item.title }}
                 </nuxt-link>
             </div>
@@ -71,22 +65,72 @@
             </div>
         </div>
 
+        <div class="paragraph sponsor-box">
+            <ClientOnly>
+                <Vue3Marquee :gradient="true" :gradient-color="[255, 255, 255]" gradient-length="30%"
+                    :pause-on-hover="true" :clone="true">
+                    <a v-for="(item,index) in sponsorCarouselList" :key="item.fileId"  class="img-link" target="_blank" :href=item.link>
+                        <img :src="'minio' + item.path" :alt="item.name" />
+                    </a>
+                </Vue3Marquee>
+            </ClientOnly>
+        </div>
+
     </main>
 </template>
 
 <script setup lang='ts'>
 
-const viewWidth = ref(0);
-const activeLink = ref('news');
+/**-------------獲取輪播圖圖片-------------------------- */
+
+const HOME_CAROUSEL_GROUP = "homeCarousel"
+
+let homeCarouselList = reactive<Record<string, any>[]>([])
+
+const getHomeCarouselList = async () => {
+    let { data: response, pending } = await SSRrequest.get(`file/${HOME_CAROUSEL_GROUP}`)
+
+    // 直接更新 fileList 的值
+    if (response.value?.data) {
+        Object.assign(homeCarouselList, response.value.data)
+    }
+
+    console.log('這是獲取的檔案: ', homeCarouselList)
+
+}
+
+//立即執行獲取資料
+await getHomeCarouselList()
+
+/**----------廣告跑馬燈圖片--------------------- */
+
+const SPONSOR_CAROUSEL_GROUP = "sponsorCarousel"
+
+let sponsorCarouselList = reactive<Record<string, any>[]>([])
+
+const getSponsorCarouselList = async () => {
+    let { data: response, pending } = await SSRrequest.get(`file/${SPONSOR_CAROUSEL_GROUP}`)
+
+    // 直接更新 fileList 的值
+    if (response.value?.data) {
+        Object.assign(sponsorCarouselList, response.value.data)
+    }
+
+    console.log('這是獲取廣告的檔案: ', sponsorCarouselList)
+
+}
+
+//立即執行獲取資料
+await getSponsorCarouselList()
+
+
+/**-------------獲取最新消息 和 活動花絮-------------------- */
 
 //根據裝置預設顯示數量
-// const defaultSize = ref(useState('currentSize', () => useIsMobile().value ? 8 : 8))
-const isMobile = ref<boolean>(useIsMobile().value);
 const defaultSize = ref(useIsMobile().value ? 3 : 3)
 
 //傳續判斷裝置後的預設值,這個就是分頁的size
 const { page, size } = useGetPaginationParams(defaultSize.value)
-
 
 //設定分頁組件,currentPage當前頁數
 let currentPage = ref(page)
@@ -122,7 +166,7 @@ let eventHighlightsList = reactive({
 
 //獲取最新消息的資料
 const getNewsList = async (page: number, size: number) => {
-    let { data: response, pending } = await SSRrequest.get(`article/${activeLink.value}/pagination`, {
+    let { data: response, pending } = await SSRrequest.get(`article/news/pagination`, {
         params: {
             page,
             size
@@ -360,6 +404,18 @@ onMounted(() => {
                 }
             }
 
+        }
+    }
+
+    .sponsor-box {
+
+        .img-link {
+            margin: 0 1rem;
+
+            img {
+                width: 150px;
+                height: auto;
+            }
         }
     }
 }

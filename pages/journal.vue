@@ -50,11 +50,7 @@ const GROUP = "journalFile"
 
 let showFullList = ref(false)
 
-let journaFullList = reactive<Record<string, any>[]>(
-    [
-       
-    ]
-)
+let journaFullList = reactive<Record<string, any>[]>([])
 
 
 const getJournaFullList = async () => {

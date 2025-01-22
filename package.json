@@ -17,7 +17,8 @@
     "ckeditor5": "^43.2.0",
     "nuxt": "^3.10.3",
     "vue": "^3.4.21",
-    "vue-router": "^4.3.0"
+    "vue-router": "^4.3.0",
+    "vue3-marquee": "^4.2.2"
   },
   "devDependencies": {
     "@element-plus/nuxt": "^1.0.8",
