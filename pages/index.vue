@@ -67,6 +67,7 @@
 
         <div class="paragraph sponsor-box">
             <ClientOnly>
+                <!-- 這邊使用全局引入的插件,沒提示是缺點,這邊放上網址 https://vue3-marquee.vercel.app/introduction/installation -->
                 <Vue3Marquee :gradient="true" :gradient-color="[255, 255, 255]" gradient-length="30%"
                     :pause-on-hover="true" :clone="true">
                     <a v-for="(item,index) in sponsorCarouselList" :key="item.fileId"  class="img-link" target="_blank" :href=item.link>

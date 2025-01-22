@@ -78,8 +78,6 @@ const getArticleAttachment = async () => {
 await getArticleAttachment()
 
 
-
-
 </script>
 
 <style scoped lang="scss">
