@@ -80,6 +80,7 @@
 </template>
 
 <script setup lang='ts'>
+import Vue3Marquee from 'vue3-marquee'
 
 /**-------------獲取輪播圖圖片-------------------------- */
 
