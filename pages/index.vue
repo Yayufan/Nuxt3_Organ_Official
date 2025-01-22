@@ -80,7 +80,7 @@
 </template>
 
 <script setup lang='ts'>
-import Vue3Marquee from 'vue3-marquee'
+
 
 /**-------------獲取輪播圖圖片-------------------------- */
 
@@ -96,7 +96,6 @@ const getHomeCarouselList = async () => {
         Object.assign(homeCarouselList, response.value.data)
     }
 
-    console.log('這是獲取的檔案: ', homeCarouselList)
 
 }
 
@@ -117,7 +116,6 @@ const getSponsorCarouselList = async () => {
         Object.assign(sponsorCarouselList, response.value.data)
     }
 
-    console.log('這是獲取廣告的檔案: ', sponsorCarouselList)
 
 }
 
