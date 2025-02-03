@@ -31,7 +31,7 @@ interface ReturnData2 {
 export default {
     //獲取運行時的環境變量
     config() {
-        console.log(useRuntimeConfig())
+        // console.log(useRuntimeConfig())
         return useRuntimeConfig()
     },
 

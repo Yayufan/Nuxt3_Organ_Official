@@ -74,10 +74,11 @@
                         </el-radio-group>
                     </el-form-item>
                     <div class="text-area">
-                        <el-form-item class="reason unnecessary" label="簽署的原因：" label-width="auto" prop="reason" >
+                        <el-form-item class="reason unnecessary" label="簽署的原因：" label-width="auto" prop="reason">
                             <el-input v-model="form.reason" type="textarea" rows="6"></el-input>
                         </el-form-item>
-                        <el-form-item class="word-to-family unnecessary" label="給家人的話：" label-width="auto" prop="wordToFamily" >
+                        <el-form-item class="word-to-family unnecessary" label="給家人的話：" label-width="auto"
+                            prop="wordToFamily">
                             <el-input v-model="form.wordToFamily" type="textarea" rows="6"></el-input>
                         </el-form-item>
                     </div>
@@ -281,7 +282,6 @@ function checkCkDigit(code: string): CheckResult {
     }
 
     const bodyCode = code.substring(1, 9);
-    console.log()
     const lastCode = code[9];
 
     const calHead = (num: number): number =>
@@ -343,7 +343,7 @@ const checkOldResidentCertificate = (code: string): CheckResult => {
     const idSum =
         calHead(placeCode) + genderCode * 8 + calBody(bodyCode) + parseInt(lastCode) * 1;
 
-    console.log("舊版居留證號值", idSum)
+
 
     const isValid = idSum % 10 === 0;
 
@@ -360,7 +360,7 @@ const checkNewResidentCertificate = (code: string): CheckResult => {
 
     const placeCode = codeMap[code[0]];
     const bodyCode = code.substring(1, 9);
-    console.log("新版body code ", bodyCode)
+    // console.log("新版body code ", bodyCode)
     const lastCode = code[9];
 
     if (!placeCode === undefined) {
@@ -381,7 +381,7 @@ const checkNewResidentCertificate = (code: string): CheckResult => {
     const idSum =
         calHead(placeCode) + calBody(bodyCode) + parseInt(lastCode) * 1;
 
-    console.log("新版居留證號值", idSum)
+    // console.log("新版居留證號值", idSum)
 
     const isValid = idSum % 10 === 0;
 
@@ -440,16 +440,16 @@ const refreshCaptcha = async () => {
     try {
         const response = await CSRrequest.get('organ-donation-consent/captcha',)
 
-        console.log('響應為:', response)
+        // console.log('響應為:', response)
 
         captchaImg.value = response.data.image
         form.verificationKey = response.data.key
 
-        console.log("驗證碼key為:", form.verificationKey)
+        // console.log("驗證碼key為:", form.verificationKey)
 
 
     } catch (error) {
-        console.error('刷新驗證碼失敗', error)
+        // console.error('刷新驗證碼失敗', error)
     }
 }
 
@@ -563,7 +563,7 @@ const formRules = reactive<FormRules<form>>({
             , trigger: 'blur'
         }
     ],
-    
+
 
 })
 
@@ -741,7 +741,6 @@ const resetForm = (formEl: FormInstance | undefined) => {
     formEl.resetFields()
     form.consentCard = '-1'
     form.donateOrgans = []
-    console.log(form);
 }
 
 

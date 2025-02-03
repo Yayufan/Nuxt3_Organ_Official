@@ -69,7 +69,8 @@ export default defineNuxtConfig({
           additionalData: '@import "@/assets/styles/global.scss";',
         }
       }
-    }
+    },
+    
   },
   devtools: {
     enabled: false  //預設為true
@@ -102,5 +103,7 @@ export default defineNuxtConfig({
       ]
     }
   },
+
+  
 
 })

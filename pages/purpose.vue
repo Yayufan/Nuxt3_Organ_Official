@@ -254,7 +254,6 @@ const getOtherList = () => {
         showFullList.value = false
     }
 
-    console.log(supervisorsList)
 
 }
 

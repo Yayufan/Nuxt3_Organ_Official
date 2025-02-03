@@ -106,8 +106,7 @@ const getdataAnalysisFileList = async () => {
 await getWorkResultFileList()
 await getdataAnalysisFileList()
 
-console.log("這是工作成果: ", workResultFileList)
-console.log("這是簽卡分析: ", dataAnalysisFileList)
+
 
 
 </script>

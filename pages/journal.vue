@@ -78,7 +78,7 @@ const getOtherList = () => {
         // 清空原数组并赋值全部数据
         displayedJournaList.splice(0, displayedJournaList.length, ...journaFullList);
         showFullList.value = true
-        console.log(displayedJournaList)
+
 
     } else {
 
