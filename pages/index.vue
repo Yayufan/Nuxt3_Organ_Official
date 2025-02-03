@@ -3,7 +3,9 @@
         <div class="carousel-box">
             <el-carousel arrow="always" indicator-position="outside">
                 <el-carousel-item v-for="(item, index) in homeCarouselList" :key="item.fileId">
-                    <img :src="'minio' + item.path" :alt="item.name">
+                    <a :href="item.link" target="_blank">
+                        <img :src="'minio' + item.path" :alt="item.name">
+                    </a>
                 </el-carousel-item>
             </el-carousel>
         </div>
@@ -70,7 +72,8 @@
                 <!-- 這邊使用全局引入的插件,沒提示是缺點,這邊放上網址 https://vue3-marquee.vercel.app/introduction/installation -->
                 <Vue3Marquee :gradient="true" :gradient-color="[255, 255, 255]" gradient-length="30%"
                     :pause-on-hover="true" :clone="true">
-                    <a v-for="(item,index) in sponsorCarouselList" :key="item.fileId"  class="img-link" target="_blank" :href=item.link>
+                    <a v-for="(item, index) in sponsorCarouselList" :key="item.fileId" class="img-link" target="_blank"
+                        :href=item.link>
                         <img :src="'minio' + item.path" :alt="item.name" />
                     </a>
                 </Vue3Marquee>
