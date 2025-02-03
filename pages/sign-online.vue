@@ -440,12 +440,12 @@ const refreshCaptcha = async () => {
     try {
         const response = await CSRrequest.get('organ-donation-consent/captcha',)
 
-        // console.log('響應為:', response)
+        console.log('響應為:', response)
 
         captchaImg.value = response.data.image
         form.verificationKey = response.data.key
 
-        // console.log("驗證碼key為:", form.verificationKey)
+        console.log("驗證碼key為:", form.verificationKey)
 
 
     } catch (error) {

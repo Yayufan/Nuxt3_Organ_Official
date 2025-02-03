@@ -63,6 +63,21 @@ export default defineNuxtConfig({
   //vite配置
   vite: {
 
+    // 2025/2/3 新增
+    build: {
+      minify: "terser", // Vite 2.6.x 以上需要配置 minify: "terser", terserOptions 才能生效
+      terserOptions: {
+        compress: {
+          keep_infinity: true, // 防止 Infinity 被压缩成 1/0，这可能会导致 Chrome 上的性能问题
+          drop_console: true, // 生产环境去除 console
+          drop_debugger: true, // 生产环境去除 debugger
+        },
+        format: {
+          comments: false, // 删除注释
+        },
+      },
+    },
+
     css: {
       preprocessorOptions: {
         scss: {
@@ -70,7 +85,7 @@ export default defineNuxtConfig({
         }
       }
     },
-    
+
   },
   devtools: {
     enabled: false  //預設為true
@@ -104,6 +119,6 @@ export default defineNuxtConfig({
     }
   },
 
-  
+
 
 })
