@@ -64,7 +64,7 @@
                 <template #title>捐款贊助</template>
                 <nuxt-link :to="'/donate'"><el-menu-item index="donate">捐款支持-立即行動</el-menu-item></nuxt-link>
                 <nuxt-link :to="'/charity-sale'"><el-menu-item
-                        index="charity-sale">版畫有限量，愛心無限亮</el-menu-item></nuxt-link>
+                        index="charity-sale">義賣活動</el-menu-item></nuxt-link>
             </el-sub-menu>
             <el-sub-menu index="6">
                 <template #title>簽署器捐</template>

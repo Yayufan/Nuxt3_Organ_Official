@@ -7,7 +7,7 @@
 
         <section class="common-section">
 
-            <h1 class="common-title">版畫有限量，愛心無限亮</h1>
+            <h1 class="common-title">量，愛心無限亮</h1>
 
             <div class="function-bar">
                 <div class="donation-instructions common-label">劉其偉版畫認購義賣</div>

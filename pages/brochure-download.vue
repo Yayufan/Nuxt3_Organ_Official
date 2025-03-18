@@ -11,20 +11,20 @@
 
             <div class="content-box">
 
-                <article class="article-item" v-for="(item, index) in articleList.records " :key="index">
+                <article class="article-item" v-for="(item, index) in promotionalFileList " :key="item.fileId">
                     <div class="article-img-box">
-                        <img class="article-img" :src="item.imgUrl">
+                        <img class="article-img" :src="`/minio${item.coverThumbnailUrl}`">
                     </div>
 
                     <div class="article-info-box">
                         <div class="base-info">
-                            <h2 class="article-title">{{ item.title }}</h2>
+                            <h2 class="article-title">{{ item.description }}</h2>
                             <p class="article-description">
                                 {{ item.description }}
                             </p>
                         </div>
                         <div class="download-box">
-                            <a class="download-btn" :href="item.fileUrl" target="_blank">Download</a>
+                            <a class="download-btn" :href="`/minio${item.path}`" target="_blank">Download</a>
                         </div>
 
                     </div>
@@ -35,11 +35,11 @@
         分頁插件 total為總資料數(這邊設置20筆),  default-page-size代表每頁顯示資料(預設為10筆,這邊設置為5筆) 
         current-page當前頁數,官方建議使用v-model與current-page去與自己設定的變量做綁定,
         -->
-                <div class="common-pagination">
+                <!-- <div class="common-pagination">
                     <el-pagination layout="prev, pager, next" :page-count="Number(articleList.pages)"
                         :default-page-size="Number(articleList.size)" v-model:current-page="currentPage"
                         :hide-on-single-page="true" :pager-count="5" />
-                </div>
+                </div> -->
             </div>
         </section>
 
@@ -53,29 +53,25 @@ import { descriptionProps } from 'element-plus';
 import { ref, reactive } from 'vue'
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
-//設定分頁組件,currentPage當前頁數
-let currentPage = ref(1)
+const GROUP = "promotional"
+
+let promotionalFileList = reactive<Record<string, any>[]>([])
 
 
-let articleList = reactive({
-    pages: 1,
-    size: 4,
-    records: [
-        {
-            title: '器官捐贈生命教育手冊',
-            description: '歡迎來電索取紙本',
-            imgUrl: 'img/113_brochure.jpg',
-            fileUrl: 'files/113_brochure.pdf'
-        },
-        {
-            title: '摺頁DM',
-            description: '歡迎來電索取紙本',
-            imgUrl: 'img/106_DM.jpg',
-            fileUrl: 'files/106_DM.pdf'
-        },
+//獲取工作成果所有檔案的資料
+const getPromotionalFileList = async () => {
+    let { data: response, pending } = await SSRrequest.get(`file/${GROUP}`, {})
 
-    ]
-})
+    // 直接更新 fileList 的值
+    if (response.value?.data) {
+        Object.assign(promotionalFileList, response.value.data)
+    }
+    console.log("返回數組: ",promotionalFileList)
+
+}
+
+//立即執行獲取資料
+await getPromotionalFileList()
 
 
 </script>

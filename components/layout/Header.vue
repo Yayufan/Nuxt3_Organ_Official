@@ -124,7 +124,7 @@ const menuItem = [
             { title: '協助資源', link: '/assistance-resources' },
             { title: '好書推薦', link: '/book-recommendations' },
             { title: '社工專欄', link: '/social-work-column' },
-            { title: '家屬資料填寫', link: '/family-infomation' },
+            { title: '家屬資料填寫', link: '/family-information' },
             { title: '如果你要懷念我', link: '/miss-me' }
         ]
     },
@@ -132,7 +132,7 @@ const menuItem = [
         title: '捐款贊助',
         subMenu: [
             { title: '捐款支持-立即行動', link: '/donate' },
-            { title: '版畫有限量，愛心無限亮', link: '/charity-sale' }
+            { title: '義賣活動', link: '/charity-sale' }
         ]
     },
     {
