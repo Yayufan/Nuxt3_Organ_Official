@@ -7,26 +7,20 @@
 
         <section class="common-section">
 
-            <h1 class="common-title">家屬資料填寫</h1>
+            <h1 class="common-title">{{ singlePageArticle.title }}</h1>
 
-            <div class="content-box">
-
-                <article class="paragraph">
-
-                    <p>本會每年為捐贈者家屬舉辦各類型關懷活動與諮詢協談</p>
-
-                    <p>誠摯邀請家屬們參與</p>
-
-                    <p>請將您的想法和需求告訴我們</p>
-
-                    <p>將由本會社工員與您聯繫</p>
-
-                    <p>家屬資料<nuxt-link class="google-form" target="_blank" to="https://docs.google.com/forms/d/e/1FAIpQLScxrl0on7gvcaTYTI9knEgy0-dwGHhT7SeJfS183B8g811QHQ/viewform" >填寫</nuxt-link></p>
-
-                </article>
-
+            <div class="article-content ck-content" v-html="htmlContent">
 
             </div>
+
+            <div class="aricle-attachment-box">
+                <div v-for="(item, index) in articleAttachmentList" :key="item.singlePageArticleAttachmentId">
+                    <a class="download-link file-link" target="_blank" :href="`${domain}/minio${item.path}`">
+                        {{ item.name }}
+                    </a>
+                </div>
+            </div>
+
 
         </section>
 
@@ -38,7 +32,64 @@
 <script setup lang='ts'>
 
 import { ref, reactive } from 'vue'
+import 'ckeditor5/ckeditor5.css';
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
+
+const route = useRoute();
+const path = ref("familyInformation")
+
+//獲取當前domain
+const domain = useRuntimeConfig().public.domain
+// 附件儲存列表
+const articleAttachmentList = reactive<Record<string, any>[]>([])
+
+
+//預設假資料
+const singlePageArticle = reactive({
+    singlePageArticleId: '',
+    path: '',
+    title: '家屬資料填寫',
+    announcementDate: '2024-10-08'
+})
+const htmlContent = ref('')
+
+const getArticleAttachment = async () => {
+    let { data: response } = await SSRrequest.get(`single-page-article-attachment/${singlePageArticle.singlePageArticleId}`)
+
+    console.log(response.value)
+
+    // 直接更新 articleAttachmentList
+    if (response.value?.data) {
+        //先清空,在抓取
+        articleAttachmentList.length = 0
+
+        Object.assign(articleAttachmentList, response.value.data)
+
+    } else {
+        articleAttachmentList.length = 0
+    }
+}
+
+const getSinglePageArticle = async () => {
+    let { data: response } = await SSRrequest.get(`single-page-article/show/by-path`, {
+        params: {
+            path
+        }
+    })
+
+    // 直接更新 singlePageArticle 的值
+    if (response.value?.data) {
+        Object.assign(singlePageArticle, response.value.data)
+        htmlContent.value = response.value.data.content
+        // 確定獲取到頁面後，才去找他的檔案
+        getArticleAttachment()
+
+    }
+
+}
+
+await getSinglePageArticle()
+
 
 </script>
 
@@ -54,7 +105,7 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
         font-size: $common-title-font-size;
         letter-spacing: $common-title-letter-spacing;
         margin-left: 10%;
-        margin-bottom: 3%;
+        margin-bottom: 2%;
 
         &::before {
             display: inline;
@@ -66,6 +117,22 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
         @media screen and (max-width:481px) {
             margin-left: 0;
         }
+    }
+
+    .article-content {
+        margin: 0 10%;
+    }
+
+    .aricle-attachment-box {
+        margin: 0 10%;
+        display: flex;
+        flex-direction: column;
+        margin-top: 3%;
+
+        .file-link {
+            margin: 10px 0;
+            display: inline-block;
+        }
 
     }
 
@@ -76,29 +143,41 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
             margin-left: 0;
         }
 
-        .paragraph {
-            margin: 3% 0;
-            line-height: 2;
-            font-size: 1.2rem;
+        .additional-information {
+            margin-left: 1.7rem;
+            margin-bottom: 5rem;
+            font-size: $paragraph-font-size;
+            max-width: 1050px;
+            line-height: 1.5;
+            color: $main-content-color;
 
-            p{
-                
+            @media screen and (max-width:481px) {
+                width: 80%;
             }
 
-            .google-form{
-                text-decoration: underline;
-                font-weight: 700;
-                color: $main-color;
-                font-size: 1.4rem;
-                transition: 0.5s;
-
-                &:hover{
-                    font-size: 1.45rem;
-                }
-            }
 
         }
 
+        .paragraph {
+            margin: 3% 0;
+        }
+
+        .sub-title {
+            font-size: 1.2rem;
+        }
+
+        .download-file-box {
+            display: flex;
+            flex-direction: column;
+            margin-left: 2.5rem;
+
+            .download-link {
+                margin: 0.5rem;
+                /** 這邊是為了將a標籤從flex block 狀態,改為inline block 狀態  */
+                align-self: flex-start;
+            }
+
+        }
     }
 }
 </style>

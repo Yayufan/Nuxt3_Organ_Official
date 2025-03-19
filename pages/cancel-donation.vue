@@ -7,37 +7,18 @@
 
         <section class="common-section">
 
-            <h1 class="common-title">撤銷器官簽署</h1>
+            <h1 class="common-title">{{ singlePageArticle.title }}</h1>
 
-            <div class="content-box">
+            <div class="article-content ck-content" v-html="htmlContent">
 
-                <p class="additional-information">
-                    現行經註記於健保卡之器官捐贈意願屬「具法律效力之同意」
-                    <br><br>
-                    不管您曾經透過哪些管道簽署器官捐贈，
-                    <br><br>
-                    如果您因故欲撤除器官捐贈意願註記，
-                    <br><br>
-                    請於本頁下載列印【器官捐贈意願撤回聲明書】
-                    <br><br>
-                    填寫後郵寄書面資料至本會
-                    <br>
-                    <br>
-                    感謝您！
-                </p>
+            </div>
 
-                <article class="paragraph">
-                    <div class="download-file-box">
-                        <a class="download-link-ver2"
-                            href="/files/withdrawal-of-statement-of-intention-for-organ-donation.docx"
-                            target="_blank" >器捐意願撤回聲明書.docx</a>
-                        <a class="download-link-ver2"
-                            href="/files/withdrawal-of-statement-of-intention-for-organ-donation.pdf"
-                            target="_blank" >器捐意願撤回聲明書.pdf</a>
-                    </div>
-                </article>
-
-
+            <div class="aricle-attachment-box">
+                <div v-for="(item, index) in articleAttachmentList" :key="item.singlePageArticleAttachmentId">
+                    <a class="download-link file-link" target="_blank" :href="`${domain}/minio${item.path}`">
+                        {{ item.name }}
+                    </a>
+                </div>
             </div>
 
 
@@ -45,12 +26,70 @@
 
     </div>
 
+
 </template>
 
 <script setup lang='ts'>
 
 import { ref, reactive } from 'vue'
+import 'ckeditor5/ckeditor5.css';
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
+
+const route = useRoute();
+const path = ref("cancelDonation")
+
+//獲取當前domain
+const domain = useRuntimeConfig().public.domain
+// 附件儲存列表
+const articleAttachmentList = reactive<Record<string, any>[]>([])
+
+
+//預設假資料
+const singlePageArticle = reactive({
+    singlePageArticleId: '',
+    path: '',
+    title: '撤銷器官簽署',
+    announcementDate: '2024-10-08'
+})
+const htmlContent = ref('')
+
+const getArticleAttachment = async () => {
+    let { data: response } = await SSRrequest.get(`single-page-article-attachment/${singlePageArticle.singlePageArticleId}`)
+
+    console.log(response.value)
+
+    // 直接更新 articleAttachmentList
+    if (response.value?.data) {
+        //先清空,在抓取
+        articleAttachmentList.length = 0
+
+        Object.assign(articleAttachmentList, response.value.data)
+
+    } else {
+        articleAttachmentList.length = 0
+    }
+}
+
+const getSinglePageArticle = async () => {
+    let { data: response } = await SSRrequest.get(`single-page-article/show/by-path`, {
+        params: {
+            path
+        }
+    })
+
+    // 直接更新 singlePageArticle 的值
+    if (response.value?.data) {
+        Object.assign(singlePageArticle, response.value.data)
+        htmlContent.value = response.value.data.content
+        // 確定獲取到頁面後，才去找他的檔案
+        getArticleAttachment()
+
+    }
+
+}
+
+await getSinglePageArticle()
+
 
 </script>
 
@@ -80,21 +119,43 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
         }
     }
 
+    .article-content {
+        margin: 0 10%;
+    }
+
+    .aricle-attachment-box {
+        margin: 0 10%;
+        display: flex;
+        flex-direction: column;
+        margin-top: 3%;
+
+        .file-link {
+            margin: 10px 0;
+            display: inline-block;
+        }
+
+    }
+
     .content-box {
         margin-left: 10%;
 
         @media screen and (max-width:481px) {
             margin-left: 0;
-            width: 90%;
         }
 
         .additional-information {
             margin-left: 1.7rem;
-            // margin-bottom: 5rem;
+            margin-bottom: 5rem;
             font-size: $paragraph-font-size;
-            max-width: 900px;
+            max-width: 1050px;
             line-height: 1.5;
             color: $main-content-color;
+
+            @media screen and (max-width:481px) {
+                width: 80%;
+            }
+
+
         }
 
         .paragraph {
@@ -108,9 +169,9 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
         .download-file-box {
             display: flex;
             flex-direction: column;
-            margin-left: 1.7rem;
+            margin-left: 2.5rem;
 
-            .download-link-ver2 {
+            .download-link {
                 margin: 0.5rem;
                 /** 這邊是為了將a標籤從flex block 狀態,改為inline block 狀態  */
                 align-self: flex-start;

@@ -7,26 +7,18 @@
 
         <section class="common-section">
 
-            <h1 class="common-title">合作申請書</h1>
+            <h1 class="common-title">{{ singlePageArticle.title }}</h1>
 
-            <div class="content-box">
+            <div class="article-content ck-content" v-html="htmlContent">
 
-                <p class="additional-information">
-                    機構參訪、採訪申請，或其他的合作申請，請於2周前填寫合作申請單預約，
-                    以了解您的需求，進行內部行政作業，在時間人力有限下，
-                    無法一一受理所有的參訪申請，歡迎多加運用器捐協會官網了解相關資訊，謝謝~
-                </p>
+            </div>
 
-                <article class="paragraph">
-                    <h2 class="sub-title common-label">合作申請書下載</h2>
-                    <div class="download-file-box">
-                        <a class="download-link" href="/files/cooperation_application_form.docx" target="_blank">合作申請書.doc</a>
-                        <a class="download-link" href="/files/cooperation_application_form.pdf" target="_blank">合作申請書.pdf</a>
-                    </div>
-
-                </article>
-
-
+            <div class="aricle-attachment-box">
+                <div v-for="(item, index) in articleAttachmentList" :key="item.singlePageArticleAttachmentId">
+                    <a class="download-link file-link" target="_blank" :href="`${domain}/minio${item.path}`">
+                        {{ item.name }}
+                    </a>
+                </div>
             </div>
 
 
@@ -40,7 +32,64 @@
 <script setup lang='ts'>
 
 import { ref, reactive } from 'vue'
+import 'ckeditor5/ckeditor5.css';
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
+
+const route = useRoute();
+const path = ref("cooperation")
+
+//獲取當前domain
+const domain = useRuntimeConfig().public.domain
+// 附件儲存列表
+const articleAttachmentList = reactive<Record<string, any>[]>([])
+
+
+//預設假資料
+const singlePageArticle = reactive({
+    singlePageArticleId: '',
+    path: '',
+    title: '合作申請書',
+    announcementDate: '2024-10-08'
+})
+const htmlContent = ref('')
+
+const getArticleAttachment = async () => {
+    let { data: response } = await SSRrequest.get(`single-page-article-attachment/${singlePageArticle.singlePageArticleId}`)
+
+    console.log(response.value)
+
+    // 直接更新 articleAttachmentList
+    if (response.value?.data) {
+        //先清空,在抓取
+        articleAttachmentList.length = 0
+
+        Object.assign(articleAttachmentList, response.value.data)
+
+    } else {
+        articleAttachmentList.length = 0
+    }
+}
+
+const getSinglePageArticle = async () => {
+    let { data: response } = await SSRrequest.get(`single-page-article/show/by-path`, {
+        params: {
+            path
+        }
+    })
+
+    // 直接更新 singlePageArticle 的值
+    if (response.value?.data) {
+        Object.assign(singlePageArticle, response.value.data)
+        htmlContent.value = response.value.data.content
+        // 確定獲取到頁面後，才去找他的檔案
+        getArticleAttachment()
+
+    }
+
+}
+
+await getSinglePageArticle()
+
 
 </script>
 
@@ -70,6 +119,23 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
         }
     }
 
+    .article-content {
+        margin: 0 10%;
+    }
+
+    .aricle-attachment-box {
+        margin: 0 10%;
+        display: flex;
+        flex-direction: column;
+        margin-top: 3%;
+
+        .file-link {
+            margin: 10px 0;
+            display: inline-block;
+        }
+
+    }
+
     .content-box {
         margin-left: 10%;
 
@@ -89,7 +155,7 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
                 width: 80%;
             }
 
-            
+
         }
 
         .paragraph {
