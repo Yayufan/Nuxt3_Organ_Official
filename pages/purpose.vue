@@ -17,9 +17,7 @@
                     <h2 class="sub-title">宗旨</h2>
                     <p class="content">
                         現代移植醫學的進步已可挽救器官衰竭病患的生命，且提昇患者的生命品質，然而器官捐贈來源的短缺，
-                        <br>
                         乃成為器官移植手術無法救人無數的阻礙，為協助醫療服務，提倡尊重生命理念，造福民眾的健康，特於
-                        <br>
                         民國82年8月28日正式成立「社團法人中華民國器官捐贈協會」。
                     </p>
                 </article>
@@ -222,6 +220,7 @@ const getOtherList = () => {
 
         .content {
             margin-left: 14%;
+            margin-right: 9%;
             margin-top: 2%;
             font-size: $paragraph-font-size;
 
