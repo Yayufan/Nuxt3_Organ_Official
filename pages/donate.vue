@@ -43,7 +43,7 @@
                         <div class="common-label">搭配銀行</div>
                         <ol class="content">
                             <li>華南銀行(銀行代碼：008) <div class="bank">信維分行</div><br>帳 號：149-10-008398-4</li>
-                            <li>聯邦銀行(銀行代碼：803) <div class="bank">文林簡易分行</div><br>帳 號：048-50-8017900</li>
+                            <!-- <li>聯邦銀行(銀行代碼：803) <div class="bank">文林簡易分行</div><br>帳 號：048-50-8017900</li> -->
                             <li>元大銀行(銀行代碼：806) <div class="bank">和平分行</div><br>帳 號：215-9200-1838088</li>
 
                         </ol>

@@ -53,11 +53,11 @@
                         <div class="download-item">
                             <a class="download-link-ver2" href="/files/laws_attachment.pdf" target="_blank">各器官分配原則.pdf</a>
                         </div>
-                        <div class="download-item">
+                        <!-- <div class="download-item">
                             <a class="download-link-ver2"
                                 href="https://www.torsc.org.tw/docDetail.jsp?uid=33&pid=30&doc_id=942&rn=-1257896009"
                                 target="_blank">死後器官捐贈者基準</a><span>（依據行政院衛生福利部函衛部醫字第1080000531號）</span>
-                        </div>
+                        </div> -->
                     </div>
 
                 </article>
@@ -76,8 +76,8 @@
                     <div class="download-file-box">
                         <a class="download-link-ver2" href="https://www.declarationofistanbul.org/"
                             target="_blank">伊斯坦堡宣言</a>
-                        <a class="download-link-ver2" href="/files/donor_benchmark_sheet.doc"
-                            target="_blank">捐贈者基準表.doc</a>
+                        <!-- <a class="download-link-ver2" href="/files/donor_benchmark_sheet.doc"
+                            target="_blank">捐贈者基準表.doc</a> -->
                         <a class="download-link-ver2" href="/files/istanbul_declaration_zh.doc"
                             target="_blank">伊斯坦堡宣言中譯文.doc</a>
                         
