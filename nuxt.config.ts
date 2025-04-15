@@ -5,6 +5,8 @@ export default defineNuxtConfig({
   //   port: 3000
   // },
 
+  
+
 
   //運行時的配置
   runtimeConfig: {
@@ -91,10 +93,7 @@ export default defineNuxtConfig({
     enabled: false  //預設為true
   },
   //使用模塊,Element Plus
-  modules: [
-    '@element-plus/nuxt',
-    'nuxt-gtag'
-  ],
+  modules: ['@element-plus/nuxt', 'nuxt-gtag', "@nuxtjs/sitemap"],
   //這是一個GA4 配置項,如果有報錯是暫時的,安裝完依賴,重開Vscode, 以及npm run dev跑一次
   gtag: {
     //id是追蹤代碼,都是G-開頭的 
@@ -108,6 +107,8 @@ export default defineNuxtConfig({
 
     /** 其他Options */
   },
+
+  
 
   nitro: {
     prerender: {
