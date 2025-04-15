@@ -108,18 +108,24 @@ export default defineNuxtConfig({
     /** 其他Options */
   },
 
+  // site: { 
+  //   url: 'https://organ.zfcloud.cc', 
+  //   name: '社團法人中華民國器官捐贈協會' 
+  //   }, 
   
 
-  nitro: {
-    prerender: {
-      ignore: [
-        '/organ2/education-surgery/1',
-        '/organ2/professional/1'
-        // 可以繼續列出不需要預渲染的其他路由
-      ]
-    }
-  },
+  
+
+  // nitro: {
+  //   prerender: {
+  //     ignore: [
+  //       '/organ2/education-surgery/1',
+  //       '/organ2/professional/1'
+  //       // 可以繼續列出不需要預渲染的其他路由
+  //     ]
+  //   }
+  // },
 
 
 
-})
+},)
