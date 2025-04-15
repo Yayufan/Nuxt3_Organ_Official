@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   //   port: 3000
   // },
 
-  
+
 
 
   //運行時的配置
@@ -58,10 +58,12 @@ export default defineNuxtConfig({
     pageTransition: { name: 'page', mode: 'out-in' }
 
   },
+
   //引入全局css
   css: [
     '@/assets/styles/reset.css',
   ],
+
   //vite配置
   vite: {
 
@@ -83,39 +85,32 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: '@import "@/assets/styles/global.scss";',
+          // additionalData: '@import "@/assets/styles/global.scss";',
+          additionalData: '@use "@/assets/styles/global.scss" as *;',
         }
       }
     },
 
   },
+
   devtools: {
     enabled: false  //預設為true
   },
+
   //使用模塊,Element Plus
   modules: ['@element-plus/nuxt', 'nuxt-gtag', "@nuxtjs/sitemap"],
+
   //這是一個GA4 配置項,如果有報錯是暫時的,安裝完依賴,重開Vscode, 以及npm run dev跑一次
   gtag: {
     //id是追蹤代碼,都是G-開頭的 
     id: process.env.NUXT_PUBLIC_GA4ID
   },
+
   //這是一個elementPlus配置項,如果有報錯是暫時的,安裝完依賴,重開Vscode, 以及npm run dev跑一次
-  elementPlus: {
-    //預設icon是不會自動引入的,預設為false, 他只接受String | false 兩種配置
-    //在使用icon的時候 就要加上前墜ElIcon, 例如使用Search Icon , 就得寫成 ElIconSearch
-    icon: 'ElIcon',
-
-    /** 其他Options */
-  },
-
   // site: { 
   //   url: 'https://organ.zfcloud.cc', 
   //   name: '社團法人中華民國器官捐贈協會' 
   //   }, 
-  
-
-  
-
   // nitro: {
   //   prerender: {
   //     ignore: [
@@ -125,7 +120,13 @@ export default defineNuxtConfig({
   //     ]
   //   }
   // },
+  elementPlus: {
+    //預設icon是不會自動引入的,預設為false, 他只接受String | false 兩種配置
+    //在使用icon的時候 就要加上前墜ElIcon, 例如使用Search Icon , 就得寫成 ElIconSearch
+    icon: 'ElIcon',
 
+    /** 其他Options */
+  },
 
-
+  compatibilityDate: '2025-04-15',
 },)

@@ -34,6 +34,8 @@
         letter-spacing: 0.1rem;
         color: $main-content-color;
         width: 1047.6px;
+        margin: 0 auto;
+
         @media screen and (max-width: 1100px) {
             width: 682.8px;
             
@@ -44,7 +46,7 @@
             margin-left: 13%;
             
         }
-        margin: 0 auto;
+
         // margin-left: 14.4%;
         // width: 47rem;
        :deep(.is-link) {

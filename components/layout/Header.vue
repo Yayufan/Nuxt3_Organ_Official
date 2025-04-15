@@ -194,15 +194,14 @@ const goToBottom = () => {
     .logo-box {
         // margin-left: 40vw;
         margin-left: 4%;
-
+        width: 20vw;
         @media screen and (max-width: 850px) {
             // margin: 0 0 1.5vw 0;
             width: 30vw;
             margin: 1vw 0 1.5vw 0;
         }
 
-        width: 20vw;
-
+    
         img {
             width: 100%;
         }

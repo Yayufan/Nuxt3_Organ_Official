@@ -383,12 +383,14 @@ onMounted(() => {
             }
 
             .link-item {
+                margin: 0 8% 2% 0;
+
                 @media screen and (max-width: 850px) {
                     width: 28%;
                     margin: 0 5px 2% 5px;
                 }
 
-                margin: 0 8% 2% 0;
+
 
                 // width: 100%;
                 p {

@@ -75,11 +75,11 @@
                     </el-form-item>
                     <div class="text-area">
                         <el-form-item class="reason unnecessary" label="簽署的原因：" label-width="auto" prop="reason">
-                            <el-input v-model="form.reason" type="textarea" rows="6"></el-input>
+                            <el-input v-model="form.reason" type="textarea" :rows="6"></el-input>
                         </el-form-item>
                         <el-form-item class="word-to-family unnecessary" label="給家人的話：" label-width="auto"
                             prop="wordToFamily">
-                            <el-input v-model="form.wordToFamily" type="textarea" rows="6"></el-input>
+                            <el-input v-model="form.wordToFamily" type="textarea" :rows="6"></el-input>
                         </el-form-item>
                     </div>
                     <el-form-item class="donate-organs unnecessary" label="願意捐贈器官/組織項目(可複選)" prop="donateOrgans">
@@ -197,13 +197,13 @@
                             一、依人體器官移植條例之規定，器官捐贈必須為無償之行為，且器官之摘取，應於病人之診治醫師判定死亡後為之（含腦死判定）。如病人為非病死或疑似為非病死者，必須於依法相驗完畢後，且經檢察官認無繼續勘驗之必要後，才能施行。
                         </p>
 
-                        <p class="instructions-title">二、另依人體器官移植條例第六條之規定，醫師自往生者遺體摘取器官以供移植，須符合下列規定之一：
+                        <div class="instructions-title">二、另依人體器官移植條例第六條之規定，醫師自往生者遺體摘取器官以供移植，須符合下列規定之一：
 
 
-                        <p> 　（一）往生者生前以書面（如本同意書）或遺囑同意。
-                        </p>
-                        <p> 　（二）往生者最近親屬以書面同意。</p>
-                        </p>
+                            <p> 　（一）往生者生前以書面（如本同意書）或遺囑同意。
+                            </p>
+                            <p> 　（二）往生者最近親屬以書面同意。</p>
+                        </div>
 
                         <p class="instructions-title">
                             三、您簽署的器官捐贈同意書，將依人體器官移植條例第六條規定，加註於健保卡並掃描存檔於「衛生福利部安寧療護及器官捐贈意願資訊系統」；如醫院、醫師遇有病人經診斷其病情於近期內進行至死亡已不可避免，且該病人無法清楚表達意識之情況下，將以此作為決定器官捐贈之依循，並可讓家屬充分瞭解病人生前之意願。醫院、醫師絕不會因知悉此捐贈意願而不施予必要治療。
