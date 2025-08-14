@@ -99,6 +99,17 @@ export default defineNuxtConfig({
 
   //使用模塊,Element Plus
   modules: ['@element-plus/nuxt', 'nuxt-gtag', '@nuxtjs/seo'],
+  //動態sitemap
+  sitemap: {
+    sources:['/api/__sitemap__/urls', ]// 統一抓取所有文章
+    // sitemaps: {
+    //   articles: {
+    //     sources: [
+    //       '/api/__sitemap__/urls', // 只放動態文章
+    //     ]
+    //   }
+    // }
+  },
   //robots 禁止索引後台路徑
   robots: {
     disallow: ["/background"],
