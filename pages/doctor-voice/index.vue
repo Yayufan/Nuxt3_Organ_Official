@@ -58,6 +58,15 @@
 import { ref, reactive } from 'vue'
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
+//SEO
+useSeoMeta({
+    title: '白袍心聲',
+    titleTemplate: '%s | 社團法人中華民國器官捐贈協會',
+    description: '醫療人員分享參與器官捐贈過程的經驗與心情。',
+    ogTitle: '白袍心聲｜醫者眼中的器官捐贈',
+    ogDescription: '從醫療專業視角看器官捐贈，傳遞醫者的關懷與使命感。',
+    keywords: '白袍心聲, 醫療人員經驗, 器官捐贈觀點'
+})
 
 //設定分頁組件,currentPage當前頁數
 //根據裝置預設顯示數量

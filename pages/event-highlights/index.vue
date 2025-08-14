@@ -55,6 +55,14 @@
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 import { ref, reactive } from 'vue'
 
+useSeoMeta({
+    title: '活動花絮',
+    titleTemplate: '%s | 社團法人中華民國器官捐贈協會',
+    description: '精選協會推廣器官捐贈的活動紀錄與現場花絮，感受公益行動的溫暖力量。',
+    ogTitle: '活動花絮｜器官捐贈推廣紀實',
+    ogDescription: '透過活動照片與故事，傳遞器官捐贈的溫暖與感動瞬間。',
+    keywords: '器官捐贈活動, 活動紀錄'
+})
 
 //根據裝置預設顯示數量
 // const defaultSize = ref(useState('currentSize', () => useIsMobile().value ? 8 : 8))

@@ -35,6 +35,16 @@ import { ref, reactive } from 'vue'
 import 'ckeditor5/ckeditor5.css';
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
+//SEO
+useSeoMeta({
+    title: '撤銷簽署',
+    titleTemplate: '%s | 社團法人中華民國器官捐贈協會',
+    description: '如需撤銷器官捐贈同意書，請依照本頁流程辦理，確保意願變更生效。',
+    ogTitle: '撤銷簽署｜變更器官捐贈意願',
+    ogDescription: '瞭解如何撤銷或變更器官捐贈簽署，保障個人意願與權益。',
+    keywords: '撤銷器官捐贈, 撤回簽署, 變更器捐意願'
+})
+
 const route = useRoute();
 const path = ref("cancelDonation")
 

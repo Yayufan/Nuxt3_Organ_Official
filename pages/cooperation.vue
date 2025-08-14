@@ -35,6 +35,16 @@ import { ref, reactive } from 'vue'
 import 'ckeditor5/ckeditor5.css';
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
+//SEO
+useSeoMeta({
+    title: '合作申請單',
+    titleTemplate: '%s | 社團法人中華民國器官捐贈協會',
+    description: '填寫合作申請單，與本協會共同推動器官捐贈觀念與公益行動。',
+    ogTitle: '合作申請｜攜手推廣器官捐贈',
+    ogDescription: '提交合作申請，成為器官捐贈推廣夥伴，擴大公益影響力。',
+    keywords: '合作申請, 公益合作, 器官捐贈合作'
+})
+
 const route = useRoute();
 const path = ref("cooperation")
 

@@ -259,6 +259,16 @@
 import { ref, reactive } from 'vue'
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
+//SEO
+useSeoMeta({
+    title: '如果你要懷念我',
+    titleTemplate: '%s | 社團法人中華民國器官捐贈協會',
+    description: '以真摯文字，緬懷捐贈者並傳遞他們的愛與精神。',
+    ogTitle: '如果你要懷念我｜紀念器官捐贈者',
+    ogDescription: '紀念捐贈者的生命故事，讓愛與記憶長存。',
+    keywords: '器官捐贈紀念, 懷念捐贈者, 紀念'
+})
+
 const activeButton = ref('zh-btn');
 
 const setActive = (button: any) => {

@@ -104,6 +104,16 @@
 import { ref, reactive } from 'vue'
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
+//SEO
+useSeoMeta({
+    title: '宗旨任務',
+    titleTemplate: '%s | 社團法人中華民國器官捐贈協會',
+    description: "本協會宗旨在推廣器官捐贈觀念，透過教育、宣導與制度建構，鼓勵民眾自主登記捐贈意願，促進生命延續。",
+    ogTitle: '器官捐贈宗旨與任務',
+    ogDescription: '了解我們推動器官捐贈的宗旨與行動目標，建立愛與延續的橋樑。',
+    keywords: '器官捐贈宗旨, 器官捐贈任務, 器官捐贈協會'
+})
+
 //原始名單
 let originalList = reactive<Record<string,any>[]>([])
 

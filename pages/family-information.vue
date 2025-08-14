@@ -35,6 +35,16 @@ import { ref, reactive } from 'vue'
 import 'ckeditor5/ckeditor5.css';
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
+//SEO
+useSeoMeta({
+    title: '家屬資料填寫',
+    titleTemplate: '%s | 社團法人中華民國器官捐贈協會',
+    description: '提供捐贈者家屬填寫相關資料的專屬頁面，確保流程順利與資訊完整。',
+    ogTitle: '家屬資料填寫｜器官捐贈流程',
+    ogDescription: '協助捐贈者家屬完成器官捐贈相關資料填寫與文件準備。',
+    keywords: '器官捐贈家屬, 器捐資料填寫, 器捐表格'
+})
+
 const route = useRoute();
 const path = ref("familyInformation")
 

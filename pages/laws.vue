@@ -100,6 +100,16 @@
 import { ref, reactive } from 'vue'
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
+//SEO
+useSeoMeta({
+    title: '法令規章',
+    titleTemplate: '%s | 社團法人中華民國器官捐贈協會',
+    description: '收錄器官捐贈與移植相關的法令與規章，保障公益與醫療權益。',
+    ogTitle: '法令規章｜器官捐贈法律資訊',
+    ogDescription: '了解器官捐贈的法律依據與相關規定，確保合法與安心。',
+    keywords: '器官捐贈法律, 器捐規章, 器官移植法規'
+})
+
 </script>
 
 <style scoped lang="scss">

@@ -12,7 +12,7 @@
 
                 <div class="journal-box">
 
-                    <nuxt-link class="article-item" v-for="(item, index) in displayedJournaList " :key="item.fileId"
+                    <nuxt-link class="article-item" v-for="(item, index) in displayedJournaList" :key="item.fileId"
                         target="_blank" :to="'minio' + item.path">
 
                         <div class="article-info-box">
@@ -45,6 +45,16 @@
 
 import { ref, reactive } from 'vue'
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
+
+//SEO
+useSeoMeta({
+    title: '器官捐贈會刊',
+    titleTemplate: '%s | 社團法人中華民國器官捐贈協會',
+    description: '收錄協會出版的器官捐贈會刊，分享推廣成果、生命故事與公益活動紀錄。',
+    ogTitle: '器官捐贈會刊｜推廣與故事紀實',
+    ogDescription: '閱讀協會會刊，了解器官捐贈的最新動態與感人故事。',
+    keywords: '器官捐贈會刊, 公益刊物, 器捐故事'
+})
 
 const GROUP = "journalFile"
 

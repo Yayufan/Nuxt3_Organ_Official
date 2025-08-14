@@ -60,6 +60,15 @@
 import { ref, reactive } from 'vue'
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
+//SEO
+useSeoMeta({
+    title: '器捐學堂',
+    titleTemplate: '%s | 社團法人中華民國器官捐贈協會',
+    description: '器捐學堂提供器官捐贈相關知識、流程與常見問題，幫助您全面了解器官捐贈的重要性與意義。',
+    ogTitle: '器捐學堂｜器官捐贈知識與流程',
+    ogDescription: '深入了解器官捐贈的意義、流程與注意事項，讓愛與生命延續。',
+    keywords: '器官捐贈知識, 器捐流程, 器捐常見問題'
+})
 
 //根據裝置預設顯示數量
 // const defaultSize = ref(useState('currentSize', () => useIsMobile().value ? 8 : 8))

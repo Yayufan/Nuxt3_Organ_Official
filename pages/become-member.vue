@@ -107,6 +107,16 @@
 import { ref, reactive } from 'vue'
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
+//SEO
+useSeoMeta({
+    title: '加入會員',
+    titleTemplate: '%s | 社團法人中華民國器官捐贈協會',
+    description: '成為協會會員，支持推廣器官捐贈與生命延續的使命，一起參與公益行動與活動。',
+    ogTitle: '加入會員｜成為器官捐贈推廣夥伴',
+    ogDescription: '立即加入我們，支持器官捐贈推廣工作，與我們一起改變生命的未來。',
+    keywords: '加入會員, 器官捐贈會員'
+})
+
 </script>
 
 <style scoped lang="scss">

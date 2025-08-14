@@ -227,7 +227,15 @@
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 import type { FormInstance, FormRules } from 'element-plus'
 
-
+//SEO
+useSeoMeta({
+    title: '線上簽屬',
+    titleTemplate: '%s | 社團法人中華民國器官捐贈協會',
+    description: '透過線上簽屬器官捐贈同意書，立即表達您的捐贈意願。',
+    ogTitle: '線上簽屬｜表達器官捐贈意願',
+    ogDescription: '快速完成器官捐贈同意簽署，成為生命延續的推手。',
+    keywords: '器官捐贈簽署, 線上簽署, 器捐同意書'
+})
 
 
 // ---------------------------------------------------

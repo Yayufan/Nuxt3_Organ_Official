@@ -229,6 +229,16 @@
 import { ref, reactive } from 'vue'
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
+//SEO
+useSeoMeta({
+    title: '簽卡停看聽',
+    titleTemplate: '%s | 社團法人中華民國器官捐贈協會',
+    description: '在簽署器官捐贈卡前，先了解重要資訊與須知，確保意願清楚明確。',
+    ogTitle: '簽卡停看聽｜簽署前的重要須知',
+    ogDescription: '簽署器官捐贈卡前，請先了解流程、法律與醫療注意事項。',
+    keywords: '器官捐贈卡, 簽卡須知, 器捐注意事項'
+})
+
 const article01 = ref();
 const article02 = ref();
 const article03 = ref();

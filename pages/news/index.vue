@@ -53,6 +53,17 @@ import { descriptionProps } from 'element-plus';
 import { ref, reactive } from 'vue'
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
+
+//SEO
+useSeoMeta({
+    title: '最新消息',
+    titleTemplate: '%s | 社團法人中華民國器官捐贈協會',
+    description: '掌握協會最新公告、活動與新聞資訊，了解器官捐贈領域的最新動態。',
+    ogTitle: '最新消息｜器官捐贈與協會公告',
+    ogDescription: '第一手獲取協會新聞與活動訊息，持續關注器官捐贈推廣進展。',
+    keywords: '器官捐贈新聞, 協會公告, 公益消息'
+})
+
 //根據裝置預設顯示數量
 // const defaultSize = ref(useState('currentSize', () => useIsMobile().value ? 8 : 8))
 const defaultSize = ref(useIsMobile().value ? 4 : 4)

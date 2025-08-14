@@ -57,6 +57,15 @@
 import { ref, reactive } from 'vue'
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
+//SEO
+useSeoMeta({
+    title: '協助資源',
+    titleTemplate: '%s | 社團法人中華民國器官捐贈協會',
+    description: '提供器官捐贈相關協助資源，包括心理輔導、法律諮詢與醫療資訊。',
+    ogTitle: '協助資源｜器官捐贈支持服務',
+    ogDescription: '找到器官捐贈過程所需的各項協助與支持管道。',
+    keywords: '器官捐贈協助, 心理輔導, 器捐資源'
+})
 
 //設定分頁組件,currentPage當前頁數
 //根據裝置預設顯示數量

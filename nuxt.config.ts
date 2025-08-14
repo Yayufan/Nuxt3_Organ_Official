@@ -98,7 +98,11 @@ export default defineNuxtConfig({
   },
 
   //使用模塊,Element Plus
-  modules: ['@element-plus/nuxt', 'nuxt-gtag', "@nuxtjs/sitemap"],
+  modules: ['@element-plus/nuxt', 'nuxt-gtag', '@nuxtjs/seo'],
+  //robots 禁止索引後台路徑
+  robots: {
+    disallow: ["/background"],
+  },
 
   //這是一個GA4 配置項,如果有報錯是暫時的,安裝完依賴,重開Vscode, 以及npm run dev跑一次
   gtag: {

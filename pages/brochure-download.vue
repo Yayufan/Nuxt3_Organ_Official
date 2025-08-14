@@ -53,6 +53,16 @@ import { descriptionProps } from 'element-plus';
 import { ref, reactive } from 'vue'
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
+//SEO
+useSeoMeta({
+    title: '文宣下載',
+    titleTemplate: '%s | 社團法人中華民國器官捐贈協會',
+    description: '提供器官捐贈推廣文宣、手冊與教育資料的免費下載。',
+    ogTitle: '文宣下載｜器官捐贈教育資料',
+    ogDescription: '下載器官捐贈宣導文宣與教育手冊，協助推廣生命延續理念。',
+    keywords: '器官捐贈文宣, 器捐手冊下載, 推廣資料'
+})
+
 const GROUP = "promotional"
 
 let promotionalFileList = reactive<Record<string, any>[]>([])

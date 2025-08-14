@@ -51,6 +51,15 @@
 import { ref, reactive } from 'vue'
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
+useSeoMeta({
+    title: '協會年表',
+    titleTemplate: '%s | 社團法人中華民國器官捐贈協會',
+    description: '回顧本協會自成立以來的重要發展與里程碑，見證器官捐贈推廣的歷程。',
+    ogTitle: '協會年表｜器官捐贈推廣歷程',
+    ogDescription: '瀏覽協會的年度大事記，了解我們在器官捐贈推廣上的努力與成就。',
+    keywords: '協會年表, 器官捐贈歷史, 推廣年表'
+})
+
 let showFullList = ref(false)
 
 //原始名單

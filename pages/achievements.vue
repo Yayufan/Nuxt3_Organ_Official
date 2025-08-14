@@ -72,6 +72,16 @@
 import { ref, reactive } from 'vue'
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
+//SEO
+useSeoMeta({
+    title: '歷年成果',
+    titleTemplate: '%s | 社團法人中華民國器官捐贈協會',
+    description: '展示協會歷年在器官捐贈推廣、教育活動與社會影響上的成果與數據。',
+    ogTitle: '歷年成果｜推廣器官捐贈的實際行動',
+    ogDescription: '透過數據與案例，呈現我們在器官捐贈推廣上的努力與影響力。',
+    keywords: '器官捐贈成果, 公益成果, 器官移植推廣'
+})
+
 const GROUP = "achievementsFile"
 
 const workResult = "工作報告"

@@ -145,6 +145,16 @@
 import { ref, reactive } from 'vue'
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
+//SEO
+useSeoMeta({
+    title: '捐款支持',
+    titleTemplate: '%s | 社團法人中華民國器官捐贈協會',
+    description: '以捐款支持器官捐贈推廣與教育工作，您的愛心將幫助更多生命延續。',
+    ogTitle: '捐款支持｜推廣器官捐贈公益行動',
+    ogDescription: '透過捐款，支持我們推廣器官捐贈理念與教育，攜手守護生命。',
+    keywords: '器官捐贈捐款, 公益捐款, 支持器捐'
+})
+
 const drawer = ref(false)
 
 </script>
