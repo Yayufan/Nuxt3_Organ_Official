@@ -31,6 +31,16 @@ import { ref, reactive } from 'vue'
 import 'ckeditor5/ckeditor5.css';
 import Breadcrumbs2 from '@/components/layout/Breadcrumbs2.vue'
 
+//SEO
+useSeoMeta({
+    title: '社工專欄文章',
+    titleTemplate: '%s | 社團法人中華民國器官捐贈協會',
+    description: '由社工師分享器官捐贈過程中的輔導經驗與心路歷程。',
+    ogTitle: '社工專欄｜器捐輔導與關懷',
+    ogDescription: '社工師從輔導角度談器官捐贈，提供暖心關懷與專業建議。',
+    keywords: '器官捐贈社工, 器捐輔導, 家屬關懷'
+})
+
 const route = useRoute();
 
 //預設假資料

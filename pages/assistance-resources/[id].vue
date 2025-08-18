@@ -32,6 +32,17 @@ import { ref, reactive } from 'vue'
 import 'ckeditor5/ckeditor5.css';
 import Breadcrumbs2 from '@/components/layout/Breadcrumbs2.vue'
 
+//SEO
+useSeoMeta({
+    title: '協助資源文章',
+    titleTemplate: '%s | 社團法人中華民國器官捐贈協會',
+    description: '提供器官捐贈相關協助資源，包括心理輔導、法律諮詢與醫療資訊。',
+    ogTitle: '協助資源｜器官捐贈支持服務',
+    ogDescription: '找到器官捐贈過程所需的各項協助與支持管道。',
+    keywords: '器官捐贈協助, 心理輔導, 器捐資源'
+})
+
+
 const route = useRoute();
 
 //預設假資料
@@ -81,7 +92,6 @@ await getArticleAttachment()
 </script>
 
 <style scoped lang="scss">
-
 .article-section {
     margin: 0 auto;
     margin-bottom: 3%;
@@ -118,7 +128,7 @@ await getArticleAttachment()
         flex-direction: column;
         margin-top: 3%;
 
-        .file-link{
+        .file-link {
             margin: 10px 0;
         }
 

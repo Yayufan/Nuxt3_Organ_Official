@@ -31,6 +31,16 @@ import { ref, reactive } from 'vue'
 import 'ckeditor5/ckeditor5.css';
 import Breadcrumbs2 from '@/components/layout/Breadcrumbs2.vue'
 
+//SEO
+useSeoMeta({
+    title: '好書推薦文章',
+    titleTemplate: '%s | 社團法人中華民國器官捐贈協會',
+    description: '精選與器官捐贈、生命教育、公益理念相關的書籍推薦。',
+    ogTitle: '好書推薦｜器官捐贈與生命教育',
+    ogDescription: '閱讀啟發人心的書籍，增進對器官捐贈與生命意義的理解。',
+    keywords: '器官捐贈書籍, 生命教育書籍'
+})
+
 const route = useRoute();
 
 //預設假資料

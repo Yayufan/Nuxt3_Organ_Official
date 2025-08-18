@@ -31,6 +31,15 @@ import { ref, reactive } from 'vue'
 import 'ckeditor5/ckeditor5.css';
 import Breadcrumbs2 from '@/components/layout/Breadcrumbs2.vue'
 
+useSeoMeta({
+    title: '活動花絮文章',
+    titleTemplate: '%s | 社團法人中華民國器官捐贈協會',
+    description: '精選協會推廣器官捐贈的活動紀錄與現場花絮，感受公益行動的溫暖力量。',
+    ogTitle: '活動花絮｜器官捐贈推廣紀實',
+    ogDescription: '透過活動照片與故事，傳遞器官捐贈的溫暖與感動瞬間。',
+    keywords: '器官捐贈活動, 活動紀錄'
+})
+
 const route = useRoute();
 
 //預設假資料

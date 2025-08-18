@@ -31,6 +31,16 @@ import { ref, reactive } from 'vue'
 import 'ckeditor5/ckeditor5.css';
 import Breadcrumbs2 from '@/components/layout/Breadcrumbs2.vue'
 
+//SEO
+useSeoMeta({
+    title: '器捐生命故事：受贈者篇文章',
+    titleTemplate: '%s | 社團法人中華民國器官捐贈協會',
+    description: '記錄受贈者獲得新生的故事，展現器官捐贈帶來的希望與改變。',
+    ogTitle: '受贈者篇｜器捐生命故事',
+    ogDescription: '見證受贈者的新生活，感受器官捐贈的價值與意義。',
+    keywords: '器捐故事, 受贈者故事, 器官移植成功案例'
+})
+
 const route = useRoute();
 
 //預設假資料
