@@ -4,7 +4,7 @@ import type { SitemapUrl } from '#sitemap/types'
 
 
 export default defineSitemapEventHandler(async () => {
-  const res:any = await $fetch('https://organ.zfcloud.cc/prod-api/article')
+  const res:any = await $fetch('https://www.organ.org.tw/prod-api/article')
 
 // 將 camelCase 轉 kebab-case
   const toKebabCase = (str: string) =>
